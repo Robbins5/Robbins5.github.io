@@ -1,0 +1,100 @@
+/* Base reset */
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+
+/* Page layout */
+body {
+font-family: Georgia, serif;
+line-height: 1.7;
+max-width: 800px;
+margin: 0 auto;
+padding: 24px;
+background-color: #fafafa;
+color: #222;
+}
+
+/* Header */
+header {
+margin-bottom: 32px;
+padding-bottom: 16px;
+border-bottom: 2px solid #222;
+}
+
+header h1 {
+font-size: 2rem;
+margin-bottom: 6px;
+}
+
+header .tagline {
+font-style: italic;
+color: #666;
+margin-bottom: 10px;
+}
+
+nav a {
+color: #0056b3;
+text-decoration: none;
+margin-right: 10px;
+}
+
+nav a:hover {
+text-decoration: underline;
+}
+
+/* Post list on index.html */
+.post-list {
+list-style: none;
+}
+
+.post-list li {
+padding-bottom: 18px;
+margin-bottom: 22px;
+border-bottom: 1px solid #ddd;
+}
+
+.post-list a {
+font-size: 1.25rem;
+color: #222;
+text-decoration: none;
+}
+
+.post-list a:hover {
+color: #0056b3;
+}
+
+.post-list .date {
+display: block;
+margin-top: 6px;
+font-size: 0.9rem;
+color: #666;
+font-style: italic;
+}
+
+/* Individual post pages */
+article h2 {
+font-size: 1.8rem;
+margin-bottom: 6px;
+}
+
+article .date {
+font-style: italic;
+color: #666;
+margin-bottom: 20px;
+}
+
+article p {
+margin-bottom: 1em;
+}
+
+/* Footer */
+footer {
+margin-top: 50px;
+padding-top: 16px;
+border-top: 1px solid #ccc;
+font-size: 0.9rem;
+color: #666;
+text-align: center;
+}

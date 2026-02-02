@@ -140,3 +140,8 @@ footer {
     color: #6b7280;
     text-align: center;
 }
+.intro {
+    margin-bottom: 36px;
+    font-size: 1.05rem;
+    color: #374151;
+}

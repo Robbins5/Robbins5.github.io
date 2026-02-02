@@ -150,3 +150,13 @@ footer {
     background-color: #f9fafb;
     transition: background-color 0.2s ease-in-out;
 }
+.banner {
+    width: 100%;
+    margin: 28px 0;
+}
+
+.intro {
+    font-size: 1.1rem;
+    color: #444;
+    margin-bottom: 32px;
+}

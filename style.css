@@ -140,8 +140,13 @@ footer {
     color: #6b7280;
     text-align: center;
 }
+
 .intro {
     margin-bottom: 36px;
     font-size: 1.05rem;
     color: #374151;
+}
+.post-list li:hover {
+    background-color: #f9fafb;
+    transition: background-color 0.2s ease-in-out;
 }

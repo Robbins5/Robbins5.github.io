@@ -56,7 +56,10 @@ nav a:hover {
    ========================= */
 .banner {
     width: 100%;
-    margin: 26px 0 34px 0;
+    max-height: 220px;
+    object-fit: cover;
+    object-position: center;
+    margin: 18px 0 22px 0;
     border-radius: 10px;
     border: 1px solid #e5e7eb;
 }

@@ -160,3 +160,22 @@ footer {
     color: #444;
     margin-bottom: 32px;
 }
+.post-list li {
+    margin-bottom: 24px;
+}
+
+.post-list a {
+    font-size: 1.35rem;
+    color: #1a202c;
+    text-decoration: none;
+}
+
+.post-list a:hover {
+    color: #0056b3;
+}
+
+.post-list .date {
+    font-size: 0.9rem;
+    color: #6b7280;
+}
+

@@ -63,6 +63,23 @@ nav a:hover {
     border-radius: 10px;
     border: 1px solid #e5e7eb;
 }
+.banner-wrap {
+    height: 170px;              /* Adjust: 140–200 is a good Deloitte range */
+    overflow: hidden;
+    border-radius: 10px;
+    border: 1px solid #e5e7eb;
+    margin: 18px 0 22px 0;
+    background-color: #ffffff;
+}
+
+.banner-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+}
+
 
 .intro {
     font-size: 1.05rem;

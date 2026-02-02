@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How Internal Audit Is Adapting to Audit AI-Enabled and Agent-Driven Processes - Applied AI Observer</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Applied AI Observer</h1>
+        <p class="tagline">Research and Coding Assistants in the Enterprise</p>
+        <nav>
+            <a href="index.html">Home</a> |
+            <a href="about.html">About</a>
+        </nav>
+    </header>
+
+    <main>
+        <article>
+            <h2>How Internal Audit Is Adapting to Audit AI-Enabled and Agent-Driven Processes</h2>
+            <p class="date">February 1, 2026</p>
+
+            <p>
+                As AI tools and agent-based workflows become embedded in analytics, forecasting, automation, and
+                decision support, internal audit teams are confronting a fundamental challenge: many traditional audit
+                approaches were not designed for systems that learn, adapt, and influence decisions dynamically.
+                Sampling outputs or validating static logic is no longer sufficient when AI contributes to how work is
+                performed and decisions are made.
+            </p>
+
+            <p>
+                In response, audit functions are beginning to shift their focus upstream. Rather than concentrating
+                solely on results, audit teams are evaluating how AI-enabled processes are designed, governed, and
+                monitored. This includes assessing data inputs, understanding model boundaries, evaluating human
+                oversight, and determining where AI influences operational or financial decisions, even indirectly.
+                In environments where agents automate tasks or recommend actions, audit attention is expanding to
+                include orchestration logic, escalation rules, and exception handling.
+            </p>
+
+            <p>
+                This evolution also requires new capabilities. Audit teams are investing in AI literacy so auditors can
+                understand how models function at a conceptual level and identify where control risks may emerge. Some
+                organizations are moving toward continuous or near-real-time monitoring models, recognizing that
+                periodic reviews may miss emerging risks in adaptive systems.
+            </p>
+
+            <p>
+                For corporate leadership, this shift matters because AI-related risk does not stem from technology
+                alone, but from how it is deployed, governed, and relied upon. Internal audit’s evolving role is not to
+                slow AI adoption, but to help ensure it is implemented responsibly. Early audit involvement, clear
+                governance structures, and defined accountability can reduce the likelihood of control gaps, compliance
+                surprises, and unintended decision-making risk as AI use continues to expand.
+            </p>
+        </article>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Nicole Heflin</p>
+    </footer>
+</body>
+</html>

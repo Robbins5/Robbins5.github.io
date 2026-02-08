@@ -402,4 +402,176 @@ footer {
 .grid-table tbody tr:hover td {
     background: rgba(58, 95, 125, 0.05);
 }
+/* =========================
+   Fortune-100 Polish Overrides
+   Paste at bottom of style.css
+   ========================= */
+
+/* --- Content spacing rhythm (this fixes “sections not spaced”) --- */
+article.post,
+article {
+    max-width: 74ch;
+}
+
+article p {
+    margin: 0 0 1.05em 0;
+}
+
+article h2 {
+    margin: 0.25em 0 0.15em 0;
+}
+
+article .date {
+    margin-bottom: 1.6em;
+}
+
+article h3 {
+    margin: 2.0em 0 0.6em 0;
+    padding-top: 0.15em;
+    font-size: 1.38rem;
+    letter-spacing: -0.2px;
+}
+
+article h4 {
+    margin: 1.45em 0 0.55em 0;
+    font-size: 1.12rem;
+    letter-spacing: -0.1px;
+}
+
+article h3 + p,
+article h4 + p {
+    margin-top: 0.35em;
+}
+
+/* Elegant divider for long posts (optional, but helps readability) */
+article h3 {
+    border-top: 1px solid rgba(229, 231, 235, 0.9);
+}
+article h3:first-of-type {
+    border-top: none;
+}
+
+
+/* --- Bullet hierarchy + indentation (this fixes “bullets not indenting”) --- */
+/* Apply to ALL lists in articles, even if you forget classes */
+article ul,
+article ol {
+    margin: 0.85em 0 1.15em 0;
+    padding-left: 1.35em;              /* force indent back after reset */
+    list-style-position: outside;       /* ensures nested lists visibly indent */
+}
+
+article li {
+    margin: 0.45em 0;
+}
+
+/* Stronger indentation for nested lists */
+article ul ul,
+article ol ol,
+article ul ol,
+article ol ul {
+    margin-top: 0.6em;
+    margin-bottom: 0.2em;
+    padding-left: 1.35em;              /* nested indent */
+}
+
+/* Cleaner bullets (Fortune 100 style) */
+article ul {
+    list-style-type: disc;
+}
+article ul ul {
+    list-style-type: circle;
+}
+
+/* If you are using .bullets and .nested classes, keep them consistent */
+.bullets { padding-left: 1.35em; }
+.bullets.nested { padding-left: 1.45em; }
+
+/* Optional: improve readability inside bullet blocks with bold labels */
+article li strong {
+    color: #111827;
+}
+
+
+/* --- Tables: gridlines + subtle color + polished “card” (this fixes “no grids or colors”) --- */
+/* Applies to any table, AND your .grid-table class */
+table,
+.grid-table {
+    width: 100%;
+    border-collapse: separate;          /* enables rounded corners */
+    border-spacing: 0;
+    margin: 1.15em 0 1.5em 0;
+    border: 1px solid #e5e7eb;
+    border-radius: 14px;
+    overflow: hidden;
+    background: #ffffff;
+    box-shadow: 0 1px 0 rgba(17, 24, 39, 0.04);
+}
+
+/* Header row */
+table thead th,
+.grid-table thead th {
+    text-align: left;
+    padding: 12px 14px;
+    background: linear-gradient(
+        to bottom,
+        rgba(58, 95, 125, 0.14),
+        rgba(58, 95, 125, 0.08)
+    );
+    color: #0f172a;
+    font-weight: 650;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+/* Body cells with visible gridlines */
+table tbody td,
+.grid-table tbody td {
+    padding: 12px 14px;
+    vertical-align: top;
+    color: #374151;
+    border-bottom: 1px solid #e5e7eb;
+    border-right: 1px solid #e5e7eb;    /* gridline */
+}
+
+table tbody tr td:last-child,
+.grid-table tbody tr td:last-child {
+    border-right: none;
+}
+
+table tbody tr:last-child td,
+.grid-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+/* Zebra striping + hover (subtle, executive-safe) */
+table tbody tr:nth-child(even) td,
+.grid-table tbody tr:nth-child(even) td {
+    background: #f9fafb;
+}
+
+table tbody tr:hover td,
+.grid-table tbody tr:hover td {
+    background: rgba(58, 95, 125, 0.06);
+}
+
+
+/* --- Blockquote polish (executive feel) --- */
+blockquote {
+    border-left: 5px solid rgba(58, 95, 125, 0.55);
+    background: rgba(58, 95, 125, 0.06);
+    padding: 14px 16px;
+    margin: 1.6em 0;
+    border-radius: 12px;
+    color: #334155;
+}
+
+/* --- Make long source links look clean --- */
+article a {
+    color: #3a5f7d;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 3px;
+}
+article a:hover {
+    color: #2f4d64;
+}
 

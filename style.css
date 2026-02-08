@@ -327,3 +327,79 @@ footer {
     color: var(--muted-2);
     text-align: center;
 }
+/* =========================
+   Post Layout Helpers
+   ========================= */
+.post {
+    margin-top: 6px;
+}
+
+/* =========================
+   Bullet Hierarchy + Spacing
+   ========================= */
+.bullets {
+    margin: 0.8em 0 1.2em 1.25em;
+    padding: 0;
+}
+
+.bullets > li {
+    margin: 0.55em 0;
+}
+
+.bullets.nested {
+    margin-top: 0.6em;
+    margin-bottom: 0.2em;
+    margin-left: 1.25em;
+}
+
+.bullets.nested > li {
+    margin: 0.35em 0;
+}
+
+/* =========================
+   Polished Grid Tables
+   ========================= */
+.grid-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    margin: 1.25em 0 1.6em 0;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    overflow: hidden;
+    background: #ffffff;
+}
+
+.grid-table thead th {
+    text-align: left;
+    padding: 12px 14px;
+    background: rgba(58, 95, 125, 0.08);
+    color: #111827;
+    border-bottom: 1px solid #e5e7eb;
+    font-weight: 600;
+}
+
+.grid-table tbody td {
+    padding: 12px 14px;
+    border-bottom: 1px solid #e5e7eb;
+    border-right: 1px solid #e5e7eb;
+    vertical-align: top;
+    color: #374151;
+}
+
+.grid-table tbody tr td:last-child {
+    border-right: none;
+}
+
+.grid-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.grid-table tbody tr:nth-child(even) td {
+    background: #f9fafb;
+}
+
+.grid-table tbody tr:hover td {
+    background: rgba(58, 95, 125, 0.05);
+}
+

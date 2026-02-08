@@ -1,6 +1,6 @@
 /* ============================================================
-   Fortune 100 Executive Newsletter
-   Monochrome + Accent (60–30–10) • Clean • Premium • Readable
+   Applied AI Observer — Corporate Newsletter UI
+   Monochrome + Accent (60–30–10) • Module-based • Enterprise polish
    ============================================================ */
 
 /* -------------------- Reset -------------------- */
@@ -17,67 +17,72 @@
 ------------------------------------------------------------------- */
 :root {
     /* Layout widths */
-    --page-max: 1260px;      /* overall page width (wider on desktop) */
-    --content-max: 1160px;   /* header/main/footer width */
-    --reading-max: 98ch;     /* comfortable reading measure */
+    --page-max: 1280px;       /* outer frame */
+    --content-max: 1160px;    /* content container */
+    --reading-max: 86ch;      /* slightly tighter, more corporate readability */
 
     /* Monochrome */
-    --bg: #f3f4f6;           /* 60%: page background */
-    --surface: #ffffff;      /* 30%: cards/surfaces */
-    --surface-2: #eef1f4;    /* 30%: subtle fills */
+    --bg: #f4f6f8;            /* 60% */
+    --surface: #ffffff;       /* 30% */
+    --surface-2: #eef2f6;     /* 30% */
 
     /* Text */
     --text: #0b1220;
     --body: #1f2937;
-    --muted: #4b5563;
-    --muted-2: #6b7280;
+    --muted: #475569;
+    --muted-2: #64748b;
 
     /* Borders + shadows */
     --border: rgba(11, 18, 32, 0.14);
     --border-soft: rgba(11, 18, 32, 0.10);
     --shadow-sm: 0 1px 1px rgba(11, 18, 32, 0.06);
-    --shadow-md: 0 14px 44px rgba(11, 18, 32, 0.12);
+    --shadow-md: 0 10px 30px rgba(11, 18, 32, 0.10);
 
-    /* 10% Accent (one color) */
+    /* Accent */
     --accent: #1f4e79;
     --accent-2: #163a5a;
     --accent-soft: rgba(31, 78, 121, 0.12);
 
     /* Radius */
-    --radius: 16px;
-    --radius-sm: 12px;
+    --radius: 14px;
+    --radius-sm: 10px;
+
+    /* Spacing scale (consistent rhythm) */
+    --s1: 6px;
+    --s2: 10px;
+    --s3: 16px;
+    --s4: 24px;
+    --s5: 36px;
+    --s6: 54px;
 }
 
-/* -------------------- Page Background -------------------- */
+/* -------------------- Page Base -------------------- */
 body {
-    font-family: Georgia, serif;
-    line-height: 1.85;
+    /* Corporate typography */
+    font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Arial, "Noto Sans", "Liberation Sans", sans-serif;
+    line-height: 1.65;
+    letter-spacing: 0.1px;
     color: var(--body);
-    background: radial-gradient(900px 500px at 18% -10%, rgba(31, 78, 121, 0.06), transparent 60%),
-                var(--bg);
-    padding: 26px 14px 44px;
+
+    background:
+        radial-gradient(900px 520px at 18% -10%, rgba(31, 78, 121, 0.08), transparent 60%),
+        radial-gradient(900px 520px at 110% 5%, rgba(11, 18, 32, 0.06), transparent 55%),
+        var(--bg);
+
+    padding: var(--s4) 14px var(--s6);
 }
 
-/* Visible perimeter frame EVEN without .page-frame HTML */
-body::before {
-    content: "";
-    position: fixed;
-    inset: 12px;
-    border: 1px solid rgba(11, 18, 32, 0.18);
-    border-radius: 24px;
-    pointer-events: none;
-    z-index: 9999;
-}
-
-/* This creates a “frame” if you also use .page-frame in HTML */
+/* Perimeter frame (corporate-safe: container-based, not overlay-based) */
 .page-frame {
     max-width: var(--page-max);
     margin: 0 auto;
     padding: 18px;
+
     border: 1px solid var(--border-soft);
-    border-radius: calc(var(--radius) + 8px);
-    background: linear-gradient(180deg, rgba(255, 255, 255, 0.65), rgba(255, 255, 255, 0.35));
-    box-shadow: 0 22px 80px rgba(11, 18, 32, 0.12);
+    border-radius: calc(var(--radius) + 10px);
+
+    background: linear-gradient(180deg, rgba(255,255,255,0.70), rgba(255,255,255,0.38));
+    box-shadow: 0 18px 70px rgba(11, 18, 32, 0.12);
 }
 
 /* Keep header/main/footer aligned and wide */
@@ -86,77 +91,173 @@ header, main, footer {
     margin: 0 auto;
 }
 
-/* -------------------- Header (premium but restrained) -------------------- */
-header {
+/* -------------------- Global Links -------------------- */
+a {
+    color: var(--accent);
+    text-decoration-thickness: 1px;
+    text-underline-offset: 3px;
+}
+
+a:hover {
+    color: var(--accent-2);
+}
+
+/* -------------------- Header (new corporate layout) -------------------- */
+.site-header {
     background: var(--surface);
     border: 1px solid var(--border-soft);
     border-radius: var(--radius);
     box-shadow: var(--shadow-md);
-    padding: 26px 26px 18px;
-    margin-bottom: 22px;
+    padding: 24px 24px 18px;
+    margin-bottom: var(--s4);
     position: relative;
     overflow: hidden;
 }
 
-/* More visible accent “rule” */
-header::before {
+/* Thin accent bar like enterprise sites */
+.site-header::before {
     content: "";
     position: absolute;
     top: 0;
     left: 0;
-    height: 5px;
+    height: 4px;
     width: 100%;
     background: linear-gradient(90deg, var(--accent), rgba(31, 78, 121, 0.35));
 }
 
-header h1 {
-    font-size: 2.55rem;
-    letter-spacing: -0.6px;
-    color: var(--text);
-    font-weight: 500;
-    margin-bottom: 6px;
+.header-top {
+    display: flex;
+    justify-content: space-between;
+    gap: var(--s4);
+    align-items: flex-start;
+    flex-wrap: wrap;
 }
 
-header .tagline {
-    font-style: italic;
+.site-title {
+    font-size: 2.35rem;
+    letter-spacing: -0.6px;
+    color: var(--text);
+    font-weight: 700;
+    line-height: 1.1;
+}
+
+.tagline {
+    margin-top: 6px;
     color: var(--muted);
-    margin-bottom: 14px;
+    font-size: 1.02rem;
     max-width: 80ch;
 }
 
-nav {
+/* Corporate nav */
+.site-nav {
     display: flex;
-    gap: 12px;
-    flex-wrap: wrap;
+    gap: 10px;
     align-items: center;
 }
 
-nav a {
-    color: var(--accent);
+.nav-link {
     text-decoration: none;
     font-size: 0.95rem;
-    font-weight: 650;
-    padding: 7px 12px;
+    font-weight: 700;
+    color: var(--text);
+
+    padding: 8px 12px;
     border-radius: 999px;
-    background: rgba(255, 255, 255, 0.92);
-    border: 1px solid rgba(11, 18, 32, 0.10);
+    border: 1px solid rgba(11, 18, 32, 0.12);
+    background: rgba(255,255,255,0.92);
     box-shadow: var(--shadow-sm);
 }
 
-nav a:hover {
-    color: var(--accent-2);
+.nav-link:hover {
     border-color: rgba(31, 78, 121, 0.26);
-    background: #ffffff;
+    color: var(--accent-2);
 }
 
-/* -------------------- Banner + Intro -------------------- */
+/* -------------------- Hero Module -------------------- */
+.hero {
+    display: grid;
+    grid-template-columns: 1.05fr 0.95fr;
+    gap: var(--s5);
+    align-items: center;
+    margin-top: var(--s4);
+}
+
+.eyebrow {
+    display: inline-block;
+    font-size: 0.82rem;
+    font-weight: 800;
+    letter-spacing: 0.10em;
+    text-transform: uppercase;
+    color: var(--accent-2);
+    background: rgba(31, 78, 121, 0.10);
+    border: 1px solid rgba(31, 78, 121, 0.16);
+    padding: 6px 10px;
+    border-radius: 999px;
+    margin-bottom: var(--s3);
+}
+
+.hero-title {
+    font-size: 2.0rem;
+    line-height: 1.15;
+    letter-spacing: -0.5px;
+    color: var(--text);
+    font-weight: 800;
+    margin-bottom: var(--s3);
+}
+
+.hero-subtitle {
+    color: var(--muted);
+    font-size: 1.05rem;
+    max-width: 72ch;
+    margin-bottom: var(--s4);
+}
+
+.hero-cta {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+/* Buttons */
+.btn {
+    display: inline-block;
+    text-decoration: none;
+    font-weight: 800;
+    font-size: 0.95rem;
+    padding: 10px 14px;
+    border-radius: 999px;
+    border: 1px solid rgba(11, 18, 32, 0.14);
+    box-shadow: var(--shadow-sm);
+}
+
+.btn-primary {
+    background: var(--accent);
+    border-color: rgba(31, 78, 121, 0.28);
+    color: #ffffff;
+}
+
+.btn-primary:hover {
+    background: var(--accent-2);
+    color: #ffffff;
+}
+
+.btn-secondary {
+    background: #ffffff;
+    color: var(--text);
+}
+
+.btn-secondary:hover {
+    border-color: rgba(31, 78, 121, 0.26);
+    color: var(--accent-2);
+}
+
+/* Banner inside hero */
 .banner-wrap {
-    height: 180px;
+    height: 220px;
     border-radius: var(--radius);
     overflow: hidden;
     border: 1px solid var(--border-soft);
     box-shadow: var(--shadow-md);
-    margin: 16px 0 18px 0;
     background: var(--surface);
 }
 
@@ -166,21 +267,90 @@ nav a:hover {
     object-fit: cover;
     object-position: center;
     display: block;
-    filter: saturate(1.02) contrast(1.02);
+    filter: saturate(1.02) contrast(1.03);
 }
 
-.intro {
-    max-width: var(--reading-max);
-    font-size: 1.06rem;
+/* -------------------- KPI / Credibility Grid -------------------- */
+.kpi-grid {
+    margin: var(--s5) 0 var(--s4);
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--s3);
+}
+
+.kpi-card {
+    background: var(--surface);
+    border: 1px solid var(--border-soft);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-sm);
+    padding: 16px 16px 14px;
+}
+
+.kpi-label {
+    font-size: 0.82rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--muted-2);
+    font-weight: 800;
+    margin-bottom: 8px;
+}
+
+.kpi-value {
+    font-size: 1.05rem;
+    color: var(--text);
+    font-weight: 900;
+    margin-bottom: 6px;
+}
+
+.kpi-note {
+    font-size: 0.95rem;
     color: var(--muted);
-    margin: 0 0 18px 0;
+    line-height: 1.45;
 }
 
-/* -------------------- Index Post List (card) -------------------- */
+/* -------------------- Intro Module -------------------- */
+.intro {
+    background: var(--surface);
+    border: 1px solid var(--border-soft);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-sm);
+    padding: 16px 18px;
+    margin-bottom: var(--s4);
+}
+
+.intro p {
+    color: var(--muted);
+    font-size: 1.02rem;
+}
+
+/* -------------------- Posts Section Header -------------------- */
+.posts-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: var(--s4);
+    flex-wrap: wrap;
+    margin: var(--s4) 0 var(--s3);
+}
+
+.section-title {
+    font-size: 1.25rem;
+    letter-spacing: -0.2px;
+    color: var(--text);
+    font-weight: 900;
+}
+
+.section-subtitle {
+    color: var(--muted);
+    font-size: 0.98rem;
+}
+
+/* -------------------- Post List (card module) -------------------- */
 .post-list {
     list-style: none;
     padding: 0;
     margin: 0;
+
     background: var(--surface);
     border: 1px solid var(--border-soft);
     border-radius: var(--radius);
@@ -189,8 +359,8 @@ nav a:hover {
 }
 
 .post-list li {
-    padding: 18px 22px;
-    border-bottom: 1px solid rgba(11, 18, 32, 0.07);
+    padding: 18px 20px;
+    border-bottom: 1px solid rgba(11, 18, 32, 0.08);
 }
 
 .post-list li:last-child {
@@ -203,11 +373,12 @@ nav a:hover {
 }
 
 .post-list a {
-    font-size: 1.28rem;
+    display: inline-block;
+    font-size: 1.18rem;
     color: var(--text);
     text-decoration: none;
     line-height: 1.25;
-    font-weight: 650;
+    font-weight: 850;
 }
 
 .post-list a:hover {
@@ -219,7 +390,6 @@ nav a:hover {
     margin-top: 8px;
     font-size: 0.92rem;
     color: var(--muted-2);
-    font-style: italic;
 }
 
 /* Featured newest post (first item) */
@@ -232,28 +402,22 @@ nav a:hover {
     content: "Featured";
     position: absolute;
     top: 14px;
-    right: 18px;
-    font-size: 0.75rem;
+    right: 16px;
+    font-size: 0.74rem;
     letter-spacing: 0.08em;
     text-transform: uppercase;
-    font-weight: 800;
+    font-weight: 900;
     color: var(--accent-2);
-    background: rgba(255, 255, 255, 0.94);
+    background: rgba(255, 255, 255, 0.96);
     padding: 6px 10px;
     border-radius: 999px;
     border: 1px solid rgba(31, 78, 121, 0.20);
 }
 
-.post-list li:first-child a {
-    font-size: 1.46rem;
-    font-weight: 800;
-}
-
-/* If any old HTML still has class="featured", neutralize it */
+/* Backward compatibility: neutralize older featured markup */
 .featured strong { display: none; }
 
-/* -------------------- Article Surface -------------------- */
-/* Widen the article card to match your monitor, but keep text readable inside */
+/* -------------------- Article Pages (keeps your posts professional) -------------------- */
 article {
     background: var(--surface);
     border: 1px solid var(--border-soft);
@@ -263,46 +427,58 @@ article {
     max-width: 100%;
 }
 
-/* Keep paragraphs readable while allowing the card to span wider */
+/* Use subtle editorial serif only within long-form article text (optional but premium) */
+article p,
+article li,
+article blockquote {
+    font-family: Georgia, serif;
+    letter-spacing: 0;
+}
+
+/* Center readable-width blocks inside wider article card */
 article p,
 article ul,
 article ol,
 article blockquote,
-article table {
+article table,
+article h2,
+article h3,
+article h4,
+article .date,
+.image-caption {
     max-width: var(--reading-max);
+    margin-left: auto;
+    margin-right: auto;
 }
 
-/* -------------------- Typography -------------------- */
 article h2 {
-    font-size: 2.08rem;
-    letter-spacing: -0.5px;
+    font-size: 2.05rem;
+    letter-spacing: -0.6px;
     color: var(--text);
-    margin-bottom: 6px;
-    max-width: var(--reading-max);
+    font-weight: 900;
+    margin-bottom: 8px;
 }
 
 article .date {
     font-size: 0.98rem;
     color: var(--muted-2);
-    font-style: italic;
     margin-bottom: 22px;
-    max-width: var(--reading-max);
 }
 
 article p {
-    margin-bottom: 1.1em;
+    margin-bottom: 1.05em;
+    color: rgba(31, 41, 55, 0.96);
 }
 
-/* Strong hierarchy with subtle section divider */
+/* Strong hierarchy with dividers */
 article h3 {
-    margin-top: 1.95em;
-    margin-bottom: 0.65em;
-    font-size: 1.34rem;
-    letter-spacing: -0.2px;
+    margin-top: 1.9em;
+    margin-bottom: 0.6em;
+    font-size: 1.28rem;
+    letter-spacing: -0.3px;
     color: var(--text);
     padding-top: 0.85em;
     border-top: 1px solid rgba(11, 18, 32, 0.10);
-    max-width: var(--reading-max);
 }
 
 article h3:first-of-type {
@@ -311,28 +487,17 @@ article h3:first-of-type {
 }
 
 article h4 {
-    margin-top: 1.35em;
+    margin-top: 1.3em;
     margin-bottom: 0.55em;
-    font-size: 1.12rem;
+    font-size: 1.08rem;
     color: var(--text);
-    max-width: var(--reading-max);
+    font-weight: 850;
 }
 
-/* -------------------- Links -------------------- */
-article a {
-    color: var(--accent);
-    text-decoration-thickness: 1px;
-    text-underline-offset: 3px;
-}
-
-article a:hover {
-    color: var(--accent-2);
-}
-
-/* -------------------- Lists (indent + hierarchy) -------------------- */
+/* Lists */
 article ul,
 article ol {
-    margin: 0.85em 0 1.2em 0;
+    margin: 0.85em auto 1.2em auto;
     padding-left: 1.7em;
     list-style-position: outside;
 }
@@ -341,10 +506,7 @@ article li {
     margin: 0.5em 0;
 }
 
-article ul { list-style-type: disc; }
-article ul ul { list-style-type: circle; }
-article ol { list-style-type: decimal; }
-
+/* Nested indentation */
 article ul ul,
 article ol ol,
 article ul ol,
@@ -354,41 +516,34 @@ article ol ul {
     padding-left: 1.7em;
 }
 
-article ul ul li,
-article ol ol li,
-article ul ol li,
-article ol ul li {
-    margin: 0.35em 0;
-}
-
-/* -------------------- Blockquotes -------------------- */
+/* Blockquotes */
 blockquote {
-    margin: 1.5em 0;
+    margin: 1.5em auto;
     padding: 16px 18px;
     border-radius: var(--radius-sm);
     border: 1px solid rgba(31, 78, 121, 0.18);
     border-left: 6px solid rgba(31, 78, 121, 0.70);
-    background: rgba(31, 78, 121, 0.06);
+    background: var(--accent-soft);
     color: rgba(11, 18, 32, 0.88);
     box-shadow: var(--shadow-sm);
     font-style: italic;
 }
 
-/* -------------------- Images (fixed so they don’t dominate) -------------------- */
+/* Images (kept smaller so they don’t dominate) */
 article img,
 .post-hero {
     width: 100%;
     display: block;
-    max-height: 380px;
+    max-height: 360px;
     object-fit: cover;
     object-position: center;
     border-radius: var(--radius);
     border: 1px solid var(--border-soft);
     box-shadow: var(--shadow-md);
-    margin: 14px 0 10px;
+    margin: 14px auto 10px auto;
 }
 
-/* Optional class for diagrams/screenshots that should not crop */
+/* For diagrams/screenshots: add class="diagram" */
 article img.diagram {
     max-height: 560px;
     object-fit: contain;
@@ -400,23 +555,21 @@ article img.diagram {
     color: var(--muted-2);
     font-style: italic;
     text-align: center;
-    margin: 0 0 18px 0;
-    max-width: var(--reading-max);
+    margin: 0 auto 18px auto;
 }
 
-/* -------------------- Tables (grid + tinted header + zebra) -------------------- */
+/* Tables */
 table,
 .grid-table {
     width: 100%;
     border-collapse: separate;
     border-spacing: 0;
-    margin: 1.2em 0 1.6em 0;
+    margin: 1.2em auto 1.6em auto;
     border: 1px solid rgba(11, 18, 32, 0.14);
     border-radius: var(--radius);
     overflow: hidden;
     background: var(--surface);
     box-shadow: var(--shadow-md);
-    max-width: var(--reading-max);
 }
 
 table thead th,
@@ -424,7 +577,7 @@ table thead th,
     text-align: left;
     padding: 12px 14px;
     color: var(--text);
-    font-weight: 800;
+    font-weight: 900;
     border-bottom: 1px solid rgba(11, 18, 32, 0.14);
     background: linear-gradient(180deg, rgba(31, 78, 121, 0.16), rgba(31, 78, 121, 0.06));
 }
@@ -461,13 +614,27 @@ table tbody tr:hover td,
 /* -------------------- Footer -------------------- */
 footer {
     text-align: center;
-    margin-top: 22px;
-    padding-top: 14px;
+    margin-top: var(--s5);
+    padding-top: var(--s3);
     color: var(--muted-2);
-    font-size: 0.9rem;
+    font-size: 0.92rem;
 }
 
 /* -------------------- Responsive -------------------- */
+@media (max-width: 980px) {
+    .hero {
+        grid-template-columns: 1fr;
+    }
+
+    .kpi-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .banner-wrap {
+        height: 200px;
+    }
+}
+
 @media (max-width: 640px) {
     body {
         padding: 18px 10px 30px;
@@ -477,33 +644,28 @@ footer {
         padding: 12px;
     }
 
-    header {
-        padding: 22px 18px 16px;
+    .site-header {
+        padding: 20px 16px 14px;
+    }
+
+    .site-title {
+        font-size: 2.0rem;
+    }
+
+    .hero-title {
+        font-size: 1.7rem;
     }
 
     article {
-        padding: 22px 18px;
+        padding: 22px 16px;
     }
 
-    .post-list li {
-        padding: 16px 16px;
-    }
-
-    .post-list a {
-        font-size: 1.18rem;
-    }
-
-    header h1 {
-        font-size: 2.0rem;
+    .kpi-grid {
+        grid-template-columns: 1fr;
     }
 
     article img,
     .post-hero {
-        max-height: 300px;
-    }
-
-    body::before {
-        inset: 8px;
-        border-radius: 18px;
+        max-height: 280px;
     }
 }

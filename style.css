@@ -1,95 +1,101 @@
-/* =========================
-   Fortune 100 Newsletter Style (Full Replacement)
-   Elegant. Modern. Slightly flashy. Very readable.
-   ========================= */
+/* ============================================================
+   Fortune 100 Executive Newsletter
+   Monochrome + Accent (60–30–10) • Clean • Premium • Readable
+   ============================================================ */
 
-/* ---------- Global Reset ---------- */
+/* -------------------- Reset -------------------- */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* ---------- Design System ---------- */
+/* -------------------- Design System (60–30–10) --------------------
+   60% = background neutrals
+   30% = surfaces/cards/borders
+   10% = accent (links, featured, highlights)
+------------------------------------------------------------------- */
 :root {
-    /* Surfaces */
-    --bg: #f6f7fb;
-    --surface: #ffffff;
-    --surface-2: #fbfcfe;
+    /* Layout widths */
+    --page-max: 1200px;      /* overall page width */
+    --content-max: 1120px;   /* header/main/footer width */
+    --reading-max: 98ch;     /* comfortable reading measure */
+
+    /* Monochrome */
+    --bg: #f5f6f8;           /* 60%: page background */
+    --surface: #ffffff;      /* 30%: cards/surfaces */
+    --surface-2: #f1f3f6;    /* 30%: subtle fills */
 
     /* Text */
-    --text: #0f172a;
+    --text: #0b1220;
     --body: #1f2937;
-    --muted: #475569;
-    --muted-2: #64748b;
+    --muted: #4b5563;
+    --muted-2: #6b7280;
 
     /* Borders + shadows */
-    --border: rgba(15, 23, 42, 0.10);
-    --border-2: rgba(15, 23, 42, 0.06);
+    --border: rgba(11, 18, 32, 0.12);
+    --border-soft: rgba(11, 18, 32, 0.08);
+    --shadow-sm: 0 1px 1px rgba(11, 18, 32, 0.06);
+    --shadow-md: 0 10px 30px rgba(11, 18, 32, 0.10);
 
-    /* Accent (executive blue) */
+    /* 10% Accent (one color) */
     --accent: #1f4e79;
     --accent-2: #163a5a;
     --accent-soft: rgba(31, 78, 121, 0.10);
 
-    /* Gold “flash” accent for premium feel (subtle) */
-    --gold: #b08a2e;
-    --gold-soft: rgba(176, 138, 46, 0.16);
-
-    /* Radii */
+    /* Radius */
     --radius: 16px;
     --radius-sm: 12px;
-
-    /* Shadows */
-    --shadow-sm: 0 1px 1px rgba(15, 23, 42, 0.05);
-    --shadow-md: 0 10px 30px rgba(15, 23, 42, 0.08);
-    --shadow-lg: 0 18px 60px rgba(15, 23, 42, 0.12);
-
-    /* Rhythm */
-    --content-max: 980px;
-    --reading-max: 76ch;
 }
 
-/* ---------- Page Layout ---------- */
+/* -------------------- Page Background + Perimeter Frame -------------------- */
 body {
     font-family: Georgia, serif;
     line-height: 1.85;
     color: var(--body);
-    background:
-        radial-gradient(1200px 600px at 20% -10%, rgba(31, 78, 121, 0.10), transparent 60%),
-        radial-gradient(900px 500px at 110% 10%, rgba(176, 138, 46, 0.08), transparent 55%),
-        var(--bg);
-    padding: 34px 18px 54px;
+    background: var(--bg);
+    padding: 26px 14px 44px;
 }
 
+/* This creates a “frame” so it doesn’t look plain */
+.page-frame {
+    max-width: var(--page-max);
+    margin: 0 auto;
+    padding: 18px;
+    border: 1px solid var(--border-soft);
+    border-radius: calc(var(--radius) + 6px);
+    background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.60), rgba(255, 255, 255, 0.35));
+    box-shadow: 0 18px 60px rgba(11, 18, 32, 0.10);
+}
+
+/* Keep header/main/footer aligned and wide */
 header, main, footer {
     max-width: var(--content-max);
     margin: 0 auto;
 }
 
-/* ---------- Header (Premium look) ---------- */
+/* -------------------- Header (premium but restrained) -------------------- */
 header {
-    background: linear-gradient(135deg, rgba(31, 78, 121, 0.10), rgba(176, 138, 46, 0.06));
-    border: 1px solid var(--border-2);
+    background: var(--surface);
+    border: 1px solid var(--border-soft);
     border-radius: var(--radius);
-    padding: 26px 26px 20px;
     box-shadow: var(--shadow-md);
+    padding: 26px 26px 18px;
+    margin-bottom: 22px;
     position: relative;
     overflow: hidden;
-    margin-bottom: 26px;
 }
 
-/* subtle diagonal sheen */
-header::after {
+/* Subtle accent “rule” for polish */
+header::before {
     content: "";
     position: absolute;
-    top: -120px;
-    right: -180px;
-    width: 520px;
-    height: 320px;
-    background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.50), transparent 60%);
-    transform: rotate(12deg);
-    pointer-events: none;
+    top: 0;
+    left: 0;
+    height: 4px;
+    width: 100%;
+    background: linear-gradient(90deg, var(--accent), rgba(31, 78, 121, 0.40));
 }
 
 header h1 {
@@ -104,7 +110,7 @@ header .tagline {
     font-style: italic;
     color: var(--muted);
     margin-bottom: 14px;
-    max-width: 70ch;
+    max-width: 75ch;
 }
 
 nav {
@@ -118,28 +124,28 @@ nav a {
     color: var(--accent);
     text-decoration: none;
     font-size: 0.95rem;
-    font-weight: 600;
+    font-weight: 650;
     padding: 6px 10px;
     border-radius: 999px;
-    background: rgba(255, 255, 255, 0.55);
-    border: 1px solid rgba(15, 23, 42, 0.06);
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid rgba(11, 18, 32, 0.08);
     box-shadow: var(--shadow-sm);
 }
 
 nav a:hover {
     color: var(--accent-2);
-    background: rgba(255, 255, 255, 0.82);
-    border-color: rgba(31, 78, 121, 0.18);
+    border-color: rgba(31, 78, 121, 0.22);
+    background: #ffffff;
 }
 
-/* ---------- Banner ---------- */
+/* -------------------- Banner + Intro -------------------- */
 .banner-wrap {
     height: 180px;
     border-radius: var(--radius);
     overflow: hidden;
-    border: 1px solid var(--border-2);
+    border: 1px solid var(--border-soft);
     box-shadow: var(--shadow-md);
-    margin: 18px 0 22px 0;
+    margin: 16px 0 18px 0;
     background: var(--surface);
 }
 
@@ -149,48 +155,31 @@ nav a:hover {
     object-fit: cover;
     object-position: center;
     display: block;
-    filter: saturate(1.05) contrast(1.03);
+    filter: saturate(1.02) contrast(1.02);
 }
 
 .intro {
     max-width: var(--reading-max);
     font-size: 1.06rem;
     color: var(--muted);
-    margin: 0 0 22px 0;
+    margin: 0 0 18px 0;
 }
 
-/* ---------- Main Content Surface ---------- */
-main {
-    margin-top: 14px;
-}
-
-/* Give posts and pages an editorial “card” */
-article {
-    background: rgba(255, 255, 255, 0.92);
-    border: 1px solid var(--border-2);
-    border-radius: var(--radius);
-    padding: 28px 28px;
-    box-shadow: var(--shadow-md);
-    max-width: var(--reading-max);
-}
-
-/* ---------- Index Post List ---------- */
+/* -------------------- Index Post List (card) -------------------- */
 .post-list {
     list-style: none;
-    margin: 10px 0 0 0;
     padding: 0;
-    background: rgba(255, 255, 255, 0.92);
-    border: 1px solid var(--border-2);
+    margin: 0;
+    background: var(--surface);
+    border: 1px solid var(--border-soft);
     border-radius: var(--radius);
     box-shadow: var(--shadow-md);
     overflow: hidden;
 }
 
-/* each list item becomes a “row card” */
 .post-list li {
     padding: 18px 22px;
-    border-bottom: 1px solid rgba(15, 23, 42, 0.06);
-    background: transparent;
+    border-bottom: 1px solid rgba(11, 18, 32, 0.06);
 }
 
 .post-list li:last-child {
@@ -198,7 +187,7 @@ article {
 }
 
 .post-list li:hover {
-    background: rgba(31, 78, 121, 0.05);
+    background: rgba(31, 78, 121, 0.04);
     transition: background 0.18s ease-in-out;
 }
 
@@ -207,7 +196,7 @@ article {
     color: var(--text);
     text-decoration: none;
     line-height: 1.25;
-    font-weight: 600;
+    font-weight: 650;
 }
 
 .post-list a:hover {
@@ -222,12 +211,10 @@ article {
     font-style: italic;
 }
 
-/* Featured post (newest = first) */
+/* Featured newest post (first item) */
 .post-list li:first-child {
     position: relative;
-    background:
-        linear-gradient(135deg, rgba(31, 78, 121, 0.14), rgba(176, 138, 46, 0.08));
-    border-bottom: 1px solid rgba(15, 23, 42, 0.06);
+    background: linear-gradient(180deg, rgba(31, 78, 121, 0.10), rgba(31, 78, 121, 0.04));
 }
 
 .post-list li:first-child::before {
@@ -240,7 +227,7 @@ article {
     text-transform: uppercase;
     font-weight: 800;
     color: var(--accent-2);
-    background: rgba(255, 255, 255, 0.75);
+    background: rgba(255, 255, 255, 0.92);
     padding: 6px 10px;
     border-radius: 999px;
     border: 1px solid rgba(31, 78, 121, 0.18);
@@ -251,19 +238,27 @@ article {
     font-weight: 800;
 }
 
-.post-list li:first-child .date {
-    color: rgba(15, 23, 42, 0.75);
+/* If any old HTML still has class="featured", neutralize it */
+.featured strong { display: none; }
+
+/* -------------------- Article Surface (executive “document card”) -------------------- */
+article {
+    background: var(--surface);
+    border: 1px solid var(--border-soft);
+    border-radius: var(--radius);
+    padding: 28px;
+    box-shadow: var(--shadow-md);
+    max-width: var(--reading-max);
 }
 
-/* Backward compatibility: if any old HTML has class="featured", neutralize it */
-.featured,
-.featured strong {
-    all: unset;
-}
+/* If you want article cards to be wider on desktop, uncomment:
+article { max-width: 100%; }
+article p, article ul, article ol, article blockquote, article table { max-width: var(--reading-max); }
+*/
 
-/* ---------- Post Typography ---------- */
+/* -------------------- Typography -------------------- */
 article h2 {
-    font-size: 2.05rem;
+    font-size: 2.08rem;
     letter-spacing: -0.5px;
     color: var(--text);
     margin-bottom: 6px;
@@ -280,15 +275,15 @@ article p {
     margin-bottom: 1.1em;
 }
 
-/* strong section hierarchy */
+/* Strong hierarchy with subtle section divider */
 article h3 {
-    margin-top: 1.9em;
+    margin-top: 1.95em;
     margin-bottom: 0.65em;
     font-size: 1.34rem;
     letter-spacing: -0.2px;
     color: var(--text);
-    padding-top: 0.9em;
-    border-top: 1px solid rgba(15, 23, 42, 0.08);
+    padding-top: 0.85em;
+    border-top: 1px solid rgba(11, 18, 32, 0.08);
 }
 
 article h3:first-of-type {
@@ -303,7 +298,7 @@ article h4 {
     color: var(--text);
 }
 
-/* ---------- Links (clean, executive) ---------- */
+/* -------------------- Links -------------------- */
 article a {
     color: var(--accent);
     text-decoration-thickness: 1px;
@@ -314,11 +309,11 @@ article a:hover {
     color: var(--accent-2);
 }
 
-/* ---------- Lists (Bullet hierarchy ALWAYS indents) ---------- */
+/* -------------------- Lists (indent + hierarchy) -------------------- */
 article ul,
 article ol {
     margin: 0.85em 0 1.2em 0;
-    padding-left: 1.6em;               /* critical for indentation */
+    padding-left: 1.6em;
     list-style-position: outside;
 }
 
@@ -326,20 +321,20 @@ article li {
     margin: 0.5em 0;
 }
 
+article ul { list-style-type: disc; }
+article ul ul { list-style-type: circle; }
+article ol { list-style-type: decimal; }
+
+/* Nested indentation for hierarchy */
 article ul ul,
 article ol ol,
 article ul ol,
 article ol ul {
     margin-top: 0.6em;
     margin-bottom: 0.2em;
-    padding-left: 1.6em;               /* deeper indent for hierarchy */
+    padding-left: 1.6em;
 }
 
-article ul { list-style-type: disc; }
-article ul ul { list-style-type: circle; }
-article ol { list-style-type: decimal; }
-
-/* Slightly tighter nested items */
 article ul ul li,
 article ol ol li,
 article ul ol li,
@@ -347,29 +342,31 @@ article ol ul li {
     margin: 0.35em 0;
 }
 
-/* ---------- Blockquotes (flashy but classy) ---------- */
+/* -------------------- Blockquotes -------------------- */
 blockquote {
     margin: 1.5em 0;
     padding: 16px 18px;
     border-radius: var(--radius-sm);
     border: 1px solid rgba(31, 78, 121, 0.16);
     border-left: 6px solid rgba(31, 78, 121, 0.65);
-    background:
-        linear-gradient(135deg, rgba(31, 78, 121, 0.09), rgba(176, 138, 46, 0.06));
-    color: rgba(15, 23, 42, 0.85);
+    background: rgba(31, 78, 121, 0.06);
+    color: rgba(11, 18, 32, 0.85);
     box-shadow: var(--shadow-sm);
     font-style: italic;
 }
 
-/* ---------- Images ---------- */
-.post-hero,
-article img {
-    max-width: 100%;
-    height: auto;
+/* -------------------- Images (fixed so they don’t dominate) -------------------- */
+article img,
+.post-hero {
+    width: 100%;
+    display: block;
+    max-height: 420px;     /* key: prevents “scroll just to get past image” */
+    object-fit: cover;
+    object-position: center;
     border-radius: var(--radius);
-    border: 1px solid var(--border-2);
+    border: 1px solid var(--border-soft);
     box-shadow: var(--shadow-md);
-    margin: 18px 0 12px;
+    margin: 14px 0 10px;
 }
 
 .image-caption {
@@ -380,14 +377,21 @@ article img {
     margin: 0 0 18px 0;
 }
 
-/* ---------- Tables (Grid + color + zebra + hover) ---------- */
+/* Optional class for diagrams/screenshots that should not crop */
+article img.diagram {
+    max-height: 520px;
+    object-fit: contain;
+    background: var(--surface);
+}
+
+/* -------------------- Tables (grid + tinted header + zebra) -------------------- */
 table,
 .grid-table {
     width: 100%;
     border-collapse: separate;
     border-spacing: 0;
     margin: 1.2em 0 1.6em 0;
-    border: 1px solid rgba(15, 23, 42, 0.10);
+    border: 1px solid rgba(11, 18, 32, 0.12);
     border-radius: var(--radius);
     overflow: hidden;
     background: var(--surface);
@@ -400,9 +404,8 @@ table thead th,
     padding: 12px 14px;
     color: var(--text);
     font-weight: 800;
-    border-bottom: 1px solid rgba(15, 23, 42, 0.10);
-    background:
-        linear-gradient(180deg, rgba(31, 78, 121, 0.16), rgba(31, 78, 121, 0.08));
+    border-bottom: 1px solid rgba(11, 18, 32, 0.12);
+    background: linear-gradient(180deg, rgba(31, 78, 121, 0.14), rgba(31, 78, 121, 0.06));
 }
 
 table tbody td,
@@ -410,8 +413,8 @@ table tbody td,
     padding: 12px 14px;
     vertical-align: top;
     color: rgba(31, 41, 55, 0.95);
-    border-bottom: 1px solid rgba(15, 23, 42, 0.08);
-    border-right: 1px solid rgba(15, 23, 42, 0.08);
+    border-bottom: 1px solid rgba(11, 18, 32, 0.08);
+    border-right: 1px solid rgba(11, 18, 32, 0.08);
 }
 
 table tbody tr td:last-child,
@@ -426,25 +429,33 @@ table tbody tr:last-child td,
 
 table tbody tr:nth-child(even) td,
 .grid-table tbody tr:nth-child(even) td {
-    background: rgba(15, 23, 42, 0.02);
+    background: rgba(11, 18, 32, 0.02);
 }
 
 table tbody tr:hover td,
 .grid-table tbody tr:hover td {
-    background: rgba(31, 78, 121, 0.06);
+    background: rgba(31, 78, 121, 0.05);
 }
 
-/* ---------- Footer ---------- */
+/* -------------------- Footer -------------------- */
 footer {
     text-align: center;
-    margin-top: 26px;
-    padding: 16px 0 0 0;
+    margin-top: 22px;
+    padding-top: 14px;
     color: var(--muted-2);
     font-size: 0.9rem;
 }
 
-/* ---------- Small screens ---------- */
+/* -------------------- Responsive -------------------- */
 @media (max-width: 640px) {
+    body {
+        padding: 18px 10px 30px;
+    }
+
+    .page-frame {
+        padding: 12px;
+    }
+
     header {
         padding: 22px 18px 16px;
     }
@@ -463,5 +474,10 @@ footer {
 
     header h1 {
         font-size: 2.0rem;
+    }
+
+    article img,
+    .post-hero {
+        max-height: 320px;
     }
 }

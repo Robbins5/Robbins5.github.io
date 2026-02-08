@@ -19,7 +19,7 @@
     /* Layout widths */
     --page-max: 1280px;       /* outer frame */
     --content-max: 1160px;    /* content container */
-    --reading-max: 86ch;      /* slightly tighter, more corporate readability */
+    --reading-max: 86ch;      /* readable measure */
 
     /* Monochrome */
     --bg: #f4f6f8;            /* 60% */
@@ -47,7 +47,7 @@
     --radius: 14px;
     --radius-sm: 10px;
 
-    /* Spacing scale (consistent rhythm) */
+    /* Spacing scale */
     --s1: 6px;
     --s2: 10px;
     --s3: 16px;
@@ -58,7 +58,6 @@
 
 /* -------------------- Page Base -------------------- */
 body {
-    /* Corporate typography */
     font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Arial, "Noto Sans", "Liberation Sans", sans-serif;
     line-height: 1.65;
     letter-spacing: 0.1px;
@@ -72,7 +71,7 @@ body {
     padding: var(--s4) 14px var(--s6);
 }
 
-/* Perimeter frame (corporate-safe: container-based, not overlay-based) */
+/* Perimeter frame (container-based) */
 .page-frame {
     max-width: var(--page-max);
     margin: 0 auto;
@@ -102,7 +101,7 @@ a:hover {
     color: var(--accent-2);
 }
 
-/* -------------------- Header (new corporate layout) -------------------- */
+/* -------------------- Header -------------------- */
 .site-header {
     background: var(--surface);
     border: 1px solid var(--border-soft);
@@ -114,7 +113,7 @@ a:hover {
     overflow: hidden;
 }
 
-/* Thin accent bar like enterprise sites */
+/* Accent bar */
 .site-header::before {
     content: "";
     position: absolute;
@@ -137,7 +136,7 @@ a:hover {
     font-size: 2.35rem;
     letter-spacing: -0.6px;
     color: var(--text);
-    font-weight: 700;
+    font-weight: 800;
     line-height: 1.1;
 }
 
@@ -148,7 +147,7 @@ a:hover {
     max-width: 80ch;
 }
 
-/* Corporate nav */
+/* Nav */
 .site-nav {
     display: flex;
     gap: 10px;
@@ -158,7 +157,7 @@ a:hover {
 .nav-link {
     text-decoration: none;
     font-size: 0.95rem;
-    font-weight: 700;
+    font-weight: 800;
     color: var(--text);
 
     padding: 8px 12px;
@@ -173,7 +172,7 @@ a:hover {
     color: var(--accent-2);
 }
 
-/* -------------------- Hero Module -------------------- */
+/* -------------------- Hero -------------------- */
 .hero {
     display: grid;
     grid-template-columns: 1.05fr 0.95fr;
@@ -185,7 +184,7 @@ a:hover {
 .eyebrow {
     display: inline-block;
     font-size: 0.82rem;
-    font-weight: 800;
+    font-weight: 900;
     letter-spacing: 0.10em;
     text-transform: uppercase;
     color: var(--accent-2);
@@ -201,7 +200,7 @@ a:hover {
     line-height: 1.15;
     letter-spacing: -0.5px;
     color: var(--text);
-    font-weight: 800;
+    font-weight: 900;
     margin-bottom: var(--s3);
 }
 
@@ -222,7 +221,7 @@ a:hover {
 .btn {
     display: inline-block;
     text-decoration: none;
-    font-weight: 800;
+    font-weight: 900;
     font-size: 0.95rem;
     padding: 10px 14px;
     border-radius: 999px;
@@ -270,7 +269,7 @@ a:hover {
     filter: saturate(1.02) contrast(1.03);
 }
 
-/* -------------------- KPI / Credibility Grid -------------------- */
+/* -------------------- KPI Grid -------------------- */
 .kpi-grid {
     margin: var(--s5) 0 var(--s4);
     display: grid;
@@ -291,7 +290,7 @@ a:hover {
     letter-spacing: 0.08em;
     text-transform: uppercase;
     color: var(--muted-2);
-    font-weight: 800;
+    font-weight: 900;
     margin-bottom: 8px;
 }
 
@@ -308,7 +307,7 @@ a:hover {
     line-height: 1.45;
 }
 
-/* -------------------- Intro Module -------------------- */
+/* -------------------- Intro -------------------- */
 .intro {
     background: var(--surface);
     border: 1px solid var(--border-soft);
@@ -323,29 +322,19 @@ a:hover {
     font-size: 1.02rem;
 }
 
-/* -------------------- Posts Section Header -------------------- */
+/* -------------------- Section Title -------------------- */
 .posts-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    gap: var(--s4);
-    flex-wrap: wrap;
     margin: var(--s4) 0 var(--s3);
 }
 
 .section-title {
-    font-size: 1.25rem;
+    font-size: 1.28rem;
     letter-spacing: -0.2px;
     color: var(--text);
     font-weight: 900;
 }
 
-.section-subtitle {
-    color: var(--muted);
-    font-size: 0.98rem;
-}
-
-/* -------------------- Post List (card module) -------------------- */
+/* -------------------- Post List -------------------- */
 .post-list {
     list-style: none;
     padding: 0;
@@ -378,7 +367,8 @@ a:hover {
     color: var(--text);
     text-decoration: none;
     line-height: 1.25;
-    font-weight: 850;
+    font-weight: 900;
+    padding-right: 80px; /* keeps text from overlapping Featured badge */
 }
 
 .post-list a:hover {
@@ -392,7 +382,7 @@ a:hover {
     color: var(--muted-2);
 }
 
-/* Featured newest post (first item) */
+/* Featured newest post */
 .post-list li:first-child {
     position: relative;
     background: linear-gradient(180deg, rgba(31, 78, 121, 0.12), rgba(31, 78, 121, 0.04));
@@ -414,10 +404,10 @@ a:hover {
     border: 1px solid rgba(31, 78, 121, 0.20);
 }
 
-/* Backward compatibility: neutralize older featured markup */
+/* Backward compatibility */
 .featured strong { display: none; }
 
-/* -------------------- Article Pages (keeps your posts professional) -------------------- */
+/* -------------------- Article Pages -------------------- */
 article {
     background: var(--surface);
     border: 1px solid var(--border-soft);
@@ -427,7 +417,7 @@ article {
     max-width: 100%;
 }
 
-/* Use subtle editorial serif only within long-form article text (optional but premium) */
+/* Optional: serif for long-form readability */
 article p,
 article li,
 article blockquote {
@@ -435,7 +425,7 @@ article blockquote {
     letter-spacing: 0;
 }
 
-/* Center readable-width blocks inside wider article card */
+/* Center readable blocks */
 article p,
 article ul,
 article ol,
@@ -470,7 +460,6 @@ article p {
     color: rgba(31, 41, 55, 0.96);
 }
 
-/* Strong hierarchy with dividers */
 article h3 {
     margin-top: 1.9em;
     margin-bottom: 0.6em;
@@ -491,7 +480,7 @@ article h4 {
     margin-bottom: 0.55em;
     font-size: 1.08rem;
     color: var(--text);
-    font-weight: 850;
+    font-weight: 900;
 }
 
 /* Lists */
@@ -506,7 +495,6 @@ article li {
     margin: 0.5em 0;
 }
 
-/* Nested indentation */
 article ul ul,
 article ol ol,
 article ul ol,
@@ -529,7 +517,7 @@ blockquote {
     font-style: italic;
 }
 
-/* Images (kept smaller so they don’t dominate) */
+/* Images */
 article img,
 .post-hero {
     width: 100%;
@@ -543,7 +531,7 @@ article img,
     margin: 14px auto 10px auto;
 }
 
-/* For diagrams/screenshots: add class="diagram" */
+/* Diagrams/screenshots */
 article img.diagram {
     max-height: 560px;
     object-fit: contain;

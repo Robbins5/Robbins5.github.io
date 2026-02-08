@@ -8,68 +8,92 @@
 }
 
 /* =========================
+   Design Tokens (Palette + Rhythm)
+   ========================= */
+:root {
+    --bg: #fdfdfc;
+    --surface: #ffffff;
+    --text: #1f2933;
+    --muted: #4b5563;
+    --muted-2: #6b7280;
+    --border: #e5e7eb;
+
+    /* One consistent accent color used across nav, links, featured, etc. */
+    --accent: #3a5f7d;
+    --accent-2: #2f4d64;
+
+    --radius: 12px;
+    --shadow: 0 1px 0 rgba(17, 24, 39, 0.04);
+}
+
+/* =========================
    Base Layout
    ========================= */
 body {
     font-family: Georgia, serif;
-    line-height: 1.75;
-    max-width: 840px;
+    line-height: 1.8;
+    max-width: 860px;
     margin: 0 auto;
-    padding: 30px;
-    background-color: #ffffff;
-    color: #1f2933;
+    padding: 34px 24px;
+    background-color: var(--bg);
+    color: var(--text);
+}
+
+main {
+    /* Gives the page a calmer reading rhythm */
+    padding-bottom: 10px;
+}
+
+/* Reduce line length for readability on long posts */
+article {
+    max-width: 72ch;
 }
 
 /* =========================
    Header & Navigation
    ========================= */
 header {
-    margin-bottom: 40px;
-    padding-bottom: 20px;
-    border-bottom: 1px solid #d1d5db;
+    margin-bottom: 44px;
+    padding-bottom: 22px;
+    border-bottom: 1px solid var(--border);
 }
 
 header h1 {
-    font-size: 2.3rem;
+    font-size: 2.35rem;
     font-weight: normal;
-    margin-bottom: 6px;
+    margin-bottom: 8px;
+    letter-spacing: -0.4px;
 }
 
 header .tagline {
     font-style: italic;
-    color: #4b5563;
-    margin-bottom: 12px;
+    color: var(--muted);
+    margin-bottom: 14px;
 }
 
 nav a {
-    color: #1d4ed8;
+    color: var(--accent);
     text-decoration: none;
     font-size: 0.95rem;
+    font-weight: 500;
 }
 
 nav a:hover {
     text-decoration: underline;
+    color: var(--accent-2);
 }
 
 /* =========================
    Homepage Banner & Intro
    ========================= */
-.banner {
-    width: 100%;
-    max-height: 220px;
-    object-fit: cover;
-    object-position: center;
-    margin: 18px 0 22px 0;
-    border-radius: 10px;
-    border: 1px solid #e5e7eb;
-}
 .banner-wrap {
-    height: 170px;              /* Adjust: 140–200 is a good Deloitte range */
+    height: 170px;
     overflow: hidden;
-    border-radius: 10px;
-    border: 1px solid #e5e7eb;
+    border-radius: var(--radius);
+    border: 1px solid var(--border);
     margin: 18px 0 22px 0;
-    background-color: #ffffff;
+    background-color: var(--surface);
+    box-shadow: var(--shadow);
 }
 
 .banner-img {
@@ -80,11 +104,11 @@ nav a:hover {
     display: block;
 }
 
-
 .intro {
     font-size: 1.05rem;
     color: #374151;
     margin-bottom: 40px;
+    max-width: 72ch;
 }
 
 /* =========================
@@ -92,71 +116,156 @@ nav a:hover {
    ========================= */
 .post-list {
     list-style: none;
+    margin-top: 10px;
 }
 
+/* Base item styling */
 .post-list li {
-    padding: 20px 0;
-    border-bottom: 1px solid #e5e7eb;
+    padding: 22px 0;
+    border-bottom: 1px solid var(--border);
 }
 
+/* Hover polish */
 .post-list li:hover {
-    background-color: #f9fafb;
-    transition: background-color 0.2s ease-in-out;
+    background-color: rgba(58, 95, 125, 0.04);
+    transition: background-color 0.18s ease-in-out;
 }
 
+/* Link styling */
 .post-list a {
     font-size: 1.35rem;
     color: #111827;
     text-decoration: none;
+    line-height: 1.25;
 }
 
 .post-list a:hover {
-    color: #1d4ed8;
+    color: var(--accent);
 }
 
+/* Date styling */
 .post-list .date {
     display: block;
-    margin-top: 6px;
-    font-size: 0.9rem;
-    color: #6b7280;
+    margin-top: 8px;
+    font-size: 0.92rem;
+    color: var(--muted-2);
     font-style: italic;
 }
 
 /* =========================
-   Featured Post
+   Featured Post (New: automatic)
+   Feature the newest post by styling the first <li>
    ========================= */
-.featured {
-    background-color: #f9fafb;
-    padding: 18px;
-    border-left: 4px solid #1d4ed8;
+.post-list li:first-child {
+    background-color: rgba(58, 95, 125, 0.06);
+    padding: 22px;
+    border-left: 4px solid var(--accent);
+    border-bottom: 1px solid var(--border);
+    border-radius: var(--radius);
+    margin-bottom: 10px;
+    box-shadow: var(--shadow);
 }
 
-.featured strong {
-    display: block;
-    font-size: 0.9rem;
-    text-transform: uppercase;
-    letter-spacing: 0.04em;
-    color: #374151;
-    margin-bottom: 6px;
+.post-list li:first-child a {
+    font-size: 1.55rem;
+    font-weight: 600;
+}
+
+.post-list li:first-child .date {
+    font-size: 0.98rem;
 }
 
 /* =========================
-   Article Pages
+   Backward Compatibility
+   If any older post still has class="featured", remove its special styling
+   (So only the newest is featured.)
+   ========================= */
+.featured {
+    background-color: transparent;
+    padding: 22px 0;
+    border-left: none;
+}
+
+.featured strong {
+    display: none;
+}
+
+/* =========================
+   Article Pages (Typography + Hierarchy)
    ========================= */
 article h2 {
-    font-size: 2rem;
-    margin-bottom: 6px;
+    font-size: 2.05rem;
+    margin-bottom: 8px;
+    letter-spacing: -0.3px;
 }
 
 article .date {
     font-size: 0.95rem;
-    color: #6b7280;
+    color: var(--muted-2);
     font-style: italic;
-    margin-bottom: 22px;
+    margin-bottom: 26px;
 }
 
 article p {
-    margin-bottom: 1.15em;
+    margin-bottom: 1.2em;
+}
+
+/* Section headings for long-form posts */
+article h3 {
+    font-size: 1.35rem;
+    margin-top: 1.8em;
+    margin-bottom: 0.6em;
+    color: #111827;
+}
+
+article h4 {
+    font-size: 1.1rem;
+    margin-top: 1.4em;
+    margin-bottom: 0.5em;
+    color: #111827;
+}
+
+/* Lists inside posts */
+article ul,
+article ol {
+    margin: 0.75em 0 1.2em 1.25em;
+}
+
+article li {
+    margin: 0.45em 0;
+}
+
+/* Links inside articles */
+article a {
+    color: var(--accent);
+}
+
+article a:hover {
+    color: var(--accent-2);
+}
+
+/* =========================
+   Tables (used in fifth post)
+   ========================= */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.25em 0 1.5em 0;
+    font-size: 0.95rem;
+}
+
+thead th {
+    text-align: left;
+    padding: 10px 12px;
+    border-bottom: 1px solid var(--border);
+    color: #111827;
+}
+
+tbody td {
+    padding: 10px 12px;
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+    color: #374151;
 }
 
 /* =========================
@@ -165,8 +274,9 @@ article p {
 .post-hero {
     width: 100%;
     margin: 24px 0 12px 0;
-    border-radius: 10px;
-    border: 1px solid #e5e7eb;
+    border-radius: var(--radius);
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow);
 }
 
 article img {
@@ -179,7 +289,7 @@ article img {
    ========================= */
 .image-caption {
     font-size: 0.9rem;
-    color: #6b7280;
+    color: var(--muted-2);
     font-style: italic;
     text-align: center;
     margin-bottom: 30px;
@@ -197,21 +307,23 @@ article img {
    Blockquotes
    ========================= */
 blockquote {
-    border-left: 3px solid #d1d5db;
-    padding-left: 16px;
+    border-left: 4px solid rgba(58, 95, 125, 0.5);
+    background-color: rgba(58, 95, 125, 0.04);
+    padding: 14px 16px;
     margin: 1.75em 0;
     color: #374151;
     font-style: italic;
+    border-radius: 10px;
 }
 
 /* =========================
    Footer
    ========================= */
 footer {
-    margin-top: 64px;
-    padding-top: 18px;
-    border-top: 1px solid #e5e7eb;
+    margin-top: 70px;
+    padding-top: 20px;
+    border-top: 1px solid var(--border);
     font-size: 0.85rem;
-    color: #6b7280;
+    color: var(--muted-2);
     text-align: center;
 }

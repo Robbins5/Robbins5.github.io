@@ -1,99 +1,146 @@
 /* =========================
-   Global Reset
+   Fortune 100 Newsletter Style (Full Replacement)
+   Elegant. Modern. Slightly flashy. Very readable.
    ========================= */
+
+/* ---------- Global Reset ---------- */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* =========================
-   Design Tokens (Palette + Rhythm)
-   ========================= */
+/* ---------- Design System ---------- */
 :root {
-    --bg: #fdfdfc;
+    /* Surfaces */
+    --bg: #f6f7fb;
     --surface: #ffffff;
-    --text: #1f2933;
-    --muted: #4b5563;
-    --muted-2: #6b7280;
-    --border: #e5e7eb;
+    --surface-2: #fbfcfe;
 
-    /* One consistent accent color used across nav, links, featured, etc. */
-    --accent: #3a5f7d;
-    --accent-2: #2f4d64;
+    /* Text */
+    --text: #0f172a;
+    --body: #1f2937;
+    --muted: #475569;
+    --muted-2: #64748b;
 
-    --radius: 12px;
-    --shadow: 0 1px 0 rgba(17, 24, 39, 0.04);
+    /* Borders + shadows */
+    --border: rgba(15, 23, 42, 0.10);
+    --border-2: rgba(15, 23, 42, 0.06);
+
+    /* Accent (executive blue) */
+    --accent: #1f4e79;
+    --accent-2: #163a5a;
+    --accent-soft: rgba(31, 78, 121, 0.10);
+
+    /* Gold “flash” accent for premium feel (subtle) */
+    --gold: #b08a2e;
+    --gold-soft: rgba(176, 138, 46, 0.16);
+
+    /* Radii */
+    --radius: 16px;
+    --radius-sm: 12px;
+
+    /* Shadows */
+    --shadow-sm: 0 1px 1px rgba(15, 23, 42, 0.05);
+    --shadow-md: 0 10px 30px rgba(15, 23, 42, 0.08);
+    --shadow-lg: 0 18px 60px rgba(15, 23, 42, 0.12);
+
+    /* Rhythm */
+    --content-max: 980px;
+    --reading-max: 76ch;
 }
 
-/* =========================
-   Base Layout
-   ========================= */
+/* ---------- Page Layout ---------- */
 body {
     font-family: Georgia, serif;
-    line-height: 1.8;
-    max-width: 860px;
+    line-height: 1.85;
+    color: var(--body);
+    background:
+        radial-gradient(1200px 600px at 20% -10%, rgba(31, 78, 121, 0.10), transparent 60%),
+        radial-gradient(900px 500px at 110% 10%, rgba(176, 138, 46, 0.08), transparent 55%),
+        var(--bg);
+    padding: 34px 18px 54px;
+}
+
+header, main, footer {
+    max-width: var(--content-max);
     margin: 0 auto;
-    padding: 34px 24px;
-    background-color: var(--bg);
-    color: var(--text);
 }
 
-main {
-    /* Gives the page a calmer reading rhythm */
-    padding-bottom: 10px;
-}
-
-/* Reduce line length for readability on long posts */
-article {
-    max-width: 72ch;
-}
-
-/* =========================
-   Header & Navigation
-   ========================= */
+/* ---------- Header (Premium look) ---------- */
 header {
-    margin-bottom: 44px;
-    padding-bottom: 22px;
-    border-bottom: 1px solid var(--border);
+    background: linear-gradient(135deg, rgba(31, 78, 121, 0.10), rgba(176, 138, 46, 0.06));
+    border: 1px solid var(--border-2);
+    border-radius: var(--radius);
+    padding: 26px 26px 20px;
+    box-shadow: var(--shadow-md);
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 26px;
+}
+
+/* subtle diagonal sheen */
+header::after {
+    content: "";
+    position: absolute;
+    top: -120px;
+    right: -180px;
+    width: 520px;
+    height: 320px;
+    background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.50), transparent 60%);
+    transform: rotate(12deg);
+    pointer-events: none;
 }
 
 header h1 {
-    font-size: 2.35rem;
-    font-weight: normal;
-    margin-bottom: 8px;
-    letter-spacing: -0.4px;
+    font-size: 2.45rem;
+    letter-spacing: -0.6px;
+    color: var(--text);
+    font-weight: 500;
+    margin-bottom: 6px;
 }
 
 header .tagline {
     font-style: italic;
     color: var(--muted);
     margin-bottom: 14px;
+    max-width: 70ch;
+}
+
+nav {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    align-items: center;
 }
 
 nav a {
     color: var(--accent);
     text-decoration: none;
     font-size: 0.95rem;
-    font-weight: 500;
+    font-weight: 600;
+    padding: 6px 10px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.55);
+    border: 1px solid rgba(15, 23, 42, 0.06);
+    box-shadow: var(--shadow-sm);
 }
 
 nav a:hover {
-    text-decoration: underline;
     color: var(--accent-2);
+    background: rgba(255, 255, 255, 0.82);
+    border-color: rgba(31, 78, 121, 0.18);
 }
 
-/* =========================
-   Homepage Banner & Intro
-   ========================= */
+/* ---------- Banner ---------- */
 .banner-wrap {
-    height: 170px;
-    overflow: hidden;
+    height: 180px;
     border-radius: var(--radius);
-    border: 1px solid var(--border);
+    overflow: hidden;
+    border: 1px solid var(--border-2);
+    box-shadow: var(--shadow-md);
     margin: 18px 0 22px 0;
-    background-color: var(--surface);
-    box-shadow: var(--shadow);
+    background: var(--surface);
 }
 
 .banner-img {
@@ -102,48 +149,71 @@ nav a:hover {
     object-fit: cover;
     object-position: center;
     display: block;
+    filter: saturate(1.05) contrast(1.03);
 }
 
 .intro {
-    font-size: 1.05rem;
-    color: #374151;
-    margin-bottom: 40px;
-    max-width: 72ch;
+    max-width: var(--reading-max);
+    font-size: 1.06rem;
+    color: var(--muted);
+    margin: 0 0 22px 0;
 }
 
-/* =========================
-   Post List (index.html)
-   ========================= */
+/* ---------- Main Content Surface ---------- */
+main {
+    margin-top: 14px;
+}
+
+/* Give posts and pages an editorial “card” */
+article {
+    background: rgba(255, 255, 255, 0.92);
+    border: 1px solid var(--border-2);
+    border-radius: var(--radius);
+    padding: 28px 28px;
+    box-shadow: var(--shadow-md);
+    max-width: var(--reading-max);
+}
+
+/* ---------- Index Post List ---------- */
 .post-list {
     list-style: none;
-    margin-top: 10px;
+    margin: 10px 0 0 0;
+    padding: 0;
+    background: rgba(255, 255, 255, 0.92);
+    border: 1px solid var(--border-2);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-md);
+    overflow: hidden;
 }
 
-/* Base item styling */
+/* each list item becomes a “row card” */
 .post-list li {
-    padding: 22px 0;
-    border-bottom: 1px solid var(--border);
+    padding: 18px 22px;
+    border-bottom: 1px solid rgba(15, 23, 42, 0.06);
+    background: transparent;
 }
 
-/* Hover polish */
+.post-list li:last-child {
+    border-bottom: none;
+}
+
 .post-list li:hover {
-    background-color: rgba(58, 95, 125, 0.04);
-    transition: background-color 0.18s ease-in-out;
+    background: rgba(31, 78, 121, 0.05);
+    transition: background 0.18s ease-in-out;
 }
 
-/* Link styling */
 .post-list a {
-    font-size: 1.35rem;
-    color: #111827;
+    font-size: 1.28rem;
+    color: var(--text);
     text-decoration: none;
     line-height: 1.25;
+    font-weight: 600;
 }
 
 .post-list a:hover {
     color: var(--accent);
 }
 
-/* Date styling */
 .post-list .date {
     display: block;
     margin-top: 8px;
@@ -152,385 +222,196 @@ nav a:hover {
     font-style: italic;
 }
 
-/* =========================
-   Featured Post (New: automatic)
-   Feature the newest post by styling the first <li>
-   ========================= */
+/* Featured post (newest = first) */
 .post-list li:first-child {
-    background-color: rgba(58, 95, 125, 0.06);
-    padding: 22px;
-    border-left: 4px solid var(--accent);
-    border-bottom: 1px solid var(--border);
-    border-radius: var(--radius);
-    margin-bottom: 10px;
-    box-shadow: var(--shadow);
+    position: relative;
+    background:
+        linear-gradient(135deg, rgba(31, 78, 121, 0.14), rgba(176, 138, 46, 0.08));
+    border-bottom: 1px solid rgba(15, 23, 42, 0.06);
+}
+
+.post-list li:first-child::before {
+    content: "Featured";
+    position: absolute;
+    top: 14px;
+    right: 18px;
+    font-size: 0.75rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-weight: 800;
+    color: var(--accent-2);
+    background: rgba(255, 255, 255, 0.75);
+    padding: 6px 10px;
+    border-radius: 999px;
+    border: 1px solid rgba(31, 78, 121, 0.18);
 }
 
 .post-list li:first-child a {
-    font-size: 1.55rem;
-    font-weight: 600;
+    font-size: 1.42rem;
+    font-weight: 800;
 }
 
 .post-list li:first-child .date {
-    font-size: 0.98rem;
+    color: rgba(15, 23, 42, 0.75);
 }
 
-/* =========================
-   Backward Compatibility
-   If any older post still has class="featured", remove its special styling
-   (So only the newest is featured.)
-   ========================= */
-.featured {
-    background-color: transparent;
-    padding: 22px 0;
-    border-left: none;
-}
-
+/* Backward compatibility: if any old HTML has class="featured", neutralize it */
+.featured,
 .featured strong {
-    display: none;
+    all: unset;
 }
 
-/* =========================
-   Article Pages (Typography + Hierarchy)
-   ========================= */
+/* ---------- Post Typography ---------- */
 article h2 {
     font-size: 2.05rem;
-    margin-bottom: 8px;
-    letter-spacing: -0.3px;
+    letter-spacing: -0.5px;
+    color: var(--text);
+    margin-bottom: 6px;
 }
 
 article .date {
-    font-size: 0.95rem;
+    font-size: 0.98rem;
     color: var(--muted-2);
     font-style: italic;
-    margin-bottom: 26px;
+    margin-bottom: 22px;
 }
 
 article p {
-    margin-bottom: 1.2em;
+    margin-bottom: 1.1em;
 }
 
-/* Section headings for long-form posts */
+/* strong section hierarchy */
 article h3 {
-    font-size: 1.35rem;
-    margin-top: 1.8em;
-    margin-bottom: 0.6em;
-    color: #111827;
+    margin-top: 1.9em;
+    margin-bottom: 0.65em;
+    font-size: 1.34rem;
+    letter-spacing: -0.2px;
+    color: var(--text);
+    padding-top: 0.9em;
+    border-top: 1px solid rgba(15, 23, 42, 0.08);
+}
+
+article h3:first-of-type {
+    border-top: none;
+    padding-top: 0;
 }
 
 article h4 {
-    font-size: 1.1rem;
-    margin-top: 1.4em;
-    margin-bottom: 0.5em;
-    color: #111827;
+    margin-top: 1.35em;
+    margin-bottom: 0.55em;
+    font-size: 1.12rem;
+    color: var(--text);
 }
 
-/* Lists inside posts */
-article ul,
-article ol {
-    margin: 0.75em 0 1.2em 1.25em;
-}
-
-article li {
-    margin: 0.45em 0;
-}
-
-/* Links inside articles */
+/* ---------- Links (clean, executive) ---------- */
 article a {
     color: var(--accent);
+    text-decoration-thickness: 1px;
+    text-underline-offset: 3px;
 }
 
 article a:hover {
     color: var(--accent-2);
 }
 
-/* =========================
-   Tables (used in fifth post)
-   ========================= */
-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin: 1.25em 0 1.5em 0;
-    font-size: 0.95rem;
-}
-
-thead th {
-    text-align: left;
-    padding: 10px 12px;
-    border-bottom: 1px solid var(--border);
-    color: #111827;
-}
-
-tbody td {
-    padding: 10px 12px;
-    border-bottom: 1px solid var(--border);
-    vertical-align: top;
-    color: #374151;
-}
-
-/* =========================
-   Post Images
-   ========================= */
-.post-hero {
-    width: 100%;
-    margin: 24px 0 12px 0;
-    border-radius: var(--radius);
-    border: 1px solid var(--border);
-    box-shadow: var(--shadow);
-}
-
-article img {
-    max-width: 100%;
-    height: auto;
-}
-
-/* =========================
-   Image Captions
-   ========================= */
-.image-caption {
-    font-size: 0.9rem;
-    color: var(--muted-2);
-    font-style: italic;
-    text-align: center;
-    margin-bottom: 30px;
-}
-
-/* =========================
-   Optional Section Divider
-   ========================= */
-.section-divider {
-    margin: 44px 0;
-    opacity: 0.6;
-}
-
-/* =========================
-   Blockquotes
-   ========================= */
-blockquote {
-    border-left: 4px solid rgba(58, 95, 125, 0.5);
-    background-color: rgba(58, 95, 125, 0.04);
-    padding: 14px 16px;
-    margin: 1.75em 0;
-    color: #374151;
-    font-style: italic;
-    border-radius: 10px;
-}
-
-/* =========================
-   Footer
-   ========================= */
-footer {
-    margin-top: 70px;
-    padding-top: 20px;
-    border-top: 1px solid var(--border);
-    font-size: 0.85rem;
-    color: var(--muted-2);
-    text-align: center;
-}
-/* =========================
-   Post Layout Helpers
-   ========================= */
-.post {
-    margin-top: 6px;
-}
-
-/* =========================
-   Bullet Hierarchy + Spacing
-   ========================= */
-.bullets {
-    margin: 0.8em 0 1.2em 1.25em;
-    padding: 0;
-}
-
-.bullets > li {
-    margin: 0.55em 0;
-}
-
-.bullets.nested {
-    margin-top: 0.6em;
-    margin-bottom: 0.2em;
-    margin-left: 1.25em;
-}
-
-.bullets.nested > li {
-    margin: 0.35em 0;
-}
-
-/* =========================
-   Polished Grid Tables
-   ========================= */
-.grid-table {
-    width: 100%;
-    border-collapse: separate;
-    border-spacing: 0;
-    margin: 1.25em 0 1.6em 0;
-    border: 1px solid #e5e7eb;
-    border-radius: 12px;
-    overflow: hidden;
-    background: #ffffff;
-}
-
-.grid-table thead th {
-    text-align: left;
-    padding: 12px 14px;
-    background: rgba(58, 95, 125, 0.08);
-    color: #111827;
-    border-bottom: 1px solid #e5e7eb;
-    font-weight: 600;
-}
-
-.grid-table tbody td {
-    padding: 12px 14px;
-    border-bottom: 1px solid #e5e7eb;
-    border-right: 1px solid #e5e7eb;
-    vertical-align: top;
-    color: #374151;
-}
-
-.grid-table tbody tr td:last-child {
-    border-right: none;
-}
-
-.grid-table tbody tr:last-child td {
-    border-bottom: none;
-}
-
-.grid-table tbody tr:nth-child(even) td {
-    background: #f9fafb;
-}
-
-.grid-table tbody tr:hover td {
-    background: rgba(58, 95, 125, 0.05);
-}
-/* =========================
-   Fortune-100 Polish Overrides
-   Paste at bottom of style.css
-   ========================= */
-
-/* --- Content spacing rhythm (this fixes “sections not spaced”) --- */
-article.post,
-article {
-    max-width: 74ch;
-}
-
-article p {
-    margin: 0 0 1.05em 0;
-}
-
-article h2 {
-    margin: 0.25em 0 0.15em 0;
-}
-
-article .date {
-    margin-bottom: 1.6em;
-}
-
-article h3 {
-    margin: 2.0em 0 0.6em 0;
-    padding-top: 0.15em;
-    font-size: 1.38rem;
-    letter-spacing: -0.2px;
-}
-
-article h4 {
-    margin: 1.45em 0 0.55em 0;
-    font-size: 1.12rem;
-    letter-spacing: -0.1px;
-}
-
-article h3 + p,
-article h4 + p {
-    margin-top: 0.35em;
-}
-
-/* Elegant divider for long posts (optional, but helps readability) */
-article h3 {
-    border-top: 1px solid rgba(229, 231, 235, 0.9);
-}
-article h3:first-of-type {
-    border-top: none;
-}
-
-
-/* --- Bullet hierarchy + indentation (this fixes “bullets not indenting”) --- */
-/* Apply to ALL lists in articles, even if you forget classes */
+/* ---------- Lists (Bullet hierarchy ALWAYS indents) ---------- */
 article ul,
 article ol {
-    margin: 0.85em 0 1.15em 0;
-    padding-left: 1.35em;              /* force indent back after reset */
-    list-style-position: outside;       /* ensures nested lists visibly indent */
+    margin: 0.85em 0 1.2em 0;
+    padding-left: 1.6em;               /* critical for indentation */
+    list-style-position: outside;
 }
 
 article li {
-    margin: 0.45em 0;
+    margin: 0.5em 0;
 }
 
-/* Stronger indentation for nested lists */
 article ul ul,
 article ol ol,
 article ul ol,
 article ol ul {
     margin-top: 0.6em;
     margin-bottom: 0.2em;
-    padding-left: 1.35em;              /* nested indent */
+    padding-left: 1.6em;               /* deeper indent for hierarchy */
 }
 
-/* Cleaner bullets (Fortune 100 style) */
-article ul {
-    list-style-type: disc;
-}
-article ul ul {
-    list-style-type: circle;
-}
+article ul { list-style-type: disc; }
+article ul ul { list-style-type: circle; }
+article ol { list-style-type: decimal; }
 
-/* If you are using .bullets and .nested classes, keep them consistent */
-.bullets { padding-left: 1.35em; }
-.bullets.nested { padding-left: 1.45em; }
-
-/* Optional: improve readability inside bullet blocks with bold labels */
-article li strong {
-    color: #111827;
+/* Slightly tighter nested items */
+article ul ul li,
+article ol ol li,
+article ul ol li,
+article ol ul li {
+    margin: 0.35em 0;
 }
 
+/* ---------- Blockquotes (flashy but classy) ---------- */
+blockquote {
+    margin: 1.5em 0;
+    padding: 16px 18px;
+    border-radius: var(--radius-sm);
+    border: 1px solid rgba(31, 78, 121, 0.16);
+    border-left: 6px solid rgba(31, 78, 121, 0.65);
+    background:
+        linear-gradient(135deg, rgba(31, 78, 121, 0.09), rgba(176, 138, 46, 0.06));
+    color: rgba(15, 23, 42, 0.85);
+    box-shadow: var(--shadow-sm);
+    font-style: italic;
+}
 
-/* --- Tables: gridlines + subtle color + polished “card” (this fixes “no grids or colors”) --- */
-/* Applies to any table, AND your .grid-table class */
+/* ---------- Images ---------- */
+.post-hero,
+article img {
+    max-width: 100%;
+    height: auto;
+    border-radius: var(--radius);
+    border: 1px solid var(--border-2);
+    box-shadow: var(--shadow-md);
+    margin: 18px 0 12px;
+}
+
+.image-caption {
+    font-size: 0.92rem;
+    color: var(--muted-2);
+    font-style: italic;
+    text-align: center;
+    margin: 0 0 18px 0;
+}
+
+/* ---------- Tables (Grid + color + zebra + hover) ---------- */
 table,
 .grid-table {
     width: 100%;
-    border-collapse: separate;          /* enables rounded corners */
+    border-collapse: separate;
     border-spacing: 0;
-    margin: 1.15em 0 1.5em 0;
-    border: 1px solid #e5e7eb;
-    border-radius: 14px;
+    margin: 1.2em 0 1.6em 0;
+    border: 1px solid rgba(15, 23, 42, 0.10);
+    border-radius: var(--radius);
     overflow: hidden;
-    background: #ffffff;
-    box-shadow: 0 1px 0 rgba(17, 24, 39, 0.04);
+    background: var(--surface);
+    box-shadow: var(--shadow-md);
 }
 
-/* Header row */
 table thead th,
 .grid-table thead th {
     text-align: left;
     padding: 12px 14px;
-    background: linear-gradient(
-        to bottom,
-        rgba(58, 95, 125, 0.14),
-        rgba(58, 95, 125, 0.08)
-    );
-    color: #0f172a;
-    font-weight: 650;
-    border-bottom: 1px solid #e5e7eb;
+    color: var(--text);
+    font-weight: 800;
+    border-bottom: 1px solid rgba(15, 23, 42, 0.10);
+    background:
+        linear-gradient(180deg, rgba(31, 78, 121, 0.16), rgba(31, 78, 121, 0.08));
 }
 
-/* Body cells with visible gridlines */
 table tbody td,
 .grid-table tbody td {
     padding: 12px 14px;
     vertical-align: top;
-    color: #374151;
-    border-bottom: 1px solid #e5e7eb;
-    border-right: 1px solid #e5e7eb;    /* gridline */
+    color: rgba(31, 41, 55, 0.95);
+    border-bottom: 1px solid rgba(15, 23, 42, 0.08);
+    border-right: 1px solid rgba(15, 23, 42, 0.08);
 }
 
 table tbody tr td:last-child,
@@ -543,35 +424,44 @@ table tbody tr:last-child td,
     border-bottom: none;
 }
 
-/* Zebra striping + hover (subtle, executive-safe) */
 table tbody tr:nth-child(even) td,
 .grid-table tbody tr:nth-child(even) td {
-    background: #f9fafb;
+    background: rgba(15, 23, 42, 0.02);
 }
 
 table tbody tr:hover td,
 .grid-table tbody tr:hover td {
-    background: rgba(58, 95, 125, 0.06);
+    background: rgba(31, 78, 121, 0.06);
 }
 
-
-/* --- Blockquote polish (executive feel) --- */
-blockquote {
-    border-left: 5px solid rgba(58, 95, 125, 0.55);
-    background: rgba(58, 95, 125, 0.06);
-    padding: 14px 16px;
-    margin: 1.6em 0;
-    border-radius: 12px;
-    color: #334155;
+/* ---------- Footer ---------- */
+footer {
+    text-align: center;
+    margin-top: 26px;
+    padding: 16px 0 0 0;
+    color: var(--muted-2);
+    font-size: 0.9rem;
 }
 
-/* --- Make long source links look clean --- */
-article a {
-    color: #3a5f7d;
-    text-decoration-thickness: 1px;
-    text-underline-offset: 3px;
-}
-article a:hover {
-    color: #2f4d64;
-}
+/* ---------- Small screens ---------- */
+@media (max-width: 640px) {
+    header {
+        padding: 22px 18px 16px;
+    }
 
+    article {
+        padding: 22px 18px;
+    }
+
+    .post-list li {
+        padding: 16px 16px;
+    }
+
+    .post-list a {
+        font-size: 1.18rem;
+    }
+
+    header h1 {
+        font-size: 2.0rem;
+    }
+}

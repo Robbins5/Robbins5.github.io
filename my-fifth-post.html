@@ -3,12 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rethinking Internal Audit in the Age of AI - Newsletter Name</title>
+    <title>Rethinking Internal Audit in the Age of AI - Applied AI in Internal Audit</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
-        <h1>Newsletter Title</h1>
+        <h1>Applied AI in Internal Audit</h1>
+        <p class="tagline">Exploring how artificial intelligence is reshaping audit, risk, and assurance</p>
         <nav>
             <a href="index.html">Home</a> |
             <a href="about.html">About</a>
@@ -16,7 +17,7 @@
     </header>
 
     <main>
-        <article>
+        <article class="post">
             <h2>Rethinking Internal Audit in the Age of AI</h2>
             <p class="date">February 8, 2026</p>
 
@@ -39,7 +40,7 @@
                 decision-making. This changes what “good” controls look like and how internal audit should test them.
             </p>
 
-            <ul>
+            <ul class="bullets">
                 <li>
                     <strong>Internal audit standards:</strong> The IIA’s Global Internal Audit Standards set expectations for
                     internal audit to support and evaluate governance, risk management, and controls in an evolving risk landscape.
@@ -51,14 +52,13 @@
                     (<a href="https://nvlpubs.nist.gov/nistpubs/ai/nist.ai.100-1.pdf" target="_blank" rel="noopener noreferrer">NIST AI RMF 1.0 (PDF)</a>)
                 </li>
                 <li>
-                    <strong>Internal control foundation:</strong> COSO’s internal control framework continues to emphasize governance,
+                    <strong>Internal control foundation:</strong> COSO’s internal control framework emphasizes governance,
                     information, and monitoring as core components of effective control systems.
                     (<a href="https://www.coso.org/guidance-on-ic" target="_blank" rel="noopener noreferrer">COSO Guidance</a>)
                 </li>
                 <li>
-                    <strong>Disclosure and governance pressure:</strong> While not “AI regulation,” modern disclosure rules and expectations
-                    around cybersecurity risk management, strategy, and governance reinforce that boards and management must demonstrate
-                    oversight of technology-driven risks.
+                    <strong>Disclosure and governance pressure:</strong> Disclosure expectations around cybersecurity risk management,
+                    strategy, and governance reinforce that boards and management must demonstrate oversight of technology-driven risks.
                     (<a href="https://www.sec.gov/newsroom/press-releases/2023-139" target="_blank" rel="noopener noreferrer">SEC Cybersecurity Disclosure Rules (Press Release)</a>)
                 </li>
             </ul>
@@ -99,53 +99,72 @@
             </p>
 
             <h4>1) Pricing and Margin Protection</h4>
-
-            <ul>
+            <ul class="bullets">
                 <li><strong>Business risk:</strong> Margin erosion from inconsistent pricing, excessive discounting, or poor exception management.</li>
                 <li><strong>AI risk:</strong> AI-driven pricing or recommendations systematically favor certain customers, channels, or product groups.</li>
-                <li><strong>Control mapping:</strong> Formal governance for pricing model inputs, approvals for model or rule changes, and outcome monitoring against pricing policy and margin thresholds.</li>
-                <li><strong>Audit testing:</strong> Population-level analysis of pricing outcomes and exceptions, including clustering by user, customer, region, product family, time-of-day, and override reason codes.</li>
+                <li><strong>Control mapping:</strong> Governance for pricing model inputs, approvals for model or rule changes, and outcome monitoring against pricing policy and margin thresholds.</li>
+                <li>
+                    <strong>Audit testing:</strong> Population-level analysis of pricing outcomes and exceptions, including clustering by:
+                    <ul class="bullets nested">
+                        <li>User and role</li>
+                        <li>Customer and customer group</li>
+                        <li>Branch or region</li>
+                        <li>Product family and margin band</li>
+                        <li>Time-of-day and override reason codes</li>
+                    </ul>
+                </li>
             </ul>
 
             <h4>2) Inventory Management and Shrinkage</h4>
-
-            <ul>
+            <ul class="bullets">
                 <li><strong>Business risk:</strong> Shrinkage, misstatements, or stockouts in high-volume warehouses and branch networks.</li>
                 <li><strong>AI risk:</strong> Inventory optimization models amplify errors from incomplete data, poor master data, or manipulated inputs.</li>
-                <li><strong>Control mapping:</strong> Controls over master data changes, inventory parameter updates, exception approvals, and monitoring of inventory adjustments and reversals.</li>
-                <li><strong>Audit testing:</strong> Pattern recognition across movements, adjustments, cycle count results, returns, and delivery outcomes. Focus on repeated exceptions and correlations that indicate leakage.</li>
+                <li><strong>Control mapping:</strong> Controls over master data changes, inventory parameter updates, exception approvals, and monitoring of adjustments and reversals.</li>
+                <li>
+                    <strong>Audit testing:</strong> Pattern recognition across movements, adjustments, cycle counts, returns, and delivery outcomes, with a focus on:
+                    <ul class="bullets nested">
+                        <li>Repeated exceptions by location or user</li>
+                        <li>Unusual reversal patterns</li>
+                        <li>Correlations between inventory adjustments and delivery anomalies</li>
+                    </ul>
+                </li>
             </ul>
 
             <h4>3) Segregation of Duties Across End-to-End Processes</h4>
-
             <p>
                 Many organizations manage order entry, pricing, inventory, billing, and logistics across multiple platforms. When systems
                 operate in silos, segregation of duties conflicts may only become visible when access and activity are analyzed end-to-end.
             </p>
 
-            <ul>
+            <ul class="bullets">
                 <li><strong>Business risk:</strong> Conflicting access enables inappropriate influence, concealment, or fraud across order-to-cash.</li>
-                <li><strong>AI risk:</strong> Automation reduces “friction,” so a single user with broad access can trigger and conceal issues faster.</li>
-                <li><strong>Control mapping:</strong> Cross-system SOD rules, not just single-system roles. Include AI-related privileges such as who can change model settings, thresholds, or exception logic.</li>
-                <li><strong>Audit testing:</strong> Integrated access and activity analysis across systems to identify conflicts and validate that monitoring catches misuse. Test both role conflicts and behavioral conflicts.</li>
+                <li><strong>AI risk:</strong> Automation reduces friction, so a single user with broad access can trigger and conceal issues faster.</li>
+                <li><strong>Control mapping:</strong> Cross-system SOD rules, not just single-system roles. Include privileges that affect model settings, thresholds, or exception logic.</li>
+                <li><strong>Audit testing:</strong> Integrated access and activity analysis across systems to identify conflicts and validate monitoring.</li>
             </ul>
 
             <h4>4) Fraud and Behavioral Risk Detection</h4>
-
-            <ul>
+            <ul class="bullets">
                 <li><strong>Business risk:</strong> Fraud hidden inside normal operations, often revealed by repeated behavior rather than single events.</li>
                 <li><strong>AI risk:</strong> AI tools can mask anomalies by producing plausible outputs, or accelerate override behavior through automation.</li>
-                <li><strong>Control mapping:</strong> Monitoring controls that flag repeated overrides, unusual timing, unusual concentrations of exceptions, and deviations from expected patterns.</li>
-                <li><strong>Audit testing:</strong> Behavioral analytics, clustering, and trend analysis to surface anomalies that warrant investigation, including “near-miss” controls and repeated exception paths.</li>
+                <li>
+                    <strong>Control mapping:</strong> Monitoring controls that flag patterns such as:
+                    <ul class="bullets nested">
+                        <li>Repeated overrides</li>
+                        <li>Unusual timing (after-hours, weekends, end-of-period)</li>
+                        <li>Concentrations of exceptions by user, branch, customer, or product family</li>
+                        <li>Deviations from expected sequences of activity</li>
+                    </ul>
+                </li>
+                <li><strong>Audit testing:</strong> Behavioral analytics, clustering, and trend analysis to surface anomalies that warrant investigation.</li>
             </ul>
 
             <h4>5) Revenue and Billing Accuracy</h4>
-
-            <ul>
+            <ul class="bullets">
                 <li><strong>Business risk:</strong> Delayed or inconsistent billing, pricing mismatches, and downstream revenue leakage.</li>
-                <li><strong>AI risk:</strong> Automated workflows route transactions incorrectly or “optimize” decisions that unintentionally increase billing delays and rework.</li>
+                <li><strong>AI risk:</strong> Automated workflows route transactions incorrectly or optimize decisions that unintentionally increase billing delays and rework.</li>
                 <li><strong>Control mapping:</strong> Reconciliation controls between operational activity and billing outcomes, plus controls over exception handling and queue aging.</li>
-                <li><strong>Audit testing:</strong> End-to-end analytics from order creation to fulfillment to billing to identify lag drivers, recurring failure points, and segments where leakage concentrates.</li>
+                <li><strong>Audit testing:</strong> End-to-end analytics from order creation to fulfillment to billing to identify lag drivers and recurring failure points.</li>
             </ul>
 
             <h3>From Sample Testing to Pattern Recognition</h3>
@@ -160,7 +179,7 @@
 
             <p>
                 A major barrier to effective fraud detection and SOD assurance is fragmented data. ERP, WMS, TMS, customer portals, and third-party tools
-                often operate independently. In a siloed environment, each system can look “fine,” while the end-to-end process contains risk.
+                often operate independently. In a siloed environment, each system can look fine, while the end-to-end process contains risk.
             </p>
 
             <p>
@@ -189,7 +208,7 @@
                 improvement plan rather than an all-or-nothing transformation.
             </p>
 
-            <table>
+            <table class="grid-table">
                 <thead>
                     <tr>
                         <th>Capability Level</th>
@@ -232,7 +251,7 @@
 
             <h3>Key Takeaways for Audit Leaders</h3>
 
-            <ul>
+            <ul class="bullets">
                 <li><strong>Modernize the control matrix:</strong> Add controls over data inputs, model changes, exception logic, and monitoring of outcomes.</li>
                 <li><strong>Strengthen SOD for the real world:</strong> Test cross-system access and behavior, not just single-system roles.</li>
                 <li><strong>Shift testing to scale:</strong> Pair sampling with population-level analytics, trend detection, and exception monitoring.</li>
@@ -241,7 +260,7 @@
             </ul>
 
             <h3>Sources and Frameworks Referenced</h3>
-            <ul>
+            <ul class="bullets">
                 <li>
                     The IIA, Global Internal Audit Standards:
                     <a href="https://www.theiia.org/en/standards/2024-standards/global-internal-audit-standards/" target="_blank" rel="noopener noreferrer">
@@ -271,7 +290,7 @@
     </main>
 
     <footer>
-        <p>&copy; 2026 Student Name</p>
+        <p>&copy; 2026 Nicole Heflin</p>
     </footer>
 </body>
 </html>

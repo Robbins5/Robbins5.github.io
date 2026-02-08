@@ -21,143 +21,257 @@
             <p class="date">February 8, 2026</p>
 
             <p>
-                Artificial intelligence is now embedded across many industrial and distribution environments,
-                supporting forecasting, pricing, inventory management, logistics, and customer-facing processes.
-                As these technologies scale, internal audit must evolve how it evaluates fraud risk, segregation
-                of duties, and operational efficiency in systems that no longer behave in simple or linear ways.
+                Artificial intelligence is increasingly embedded across industrial distribution environments, supporting
+                forecasting, pricing, inventory management, logistics, and customer interactions. As these technologies
+                scale, internal audit must evolve how it evaluates fraud risk, segregation of duties, and operational
+                efficiency in systems that no longer behave in simple or linear ways.
+            </p>
+
+            <blockquote>
+                When systems operate at scale, assurance must operate at scale as well.
+            </blockquote>
+
+            <h3>What Regulators and Best Practices Expect Today</h3>
+
+            <p>
+                The core message across leading frameworks is consistent: accountability does not shift when automated tools
+                are introduced. Organizations remain responsible for outcomes, including those influenced by AI-enabled
+                decision-making. This changes what “good” controls look like and how internal audit should test them.
+            </p>
+
+            <ul>
+                <li>
+                    <strong>Internal audit standards:</strong> The IIA’s Global Internal Audit Standards set expectations for
+                    internal audit to support and evaluate governance, risk management, and controls in an evolving risk landscape.
+                    (<a href="https://www.theiia.org/en/standards/2024-standards/global-internal-audit-standards/" target="_blank" rel="noopener noreferrer">IIA Global Internal Audit Standards</a>)
+                </li>
+                <li>
+                    <strong>AI risk management best practice:</strong> NIST’s AI Risk Management Framework emphasizes governance and
+                    lifecycle management through functions like GOVERN, MAP, MEASURE, and MANAGE.
+                    (<a href="https://nvlpubs.nist.gov/nistpubs/ai/nist.ai.100-1.pdf" target="_blank" rel="noopener noreferrer">NIST AI RMF 1.0 (PDF)</a>)
+                </li>
+                <li>
+                    <strong>Internal control foundation:</strong> COSO’s internal control framework continues to emphasize governance,
+                    information, and monitoring as core components of effective control systems.
+                    (<a href="https://www.coso.org/guidance-on-ic" target="_blank" rel="noopener noreferrer">COSO Guidance</a>)
+                </li>
+                <li>
+                    <strong>Disclosure and governance pressure:</strong> While not “AI regulation,” modern disclosure rules and expectations
+                    around cybersecurity risk management, strategy, and governance reinforce that boards and management must demonstrate
+                    oversight of technology-driven risks.
+                    (<a href="https://www.sec.gov/newsroom/press-releases/2023-139" target="_blank" rel="noopener noreferrer">SEC Cybersecurity Disclosure Rules (Press Release)</a>)
+                </li>
+            </ul>
+
+            <h3>Reframing AI as a Risk Multiplier for Classic Audit Risks</h3>
+
+            <p>
+                AI does introduce new risks, but its most practical impact is how it amplifies familiar audit concerns. AI increases
+                speed, scale, and complexity. That combination can magnify fraud exposure, weaken segregation of duties in subtle ways,
+                and accelerate operational leakage such as margin erosion, shrinkage, and billing delays.
             </p>
 
             <p>
-                Professional standards and regulatory guidance consistently emphasize that accountability does
-                not shift when automated tools are introduced. Organizations remain responsible for outcomes,
-                including those influenced by AI-enabled decision-making. This expectation reshapes how internal
-                audit approaches control design, testing, and assurance.
+                In electrical and communications distribution, this matters because processes are high-volume and tightly connected.
+                Small deviations can compound quickly across pricing, procurement, inventory, logistics, and receivables.
             </p>
 
-            <h3>Regulatory and Professional Expectations for AI and Automation</h3>
+            <h3>Revisiting the Control Matrix for AI-Driven Operations</h3>
 
             <p>
-                Guidance from the
-                :contentReference[oaicite:0]{index=0}
-                reinforces internal audit’s responsibility to evaluate emerging risks, including those related
-                to automation, data integrity, and governance. This includes assessing whether controls keep
-                pace with how technology is actually used in operations.
+                Traditional control matrices often assume stable systems with predictable outcomes. AI can change outcomes over time,
+                sometimes without obvious configuration changes. Control design should shift from one-time checks to controls that
+                emphasize ongoing oversight, accountability, and monitoring of actual outcomes.
             </p>
 
             <p>
-                Frameworks such as the
-                :contentReference[oaicite:1]{index=1}
-                AI Risk Management Framework further highlight expectations around transparency, monitoring,
-                and lifecycle management. While not prescriptive regulation, these principles increasingly
-                shape regulator and stakeholder expectations across industries.
+                Control matrices should explicitly address not only access to transactions, but also who can influence data inputs, model
+                parameters, exception rules, and downstream decisioning. In AI-enabled processes, inappropriate influence is often a stronger
+                risk than a single incorrect transaction.
             </p>
 
-            <h3>Revisiting the Control Matrix for AI-Driven Risk</h3>
+            <h3>Practical Control Mapping Examples in AI-Enabled Environments</h3>
 
             <p>
-                Traditional control matrices were designed around static processes and predictable system
-                behavior. AI introduces adaptive logic that can change outcomes over time, often without
-                obvious configuration changes. As a result, control design must move beyond one-time checks
-                toward controls that emphasize ongoing oversight and accountability.
+                Translating AI risk into auditable controls requires moving from abstract principles to concrete mappings between business
+                processes, system behavior, and assurance objectives. The examples below illustrate how internal audit can adapt traditional
+                control concepts to AI-enabled operations commonly found in distribution environments.
             </p>
 
+            <h4>1) Pricing and Margin Protection</h4>
+
+            <ul>
+                <li><strong>Business risk:</strong> Margin erosion from inconsistent pricing, excessive discounting, or poor exception management.</li>
+                <li><strong>AI risk:</strong> AI-driven pricing or recommendations systematically favor certain customers, channels, or product groups.</li>
+                <li><strong>Control mapping:</strong> Formal governance for pricing model inputs, approvals for model or rule changes, and outcome monitoring against pricing policy and margin thresholds.</li>
+                <li><strong>Audit testing:</strong> Population-level analysis of pricing outcomes and exceptions, including clustering by user, customer, region, product family, time-of-day, and override reason codes.</li>
+            </ul>
+
+            <h4>2) Inventory Management and Shrinkage</h4>
+
+            <ul>
+                <li><strong>Business risk:</strong> Shrinkage, misstatements, or stockouts in high-volume warehouses and branch networks.</li>
+                <li><strong>AI risk:</strong> Inventory optimization models amplify errors from incomplete data, poor master data, or manipulated inputs.</li>
+                <li><strong>Control mapping:</strong> Controls over master data changes, inventory parameter updates, exception approvals, and monitoring of inventory adjustments and reversals.</li>
+                <li><strong>Audit testing:</strong> Pattern recognition across movements, adjustments, cycle count results, returns, and delivery outcomes. Focus on repeated exceptions and correlations that indicate leakage.</li>
+            </ul>
+
+            <h4>3) Segregation of Duties Across End-to-End Processes</h4>
+
             <p>
-                In distribution environments, this has direct implications for fraud and segregation of duties.
-                AI-enabled pricing tools, inventory optimization models, or logistics automation can amplify
-                the impact of inappropriate access or override capabilities. Controls must therefore address
-                not only system access, but also who can influence data inputs, model parameters, and downstream
-                decisions.
+                Many organizations manage order entry, pricing, inventory, billing, and logistics across multiple platforms. When systems
+                operate in silos, segregation of duties conflicts may only become visible when access and activity are analyzed end-to-end.
             </p>
 
+            <ul>
+                <li><strong>Business risk:</strong> Conflicting access enables inappropriate influence, concealment, or fraud across order-to-cash.</li>
+                <li><strong>AI risk:</strong> Automation reduces “friction,” so a single user with broad access can trigger and conceal issues faster.</li>
+                <li><strong>Control mapping:</strong> Cross-system SOD rules, not just single-system roles. Include AI-related privileges such as who can change model settings, thresholds, or exception logic.</li>
+                <li><strong>Audit testing:</strong> Integrated access and activity analysis across systems to identify conflicts and validate that monitoring catches misuse. Test both role conflicts and behavioral conflicts.</li>
+            </ul>
+
+            <h4>4) Fraud and Behavioral Risk Detection</h4>
+
+            <ul>
+                <li><strong>Business risk:</strong> Fraud hidden inside normal operations, often revealed by repeated behavior rather than single events.</li>
+                <li><strong>AI risk:</strong> AI tools can mask anomalies by producing plausible outputs, or accelerate override behavior through automation.</li>
+                <li><strong>Control mapping:</strong> Monitoring controls that flag repeated overrides, unusual timing, unusual concentrations of exceptions, and deviations from expected patterns.</li>
+                <li><strong>Audit testing:</strong> Behavioral analytics, clustering, and trend analysis to surface anomalies that warrant investigation, including “near-miss” controls and repeated exception paths.</li>
+            </ul>
+
+            <h4>5) Revenue and Billing Accuracy</h4>
+
+            <ul>
+                <li><strong>Business risk:</strong> Delayed or inconsistent billing, pricing mismatches, and downstream revenue leakage.</li>
+                <li><strong>AI risk:</strong> Automated workflows route transactions incorrectly or “optimize” decisions that unintentionally increase billing delays and rework.</li>
+                <li><strong>Control mapping:</strong> Reconciliation controls between operational activity and billing outcomes, plus controls over exception handling and queue aging.</li>
+                <li><strong>Audit testing:</strong> End-to-end analytics from order creation to fulfillment to billing to identify lag drivers, recurring failure points, and segments where leakage concentrates.</li>
+            </ul>
+
+            <h3>From Sample Testing to Pattern Recognition</h3>
+
             <p>
-                Control matrices should explicitly consider risks such as conflicting access across order
-                entry, pricing, inventory movement, and credit functions. When AI is involved, these conflicts
-                may not be obvious at the transaction level but can emerge through repeated patterns over time.
+                Many AI-driven risks do not appear as isolated errors. They appear as patterns: repeated overrides, clustering of pricing exceptions,
+                unusual sequences of inventory movements, or recurring billing delays that correlate with specific users, branches, customers, or products.
+                Internal audit should complement traditional sampling with population-level testing, exception monitoring, and trend analysis.
             </p>
 
-            <h3>Fraud, Behavioral Patterns, and Segregation of Duties Testing</h3>
+            <h3>Why Silos Break Assurance, and How Audit Tools Bridge the Gap</h3>
 
             <p>
-                Fraud risks associated with AI-enabled processes often manifest as patterns rather than isolated
-                events. This includes pricing adjustments that consistently benefit specific customers, inventory
-                movements that align with delivery anomalies, or overrides that cluster around certain users or
-                time periods.
-            </p>
-
-            <p>
-                Traditional sample-based testing struggles to detect these risks, particularly in high-volume
-                environments. Internal audit must increasingly rely on population-level testing, behavioral
-                analysis, and pattern recognition to identify anomalies that warrant investigation.
-            </p>
-
-            <p>
-                Segregation of duties testing also requires a broader lens. Many organizations operate across
-                multiple platforms such as ERP systems, logistics tools, and customer portals. When these systems
-                operate in silos, SOD conflicts may only become visible when access and activity are analyzed
-                end-to-end across the full process.
-            </p>
-
-            <h3>Breaking Down Silos Through Audit Analytics</h3>
-
-            <p>
-                One of the most significant challenges in modern audit environments is fragmented data.
-                Operational platforms, financial systems, and third-party tools often operate independently,
-                limiting the organization’s ability to see risk patterns across the full transaction lifecycle.
-            </p>
-
-            <p>
-                Internal audit analytics platforms play a critical role in bridging these gaps. By integrating
-                data across systems, audit teams can evaluate pricing, inventory, billing, and logistics activity
-                as a connected process rather than isolated events. This enables more effective fraud detection,
-                SOD analysis, and identification of inefficiencies that would otherwise remain hidden.
-            </p>
-
-            <p>
-                Pattern recognition techniques allow auditors to identify unusual behaviors, repeated overrides,
-                or process deviations that may indicate control weaknesses, fraud risk, or operational breakdowns.
-                These insights support more targeted testing and more meaningful conversations with management.
-            </p>
-
-            <h3>Identifying Inefficiency and Control Breakdown at Scale</h3>
-
-            <p>
-                Beyond fraud and compliance, AI-enabled audit techniques help identify inefficiencies that can
-                signal deeper control issues. Examples include repeated manual interventions, frequent pricing
-                exceptions, delayed billing, or inventory discrepancies that align with specific operational
-                patterns.
+                A major barrier to effective fraud detection and SOD assurance is fragmented data. ERP, WMS, TMS, customer portals, and third-party tools
+                often operate independently. In a siloed environment, each system can look “fine,” while the end-to-end process contains risk.
             </p>
 
             <p>
-                In distribution environments where margins can be thin and transaction volumes high, small
-                inefficiencies can scale quickly. Internal audit is uniquely positioned to surface these trends
-                by combining process knowledge with analytics-driven testing.
+                Internal audit analytics tools help bridge that gap by integrating data across systems and processes. Instead of testing pricing, inventory,
+                and billing in isolation, audit can evaluate the full transaction lifecycle and detect cross-process patterns that indicate fraud, control
+                breakdowns, or inefficiency. This is where audit becomes more than compliance. It becomes insight at scale.
             </p>
 
-            <h3>Why Investment in Audit Capability Is No Longer Optional</h3>
+            <h3>A Realistic Scenario: How Risk Hides in Plain Sight</h3>
 
             <p>
-                As business units adopt AI and automation rapidly, governance and assurance functions often lag
-                behind. Without adequate tools, data access, and skilled resources, internal audit risks becoming
-                reactive rather than proactive.
-            </p>
-
-            <p>
-                Investment in audit analytics, automation, and training is not about expanding scope unnecessarily.
-                It is about enabling internal audit to provide relevant, credible assurance over systems that
-                increasingly drive financial and operational outcomes.
+                Consider a distribution environment where a pricing tool recommends discounts and a separate workflow allows overrides. Individually,
+                controls look reasonable. However, integrated testing reveals a pattern: overrides cluster around one sales channel, tied to a small set of
+                users, and align with certain customers and product families. Separately, inventory adjustments also increase for the same product group.
             </p>
 
             <p>
-                In the age of AI, internal audit’s effectiveness depends on its ability to see across silos,
-                detect patterns at scale, and evaluate risk as it actually exists. Organizations that prioritize
-                these capabilities position internal audit as a strategic partner rather than a backward-looking
-                control function.
+                None of these signals may trigger concern when reviewed in silos. Together, they suggest a risk story that could include margin leakage,
+                inappropriate override behavior, or control circumvention. This is why pattern recognition and end-to-end visibility matter.
             </p>
+
+            <h3>Control Maturity Progression for Internal Audit in the AI Era</h3>
+
+            <p>
+                A practical way to prioritize investment is to view audit capability as a maturity progression. This frames resourcing as a staged
+                improvement plan rather than an all-or-nothing transformation.
+            </p>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Capability Level</th>
+                        <th>How Assurance Works</th>
+                        <th>What It Can and Cannot Catch</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Traditional</strong></td>
+                        <td>Manual walkthroughs, policy checks, sampling</td>
+                        <td>Catches isolated issues, misses cross-system patterns and drift</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Transitional</strong></td>
+                        <td>Automated testing within individual systems, periodic dashboards</td>
+                        <td>Catches more exceptions, still limited by silos and incomplete lifecycle monitoring</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Advanced</strong></td>
+                        <td>Integrated analytics, behavioral monitoring, continuous or near-continuous assurance</td>
+                        <td>Catches patterns, emerging fraud indicators, SOD conflicts across processes, and efficiency leakage</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Why Investment in Audit Capability Is a Strategic Necessity</h3>
+
+            <p>
+                As operational teams adopt AI and automation rapidly, governance and assurance functions often lag behind. Without adequate tools, data access,
+                and skilled resources, internal audit risks becoming reactive. That gap can reduce leadership’s confidence in assurance and leave the organization
+                exposed to scaled versions of familiar risks.
+            </p>
+
+            <p>
+                Investment in audit analytics, automation, and training is not about expanding scope unnecessarily. It is about enabling internal audit to provide
+                credible assurance at the speed and scale of the business. In the age of AI, audit’s relevance depends on its ability to see across silos, detect
+                patterns, and test controls as they operate in practice.
+            </p>
+
+            <h3>Key Takeaways for Audit Leaders</h3>
+
+            <ul>
+                <li><strong>Modernize the control matrix:</strong> Add controls over data inputs, model changes, exception logic, and monitoring of outcomes.</li>
+                <li><strong>Strengthen SOD for the real world:</strong> Test cross-system access and behavior, not just single-system roles.</li>
+                <li><strong>Shift testing to scale:</strong> Pair sampling with population-level analytics, trend detection, and exception monitoring.</li>
+                <li><strong>Bridge silos:</strong> Use integrated audit analytics to evaluate end-to-end processes and uncover hidden risk patterns.</li>
+                <li><strong>Fund credibility:</strong> Tools and upskilling are required to deliver assurance at the speed of AI-enabled operations.</li>
+            </ul>
+
+            <h3>Sources and Frameworks Referenced</h3>
+            <ul>
+                <li>
+                    The IIA, Global Internal Audit Standards:
+                    <a href="https://www.theiia.org/en/standards/2024-standards/global-internal-audit-standards/" target="_blank" rel="noopener noreferrer">
+                        https://www.theiia.org/en/standards/2024-standards/global-internal-audit-standards/
+                    </a>
+                </li>
+                <li>
+                    NIST AI Risk Management Framework (AI RMF 1.0) (PDF):
+                    <a href="https://nvlpubs.nist.gov/nistpubs/ai/nist.ai.100-1.pdf" target="_blank" rel="noopener noreferrer">
+                        https://nvlpubs.nist.gov/nistpubs/ai/nist.ai.100-1.pdf
+                    </a>
+                </li>
+                <li>
+                    COSO guidance on internal control:
+                    <a href="https://www.coso.org/guidance-on-ic" target="_blank" rel="noopener noreferrer">
+                        https://www.coso.org/guidance-on-ic
+                    </a>
+                </li>
+                <li>
+                    SEC cybersecurity disclosure rules (press release):
+                    <a href="https://www.sec.gov/newsroom/press-releases/2023-139" target="_blank" rel="noopener noreferrer">
+                        https://www.sec.gov/newsroom/press-releases/2023-139
+                    </a>
+                </li>
+            </ul>
         </article>
     </main>
 
     <footer>
-        <p>&copy; 2026 Nicole Heflin</p>
+        <p>&copy; 2026 Student Name</p>
     </footer>
 </body>
 </html>

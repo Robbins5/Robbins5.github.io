@@ -7,318 +7,326 @@
     <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    <header>
-        <h1>Applied AI Observer</h1>
-        <p class="tagline">Research and Coding Assistants in the Enterprise</p>
-        <nav>
-            <a href="index.html">Home</a>
-            <a href="about.html">About</a>
-        </nav>
-    </header>
+<header>
+    <h1>Applied AI Observer</h1>
+    <p class="tagline">Research and Coding Assistants in the Enterprise</p>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+    </nav>
+</header>
 
-    <main>
-        <article>
-            <h2>AI Coding Assistants Are Becoming Control-Critical Tools in Operational Industries</h2>
-            <p class="date">January 25, 2026</p>
+<main>
+    <article>
+        <h2>AI Coding Assistants Are Becoming Control-Critical Tools in Operational Industries</h2>
+        <p class="date">January 25, 2026</p>
 
-            <p>
-                Across operations-heavy industries, AI coding assistants are moving from “developer convenience” to “business-critical capability.”
-                Teams use tools like Microsoft Copilot and Claude to accelerate analytics, automate workflow scripts, generate SQL, and draft system logic
-                that touches purchasing, pricing, inventory, logistics, credit, and financial reporting. In electrical and communications distribution,
-                that matters because small logic changes can scale quickly across thousands of SKUs, customers, locations, and transactions.
-            </p>
+        <p>
+            This series is written for internal audit teams and business leaders who want to adopt AI confidently,
+            without creating blind spots in controls, compliance, customer experience, or decision-making. The intent is
+            practical. Position internal audit as a partner that helps the organization scale AI responsibly and measurably.
+        </p>
 
-            <p>
-                This post is the starting point for the series. It introduces what is changing, why it matters to leadership and internal audit,
-                what internal audit needs to understand to keep pace, and what good governance looks like in practice.
-                The short version is this: AI-enabled logic is not always static, and controls that were designed for traditional scripts and systems
-                can weaken over time if organizations do not manage AI like a living control-impacting capability.
-            </p>
+        <p>
+            AI coding assistants and agent-enabled workflows are moving from “developer convenience” to “business-critical capability.”
+            Teams use tools like Microsoft Copilot and Claude to accelerate analytics, generate SQL and scripts, draft automation logic,
+            and support workflows that touch purchasing, pricing, inventory, logistics, credit, and customer interactions.
+            In electrical and communications distribution, small logic changes can scale quickly across thousands of SKUs, customers,
+            and transactions, which is why this belongs in the control conversation early and consistently.
+        </p>
 
-            <img
-                class="post-hero"
-                src="diagram-controls-around-ai.png"
-                alt="Conceptual diagram showing AI-assisted logic influencing operational systems, third-party platforms, and internal controls"
-            />
-            <p class="image-caption">
-                AI-assisted logic can influence operational decisions and financial outcomes, which makes governance and control design a core assurance issue.
-            </p>
+        <img
+            class="post-hero"
+            src="diagram-controls-around-ai.png"
+            alt="Conceptual diagram showing AI-assisted logic influencing operational systems, third-party platforms, and internal controls"
+        />
+        <p class="image-caption">
+            AI-enabled logic can influence operational outcomes and financial reporting processes, which makes governance and control design an assurance issue.
+        </p>
 
-            <h3>A subtle shift with outsized impact</h3>
-            <p>
-                Traditional automation tends to be deterministic. A script runs the same way until someone changes it.
-                AI-enabled solutions, including machine learning and agent-style workflows, can evolve through configuration changes,
-                model updates, new data inputs, and vendor feature releases. In other words, the “logic” can move even when no one
-                thinks they are changing a control-relevant process.
-            </p>
+        <h3>What is changing</h3>
+        <p>
+            Traditional automation tends to be deterministic. A script runs the same way until someone changes it.
+            Many AI-enabled capabilities behave differently. Machine learning can evolve based on data inputs, usage patterns,
+            configuration changes, and vendor updates. Even when an organization does not “launch an AI project,” AI may still be
+            influencing decisions through embedded features in tools the business already uses.
+        </p>
 
-            <p>
-                That evolution is not inherently bad. In fact, competitors in the distribution space are investing heavily in digital transformation,
-                analytics, and AI-enabled operations to improve productivity and customer experience. The point for leadership is that AI value and AI risk
-                scale together. The point for internal audit is that the control environment must scale with them.
-            </p>
+        <p>
+            This shift matters in distribution environments, where decision support is everywhere. Forecasting, margin guidance,
+            exception routing, ticket triage, customer messaging, and operational analytics increasingly rely on systems that can learn
+            or generate outputs. AI value and AI risk can scale together, and internal audit is well positioned to help leadership keep
+            that scale controlled, documented, and explainable.
+        </p>
 
-            <h3>Why leadership should care</h3>
-            <p>
-                In distribution, operational decisions quickly become financial outcomes. Inventory optimization affects working capital.
-                Pricing logic affects margin. Delivery promises affect customer experience and retention. Quote turnaround affects win rates.
-                When AI is used to draft, modify, or recommend logic within those workflows, there can be downstream financial control implications
-                even if the change began as “just analytics” or “just a productivity tool.”
-            </p>
+        <h3>Why leadership should care</h3>
+        <p>
+            In operational distribution, process decisions become financial outcomes. Pricing logic affects margin, inventory optimization
+            affects working capital, delivery commitments affect customer retention, and quote turnaround influences win rates.
+            AI-supported decisions can shift over time as inputs change. Without clear governance and monitoring, performance can drift and
+            downstream financial controls can be affected without a clear signal that anything “changed.”
+        </p>
 
-            <p>
-                There is also a customer-facing angle that is easy to miss. As organizations experiment with AI agents or AI-assisted communications,
-                these tools can influence customer interactions directly through chat, email drafting, ticket responses, and quoting support.
-                That means the stakes include not only control effectiveness and compliance, but also brand trust and customer experience.
-            </p>
+        <p>
+            There is also a customer-facing dimension. As organizations introduce AI assistance into customer service, quoting,
+            and communications, AI output may reach customers directly. That influences customer experience, contract expectations,
+            and brand trust. Good governance helps the organization innovate while protecting customer relationships.
+        </p>
 
-            <blockquote>
-                A practical governance mindset: AI is not a one-time implementation. It is a capability that requires ongoing oversight, monitoring, and reassessment.
-            </blockquote>
+        <blockquote>
+            A constructive governance mindset: AI is a capability that needs ongoing oversight, not a one-time implementation.
+        </blockquote>
 
-            <h3>What internal audit needs to understand</h3>
-            <p>
-                Internal audit does not need to become a team of data scientists to add value. But audit does need a working understanding of how AI shows up in the business,
-                including where it is embedded quietly. Many third-party software vendors are adding AI features directly into their platforms,
-                so risk is not limited to internally built models or formally announced pilots. If the business uses the software, the business may be using AI,
-                sometimes without calling it that.
-            </p>
+        <h3>What internal audit needs to understand</h3>
+        <p>
+            Internal audit does not need to become a team of data scientists. Audit does need enough fluency to understand where AI shows up,
+            how it can influence decisions, and what “good evidence” looks like in AI-enabled processes.
+            The Institute of Internal Auditors emphasizes that internal audit evaluates governance, risk management, and controls across
+            significant activities. As AI becomes part of those activities, audit scope expands accordingly.
+        </p>
 
-            <p>
-                That is why internal audit should expand its inventory beyond “AI projects” and also track AI-enabled functionality in major systems and tools.
-                The most practical approach is to focus on the workflows that matter, then identify where AI can influence those workflows through:
-            </p>
+        <p>
+            The most important practical shift is this: AI risk is not limited to internally developed models or formally announced pilots.
+            AI is increasingly embedded in third-party platforms, released through product upgrades, and enabled through configuration.
+            If the business uses enterprise software, the business may be using AI, sometimes without calling it that.
+        </p>
 
-            <ul>
-                <li><strong>Data inputs:</strong> what data is used, what is excluded, and how data quality is validated</li>
-                <li><strong>Decision points:</strong> where recommendations or classifications affect pricing, procurement, inventory, or customer commitments</li>
-                <li><strong>Automation points:</strong> where AI-generated outputs are used to execute actions, not just inform humans</li>
-                <li><strong>Change drivers:</strong> who can change prompts, configurations, thresholds, connectors, or permissions</li>
-                <li><strong>Vendor updates:</strong> what changes when the vendor pushes new AI features or model upgrades</li>
-            </ul>
+        <p>
+            For internal audit, the question becomes: where can AI-enabled logic influence operational decisions, customer interactions,
+            or financial outcomes, and do we have controls and evidence that keep those outcomes reliable?
+        </p>
 
-            <h3>Where the risks show up first</h3>
-            <p>
-                This topic is persuasive without being alarmist because the risks are familiar, but they appear in new forms.
-                Internal audit already knows how weak controls lead to losses, errors, and operational breakdowns.
-                AI simply changes the speed, scale, and visibility of those control failures.
-            </p>
+        <h3>What internal audit should track beyond “AI projects”</h3>
+        <p>
+            A practical approach is to start with high-impact workflows and map where AI can influence them. Internal audit can focus on:
+        </p>
 
-            <h4>Fraud and misuse risks increase with capability</h4>
-            <p>
-                AI can reduce effort required to generate convincing messages, manipulate information, or bypass basic review processes.
-                Fraud also becomes easier to disguise when teams rely heavily on auto-generated narratives, summaries, or exception explanations.
-                Occupational fraud remains a material risk for organizations, and AI can amplify both opportunity and concealment.
-            </p>
+        <ul>
+            <li><strong>Data inputs and quality:</strong> what data is used, what is excluded, and how quality and lineage are validated</li>
+            <li><strong>Decision points:</strong> where recommendations or classifications influence pricing, inventory, credit, or customer commitments</li>
+            <li><strong>Automation points:</strong> where AI output triggers actions, not just analysis</li>
+            <li><strong>Change drivers:</strong> who can change prompts, configurations, thresholds, connectors, or permissions</li>
+            <li><strong>Vendor updates:</strong> what changes through release notes, feature toggles, or model upgrades in core platforms</li>
+        </ul>
 
-            <h4>Segregation of duties can blur in modern workflows</h4>
-            <p>
-                In distribution environments, a single role might touch quoting, pricing, order management, credits, returns, and customer communication.
-                As AI is layered into these workflows, the “who did what” evidence trail can get less clear if AI actions and AI-assisted decisions
-                are not logged and attributable. SOD concerns do not disappear. They shift into new interfaces and new permission models.
-            </p>
+        <h3>Where the risks show up first</h3>
+        <p>
+            The risks are familiar, but they appear in new forms. Internal audit already understands how weak controls lead to losses, errors,
+            and operational breakdowns. AI changes speed, scale, and visibility.
+        </p>
 
-            <h4>“Model drift” and input drift can quietly impact financial outcomes</h4>
-            <p>
-                Leadership often expects automation to behave consistently. Machine learning is different.
-                As data patterns shift, customer mix changes, and operational constraints evolve, model outputs can change as well.
-                Without monitoring and periodic revalidation, control performance can degrade while the organization still believes controls are working.
-            </p>
+        <h4>Fraud and misuse risk increases with capability</h4>
+        <p>
+            AI can reduce the effort required to generate convincing messages, manipulate information, or accelerate social engineering.
+            It can also make it easier to create plausible exception narratives and documentation. Fraud risk is not new, but AI can amplify
+            both opportunity and concealment. This is why audit collaboration with cybersecurity, legal, HR, and operations becomes more important.
+        </p>
 
-            <h3>The governance best practice: an AI advisory board</h3>
-            <p>
-                For most organizations, especially those that are not publicly traded but still operate at enterprise scale, the most credible and scalable approach
-                is an AI advisory board (or AI governance council) with clear decision rights. This is not about slowing innovation.
-                It is about ensuring that AI-enabled changes are risk-assessed, documented, tested, and monitored with the same discipline as other control-impacting changes.
-            </p>
+        <h4>Segregation of duties can blur in modern workflows</h4>
+        <p>
+            Distribution roles can touch quoting, pricing, order entry, credits, returns, and customer communications.
+            As AI is layered into workflows, evidence of “who did what” can become less clear if actions are not logged and attributable.
+            Segregation of duties concerns shift into new interfaces, new permissions, and new automation pathways.
+        </p>
 
-            <p>
-                Internal audit should be a standing member or formal advisor to that board because audit is uniquely positioned to connect risks across functions.
-                Operational teams often work in silos by necessity, and many tools create siloed logs and siloed analytics. Audit brings the end-to-end view.
-                That end-to-end view is what enables pattern recognition across a full process, not just within one system.
-            </p>
+        <h4>Drift and quiet change can weaken controls over time</h4>
+        <p>
+            Machine learning behavior can change as data patterns shift and operations evolve.
+            Without monitoring and periodic revalidation, control performance can degrade while teams still believe controls are working.
+            This is one of the key reasons audit should view AI as “living logic” that requires lifecycle oversight.
+        </p>
 
-            <p>
-                At minimum, the advisory board should include leaders from IT, cybersecurity, legal and privacy, risk or compliance, finance,
-                and key operations groups. It should also define how vendor AI capabilities are assessed, not only internally built solutions.
-            </p>
+        <h3>Why internal audit should be positioned as a partner</h3>
+        <p>
+            Internal audit is most effective when it helps the organization adopt AI responsibly and consistently.
+            That partnership role includes translating emerging technology into control expectations leaders already understand:
+            accountability, evidence, testing discipline, and monitoring. It also includes aligning AI initiatives with established governance
+            and risk management practices rather than treating AI as a separate, informal track.
+        </p>
 
-            <h3>Control mapping example: translating AI risk into auditable controls</h3>
-            <p>
-                A practical way to make AI governance real is to map AI-enabled use cases to existing control objectives, then define what must change.
-                Below is an example format internal audit teams can use to update the control matrix without rewriting everything from scratch.
-            </p>
+        <p>
+            The NIST AI Risk Management Framework is a useful reference because it emphasizes governance across the lifecycle of AI systems,
+            including how organizations map, measure, and manage AI risks over time. Even when the organization does not build AI internally,
+            those governance principles remain relevant for vendor features and embedded capabilities.
+        </p>
 
-            <table class="grid-table">
-                <thead>
-                    <tr>
-                        <th>Workflow touchpoint</th>
-                        <th>AI-enabled change</th>
-                        <th>Control objective</th>
-                        <th>Control design update</th>
-                        <th>Evidence and testing examples</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Pricing and margin management</td>
-                        <td>AI suggests price adjustments or discount guidance</td>
-                        <td>Prices align to approved policy and delegation of authority</td>
-                        <td>Require approved guardrails, role-based permissions, and exception thresholds</td>
-                        <td>Sample AI-driven exceptions, confirm approvals, review rule configuration and change logs</td>
-                    </tr>
-                    <tr>
-                        <td>Order entry and customer communications</td>
-                        <td>AI drafts customer-facing responses or resolves tickets</td>
-                        <td>Customer commitments are accurate and consistent with policy</td>
-                        <td>Require approved templates, restricted actions, and retention of AI interaction logs</td>
-                        <td>Test ticket samples, verify response accuracy, verify audit trail and retention settings</td>
-                    </tr>
-                    <tr>
-                        <td>Inventory planning</td>
-                        <td>AI forecasts demand and influences replenishment</td>
-                        <td>Inventory decisions are explainable and monitored for bias or drift</td>
-                        <td>Define monitoring metrics, periodic revalidation cadence, and data quality controls</td>
-                        <td>Review monitoring dashboards, drift alerts, data pipeline controls, and revalidation records</td>
-                    </tr>
-                    <tr>
-                        <td>Finance close and reporting</td>
-                        <td>AI summarizes variances or drafts management commentary</td>
-                        <td>Financial reporting remains accurate and reviewable</td>
-                        <td>Require human review, source traceability, and limits on auto-generated narrative use</td>
-                        <td>Inspect source-to-summary trace, confirm reviewer sign-off, test completeness of inputs</td>
-                    </tr>
-                </tbody>
-            </table>
+        <h3>The governance best practice: an AI advisory board</h3>
+        <p>
+            For many organizations, especially those that are employee-owned and not publicly traded but still operate at enterprise scale,
+            the most scalable best practice is an AI advisory board (or AI governance council) with clear decision rights.
+            This is not about slowing innovation. It is about ensuring AI-enabled changes are risk-assessed, documented, tested, and monitored
+            with the same discipline applied to other control-impacting changes.
+        </p>
 
-            <h3>What internal audit functions should be considering now</h3>
-            <p>
-                Internal audit credibility in this space comes from practicality. The goal is not to audit “AI” as a concept.
-                The goal is to audit how AI changes the risk profile of the organization’s most important workflows.
-                That requires three categories of capability: baseline AI fluency, updated audit procedures, and cross-functional collaboration.
-            </p>
+        <p>
+            Internal audit should be a standing member or formal advisor to the advisory board because audit is uniquely positioned to connect risks across functions.
+            Many enterprise tools operate in silos. Audit’s end-to-end view supports pattern recognition across a full process, not just within one system.
+            That end-to-end view is often what makes the difference between point fixes and durable risk reduction.
+        </p>
 
-            <h4>1) Baseline AI fluency and training expectations</h4>
-            <p>
-                Internal auditors should build a working understanding of AI fundamentals: what machine learning is, what generative AI does,
-                what an “agent” is in an enterprise context, and what common failure modes look like (hallucinations, drift, bias, and weak data lineage).
-                A practical training target is the ability to ask the right questions, evaluate governance artifacts, and recognize when specialists are needed.
-            </p>
+        <p>
+            At minimum, the advisory board should include IT, cybersecurity, legal and privacy, risk or compliance, finance, and operations leadership.
+            It should also define how vendor AI capabilities are assessed, not only internally built solutions.
+            Emerging management-system standards such as ISO/IEC 42001 provide a helpful reference point for what structured AI governance can look like at scale.
+        </p>
 
-            <p>
-                A strong starting set of reference frameworks includes the NIST AI Risk Management Framework for risk language and structure,
-                and emerging management system standards such as ISO/IEC 42001 for how organizations operationalize AI governance.
-                Internal audit can use these frameworks to align expectations without reinventing the wheel.
-            </p>
+        <h3>A control mapping example audit teams can reuse</h3>
+        <p>
+            A practical way to make AI governance real is to map AI-enabled use cases to existing control objectives, then define what must change.
+            This approach modernizes the control matrix without rewriting it from scratch.
+        </p>
 
-            <h4>2) Updating the audit approach and testing procedures</h4>
-            <p>
-                Audit programs and testing procedures should evolve in ways that feel familiar to leadership: controls, evidence, and repeatability.
-                Examples of practical adjustments include:
-            </p>
+        <table class="grid-table">
+            <thead>
+                <tr>
+                    <th>Workflow touchpoint</th>
+                    <th>AI-enabled change</th>
+                    <th>Control objective</th>
+                    <th>Control design update</th>
+                    <th>Evidence and testing examples</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Pricing and margin management</td>
+                    <td>AI suggests price adjustments or discount guidance</td>
+                    <td>Prices align to approved policy and delegation of authority</td>
+                    <td>Approved guardrails, role-based permissions, exception thresholds</td>
+                    <td>Sample exceptions, confirm approvals, review configuration and change logs</td>
+                </tr>
+                <tr>
+                    <td>Order entry and customer communications</td>
+                    <td>AI drafts customer-facing responses or supports order workflow</td>
+                    <td>Customer commitments are accurate and consistent with policy</td>
+                    <td>Approved templates, restricted actions, retention of AI interaction logs</td>
+                    <td>Test tickets and orders, verify accuracy, confirm audit trail and retention settings</td>
+                </tr>
+                <tr>
+                    <td>Inventory planning</td>
+                    <td>AI forecasts demand and influences replenishment</td>
+                    <td>Decisions are explainable and monitored for drift</td>
+                    <td>Monitoring metrics, revalidation cadence, data quality controls</td>
+                    <td>Review monitoring evidence, drift alerts, data pipeline controls, revalidation records</td>
+                </tr>
+                <tr>
+                    <td>Finance close and reporting</td>
+                    <td>AI summarizes variances or drafts management commentary</td>
+                    <td>Financial reporting remains accurate and reviewable</td>
+                    <td>Human review, traceability to source data, limits on automated narrative usage</td>
+                    <td>Inspect traceability, verify reviewer sign-off, test completeness of inputs</td>
+                </tr>
+            </tbody>
+        </table>
 
-            <ul>
-                <li>
-                    <strong>Expand risk assessment procedures</strong>
-                    <ul>
-                        <li>Include AI-enabled features in major systems and vendor platforms used by operations and finance</li>
-                        <li>Identify where AI outputs drive decisions or execute actions, not just inform humans</li>
-                    </ul>
-                </li>
-                <li>
-                    <strong>Update control matrices</strong>
-                    <ul>
-                        <li>Map AI touchpoints to existing control objectives and define what new evidence is required</li>
-                        <li>Add monitoring controls where drift or continuous learning is relevant</li>
-                    </ul>
-                </li>
-                <li>
-                    <strong>Modernize evidence expectations</strong>
-                    <ul>
-                        <li>Require logs and traceability for AI outputs used in operational or financial decisions</li>
-                        <li>Confirm access controls, configuration management, and change management around AI settings and connectors</li>
-                    </ul>
-                </li>
-            </ul>
+        <h3>What internal audit should be building now</h3>
+        <p>
+            Internal audit credibility comes from practicality. The goal is not to audit “AI” as a concept.
+            The goal is to audit how AI changes risk in the organization’s most important workflows.
+            A strong foundation includes baseline AI fluency, updated audit procedures, cross-functional collaboration,
+            and the ability to analyze end-to-end data across systems.
+        </p>
 
-            <h4>3) Staying ahead of fraud and malicious use</h4>
-            <p>
-                Fraud risk is not new, but AI changes the tactics and the speed.
-                Internal audit should partner with cybersecurity, legal, HR, and operations to stay aware of how AI could be used for social engineering,
-                vendor manipulation, identity fraud, and bypassing review workflows. This is also an area where internal audit can be constructive:
-                strengthening preventative controls and detective monitoring helps protect both employees and customers.
-            </p>
+        <h4>Training and capability expectations</h4>
+        <p>
+            A reasonable target for most internal audit teams is a tiered training model: baseline fluency for all auditors,
+            working proficiency for audit leads, and deeper capability for a small group who can partner with technology teams.
+            Training should include common failure modes such as hallucinations, drift, and bias, along with how AI is embedded in enterprise platforms
+            and what governance artifacts are reasonable to request.
+        </p>
 
-            <h4>4) Using AI to scale internal audit responsibly</h4>
-            <p>
-                Audit teams should also consider how AI can enhance audit coverage and scale, especially in complex distribution environments.
-                Even at a high level, leadership should understand that audit can use modern analytics and automation to expand testing scope,
-                detect patterns across systems, and identify anomalies in near real time. This is not about replacing judgment.
-                It is about extending it across larger populations and across process silos.
-            </p>
+        <h4>Audit procedures and evidence expectations</h4>
+        <p>
+            Audit programs should evolve in familiar ways: clearer control design requirements, stronger evidence retention,
+            and testing procedures that address change over time. Examples include expanding risk assessments to include vendor AI features,
+            updating control matrices to reflect AI touchpoints, validating access controls, and reviewing configuration change management.
+        </p>
 
-            <p>
-                Later posts will go deeper into tools and implementation. For now, the key message is that internal audit should build a deliberate strategy
-                for AI-enabled audit work, including guardrails, validation, and documentation so audit’s own use of AI remains defensible and repeatable.
-            </p>
+        <h4>Data access as a prerequisite for credible assurance</h4>
+        <p>
+            As AI-enabled workflows scale, internal audit’s ability to provide assurance increasingly depends on data availability.
+            In modern internal auditing, it is common for audit functions to require access to system data needed for testing,
+            investigation support, and control validation, subject to confidentiality and appropriate safeguards.
+            Without sufficient data access, audit coverage can become sampling-heavy and reactive, which limits the ability to identify patterns,
+            validate control effectiveness, and troubleshoot issues quickly.
+        </p>
 
-            <h3>Where to start this week</h3>
-            <p>
-                If you are new to this topic as an internal audit function, start with three concrete steps:
-            </p>
+        <p>
+            In distribution environments, that data need is amplified by scale and process complexity.
+            Strong audit partnerships typically include clear protocols for audit data access, data extraction support, and consistent definitions,
+            so testing can be performed efficiently across locations, systems, and end-to-end workflows.
+        </p>
 
-            <ol>
-                <li><strong>Stand up an AI advisory board</strong> with internal audit as a standing member or formal advisor.</li>
-                <li><strong>Create an AI capability inventory</strong> that includes vendor platform features, not only internal pilots.</li>
-                <li><strong>Refresh the control matrix</strong> for the highest-impact workflows where AI influences decisions or customer interactions.</li>
-            </ol>
+        <h4>Scaling audit coverage in a cross-silo environment</h4>
+        <p>
+            Many organizations now operate with data distributed across multiple platforms, such as ERP, expense management, corporate cards,
+            procurement, and workflow tools. Risks can span these systems, even when ownership and reporting are siloed.
+            Internal audit can add meaningful value by using analytics and responsible AI assistance to connect signals across systems, identify
+            anomalies at scale, and improve coverage without relying solely on small samples.
+        </p>
 
-            <p>
-                Done well, this positioning builds trust with leadership. It signals that internal audit is enabling responsible adoption,
-                protecting customer experience, and helping the organization scale with confidence.
-            </p>
+        <p>
+            Over time, audit functions often adopt approaches that bring key financial and operational data into a more unified testing view.
+            When that consolidation is paired with analytics and automation, audit can better detect patterns that are not visible within a single system,
+            and can perform faster root-cause analysis when issues occur. Later posts will explore what this can look like in practice, including examples
+            of audit analytics that span multiple source systems.
+        </p>
 
-            <hr class="section-divider" />
+        <h3>Where to start</h3>
+        <p>
+            If you are new to this topic as an internal audit function or leadership team, start with three actions that build confidence:
+        </p>
 
-            <h3>Selected standards and references</h3>
-            <ul>
-                <li>
-                    The Institute of Internal Auditors, <a href="https://www.theiia.org/en/standards/2024-standards/global-internal-audit-standards/" target="_blank" rel="noopener">Global Internal Audit Standards (2024 Edition)</a>
-                    and effective date update (January 2025): <a href="https://www.theiia.org/en/content/communications/press-releases/2025/january/the-iia-celebrates-the-effective-date-of-the-global-internal-audit-standards/" target="_blank" rel="noopener">IIA press release</a>
-                </li>
-                <li>
-                    NIST, <a href="https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.100-1.pdf" target="_blank" rel="noopener">AI Risk Management Framework (AI RMF 1.0)</a>
-                    and overview: <a href="https://www.nist.gov/itl/ai-risk-management-framework" target="_blank" rel="noopener">NIST AI RMF</a>
-                </li>
-                <li>
-                    ISO/IEC 42001 (AI management system standard) overview (explainer): <a href="https://www.a-lign.com/articles/understanding-iso-42001" target="_blank" rel="noopener">Understanding ISO 42001</a>
-                </li>
-                <li>
-                    FTC enforcement context for AI-related claims and conduct: <a href="https://www.ftc.gov/news-events/news/press-releases/2024/09/ftc-announces-crackdown-deceptive-ai-claims-schemes" target="_blank" rel="noopener">FTC press release on deceptive AI claims (Sep 2024)</a>
-                </li>
-                <li>
-                    EU AI Act enters into force (Aug 1, 2024): <a href="https://commission.europa.eu/news-and-media/news/ai-act-enters-force-2024-08-01_en" target="_blank" rel="noopener">European Commission news</a>
-                </li>
-                <li>
-                    ACFE Occupational Fraud 2024, Report to the Nations (industry-wide fraud insights): <a href="https://www.acfe.com/-/media/files/acfe/pdfs/rttn/2024/2024-report-to-the-nations.pdf" target="_blank" rel="noopener">Report PDF</a>
-                    and summary page: <a href="https://legacy.acfe.com/report-to-the-nations/2024/" target="_blank" rel="noopener">ACFE overview</a>
-                </li>
-                <li>
-                    NAED digital transformation context for electrical distribution: <a href="https://www.naed.org/hubfs/NAED_2024-2025_Impact_Report_booklet_4.pdf" target="_blank" rel="noopener">NAED 2024–2025 Impact Report (PDF)</a>
-                </li>
-                <li>
-                    Example of AI focus in the distribution sector: Wesco digital transformation coverage (Feb 2025): <a href="https://www.digitalcommerce360.com/2025/02/12/wesco-500-million-digital-transformation-plans/" target="_blank" rel="noopener">Digital Commerce 360</a>
-                    and industry-facing AI discussion: <a href="https://www.wesco.com/us/en/knowledge-hub/articles/industrial-artificial-intelligence-and-machine-learning.html" target="_blank" rel="noopener">Wesco Knowledge Hub</a>
-                </li>
-                <li>
-                    Example of AI initiatives referenced by an industry peer: <a href="https://www.rexel.com/en/q3-2025-sales" target="_blank" rel="noopener">Rexel Q3 2025 sales update</a>
-                </li>
-            </ul>
-        </article>
-    </main>
+        <ol>
+            <li><strong>Establish an AI advisory board</strong> and define decision rights, evidence expectations, and monitoring requirements.</li>
+            <li><strong>Create an AI capability inventory</strong> that includes vendor platform features, not only internal pilots.</li>
+            <li><strong>Refresh the control matrix for high-impact workflows</strong> where AI influences decisions, transactions, or customer interactions.</li>
+        </ol>
 
-    <footer>
-        <p>&copy; 2026 Nicole Heflin</p>
-    </footer>
+        <p>
+            Done well, this positioning builds trust. It signals that internal audit is enabling responsible adoption,
+            protecting customer experience, and helping leadership scale AI with confidence.
+            If this introduction resonates, the next posts will go deeper into governance structures, audit procedures, and how to operationalize
+            testing at scale in a cross-silo technology environment.
+        </p>
+
+        <hr class="section-divider" />
+
+        <h3>Selected standards and references</h3>
+        <ul>
+            <li>
+                The Institute of Internal Auditors:
+                <a href="https://www.theiia.org/en/standards/2024-standards/global-internal-audit-standards/" target="_blank" rel="noopener">Global Internal Audit Standards (2024)</a>
+                and effective date update:
+                <a href="https://www.theiia.org/en/content/communications/press-releases/2025/january/the-iia-celebrates-the-effective-date-of-the-global-internal-audit-standards/" target="_blank" rel="noopener">IIA press release (Jan 2025)</a>
+            </li>
+            <li>
+                NIST:
+                <a href="https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.100-1.pdf" target="_blank" rel="noopener">AI Risk Management Framework (AI RMF 1.0)</a>
+                and overview:
+                <a href="https://www.nist.gov/itl/ai-risk-management-framework" target="_blank" rel="noopener">NIST AI RMF</a>
+            </li>
+            <li>
+                ISO:
+                <a href="https://www.iso.org/standard/81230.html" target="_blank" rel="noopener">ISO/IEC 42001 overview</a>
+            </li>
+            <li>
+                ACFE:
+                <a href="https://www.acfe.com/report-to-the-nations/2024/" target="_blank" rel="noopener">Occupational Fraud 2024: Report to the Nations</a>
+            </li>
+            <li>
+                FTC enforcement context for AI-related claims and practices:
+                <a href="https://www.ftc.gov/news-events/news/press-releases/2024/09/ftc-announces-crackdown-deceptive-ai-claims-schemes" target="_blank" rel="noopener">FTC press release (Sep 2024)</a>
+            </li>
+            <li>
+                EU AI governance context:
+                <a href="https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai" target="_blank" rel="noopener">EU AI Act regulatory framework</a>
+            </li>
+        </ul>
+    </article>
+</main>
+
+<footer>
+    <p>&copy; 2026 Nicole Heflin</p>
+</footer>
 </body>
 </html>

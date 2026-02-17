@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Practitioner Module 3 | Governance That Works</title>
+  <meta name="description" content="Practitioner Module 3 defines effective AI governance for internal audit: accountability, enforcement mechanisms, logging, monitoring, and why tool approval alone is insufficient." />
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <div class="brand">
+      <a class="brand-link" href="index.html">
+        <div class="brand-title">The AI-Ready Audit</div>
+        <div class="brand-tagline">Architecting Internal Audit for Intelligent Systems</div>
+      </a>
+    </div>
+
+    <nav class="nav" aria-label="Primary">
+      <a class="nav-link" href="index.html">Home</a>
+      <a class="nav-link" href="practitioner-path.html">Practitioner Path</a>
+      <a class="nav-link" href="executive-path.html">Executive Path</a>
+      <a class="nav-link" href="about.html">About</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <!-- Module Header -->
+  <section class="hero" style="padding-top: 50px;">
+    <div class="container hero-grid" style="grid-template-columns: 1fr;">
+      <div class="hero-copy">
+        <p class="pill">Practitioner Module 3</p>
+        <h1 class="hero-title">Governance That Works</h1>
+        <p class="hero-subtitle">
+          Governance is not a policy document. Governance is a system: ownership, guardrails, enforcement, monitoring, and escalation.
+          This module defines what “functional AI governance” looks like for enterprise environments—and how internal audit should evaluate it.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Module Nav (Top) + Executive Summary -->
+  <section class="section" style="padding-top: 0;">
+    <div class="container" style="max-width: 900px;">
+
+      <div class="module-grid" style="grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; margin-bottom: 10px;">
+        <a class="btn btn-secondary" href="practitioner-module-2.html">← Module 2</a>
+        <a class="btn btn-secondary" href="practitioner-path.html">Practitioner Path</a>
+        <a class="btn btn-primary" href="practitioner-module-4.html">Module 4 →</a>
+      </div>
+
+      <div class="module" style="margin-bottom: 16px;">
+        <div class="module-kicker">Executive summary</div>
+        <div class="module-title">What this module establishes</div>
+        <div class="module-desc">
+          AI governance fails when it is treated as tool approval, policy language, or an isolated committee meeting.
+          Functional governance requires defined ownership, enforceable controls, logging and traceability, monitoring signals,
+          and escalation pathways. Internal audit’s role is to assess whether governance exists in practice—not just on paper—and
+          whether the organization can detect, explain, and respond when AI-enabled workflows deviate from expectations.
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Content -->
+  <section class="section">
+    <div class="container" style="max-width: 900px;">
+
+      <h2 class="section-title">1. Why “tool approval” is not governance</h2>
+      <p>
+        Many organizations begin AI governance by approving or rejecting tools. That step is necessary, but it is not sufficient.
+        Tool approval answers a narrow question: “Is this vendor or model allowed?” It does not answer the operational questions that
+        determine risk exposure:
+      </p>
+      <ul style="margin-left: 20px; margin-top: 10px;">
+        <li>Who owns outcomes when AI influences decisions?</li>
+        <li>What data can the tool access and under what constraints?</li>
+        <li>What is logged and what is not?</li>
+        <li>How do exceptions get detected, reviewed, and escalated?</li>
+        <li>How are model changes managed over time?</li>
+      </ul>
+      <p style="margin-top: 10px;">
+        Governance is not a yes/no decision at intake. Governance is a continuous operating discipline.
+      </p>
+
+      <h2 class="section-title" style="margin-top: 40px;">2. A practical definition of AI governance</h2>
+      <p>
+        In practice, AI governance is the enterprise mechanism that ensures:
+      </p>
+      <ul style="margin-left: 20px; margin-top: 10px;">
+        <li><strong>Accountability is assigned</strong> (ownership for decisions and outcomes)</li>
+        <li><strong>Guardrails are enforceable</strong> (technical and procedural controls, not just policy)</li>
+        <li><strong>Behavior is observable</strong> (logging, traceability, monitoring signals)</li>
+        <li><strong>Exceptions are manageable</strong> (review, escalation, remediation pathways)</li>
+        <li><strong>Change is controlled</strong> (versioning, validation, communication, approvals)</li>
+      </ul>
+      <p style="margin-top: 10px;">
+        This definition matters because it shifts governance from “documentation” to “operational capability.”
+      </p>
+
+      <h2 class="section-title" style="margin-top: 40px;">3. Governance starts with ownership and decision rights</h2>
+      <p>
+        The first failure mode in AI governance is unclear ownership. If an AI-enabled workflow produces a flawed recommendation,
+        who is accountable? The vendor? The model? The end user? IT? The business process owner?
+      </p>
+      <p>
+        Functional governance requires explicit decision rights:
+      </p>
+      <ul style="margin-left: 20px; margin-top: 10px;">
+        <li>Who approves deployment?</li>
+        <li>Who owns the process outcomes?</li>
+        <li>Who owns data access decisions?</li>
+        <li>Who owns monitoring and drift response?</li>
+        <li>Who can stop a workflow when risk thresholds are exceeded?</li>
+      </ul>
+      <p style="margin-top: 10px;">
+        If decision rights are unclear, accountability becomes performative. Audit should treat that as a governance gap.
+      </p>
+
+      <h2 class="section-title" style="margin-top: 40px;">4. Governance requires enforceable guardrails</h2>
+      <p>
+        Policies describe what should happen. Guardrails ensure what actually happens. In AI-enabled environments, enforceable guardrails
+        often live in technical architecture:
+      </p>
+      <ul style="margin-left: 20px; margin-top: 10px;">
+        <li><strong>Data access controls</strong> (least privilege, approved sources, restricted datasets)</li>
+        <li><strong>Prompt and context controls</strong> (templates, safe modes, prohibited content)</li>
+        <li><strong>Human-in-the-loop requirements</strong> (review checkpoints before decisions or actions)</li>
+        <li><strong>Output constraints</strong> (confidence thresholds, citations, disclaimers, guardrail rules)</li>
+        <li><strong>System boundaries</strong> (what the tool can and cannot do; what it can and cannot trigger)</li>
+      </ul>
+      <p style="margin-top: 10px;">
+        Audit should evaluate whether guardrails are enforceable. If the controls rely solely on user behavior, governance is weak.
+      </p>
+
+      <h2 class="section-title" style="margin-top: 40px;">5. Logging and traceability are non-negotiable</h2>
+      <p>
+        AI governance without traceability is governance without evidence. If AI influences decisions, audit must be able to establish:
+      </p>
+      <ul style="margin-left: 20px; margin-top: 10px;">
+        <li>What the user asked (prompt and context)</li>
+        <li>What sources were referenced (retrieved data and knowledge bases)</li>
+        <li>What the model produced (output)</li>
+        <li>What version of the model/tool was used</li>
+        <li>What actions were taken as a result</li>
+      </ul>
+      <p style="margin-top: 10px;">
+        If these artifacts are not logged, organizations cannot reliably investigate incidents, validate compliance, or evaluate control performance.
+      </p>
+
+      <h2 class="section-title" style="margin-top: 40px;">6. Monitoring turns governance into an operating system</h2>
+      <p>
+        Governance must be able to detect deviations. That requires monitoring. The monitoring question is not “do we have dashboards?”
+        It is: “Do we have risk signals?”
+      </p>
+      <p>
+        Practical governance monitoring includes:
+      </p>
+      <ul style="margin-left: 20px; margin-top: 10px;">
+        <li><strong>Usage patterns:</strong> who is using AI tools, how often, and for what purposes</li>
+        <li><strong>Data access signals:</strong> what sensitive data is being referenced or retrieved</li>
+        <li><strong>Exception indicators:</strong> outputs that violate policy thresholds or require review</li>
+        <li><strong>Model drift signals:</strong> performance degradation, error rates, changing outcomes</li>
+        <li><strong>Escalation volume:</strong> incidents, override frequency, control failures, remediation status</li>
+      </ul>
+      <p style="margin-top: 10px;">
+        Monitoring is how governance becomes real. Without it, governance is simply an intent statement.
+      </p>
+
+      <h2 class="section-title" style="margin-top: 40px;">7. Escalation pathways define whether governance can respond</h2>
+      <p>
+        Governance must include response. When risk signals show a deviation, what happens next?
+      </p>
+      <p>
+        Effective escalation pathways define:
+      </p>
+      <ul style="margin-left: 20px; margin-top: 10px;">
+        <li>Who reviews exceptions</li>
+        <li>What thresholds trigger review</li>
+        <li>How quickly response is required (SLA expectations)</li>
+        <li>Who can pause a workflow or disable access</li>
+        <li>How remediation is documented and verified</li>
+      </ul>
+      <p style="margin-top: 10px;">
+        When escalation is unclear, organizations either ignore exceptions or respond inconsistently. Both outcomes increase audit risk.
+      </p>
+
+      <h2 class="section-title" style="margin-top: 40px;">8. How internal audit should evaluate AI governance</h2>
+      <p>
+        Internal audit should evaluate governance as an operational capability. The assessment lens should include:
+      </p>
+      <ul style="margin-left: 20px; margin-top: 10px;">
+        <li><strong>Design:</strong> Is ownership, decision rights, and governance structure defined?</li>
+        <li><strong>Enforcement:</strong> Are guardrails technical and enforceable, not just policy-based?</li>
+        <li><strong>Observability:</strong> Can AI behavior be traced and reconstructed?</li>
+        <li><strong>Monitoring:</strong> Do meaningful risk signals exist and are they reviewed?</li>
+        <li><strong>Response:</strong> Are exceptions escalated and remediated consistently?</li>
+        <li><strong>Change control:</strong> Are model and tool changes validated and approved?</li>
+      </ul>
+      <p style="margin-top: 10px;">
+        The goal is not to slow AI adoption. The goal is to ensure adoption remains controllable, accountable, and auditable.
+      </p>
+
+      <div class="module" style="margin-top: 34px;">
+        <div class="module-kicker">Next module</div>
+        <div class="module-title">Module 4: Risk and control implications</div>
+        <div class="module-desc">
+          Module 4 translates governance into control categories: data risk, model risk, access risk, output integrity, process integrity,
+          and how these show up as practical control design expectations.
+        </div>
+        <div style="margin-top: 12px;">
+          <a class="btn btn-primary" href="practitioner-module-4.html">Continue to Module 4 →</a>
+        </div>
+      </div>
+
+      <!-- Module Nav (Bottom) -->
+      <div style="margin-top: 26px;">
+        <div class="module-grid" style="grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px;">
+          <a class="btn btn-secondary" href="practitioner-module-2.html">← Module 2</a>
+          <a class="btn btn-secondary" href="practitioner-path.html">Practitioner Path</a>
+          <a class="btn btn-primary" href="practitioner-module-4.html">Module 4 →</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="container footer-inner">
+    <div>
+      <div class="footer-brand">The AI-Ready Audit</div>
+      <div class="footer-note">Thought leadership on internal audit strategy for intelligent systems.</div>
+    </div>
+  </div>
+  <div class="container footer-bottom">
+    <p>&copy; 2026 Nicole Heflin</p>
+  </div>
+</footer>
+
+</body>
+</html>

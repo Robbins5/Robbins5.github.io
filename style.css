@@ -1,112 +1,678 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>The AI-Ready Audit</title>
-  <meta name="description" content="AI governance and internal audit strategy for applied enterprise AI." />
-  <link rel="stylesheet" href="style.css" />
-</head>
+/* ============================================================
+   The AI-Ready Audit — Monochrome Editorial UI
+   Black/White foundation + subtle accent (minimal, controlled)
+   ============================================================ */
 
-<body>
-  <div class="page-frame">
+/* -------------------- Reset -------------------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-    <header class="site-header">
-      <div class="header-top">
-        <div>
-          <h1 class="site-title">The AI-Ready Audit</h1>
-          <p class="tagline">Applied AI governance and audit strategy for the enterprise</p>
-        </div>
+/* -------------------- Design System -------------------- */
+:root {
+  /* Layout widths */
+  --page-max: 1280px;       /* outer frame */
+  --content-max: 1160px;    /* content container */
+  --reading-max: 86ch;      /* readable measure */
 
-        <nav class="site-nav" aria-label="Primary">
-          <a class="nav-link" href="index.html">Home</a>
-          <a class="nav-link" href="about.html">About</a>
-        </nav>
-      </div>
+  /* Monochrome base */
+  --bg: #f7f7f7;
+  --surface: #ffffff;
+  --surface-2: #f1f1f1;
 
-      <div class="hero">
-        <div class="hero-copy">
-          <p class="eyebrow">Internal audit + enterprise AI governance</p>
-          <h2 class="hero-title">Practical oversight for AI that’s already in the business.</h2>
-          <p class="hero-subtitle">
-            Research tools, coding assistants, and agent-driven workflows are changing how decisions get made.
-            This newsletter translates that shift into concrete governance expectations, audit strategy, and
-            control-ready implementation.
-          </p>
+  /* Text */
+  --text: #111111;          /* headings */
+  --body: #2b2b2b;          /* body */
+  --muted: #555555;
+  --muted-2: #777777;
 
-          <div class="hero-cta">
-            <a class="btn btn-primary" href="my-sixth-post.html">Start with the thesis</a>
-            <a class="btn btn-secondary" href="about.html">About</a>
-            <a class="btn btn-secondary" href="#latest">View all posts</a>
-          </div>
-        </div>
+  /* Borders + shadows */
+  --border: rgba(0, 0, 0, 0.14);
+  --border-soft: rgba(0, 0, 0, 0.08);
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.06);
+  --shadow-md: 0 18px 60px rgba(0, 0, 0, 0.10);
 
-        <div class="hero-media" aria-hidden="true">
-          <div class="banner-wrap">
-            <img
-              class="banner-img"
-              src="banner-ai-ready-audit.jpg"
-              alt="Monochrome banner image representing enterprise AI governance and audit oversight">
-          </div>
-        </div>
-      </div>
-    </header>
+  /* Accent (use sparingly) */
+  --accent: #8c6f3f;        /* muted gold */
+  --accent-2: #6f572f;
+  --accent-soft: rgba(140, 111, 63, 0.10);
 
-    <main>
-      <!-- Executive intro -->
-      <section class="intro">
-        <p>
-          <strong>The AI-Ready Audit</strong> is an internal audit and enterprise governance lens on applied AI.
-          Each post translates emerging capabilities into practical implications for controls, testing,
-          risk oversight, and scalable assurance in operational environments.
-        </p>
-      </section>
+  /* Radius */
+  --radius: 12px;
+  --radius-sm: 8px;
 
-      <!-- Posts -->
-      <section class="posts" id="latest" aria-label="Posts">
-        <div class="posts-header">
-          <h2 class="section-title">Current perspectives</h2>
-        </div>
+  /* Spacing scale */
+  --s1: 6px;
+  --s2: 10px;
+  --s3: 16px;
+  --s4: 24px;
+  --s5: 36px;
+  --s6: 54px;
+}
 
-        <!-- REQUIRED: scraper reads this list -->
-        <ul class="post-list">
-          <li>
-            <a href="my-sixth-post.html">Redefining Internal Audit in a Period of System Change, Scale, and Rising Expectations</a>
-            <span class="date">February 15, 2026</span>
-          </li>
+/* -------------------- Page Base -------------------- */
+body {
+  font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Arial, "Noto Sans", "Liberation Sans", sans-serif;
+  line-height: 1.65;
+  letter-spacing: 0.1px;
+  color: var(--body);
+  background: var(--bg);
+  padding: var(--s4) 14px var(--s6);
+}
 
-          <li>
-            <a href="my-fifth-post.html">Rethinking Internal Audit in the Age of AI</a>
-            <span class="date">February 8, 2026</span>
-          </li>
+/* Perimeter frame */
+.page-frame {
+  max-width: var(--page-max);
+  margin: 0 auto;
+  padding: 18px;
 
-          <li>
-            <a href="my-fourth-post.html">How Internal Audit Is Adapting to Audit AI-Enabled and Agent-Driven Processes</a>
-            <span class="date">February 1, 2026</span>
-          </li>
+  border: 1px solid var(--border-soft);
+  border-radius: calc(var(--radius) + 10px);
 
-          <li>
-            <a href="my-third-post.html">AI Governance Requires Industry-Specific Structures, Not Just Tool Approval</a>
-            <span class="date">January 25, 2026</span>
-          </li>
+  background: rgba(255,255,255,0.40);
+  box-shadow: 0 18px 70px rgba(0,0,0,0.10);
+}
 
-          <li>
-            <a href="my-second-post.html">AI Research Tools Are Influencing Decision-Making Without Formal Oversight</a>
-            <span class="date">January 25, 2026</span>
-          </li>
+/* Keep header/main/footer aligned and wide */
+header, main, footer {
+  max-width: var(--content-max);
+  margin: 0 auto;
+}
 
-          <li>
-            <a href="my-first-post.html">Internal Audit’s Role in an AI-Enabled Operating Model</a>
-            <span class="date">January 25, 2026</span>
-          </li>
-        </ul>
-      </section>
-    </main>
+/* -------------------- Global Links -------------------- */
+a {
+  color: var(--text);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
 
-    <footer>
-      <p>&copy; 2026 Nicole Heflin</p>
-    </footer>
+a:hover {
+  color: var(--accent-2);
+}
 
-  </div>
-</body>
-</html>
+/* -------------------- Header -------------------- */
+.site-header {
+  background: var(--surface);
+  border: 1px solid var(--border-soft);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-md);
+
+  padding: 24px 24px 18px;
+  margin-bottom: var(--s4);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Editorial top rule (no blue) */
+.site-header::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 4px;
+  width: 100%;
+  background: linear-gradient(90deg, #111111, #2a2a2a);
+}
+
+/* Header layout */
+.header-top {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--s4);
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+.site-title {
+  font-size: 2.35rem;
+  letter-spacing: -0.6px;
+  color: var(--text);
+  font-weight: 900;
+  line-height: 1.1;
+}
+
+.tagline {
+  margin-top: 6px;
+  color: var(--muted);
+  font-size: 1.02rem;
+  max-width: 80ch;
+}
+
+/* Nav */
+.site-nav {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.nav-link {
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: var(--text);
+
+  padding: 8px 12px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: rgba(255,255,255,0.92);
+  box-shadow: var(--shadow-sm);
+}
+
+.nav-link:hover {
+  border-color: rgba(0,0,0,0.22);
+  color: var(--accent-2);
+}
+
+/* -------------------- Hero -------------------- */
+.hero {
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: var(--s5);
+  align-items: center;
+  margin-top: var(--s4);
+}
+
+.eyebrow {
+  display: inline-block;
+  font-size: 0.82rem;
+  font-weight: 900;
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
+
+  color: var(--text);
+  background: var(--surface-2);
+  border: 1px solid var(--border-soft);
+
+  padding: 6px 10px;
+  border-radius: 999px;
+  margin-bottom: var(--s3);
+}
+
+.hero-title {
+  font-size: 2.0rem;
+  line-height: 1.15;
+  letter-spacing: -0.5px;
+  color: var(--text);
+  font-weight: 950;
+  margin-bottom: var(--s3);
+}
+
+.hero-subtitle {
+  color: var(--muted);
+  font-size: 1.05rem;
+  max-width: 72ch;
+  margin-bottom: var(--s4);
+}
+
+.hero-cta {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+/* Buttons */
+.btn {
+  display: inline-block;
+  text-decoration: none;
+  font-weight: 900;
+  font-size: 0.95rem;
+  padding: 10px 14px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-sm);
+}
+
+.btn-primary {
+  background: #111111;
+  border-color: #111111;
+  color: #ffffff;
+}
+
+.btn-primary:hover {
+  background: #2a2a2a;
+  border-color: #2a2a2a;
+  color: #ffffff;
+}
+
+.btn-secondary {
+  background: #ffffff;
+  color: var(--text);
+}
+
+.btn-secondary:hover {
+  border-color: rgba(0,0,0,0.22);
+  color: var(--accent-2);
+}
+
+/* Banner inside hero */
+.banner-wrap {
+  height: 220px;
+  border-radius: var(--radius);
+  overflow: hidden;
+
+  border: 1px solid var(--border-soft);
+  box-shadow: var(--shadow-md);
+  background: var(--surface);
+}
+
+.banner-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+
+  /* match the classy B/W vibe */
+  filter: grayscale(100%) contrast(1.06) brightness(1.02);
+  transform: scale(1.01);
+}
+
+/* subtle hover—still classy */
+.banner-wrap:hover .banner-img {
+  filter: grayscale(90%) contrast(1.06) brightness(1.02);
+}
+
+/* -------------------- KPI Grid (kept for other pages) -------------------- */
+.kpi-grid {
+  margin: var(--s5) 0 var(--s4);
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--s3);
+}
+
+.kpi-card {
+  background: var(--surface);
+  border: 1px solid var(--border-soft);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+  padding: 16px 16px 14px;
+}
+
+.kpi-label {
+  font-size: 0.82rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted-2);
+  font-weight: 900;
+  margin-bottom: 8px;
+}
+
+.kpi-value {
+  font-size: 1.05rem;
+  color: var(--text);
+  font-weight: 900;
+  margin-bottom: 6px;
+}
+
+.kpi-note {
+  font-size: 0.95rem;
+  color: var(--muted);
+  line-height: 1.45;
+}
+
+/* -------------------- Intro -------------------- */
+.intro {
+  background: var(--surface);
+  border: 1px solid var(--border-soft);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+  padding: 18px 20px;
+  margin-bottom: var(--s4);
+}
+
+.intro p {
+  color: var(--muted);
+  font-size: 1.02rem;
+  line-height: 1.75;
+}
+
+/* -------------------- Section Title -------------------- */
+.posts-header {
+  margin: var(--s4) 0 var(--s3);
+}
+
+.section-title {
+  font-size: 1.28rem;
+  letter-spacing: -0.2px;
+  color: var(--text);
+  font-weight: 950;
+}
+
+/* -------------------- Post List -------------------- */
+.post-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+
+  background: var(--surface);
+  border: 1px solid var(--border-soft);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-md);
+  overflow: hidden;
+}
+
+.post-list li {
+  padding: 18px 20px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.post-list li:last-child {
+  border-bottom: none;
+}
+
+.post-list li:hover {
+  background: rgba(0,0,0,0.03);
+  transition: background 0.18s ease-in-out;
+}
+
+.post-list a {
+  display: inline-block;
+  font-size: 1.18rem;
+  color: var(--text);
+  text-decoration: none;
+  line-height: 1.25;
+  font-weight: 950;
+  padding-right: 80px; /* keeps text from overlapping Featured badge */
+}
+
+.post-list a:hover {
+  color: var(--accent-2);
+}
+
+.post-list .date {
+  display: block;
+  margin-top: 8px;
+  font-size: 0.92rem;
+  color: var(--muted-2);
+}
+
+/* Featured newest post (neutral, not blue) */
+.post-list li:first-child {
+  position: relative;
+  background: #f0f0f0;
+}
+
+.post-list li:first-child::before {
+  content: "Featured";
+  position: absolute;
+  top: 14px;
+  right: 16px;
+
+  font-size: 0.74rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-weight: 900;
+
+  color: #111111;
+  background: rgba(255, 255, 255, 0.96);
+  padding: 6px 10px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+}
+
+/* Backward compatibility */
+.featured strong { display: none; }
+
+/* ============================================================
+   ARTICLE PAGES (long-form readability + monochrome tables)
+   ============================================================ */
+
+article {
+  background: var(--surface);
+  border: 1px solid var(--border-soft);
+  border-radius: var(--radius);
+  padding: 40px 40px 46px;
+  box-shadow: var(--shadow-md);
+  max-width: 100%;
+}
+
+/* Serif body for long-form authority */
+article p,
+article li,
+article blockquote {
+  font-family: Georgia, serif;
+  letter-spacing: 0;
+}
+
+/* Center readable blocks */
+article p,
+article ul,
+article ol,
+article blockquote,
+article table,
+article h2,
+article h3,
+article h4,
+article .date,
+.post-subtitle,
+.image-caption {
+  max-width: var(--reading-max);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.post-header {
+  margin-bottom: 2.5rem;
+}
+
+.post-subtitle {
+  color: var(--muted);
+  font-size: 1.08rem;
+  line-height: 1.6;
+  font-weight: 600;
+  margin-top: 10px;
+}
+
+article h2 {
+  font-size: 2.15rem;
+  letter-spacing: -0.6px;
+  color: var(--text);
+  font-weight: 950;
+  margin-bottom: 10px;
+}
+
+article h3 {
+  margin-top: 2.8rem;
+  margin-bottom: 0.75rem;
+  font-size: 1.5rem;
+  letter-spacing: -0.3px;
+  color: var(--text);
+}
+
+article h4 {
+  margin-top: 1.7rem;
+  margin-bottom: 0.6rem;
+  font-size: 1.15rem;
+  font-weight: 900;
+  color: var(--text);
+}
+
+article p {
+  margin-bottom: 1.25rem;
+  color: rgba(43, 43, 43, 0.96);
+  line-height: 1.75;
+}
+
+/* Lists */
+article ul,
+article ol {
+  margin: 1rem auto 1.4rem auto;
+  padding-left: 1.7em;
+}
+
+article li {
+  margin: 0.55rem 0;
+  line-height: 1.7;
+}
+
+/* Links inside article */
+article a {
+  color: var(--accent-2);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+
+article a:hover {
+  color: var(--text);
+}
+
+/* Blockquotes */
+blockquote {
+  margin: 2rem auto;
+  padding: 18px 20px;
+  border-radius: var(--radius-sm);
+  border-left: 5px solid #111111;
+  background: rgba(0,0,0,0.03);
+  font-style: italic;
+}
+
+/* Images */
+article img,
+.post-hero {
+  width: 100%;
+  display: block;
+  max-height: 360px;
+  object-fit: cover;
+  object-position: center;
+  border-radius: var(--radius);
+  border: 1px solid var(--border-soft);
+  box-shadow: var(--shadow-md);
+  margin: 14px auto 10px auto;
+}
+
+article img.diagram {
+  max-height: 560px;
+  object-fit: contain;
+  background: var(--surface);
+}
+
+.image-caption {
+  font-size: 0.92rem;
+  color: var(--muted-2);
+  font-style: italic;
+  text-align: center;
+  margin: 0 auto 18px auto;
+}
+
+/* Tables (monochrome, no blue header wash) */
+table,
+.grid-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  margin: 1.2em auto 1.6em auto;
+  border: 1px solid rgba(0, 0, 0, 0.14);
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: var(--surface);
+  box-shadow: var(--shadow-md);
+}
+
+table thead th,
+.grid-table thead th {
+  text-align: left;
+  padding: 12px 14px;
+  color: var(--text);
+  font-weight: 950;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.14);
+  background: #f0f0f0;
+}
+
+table tbody td,
+.grid-table tbody td {
+  padding: 12px 14px;
+  vertical-align: top;
+  color: rgba(43, 43, 43, 0.95);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.09);
+  border-right: 1px solid rgba(0, 0, 0, 0.09);
+}
+
+table tbody tr td:last-child,
+.grid-table tbody tr td:last-child {
+  border-right: none;
+}
+
+table tbody tr:last-child td,
+.grid-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+table tbody tr:nth-child(even) td,
+.grid-table tbody tr:nth-child(even) td {
+  background: rgba(0, 0, 0, 0.02);
+}
+
+table tbody tr:hover td,
+.grid-table tbody tr:hover td {
+  background: rgba(0, 0, 0, 0.03);
+}
+
+/* -------------------- Footer -------------------- */
+footer {
+  text-align: center;
+  margin-top: var(--s5);
+  padding-top: var(--s3);
+  color: var(--muted-2);
+  font-size: 0.92rem;
+}
+
+/* -------------------- Responsive -------------------- */
+@media (max-width: 980px) {
+  .hero {
+    grid-template-columns: 1fr;
+  }
+
+  .kpi-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .banner-wrap {
+    height: 200px;
+  }
+}
+
+@media (max-width: 640px) {
+  body {
+    padding: 18px 10px 30px;
+  }
+
+  .page-frame {
+    padding: 12px;
+  }
+
+  .site-header {
+    padding: 20px 16px 14px;
+  }
+
+  .site-title {
+    font-size: 2.0rem;
+  }
+
+  .hero-title {
+    font-size: 1.7rem;
+  }
+
+  article {
+    padding: 28px 18px 36px;
+  }
+
+  .kpi-grid {
+    grid-template-columns: 1fr;
+  }
+
+  article img,
+  .post-hero {
+    max-height: 280px;
+  }
+
+  article h2 {
+    font-size: 1.8rem;
+  }
+
+  article h3 {
+    font-size: 1.3rem;
+  }
+}

@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Practitioner Module | New Audit Questions & Walkthrough Redesign</title>
+  <meta name="description" content="A practitioner playbook: how internal audit redesigns walkthroughs and fieldwork questions in transitionary, system-driven environments—moving toward population signals and continuous assurance." />
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <div class="brand">
+      <a class="brand-link" href="index.html">
+        <div class="brand-title">The AI-Ready Audit</div>
+        <div class="brand-tagline">Architecting Internal Audit for Intelligent Systems</div>
+      </a>
+    </div>
+
+    <nav class="nav" aria-label="Primary">
+      <a class="nav-link" href="index.html">Home</a>
+      <a class="nav-link" href="practitioner-path.html">Practitioner Path</a>
+      <a class="nav-link" href="executive-path.html">Executive Path</a>
+      <a class="nav-link" href="about.html">About</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <!-- HERO -->
+  <section class="hero" style="padding-top: 50px;">
+    <div class="container hero-grid" style="grid-template-columns: 1fr;">
+      <div class="hero-copy">
+        <p class="pill">Practitioner Module</p>
+        <h1 class="hero-title">New Audit Questions & Walkthrough Redesign</h1>
+        <p class="hero-subtitle">
+          In transitionary environments, audit success depends on asking better questions.
+          Traditional walkthroughs often validate documentation that lags behind reality.
+          This module provides an internal audit playbook: how to redesign walkthroughs, adjust evidence expectations,
+          and move from sample-based comfort toward population signals and exception discipline—without losing audit continuity.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- NAV + SUMMARY -->
+  <section class="section" style="padding-top: 0;">
+    <div class="container" style="max-width: 900px;">
+
+      <div class="module-grid" style="grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; margin-bottom: 10px;">
+        <a class="btn btn-secondary" href="practitioner-module-transition.html">← Transition module</a>
+        <a class="btn btn-secondary" href="practitioner-path.html">Practitioner Path</a>
+        <a class="btn btn-primary" href="practitioner-module-10-evidence.html">Next: Evidence →</a>
+      </div>
+
+      <div class="module" style="margin-bottom: 16px;">
+        <div class="module-kicker">Executive summary</div>
+        <div class="module-title">What changes in walkthroughs</div>
+        <div class="module-desc">
+          Walkthroughs must expand from “show me the procedure” to “show me how the system behaves.”
+          In system-driven operating models, the risk is often introduced upstream (configuration, roles, integrations, embedded logic)
+          and revealed downstream (margin drift, forecast variance, service degradation). This module provides a set of audit questions
+          designed to validate traceability, ownership, monitoring readiness, and exception discipline aligned to COSO and internal audit standards.
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CONTENT -->
+  <section class="section">
+    <div class="container" style="max-width: 900px;">
+
+      <h2 class="section-title">1. The walkthrough goal shifts: from compliance narrative to operational truth</h2>
+      <p>
+        In transition periods, documentation often reflects the intended design while teams operate in the actual design.
+        The walkthrough objective becomes reconstructing the decision and execution pathway: what data was used, what rules were applied,
+        what approvals occurred, what exceptions were generated, and what monitoring exists to detect drift.
+      </p>
+
+      <div class="module" style="margin-top: 18px;">
+        <div class="module-kicker">Walkthrough rule</div>
+        <div class="module-title">If audit cannot reconstruct how an outcome was produced, the process is not audit-ready</div>
+        <div class="module-desc">
+          This is not a critique. It is a visibility test. Audit’s role during transition is to identify where reconstruction fails
+          and to drive enforceable guardrails and monitoring.
+        </div>
+      </div>
+
+      <h2 class="section-title" style="margin-top: 40px;">2. The new “core” questions every walkthrough should include</h2>
+
+      <h3 style="margin-top: 16px;">A. Decision pathway and system behavior</h3>
+      <ul style="margin-left: 20px; margin-top: 10px;">
+        <li>Where does the system influence judgment, routing, pricing, forecasting, or approvals?</li>
+        <li>What inputs are used (source systems, master data, reference tables, external signals)?</li>
+        <li>What rules or configuration drive outcomes (thresholds, pricing logic, assignment logic, workflow routing)?</li>
+        <li>What changes most frequently in this process during transition (roles, steps, interfaces, exceptions)?</li>
+        <li>What are the known failure modes (and how are they detected)?</li>
+      </ul>
+
+      <h3 style="margin-top: 16px;">B. Evidence and traceability</h3>
+      <ul style="margin-left: 20px; margin-top: 10px;">
+        <li>What evidence is retained to reconstruct decisions (logs, approvals, timestamps, outputs, exceptions)?</li>
+        <li>If evidence is incomplete, what compensating evidence exists?</li>
+        <li>Can the organization reproduce the “why” behind an outcome, not just the outcome itself?</li>
+      </ul>
+
+      <h3 style="margin-top: 16px;">C. Ownership and accountability</h3>
+      <ul style="margin-left: 20px; margin-top: 10px;">
+        <li>Who owns the process end-to-end (business owner) and who owns system configuration (technical owner)?</li>
+        <li>Who is accountable for exception review and escalation?</li>
+        <li>Who approves changes and how are changes communicated?</li>
+      </ul>
+
+      <h3 style="margin-top: 16px;">D. Monitoring and thresholds</h3>
+      <ul style="margin-left: 20px; margin-top: 10px;">
+        <li>What monitoring exists today, even if manual?</li>
+        <li>What thresholds define “out of bounds” (variance, override frequency, anomaly volume)?</li>
+        <li>How quickly are exceptions reviewed and resolved?</li>
+        <li>What triggers escalation to leadership?</li>
+      </ul>
+
+      <p style="margin-top: 12px;">
+        <strong>COSO alignment:</strong> Monitoring Activities; Control Activities; Information & Communication<br>
+        <strong>Internal audit alignment:</strong> risk-based coverage, control effectiveness, governance visibility, clear reporting
+      </p>
+
+      <h2 class="section-title" style="margin-top: 40px;">3. Distribution-focused walkthrough prompts</h2>
+      <p>
+        In distribution environments, the best walkthrough questions align to business outcomes.
+        The same system behavior can show up as different risk depending on whether it impacts margin, forecasting, or logistics.
+      </p>
+
+      <h3 style="margin-top: 16px;">A. Margin protection (pricing and adjustments)</h3>
+      <ul style="margin-left: 20px; margin-top: 10px;">
+        <li>Where is pricing determined (rules, agreements, overrides)?</li>
+        <li>What is the “override pathway” and how is it monitored?</li>
+        <li>What happens when pricing is out of tolerance—who sees it and when?</li>
+        <li>How are credits, returns, and post-sale adjustments tracked and trended?</li>
+        <li>What would alert you that margin is drifting before financial close?</li>
+      </ul>
+
+      <h3 style="margin-top: 16px;">B. Inventory forecasting accuracy</h3>
+      <ul style="margin-left: 20px; margin-top: 10px;">
+        <li>What drives the forecast and how is it updated during transition?</li>
+        <li>What is the variance review cadence—what thresholds trigger investigation?</li>
+        <li>How are exceptions handled (stockouts, backorders, excess inventory)?</li>
+        <li>What signals indicate the forecast is “wrong,” and who is accountable for action?</li>
+        <li>What evidence exists to show why the forecast changed?</li>
+      </ul>
+
+      <h3 style="margin-top: 16px;">C. Logistical performance (execution and service)</h3>
+      <ul style="margin-left: 20px; margin-top: 10px;">
+        <li>Where are routes, assignments, and delivery timing determined?</li>
+        <li>What exceptions indicate operational drift (late deliveries, idle patterns, repeated reroutes, cost spikes)?</li>
+        <li>What is the escalation path when service performance drops?</li>
+        <li>How is safety captured and monitored during system/process change?</li>
+      </ul>
+
+      <h2 class="section-title" style="margin-top: 40px;">4. Transition reality: how to maintain audit continuity without false assurance</h2>
+      <p>
+        During extended stabilization, audit cannot wait for “perfect data” to restart.
+        The strategy is to prioritize visibility and use monitoring pilots where evidence is incomplete.
+        The objective is continuity with transparency.
+      </p>
+
+      <ul style="margin-left: 20px; margin-top: 10px;">
+        <li><strong>Prioritize high-impact processes</strong> tied to margin, inventory, and logistics outcomes</li>
+        <li><strong>Replace large sample plans with targeted population signals</strong> where feasible</li>
+        <li><strong>Use shorter-cycle testing</strong> focused on drift detection rather than static validation</li>
+        <li><strong>Document transitional assumptions</strong> clearly and revisit them on a defined cadence</li>
+      </ul>
+
+      <div class="module" style="margin-top: 18px;">
+        <div class="module-kicker">Continuity principle</div>
+        <div class="module-title">Audit credibility in transition comes from clarity about what is known and what is still maturing</div>
+        <div class="module-desc">
+          This reinforces governance visibility and prevents leadership from confusing operational progress with control stability.
+        </div>
+      </div>
+
+      <h2 class="section-title" style="margin-top: 40px;">5. A practical walkthrough template (copy into your audit workpapers)</h2>
+
+      <div class="module" style="margin-top: 10px;">
+        <div class="module-kicker">Walkthrough template</div>
+        <div class="module-title">System-driven process walkthrough</div>
+        <div class="module-desc">
+          <strong>Process objective:</strong> (What outcome is being produced?)<br><br>
+          <strong>System touchpoints:</strong> (Where does the system influence decisions or execution?)<br><br>
+          <strong>Inputs:</strong> (What data drives the outcome? What master data matters?)<br><br>
+          <strong>Rules/configuration:</strong> (What thresholds, logic, or routing rules apply?)<br><br>
+          <strong>Ownership:</strong> (Business owner, technical/config owner, exception reviewer)<br><br>
+          <strong>Evidence:</strong> (What logs/approvals/exceptions exist? What is retained?)<br><br>
+          <strong>Monitoring:</strong> (What signals exist today? What thresholds define “out of bounds”?)<br><br>
+          <strong>Escalation:</strong> (How are exceptions triaged, escalated, closed?)<br><br>
+          <strong>Known failure modes:</strong> (How does this break? How would we detect it?)<br><br>
+          <strong>Transition notes:</strong> (What is still evolving? What assumptions exist today?)
+        </div>
+      </div>
+
+      <h2 class="section-title" style="margin-top: 40px;">6. What this enables: monitoring-driven assurance</h2>
+      <p>
+        When walkthroughs are redesigned around system behavior, evidence traceability, and monitoring readiness,
+        audit can accelerate the shift away from periodic sampling and toward continuous assurance.
+        This is how a mid-sized audit function remains relevant in a Fortune-scale enterprise:
+        by scaling visibility, not headcount.
+      </p>
+
+      <div class="module" style="margin-top: 34px;">
+        <div class="module-kicker">Next module</div>
+        <div class="module-title">Evidence, logging & traceability expectations</div>
+        <div class="module-desc">
+          Next, we define what “audit-ready evidence” means in system-driven environments:
+          logging, retention, traceability, change visibility, and what to do when reconstruction fails.
+        </div>
+        <div style="margin-top: 12px;">
+          <a class="btn btn-primary" href="practitioner-module-10-evidence.html">Continue →</a>
+        </div>
+      </div>
+
+      <!-- Bottom Nav -->
+      <div style="margin-top: 26px;">
+        <div class="module-grid" style="grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px;">
+          <a class="btn btn-secondary" href="practitioner-module-transition.html">← Transition module</a>
+          <a class="btn btn-secondary" href="practitioner-path.html">Practitioner Path</a>
+          <a class="btn btn-primary" href="practitioner-module-10-evidence.html">Evidence →</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="container footer-inner">
+    <div>
+      <div class="footer-brand">The AI-Ready Audit</div>
+      <div class="footer-note">Thought leadership on internal audit strategy for intelligent systems.</div>
+    </div>
+  </div>
+  <div class="container footer-bottom">
+    <p>&copy; 2026 Nicole Heflin</p>
+  </div>
+</footer>
+
+</body>
+</html>

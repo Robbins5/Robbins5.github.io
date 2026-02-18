@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 
-<body class="page-executive">
+<body>
   <header class="site-header">
     <div class="container header-inner">
       <div class="brand">
@@ -31,171 +31,173 @@
 
   <main>
 
-    <!-- EXECUTIVE BRIEFING HEADER -->
-    <section class="exec-hero">
-      <div class="container">
-        <div class="exec-hero-inner">
-          <div class="exec-kicker">Executive Oversight</div>
+    <!-- HERO -->
+    <section class="hero">
+      <div class="container hero-grid">
 
-          <h1 class="exec-title">Protect value while the business stabilizes.</h1>
+        <div class="hero-copy">
+          <p class="pill">Executive Oversight</p>
 
-          <p class="exec-subtitle">
-            In enterprise transition, leakage hides in drift. This view stays focused on what leadership actually needs:
-            margin protection, accuracy, and faster detection—without audit buzzwords.
+          <h1 class="hero-title">Protect value while the business stabilizes.</h1>
+
+          <p class="hero-subtitle">
+            During enterprise transition, money moves differently. Leakage hides in drift: pricing overrides,
+            margin erosion, inventory distortion, forecasting miss, operational inefficiency, and fraud opportunity windows.
+            This view keeps focus on materiality, clarity, and action.
           </p>
 
-          <div class="exec-actions">
-            <a class="btn btn-primary" href="#signals">View oversight signals</a>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#watchlist">Go to the watchlist</a>
             <a class="btn btn-secondary" href="#timeline">Visibility timeline</a>
             <a class="btn btn-secondary" href="my-sixth-post.html">Read the thesis</a>
           </div>
 
-          <div class="exec-strip" aria-label="Executive focus">
-            <div class="exec-strip-item">
-              <div class="exec-strip-label">Outcomes</div>
-              <div class="exec-strip-value">Margin • Accuracy • Stability</div>
+          <div class="hero-metrics" aria-label="Executive focus">
+            <div class="metric">
+              <div class="metric-label">Outcome</div>
+              <div class="metric-value">Earlier detection</div>
             </div>
-            <div class="exec-strip-item">
-              <div class="exec-strip-label">Operating reality</div>
-              <div class="exec-strip-value">Transition • Scale • Swivel-chair constraints</div>
+            <div class="metric">
+              <div class="metric-label">Priority</div>
+              <div class="metric-value">Margin + accuracy</div>
             </div>
-            <div class="exec-strip-item">
-              <div class="exec-strip-label">Progress marker</div>
-              <div class="exec-strip-value">Earlier detection (not instant redesign)</div>
+            <div class="metric">
+              <div class="metric-label">Reality</div>
+              <div class="metric-value">Transition + scale</div>
             </div>
           </div>
         </div>
+
+        <div class="hero-media" aria-hidden="true">
+          <div class="banner">
+            <img
+              src="banner-ai-ready-audit.png"
+              class="banner-img"
+              alt="Monochrome banner representing enterprise transition and oversight"
+            />
+            <div class="banner-overlay"></div>
+          </div>
+          <div class="media-caption">Business-first visibility while systems, processes, and evidence are still settling.</div>
+        </div>
+
       </div>
     </section>
 
-    <!-- SIGNALS (single strong grid) -->
-    <section class="section" id="signals">
+    <!-- WATCHLIST -->
+    <section class="section" id="watchlist">
       <div class="container">
         <div class="section-head">
-          <h2 class="section-title">What leadership should watch</h2>
+          <h2 class="section-title">Executive watchlist</h2>
           <p class="section-subtitle">
-            During stabilization, visibility should prioritize the places value quietly leaks and accuracy degrades.
-            These are signal zones that can be monitored without adding bureaucracy.
+            This is the shortest path to useful oversight during stabilization: watch the places value leaks and accuracy drifts.
+            Expect imperfection. Require visibility, ownership, and closure.
           </p>
         </div>
 
-        <div class="signals-grid">
-          <div class="signal">
-            <div class="signal-top">
-              <div class="signal-title">Margin drift</div>
-              <div class="signal-tag">Pricing</div>
+        <div class="path-grid" style="grid-template-columns: repeat(2, minmax(0, 1fr));">
+          <div class="path-card" style="cursor: default;">
+            <div class="path-top">
+              <div class="path-title">Margin drift</div>
+              <div class="path-tag">Pricing</div>
             </div>
-            <p class="signal-text">
-              Override behavior, out-of-policy pricing, credit/return patterns, and quote-to-order variance.
-              Drift compounds quietly when teams adapt to new workflows.
+            <p class="path-text">
+              Override behavior, out-of-policy pricing, credit/return patterns, and quote-to-order variance. Drift compounds quietly while teams adapt.
             </p>
+            <div class="path-cta">Executive question: “Where is drift concentrated?”</div>
           </div>
 
-          <div class="signal">
-            <div class="signal-top">
-              <div class="signal-title">Inventory distortion</div>
-              <div class="signal-tag">Forecast</div>
+          <div class="path-card" style="cursor: default;">
+            <div class="path-top">
+              <div class="path-title">Inventory distortion</div>
+              <div class="path-tag">Forecast</div>
             </div>
-            <p class="signal-text">
-              Availability noise, substitutions, manual bridges, and “temporary truths” that linger.
-              Distortion impacts forecasting and service levels before it hits financials.
+            <p class="path-text">
+              Availability noise, substitutions, and manual bridges that become semi-permanent. Distortion hits service and planning before it hits financials.
             </p>
+            <div class="path-cta">Executive question: “What’s still ‘temporary’ six months later?”</div>
           </div>
 
-          <div class="signal">
-            <div class="signal-top">
-              <div class="signal-title">Financial integrity pressure</div>
-              <div class="signal-tag">Accuracy</div>
+          <div class="path-card" style="cursor: default;">
+            <div class="path-top">
+              <div class="path-title">Financial integrity pressure</div>
+              <div class="path-tag">Accuracy</div>
             </div>
-            <p class="signal-text">
-              Evidence shape changes during transition: approvals, postings, master data governance, cutoffs,
-              and reconciliation bridges that become semi-permanent.
+            <p class="path-text">
+              Evidence shape changes during transition: approvals, postings, master data governance, cutoffs, and reconciliation bridges.
             </p>
+            <div class="path-cta">Executive question: “What’s our proof trail now?”</div>
           </div>
 
-          <div class="signal">
-            <div class="signal-top">
-              <div class="signal-title">Operational friction</div>
-              <div class="signal-tag">Logistics</div>
+          <div class="path-card" style="cursor: default;">
+            <div class="path-top">
+              <div class="path-title">Fraud opportunity windows</div>
+              <div class="path-tag">Exposure</div>
             </div>
-            <p class="signal-text">
-              Exception clusters tied to delivery performance, route efficiency, rework, and scheduling friction.
-              These are cost signals, not just “ops issues.”
+            <p class="path-text">
+              Transition loosens routines: new roles, new confusion, new workarounds. Watch behavioral outliers tied to credits, adjustments, expenses, and master data changes.
+            </p>
+            <div class="path-cta">Executive question: “What changed that lowered friction?”</div>
+          </div>
+        </div>
+
+        <div class="cta-panel" style="margin-top: 18px;">
+          <div class="cta-copy">
+            <h3 class="cta-title">Swivel-chair states are real constraints.</h3>
+            <p class="cta-text">
+              When data and controls span legacy and new systems, redesign is limited. The executive expectation should be disciplined interim controls,
+              documented bridges, and a plan to retire “temporary” workarounds.
             </p>
           </div>
-
-          <div class="signal">
-            <div class="signal-top">
-              <div class="signal-title">Fraud opportunity windows</div>
-              <div class="signal-tag">Exposure</div>
-            </div>
-            <p class="signal-text">
-              Transition loosens routines: new roles, new approvals, new confusion.
-              Watch behavioral outliers tied to credits, adjustments, expenses, and vendor/customer changes.
-            </p>
-          </div>
-
-          <div class="signal">
-            <div class="signal-top">
-              <div class="signal-title">Swivel-chair complexity</div>
-              <div class="signal-tag">Dual-system</div>
-            </div>
-            <p class="signal-text">
-              When legacy + new both matter, redesign is constrained.
-              Require documented bridges, controlled reconciliations, and a plan to retire interim states.
-            </p>
+          <div class="cta-actions">
+            <a class="btn btn-primary" href="audit-leadership.html">How audit leadership builds this</a>
+            <a class="btn btn-secondary" href="my-sixth-post.html">The thesis</a>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- TIMELINE (not cards) -->
+    <!-- TIMELINE -->
     <section class="section section-alt" id="timeline">
       <div class="container">
         <div class="section-head">
           <h2 class="section-title">Visibility timeline</h2>
           <p class="section-subtitle">
-            Audit modernization follows enterprise reality—not the go-live date. This sets realistic expectations while still demanding measurable progress.
+            Audit modernization follows enterprise reality—not implementation dates. Small teams rebuild after core processes stabilize.
+            Progress is measured by earlier detection, not instant perfection.
           </p>
         </div>
 
-        <div class="timeline-rail" aria-label="Timeline">
-          <div class="rail-step">
-            <div class="rail-pill">0–12+ months</div>
-            <div class="rail-title">Stabilize operations</div>
-            <div class="rail-text">
-              Core processes smooth out. Access models and ownership solidify. Expect drift, but require documentation, reconciliation discipline, and accountable interim controls.
+        <div class="module-grid" style="grid-template-columns: repeat(3, minmax(0, 1fr));">
+          <div class="module" style="cursor: default;">
+            <div class="module-kicker">0–12+ months</div>
+            <div class="module-title">Stabilize operations</div>
+            <div class="module-desc">
+              Core processes smooth out. Access models and ownership solidify. Require documentation, reconciliation discipline,
+              and accountable interim controls—especially during dual-system “swivel-chair” periods.
             </div>
           </div>
 
-          <div class="rail-step">
-            <div class="rail-pill">Year 1–2</div>
-            <div class="rail-title">Rebuild visibility</div>
-            <div class="rail-text">
-              Monitoring routines begin replacing lagging reports. Signals cover margin protection, inventory integrity, and pricing discipline with thresholds + owners.
+          <div class="module" style="cursor: default;">
+            <div class="module-kicker">Year 1–2</div>
+            <div class="module-title">Rebuild visibility</div>
+            <div class="module-desc">
+              Monitoring routines begin replacing lagging reports. Signals focus on margin, inventory integrity, and pricing discipline
+              with clear thresholds and owners.
             </div>
           </div>
 
-          <div class="rail-step">
-            <div class="rail-pill">Year 2–3</div>
-            <div class="rail-title">Detection maturity</div>
-            <div class="rail-text">
+          <div class="module" style="cursor: default;">
+            <div class="module-kicker">Year 2–3</div>
+            <div class="module-title">Detection maturity</div>
+            <div class="module-desc">
               Exceptions escalate consistently. Leakage surfaces earlier. Audit shifts from periodic validation to signal-driven oversight that stays lean.
             </div>
           </div>
         </div>
 
-        <div class="exec-footer-cta">
-          <div>
-            <div class="exec-footer-title">One clean bridge</div>
-            <div class="exec-footer-text">
-              If you want the “how we build it” view (what to rebuild, what to stop, how to run monitoring), go to Audit Leadership.
-            </div>
-          </div>
-          <div class="exec-footer-actions">
-            <a class="btn btn-primary" href="audit-leadership.html">Audit Leadership</a>
-            <a class="btn btn-secondary" href="my-sixth-post.html">Thesis</a>
-          </div>
+        <div class="framework-actions" style="margin-top: 16px;">
+          <a class="btn btn-primary" href="audit-leadership.html">Audit Leadership view</a>
+          <a class="btn btn-secondary" href="my-sixth-post.html">Thesis</a>
         </div>
       </div>
     </section>
@@ -206,7 +208,7 @@
     <div class="container footer-inner">
       <div class="footer-left">
         <div class="footer-brand">The AI-Ready Audit</div>
-        <div class="footer-note">Business-first oversight during enterprise transition and intelligent system adoption.</div>
+        <div class="footer-note">Protecting margin, accuracy, and stability during enterprise transition and intelligent system adoption.</div>
       </div>
       <div class="footer-right">
         <a class="footer-link" href="index.html">Home</a>

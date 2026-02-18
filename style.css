@@ -732,3 +732,205 @@ a:hover{
   .feature-panel{ padding: 20px; }
   .feature-title{ font-size: 1.35rem; }
 }
+/* ============================================================
+   Executive Oversight — page-specific styling (scoped)
+   ============================================================ */
+
+body.page-exec .exec-hero{
+  padding: 52px 0 14px;
+}
+
+body.page-exec .exec-hero-inner{
+  max-width: 980px;
+}
+
+body.page-exec .exec-kicker{
+  display: inline-block;
+  font-size: 0.78rem;
+  font-weight: 950;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text);
+  background: rgba(255,255,255,0.85);
+  border: 1px solid var(--border);
+  padding: 7px 10px;
+  border-radius: 999px;
+}
+
+body.page-exec .exec-title{
+  margin-top: 14px;
+  font-size: 2.55rem;
+  line-height: 1.05;
+  letter-spacing: -1px;
+  color: var(--text);
+  font-weight: 980;
+}
+
+body.page-exec .exec-subtitle{
+  margin-top: 12px;
+  font-size: 1.06rem;
+  color: var(--muted);
+  max-width: 80ch;
+}
+
+body.page-exec .exec-actions{
+  margin-top: 16px;
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+body.page-exec .exec-strip{
+  margin-top: 18px;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  background: rgba(255,255,255,0.92);
+  border: 1px solid var(--border-soft);
+  border-radius: var(--radius);
+  padding: 14px;
+  box-shadow: var(--shadow-sm);
+}
+
+body.page-exec .exec-strip-label{
+  font-size: 0.78rem;
+  color: var(--muted-2);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-weight: 900;
+}
+
+body.page-exec .exec-strip-value{
+  margin-top: 6px;
+  color: var(--text);
+  font-weight: 950;
+  letter-spacing: -0.2px;
+}
+
+/* callout (replaces “banner repetition” energy) */
+body.page-exec .exec-callout{
+  margin-top: 18px;
+  background: #101010;
+  color: #ffffff;
+  border-radius: var(--radius);
+  padding: 18px;
+  box-shadow: var(--shadow-md);
+}
+
+body.page-exec .exec-callout-title{
+  font-weight: 980;
+  letter-spacing: -0.3px;
+  font-size: 1.12rem;
+}
+
+body.page-exec .exec-callout-text{
+  margin-top: 8px;
+  color: rgba(255,255,255,0.78);
+  line-height: 1.7;
+  max-width: 90ch;
+}
+
+body.page-exec .exec-callout-actions{
+  margin-top: 12px;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+body.page-exec .exec-callout .btn{
+  background: rgba(255,255,255,0.10);
+  border-color: rgba(255,255,255,0.18);
+  color: #fff;
+  box-shadow: none;
+}
+
+body.page-exec .exec-callout .btn:hover{
+  background: rgba(255,255,255,0.16);
+  border-color: rgba(255,255,255,0.22);
+}
+
+body.page-exec .exec-callout .btn-primary{
+  background: #fff;
+  color: #101010;
+  border-color: #fff;
+}
+
+body.page-exec .exec-callout .btn-primary:hover{
+  background: rgba(255,255,255,0.92);
+  border-color: rgba(255,255,255,0.92);
+}
+
+/* Timeline chart */
+body.page-exec .timeline-chart{
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+  margin-top: 10px;
+}
+
+body.page-exec .timeline-track{
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 18px;
+  height: 2px;
+  background: var(--border);
+  opacity: 0.7;
+}
+
+body.page-exec .timeline-step{
+  position: relative;
+  padding-top: 4px;
+}
+
+body.page-exec .timeline-dot{
+  width: 14px;
+  height: 14px;
+  border-radius: 999px;
+  background: #101010;
+  border: 2px solid #101010;
+  position: relative;
+  z-index: 2;
+  margin-left: 6px;
+  margin-bottom: 10px;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.12);
+}
+
+body.page-exec .timeline-card{
+  background: rgba(255,255,255,0.95);
+  border: 1px solid var(--border-soft);
+  border-radius: var(--radius);
+  padding: 16px;
+  box-shadow: var(--shadow-sm);
+}
+
+body.page-exec .timeline-kicker{
+  font-size: 0.78rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted-2);
+  font-weight: 950;
+}
+
+body.page-exec .timeline-title{
+  margin-top: 6px;
+  font-weight: 980;
+  font-size: 1.10rem;
+  letter-spacing: -0.3px;
+  color: var(--text);
+}
+
+body.page-exec .timeline-text{
+  margin-top: 8px;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+/* Responsive */
+@media (max-width: 980px){
+  body.page-exec .exec-title{ font-size: 2.1rem; }
+  body.page-exec .exec-strip{ grid-template-columns: 1fr; }
+  body.page-exec .timeline-chart{ grid-template-columns: 1fr; }
+  body.page-exec .timeline-track{ display: none; }
+}

@@ -96,18 +96,18 @@
           </p>
         </div>
 
-          <div class="module" style="cursor: default;">
-      <div class="module-kicker">Phase 1</div>
-      <div class="module-title">Enterprise Stabilization (0–12+ months post go-live)</div>
-      <div class="module-desc">
-        During dual-system or transitional “swivel” states, data and controls span legacy and new environments.
-        Manual bridges and reconciliations are temporary but necessary.
-        Full redesign is premature until signal integrity, ownership, and data consistency stabilize.
-        Audit focuses on continuity, documentation, and defining future-state architecture—without forcing instability.
-      </div>
-    </div>
+        <!-- FIXED: module-grid wrapper + removed stray closing </a> -->
+        <div class="module-grid" style="grid-template-columns: repeat(4, minmax(0, 1fr));">
 
-          </a>
+          <div class="module" style="cursor: default;">
+            <div class="module-kicker">Pillar 1</div>
+            <div class="module-title">Stabilize the assurance baseline</div>
+            <div class="module-desc">
+              During dual-system or transitional “swivel” states, data and controls span legacy and new environments.
+              Manual bridges and reconciliations are temporary but necessary. Full redesign is premature until signal integrity,
+              ownership, and data consistency stabilize.
+            </div>
+          </div>
 
           <a class="module" href="#pillar-standards">
             <div class="module-kicker">Pillar 2</div>
@@ -132,6 +132,7 @@
               Evidence traceability, exception ownership, escalation, and closure that stays lean and decision-useful.
             </div>
           </a>
+
         </div>
       </div>
     </section>
@@ -362,63 +363,62 @@
     </section>
 
     <!-- ROADMAP -->
-<section class="section section-alt" id="roadmap">
-  <div class="container">
-    <div class="section-head">
-      <h2 class="section-title">Roadmap</h2>
-      <p class="section-subtitle">
-        Enterprise transition does not stabilize overnight. Audit rebuild follows enterprise reality—not implementation dates.
-      </p>
-    </div>
-
-    <div class="module-grid" style="grid-template-columns: repeat(3, minmax(0, 1fr));">
-
-      <div class="module" style="cursor: default;">
-        <div class="module-kicker">Phase 1</div>
-        <div class="module-title">Enterprise Stabilization (0–12 months post go-live)</div>
-        <div class="module-desc">
-          Priority belongs to core operations. Audit maintains continuity, observes drift, documents access constraints,
-          and defines what “stable enough” will mean before major rebuild begins.
-          Patience is strategic—not passive.
+    <section class="section section-alt" id="roadmap">
+      <div class="container">
+        <div class="section-head">
+          <h2 class="section-title">Roadmap</h2>
+          <p class="section-subtitle">
+            Enterprise transition does not stabilize overnight. Audit rebuild follows enterprise reality—not implementation dates.
+          </p>
         </div>
-      </div>
 
-      <div class="module" style="cursor: default;">
-        <div class="module-kicker">Phase 2</div>
-        <div class="module-title">Audit Foundation Rebuild (Year 1–2)</div>
-        <div class="module-desc">
-          Rebuild high-impact coverage first: margin protection, financial integrity, inventory accuracy,
-          and fraud indicators. Begin converting repeat testing into structured signals and monitoring routines.
+        <div class="module-grid" style="grid-template-columns: repeat(3, minmax(0, 1fr));">
+
+          <div class="module" style="cursor: default;">
+            <div class="module-kicker">Phase 1</div>
+            <div class="module-title">Enterprise Stabilization (0–12 months post go-live)</div>
+            <div class="module-desc">
+              Priority belongs to core operations. Audit maintains continuity, observes drift, documents access constraints,
+              and defines what “stable enough” will mean before major rebuild begins. Patience is strategic—not passive.
+            </div>
+          </div>
+
+          <div class="module" style="cursor: default;">
+            <div class="module-kicker">Phase 2</div>
+            <div class="module-title">Audit Foundation Rebuild (Year 1–2)</div>
+            <div class="module-desc">
+              Rebuild high-impact coverage first: margin protection, financial integrity, inventory accuracy,
+              and fraud indicators. Begin converting repeat testing into structured signals and monitoring routines.
+            </div>
+          </div>
+
+          <div class="module" style="cursor: default;">
+            <div class="module-kicker">Phase 3</div>
+            <div class="module-title">Monitoring-Driven Maturity (Year 2–3)</div>
+            <div class="module-desc">
+              Expand population coverage, formalize thresholds and ownership, reduce manual sampling,
+              and embed repeatable detection architecture that scales with the enterprise.
+            </div>
+          </div>
+
         </div>
-      </div>
 
-      <div class="module" style="cursor: default;">
-        <div class="module-kicker">Phase 3</div>
-        <div class="module-title">Monitoring-Driven Maturity (Year 2–3)</div>
-        <div class="module-desc">
-          Expand population coverage, formalize thresholds and ownership, reduce manual sampling,
-          and embed repeatable detection architecture that scales with the enterprise.
+        <div class="cta-panel" style="margin-top: 18px;">
+          <div class="cta-copy">
+            <h3 class="cta-title">Realistic expectation.</h3>
+            <p class="cta-text">
+              A mid-sized audit team in a national enterprise cannot rebuild immediately after go-live.
+              Enterprise stability comes first. Audit modernization follows deliberately—without losing continuity.
+            </p>
+          </div>
+          <div class="cta-actions">
+            <a class="btn btn-primary" href="#decision-frame">Decision frame</a>
+            <a class="btn btn-secondary" href="#pillar-stabilize">Stabilization pillar</a>
+          </div>
         </div>
-      </div>
 
-    </div>
-
-    <div class="cta-panel" style="margin-top: 18px;">
-      <div class="cta-copy">
-        <h3 class="cta-title">Realistic expectation.</h3>
-        <p class="cta-text">
-          A mid-sized audit team in a national enterprise cannot rebuild immediately after go-live.
-          Enterprise stability comes first. Audit modernization follows deliberately—without losing continuity.
-        </p>
       </div>
-      <div class="cta-actions">
-        <a class="btn btn-primary" href="#decision-frame">Decision frame</a>
-        <a class="btn btn-secondary" href="#pillar-stabilize">Stabilization pillar</a>
-      </div>
-    </div>
-
-  </div>
-</section>
+    </section>
 
     <!-- BUILD QUEUE -->
     <section class="section" id="build-queue">

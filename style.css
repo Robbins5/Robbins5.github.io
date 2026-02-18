@@ -934,3 +934,83 @@ body.page-exec .timeline-text{
   body.page-exec .timeline-chart{ grid-template-columns: 1fr; }
   body.page-exec .timeline-track{ display: none; }
 }
+/* ============================================================
+   IA Leadership Hero (parallel to Executive)
+   ============================================================ */
+
+.page-ia .ia-hero,
+.ia-hero {
+  padding: 70px 0 50px;
+  background: linear-gradient(180deg, #ffffff 0%, #f2f2f2 100%);
+  border-bottom: 1px solid var(--border-soft);
+}
+
+.ia-hero-inner {
+  max-width: 900px;
+}
+
+.ia-kicker {
+  font-size: 0.75rem;
+  font-weight: 900;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted-2);
+}
+
+.ia-title {
+  margin-top: 14px;
+  font-size: 2.4rem;
+  font-weight: 980;
+  letter-spacing: -0.6px;
+  color: var(--text);
+}
+
+.ia-subtitle {
+  margin-top: 16px;
+  font-size: 1.05rem;
+  color: var(--muted);
+  line-height: 1.75;
+  max-width: 75ch;
+}
+
+.ia-actions {
+  margin-top: 20px;
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+/* Leadership strip */
+.ia-strip {
+  margin-top: 26px;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0,1fr));
+  gap: 14px;
+}
+
+.ia-strip-item {
+  background: rgba(255,255,255,0.9);
+  border: 1px solid var(--border-soft);
+  border-radius: var(--radius-sm);
+  padding: 14px;
+  box-shadow: var(--shadow-sm);
+}
+
+.ia-strip-label {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--muted-2);
+  font-weight: 900;
+}
+
+.ia-strip-value {
+  margin-top: 4px;
+  font-weight: 950;
+  color: var(--text);
+}
+
+/* Subtle differentiation from executive */
+.page-ia .ia-strip-item {
+  border-left: 3px solid var(--accent);
+}

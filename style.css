@@ -604,3 +604,131 @@ a:hover{
   color: var(--muted);
   line-height: 1.7;
 }
+/* ============================================================
+   Homepage enhancements: feature panel + view toggle + reveal
+   ============================================================ */
+
+.feature-panel{
+  background: rgba(255,255,255,0.95);
+  border: 1px solid var(--border-soft);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-md);
+  padding: 26px;
+}
+
+.feature-kicker{
+  font-size: 0.78rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted-2);
+  font-weight: 950;
+}
+
+.feature-title{
+  margin-top: 8px;
+  color: var(--text);
+  font-weight: 980;
+  letter-spacing: -0.6px;
+  font-size: 1.55rem;
+}
+
+.feature-text{
+  margin-top: 10px;
+  color: var(--muted);
+  line-height: 1.75;
+  max-width: 92ch;
+}
+
+.feature-actions{
+  margin-top: 14px;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+/* View toggle */
+.view-toggle{
+  display: inline-flex;
+  gap: 8px;
+  padding: 6px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.75);
+  border: 1px solid var(--border-soft);
+  box-shadow: var(--shadow-sm);
+}
+
+.view-btn{
+  appearance: none;
+  border: 1px solid transparent;
+  background: transparent;
+  border-radius: 999px;
+  padding: 10px 14px;
+  font-weight: 950;
+  cursor: pointer;
+  color: var(--text);
+  transition: background 160ms ease, border-color 160ms ease, transform 160ms ease;
+}
+
+.view-btn:hover{
+  transform: translateY(-1px);
+  background: rgba(255,255,255,0.90);
+  border-color: var(--border-soft);
+}
+
+.view-btn.is-active{
+  background: #101010;
+  color: #fff;
+  border-color: #101010;
+}
+
+.view-panels{
+  margin-top: 14px;
+}
+
+.view-panel{
+  display: none;
+  background: rgba(255,255,255,0.95);
+  border: 1px solid var(--border-soft);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+  padding: 18px;
+}
+
+.view-panel.is-active{
+  display: block;
+}
+
+.view-title{
+  color: var(--text);
+  font-weight: 980;
+  letter-spacing: -0.3px;
+  font-size: 1.15rem;
+}
+
+.view-desc{
+  margin-top: 10px;
+  color: var(--muted);
+  line-height: 1.75;
+}
+
+.view-actions{
+  margin-top: 14px;
+}
+
+/* Reveal micro-animation */
+.reveal{
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 450ms ease, transform 450ms ease;
+}
+
+.reveal.is-visible{
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Responsive tweak for view area */
+@media (max-width: 640px){
+  .feature-panel{ padding: 20px; }
+  .feature-title{ font-size: 1.35rem; }
+}

@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Resources | The AI-Ready Audit</title>
-  <meta name="description" content="A curated library of standards, frameworks, and regulatory anchors referenced across The AI-Ready Audit." />
+  <meta name="description" content="A curated library of standards, frameworks, research, and regulatory anchors referenced across The AI-Ready Audit." />
   <link rel="stylesheet" href="style.css" />
 </head>
 
@@ -30,72 +30,247 @@
   </header>
 
   <main>
+    <!-- HERO -->
     <section class="exec-hero" style="padding-bottom: 22px;">
       <div class="container">
         <div class="exec-hero-inner">
           <p class="exec-kicker">Resources</p>
-          <h1 class="exec-title">The reference library behind the thesis.</h1>
+          <h1 class="exec-title">The reference library behind the model.</h1>
           <p class="exec-subtitle">
-            These are the external anchors referenced across the work—standards, control frameworks, and regulatory context.
-            This page is intentionally curated: one clean link per source, no duplicates.
+            These sources are intentionally curated: standards, frameworks, research signals, and regulatory anchors
+            referenced across the thesis and supporting pages. Each link appears once to keep this page clean.
           </p>
 
           <div class="exec-actions">
-            <a class="btn btn-primary" href="#standards">Start with standards</a>
-            <a class="btn btn-secondary" href="#regulatory">Regulatory context</a>
+            <a class="btn btn-primary" href="#standards">Standards</a>
+            <a class="btn btn-secondary" href="#frameworks">Frameworks</a>
+            <a class="btn btn-secondary" href="#research">Research</a>
+            <a class="btn btn-secondary" href="#tools">Tools</a>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- STANDARDS + FRAMEWORKS -->
-    <section class="section section-alt" id="standards">
+    <!-- STANDARDS -->
+    <section class="section" id="standards">
       <div class="container">
         <div class="section-head">
-          <h2 class="section-title">Standards and frameworks</h2>
-          <p class="section-subtitle">
-            The core documents shaping expectations for governance, risk management, controls, and defensible assurance.
-          </p>
+          <h2 class="section-title">Standards</h2>
+          <p class="section-subtitle">Primary anchors for direction of the profession and evidence defensibility.</p>
         </div>
 
-        <div class="grid-3">
-          <div class="card">
-            <div class="card-kicker">Professional standards</div>
-            <h3 class="card-title">IIA Global Internal Audit Standards</h3>
-            <p class="card-text">
-              The profession’s baseline expectations for audit’s role in governance, risk management, and controls.
-            </p>
-            <p style="margin-top: 10px;">
-              <a class="link" href="https://www.theiia.org/en/standards/2024-standards/global-internal-audit-standards/" target="_blank" rel="noopener noreferrer">
-                Open the standards
-              </a>
-            </p>
+        <div class="module-grid" style="grid-template-columns: repeat(2, minmax(0, 1fr));">
+          <div class="module" style="cursor: default;">
+            <div class="module-kicker">IIA</div>
+            <div class="module-title">Global Internal Audit Standards (2024)</div>
+            <div class="module-desc">
+              Risk-based assurance, quality expectations, and modern enablement direction.
+              <div style="margin-top: 10px;">
+                <a class="btn btn-secondary" href="https://www.theiia.org/en/standards/2024-standards/global-internal-audit-standards/" target="_blank" rel="noopener noreferrer">Open</a>
+              </div>
+            </div>
           </div>
 
-          <div class="card">
-            <div class="card-kicker">AI governance</div>
-            <h3 class="card-title">NIST AI Risk Management Framework (AI RMF 1.0)</h3>
-            <p class="card-text">
-              A practical structure for governing AI risk across the lifecycle: accountability, transparency, monitoring, and controls that evolve with use.
-            </p>
-            <p style="margin-top: 10px;">
-              <a class="link" href="https://nvlpubs.nist.gov/nistpubs/ai/nist.ai.100-1.pdf" target="_blank" rel="noopener noreferrer">
-                Read the AI RMF (PDF)
-              </a>
-            </p>
+          <div class="module" style="cursor: default;">
+            <div class="module-kicker">IIA</div>
+            <div class="module-title">Effective date update (Jan 2025)</div>
+            <div class="module-desc">
+              Public update tied to the standards’ effective date and rollout communications.
+              <div style="margin-top: 10px;">
+                <a class="btn btn-secondary" href="https://www.theiia.org/en/content/communications/press-releases/2025/january/the-iia-celebrates-the-effective-date-of-the-global-internal-audit-standards/" target="_blank" rel="noopener noreferrer">Open</a>
+              </div>
+            </div>
           </div>
 
-          <div class="card">
-            <div class="card-kicker">Control foundation</div>
-            <h3 class="card-title">COSO guidance on internal control</h3>
-            <p class="card-text">
-              A durable anchor for control thinking: governance, information, and monitoring—especially relevant as processes become more automated.
-            </p>
-            <p style="margin-top: 10px;">
-              <a class="link" href="https://www.coso.org/guidance-on-ic" target="_blank" rel="noopener noreferrer">
-                Open COSO guidance
-              </a>
-            </p>
+          <div class="module" style="cursor: default;">
+            <div class="module-kicker">PCAOB</div>
+            <div class="module-title">Auditing standards (evidence expectations)</div>
+            <div class="module-desc">
+              Sufficient, appropriate, and reproducible audit evidence expectations (external audit lens that influences “defensible”).
+              <div style="margin-top: 10px;">
+                <a class="btn btn-secondary" href="https://pcaobus.org/oversight/standards" target="_blank" rel="noopener noreferrer">Open</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="module" style="cursor: default;">
+            <div class="module-kicker">FRE</div>
+            <div class="module-title">Federal Rule of Evidence 901</div>
+            <div class="module-desc">
+              Authentication and traceability standard that reinforces “show your work” evidence paths.
+              <div style="margin-top: 10px;">
+                <a class="btn btn-secondary" href="https://www.law.cornell.edu/rules/fre/rule_901" target="_blank" rel="noopener noreferrer">Open</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- FRAMEWORKS -->
+    <section class="section section-alt" id="frameworks">
+      <div class="container">
+        <div class="section-head">
+          <h2 class="section-title">Frameworks</h2>
+          <p class="section-subtitle">Control, governance, and AI risk structures that hold up as systems scale.</p>
+        </div>
+
+        <div class="module-grid" style="grid-template-columns: repeat(2, minmax(0, 1fr));">
+          <div class="module" style="cursor: default;">
+            <div class="module-kicker">COSO</div>
+            <div class="module-title">Guidance on Internal Control</div>
+            <div class="module-desc">
+              Control and monitoring principles for complex environments.
+              <div style="margin-top: 10px;">
+                <a class="btn btn-secondary" href="https://www.coso.org/guidance-on-ic" target="_blank" rel="noopener noreferrer">Open</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="module" style="cursor: default;">
+            <div class="module-kicker">COSO</div>
+            <div class="module-title">COSO (framework hub)</div>
+            <div class="module-desc">
+              COSO’s broader framework portal (IC + ERM references appear across posts).
+              <div style="margin-top: 10px;">
+                <a class="btn btn-secondary" href="https://www.coso.org/" target="_blank" rel="noopener noreferrer">Open</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="module" style="cursor: default;">
+            <div class="module-kicker">NIST</div>
+            <div class="module-title">AI Risk Management Framework 1.0 (PDF)</div>
+            <div class="module-desc">
+              Practical governance + lifecycle framing (GOVERN, MAP, MEASURE, MANAGE).
+              <div style="margin-top: 10px;">
+                <a class="btn btn-secondary" href="https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.100-1.pdf" target="_blank" rel="noopener noreferrer">Open</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="module" style="cursor: default;">
+            <div class="module-kicker">NIST</div>
+            <div class="module-title">AI RMF overview page</div>
+            <div class="module-desc">
+              The official NIST overview / navigation hub for AI RMF materials.
+              <div style="margin-top: 10px;">
+                <a class="btn btn-secondary" href="https://www.nist.gov/itl/ai-risk-management-framework" target="_blank" rel="noopener noreferrer">Open</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="module" style="cursor: default;">
+            <div class="module-kicker">ISO</div>
+            <div class="module-title">ISO/IEC 42001 overview</div>
+            <div class="module-desc">
+              AI management system standard overview (governance alignment signal).
+              <div style="margin-top: 10px;">
+                <a class="btn btn-secondary" href="https://www.iso.org/standard/81230.html" target="_blank" rel="noopener noreferrer">Open</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- RESEARCH + INDUSTRY SIGNALS -->
+    <section class="section" id="research">
+      <div class="container">
+        <div class="section-head">
+          <h2 class="section-title">Research and industry signals</h2>
+          <p class="section-subtitle">Practitioner and industry references used to frame modernization pressure and scale realities.</p>
+        </div>
+
+        <div class="module-grid" style="grid-template-columns: repeat(2, minmax(0, 1fr));">
+          <div class="module" style="cursor: default;">
+            <div class="module-kicker">IIA Research</div>
+            <div class="module-title">Pulse of Internal Audit (2025 PDF)</div>
+            <div class="module-desc">
+              Themes on modernization pressure, technology enablement, and evolving stakeholder expectations.
+              <div style="margin-top: 10px;">
+                <a class="btn btn-secondary" href="https://www.theiia.org/globalassets/site/resources/research-and-reports/pulse-of-internal-audit/2025-iia-pulse-report.pdf" target="_blank" rel="noopener noreferrer">Open</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="module" style="cursor: default;">
+            <div class="module-kicker">Deloitte</div>
+            <div class="module-title">Internal Audit 4.0</div>
+            <div class="module-desc">
+              “Technology-enabled, scalable, forward-looking assurance” framing for modern IA models.
+              <div style="margin-top: 10px;">
+                <a class="btn btn-secondary" href="https://www.deloitte.com/us/en/services/audit-assurance/articles/future-of-internal-audit-4-0.html" target="_blank" rel="noopener noreferrer">Open</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="module" style="cursor: default;">
+            <div class="module-kicker">Deloitte</div>
+            <div class="module-title">Internal Audit Transformation</div>
+            <div class="module-desc">
+              Research signal on data-driven assurance, continuous monitoring, and scale enablement.
+              <div style="margin-top: 10px;">
+                <a class="btn btn-secondary" href="https://www.deloitte.com/us/en/services/consulting/services/internal-audit-transformation.html" target="_blank" rel="noopener noreferrer">Open</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="module" style="cursor: default;">
+            <div class="module-kicker">EY</div>
+            <div class="module-title">Internal Audit insights</div>
+            <div class="module-desc">
+              Perspective on shifting from retrospective validation to predictive / analytics-enabled oversight.
+              <div style="margin-top: 10px;">
+                <a class="btn btn-secondary" href="https://www.ey.com/en_us/services/consulting/internal-audit" target="_blank" rel="noopener noreferrer">Open</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="module" style="cursor: default;">
+            <div class="module-kicker">Gartner</div>
+            <div class="module-title">Gartner (CCM / digital risk context)</div>
+            <div class="module-desc">
+              Continuous Controls Monitoring (CCM) and analytics-enabled oversight as maturing baseline capabilities signal.
+              <div style="margin-top: 10px;">
+                <a class="btn btn-secondary" href="https://www.gartner.com/" target="_blank" rel="noopener noreferrer">Open</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="module" style="cursor: default;">
+            <div class="module-kicker">ACFE</div>
+            <div class="module-title">Report to the Nations (2024)</div>
+            <div class="module-desc">
+              Fraud benchmarking signal supporting the shift from sampling to population-level analytics.
+              <div style="margin-top: 10px;">
+                <a class="btn btn-secondary" href="https://www.acfe.com/report-to-the-nations/2024/" target="_blank" rel="noopener noreferrer">Open</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="module" style="cursor: default;">
+            <div class="module-kicker">NAED</div>
+            <div class="module-title">NAED (distribution industry context)</div>
+            <div class="module-desc">
+              Industry context on digital integration, transaction complexity, and margin sensitivity.
+              <div style="margin-top: 10px;">
+                <a class="btn btn-secondary" href="https://www.naed.org/" target="_blank" rel="noopener noreferrer">Open</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="module" style="cursor: default;">
+            <div class="module-kicker">Industry</div>
+            <div class="module-title">Supply Chain Brain</div>
+            <div class="module-desc">
+              Industry analysis reference used inline for data/analytics and decision-making context.
+              <div style="margin-top: 10px;">
+                <a class="btn btn-secondary" href="https://www.supplychainbrain.com" target="_blank" rel="noopener noreferrer">Open</a>
+              </div>
+            </div>
           </div>
         </div>
 
@@ -103,40 +278,85 @@
     </section>
 
     <!-- REGULATORY CONTEXT -->
-    <section class="section" id="regulatory">
+    <section class="section section-alt" id="regulatory">
       <div class="container">
         <div class="section-head">
           <h2 class="section-title">Regulatory context</h2>
-          <p class="section-subtitle">
-            Not “AI regulation” in isolation—rather, modern disclosure and governance expectations that require defensible oversight of technology-driven risk.
-          </p>
+          <p class="section-subtitle">External pressure signals that influence governance expectations (even when “AI regulation” is not the headline).</p>
         </div>
 
-        <div class="grid-2">
-          <div class="card">
-            <div class="card-kicker">Disclosure expectations</div>
-            <h3 class="card-title">SEC cybersecurity disclosure rules</h3>
-            <p class="card-text">
-              Reinforces governance and disclosure pressure: boards and management must show credible oversight of technology risk management.
-            </p>
-            <p style="margin-top: 10px;">
-              <a class="link" href="https://www.sec.gov/newsroom/press-releases/2023-139" target="_blank" rel="noopener noreferrer">
-                Read the SEC press release
-              </a>
-            </p>
+        <div class="module-grid" style="grid-template-columns: repeat(2, minmax(0, 1fr));">
+          <div class="module" style="cursor: default;">
+            <div class="module-kicker">SEC</div>
+            <div class="module-title">Cybersecurity disclosure rules (press release)</div>
+            <div class="module-desc">
+              Reinforces governance and disclosure pressure tied to technology risk management and oversight.
+              <div style="margin-top: 10px;">
+                <a class="btn btn-secondary" href="https://www.sec.gov/newsroom/press-releases/2023-139" target="_blank" rel="noopener noreferrer">Open</a>
+              </div>
+            </div>
           </div>
 
-          <div class="card">
-            <div class="card-kicker">How to use this library</div>
-            <h3 class="card-title">Turn standards into audit-ready artifacts</h3>
-            <p class="card-text">
-              If you’re building an AI-ready audit model, treat these sources as “requirements inputs”:
-              map them to controls, evidence, and monitoring routines—then document decisions so they’re reconstructable later.
-            </p>
-            <p style="margin-top: 10px;">
-              <a class="link" href="thesis.html">Back to the thesis</a>
-            </p>
+          <div class="module" style="cursor: default;">
+            <div class="module-kicker">FTC</div>
+            <div class="module-title">Enforcement context for deceptive AI claims (Sep 2024)</div>
+            <div class="module-desc">
+              Enforcement signal tied to AI-related claims and practices.
+              <div style="margin-top: 10px;">
+                <a class="btn btn-secondary" href="https://www.ftc.gov/news-events/news/press-releases/2024/09/ftc-announces-crackdown-deceptive-ai-claims-schemes" target="_blank" rel="noopener noreferrer">Open</a>
+              </div>
+            </div>
           </div>
+
+          <div class="module" style="cursor: default;">
+            <div class="module-kicker">EU</div>
+            <div class="module-title">EU AI Act regulatory framework</div>
+            <div class="module-desc">
+              EU regulatory framework reference used for AI governance context.
+              <div style="margin-top: 10px;">
+                <a class="btn btn-secondary" href="https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai" target="_blank" rel="noopener noreferrer">Open</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- TOOLS (REFERENCED INLINE) -->
+    <section class="section" id="tools">
+      <div class="container">
+        <div class="section-head">
+          <h2 class="section-title">Tools referenced inline</h2>
+          <p class="section-subtitle">AI tools cited as part of applied usage context (not endorsements).</p>
+        </div>
+
+        <div class="module-grid" style="grid-template-columns: repeat(2, minmax(0, 1fr));">
+          <div class="module" style="cursor: default;">
+            <div class="module-kicker">Anthropic</div>
+            <div class="module-title">Claude</div>
+            <div class="module-desc">
+              Product documentation and demonstrations reference.
+              <div style="margin-top: 10px;">
+                <a class="btn btn-secondary" href="https://www.anthropic.com/claude" target="_blank" rel="noopener noreferrer">Open</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="module" style="cursor: default;">
+            <div class="module-kicker">Microsoft</div>
+            <div class="module-title">Copilot</div>
+            <div class="module-desc">
+              Documentation and enterprise AI guidance reference.
+              <div style="margin-top: 10px;">
+                <a class="btn btn-secondary" href="https://www.microsoft.com/copilot" target="_blank" rel="noopener noreferrer">Open</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div style="margin-top: 18px;">
+          <a class="link" href="thesis.html">Back to the thesis</a>
         </div>
 
       </div>

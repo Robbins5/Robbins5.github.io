@@ -19,37 +19,36 @@
       </div>
 
       <nav class="nav" aria-label="Primary">
-        <a class="nav-link" href="about.html">About</a>
+        <a class="nav-link" href="#about">About</a>
+        <a class="nav-link" href="#thesis">Thesis</a>
         <a class="nav-link" href="#views">Views</a>
-        <!-- Create this page next -->
-        <!-- <a class="nav-link" href="resources.html">Resources</a> -->
-        <a class="nav-link nav-cta" href="thesis.html">Thesis</a>
+        <a class="nav-link" href="#resources">Resources</a>
       </nav>
     </div>
   </header>
 
   <main>
 
-    <!-- HERO -->
-    <section class="hero">
+    <!-- INTRO / HERO -->
+    <section class="hero" id="top">
       <div class="container hero-grid">
 
         <div class="hero-copy">
-          <p class="pill">Audit strategy for a transitionary enterprise</p>
+          <p class="pill">Audit strategy for enterprise transition</p>
 
           <h1 class="hero-title">
             Oversight that protects value while the business evolves.
           </h1>
 
           <p class="hero-subtitle">
-            AI is one part of the shift. The real driver is transition: new systems, new workflows, scaling pressure,
-            and prolonged stabilization periods where leakage, drift, and preventable exceptions quietly accumulate.
-            The AI-Ready Audit translates that reality into earlier detection, clearer ownership, and monitoring-driven assurance.
+            New systems, new workflows, scaling pressure, and long stabilization windows create drift:
+            margin leakage, evidence fragmentation, preventable exceptions, and shifting accountability.
+            The AI-Ready Audit translates that reality into monitoring-driven assurance and earlier detection.
           </p>
 
+          <!-- ONE CTA ONLY (waterfall starts) -->
           <div class="hero-actions">
-            <a class="btn btn-primary" href="thesis.html">Read the thesis</a>
-            <a class="btn btn-secondary" href="about.html">About</a>
+            <a class="btn btn-primary" href="#about">Start here</a>
           </div>
 
           <div class="hero-metrics" aria-label="Platform focus">
@@ -78,39 +77,90 @@
             <div class="banner-overlay"></div>
           </div>
           <div class="media-caption">
-            A clean operating model for assurance when systems, processes, and decision support are moving.
+            A structured model for assurance when systems, processes, and decision support are moving.
           </div>
         </div>
 
       </div>
     </section>
 
-    <!-- THESIS FEATURE (single reinforcement, not repetitive) -->
+    <!-- ABOUT (in-page, waterfall step 1) -->
+    <section class="section section-alt" id="about">
+      <div class="container">
+        <div class="section-head reveal">
+          <h2 class="section-title">About</h2>
+          <p class="section-subtitle">
+            The AI-Ready Audit is a platform for navigating enterprise transition through an internal audit lens:
+            governance direction, assurance architecture, and monitoring-driven oversight.
+          </p>
+        </div>
+
+        <div class="path-grid reveal" style="grid-template-columns: repeat(3, minmax(0, 1fr));">
+          <div class="path-card" style="cursor: default;">
+            <div class="path-top">
+              <div class="path-title">Why it exists</div>
+              <div class="path-tag">Context</div>
+            </div>
+            <p class="path-text">
+              Transition changes how controls operate and how evidence is created. Drift shows up before it hits financials.
+            </p>
+          </div>
+
+          <div class="path-card" style="cursor: default;">
+            <div class="path-top">
+              <div class="path-title">What it delivers</div>
+              <div class="path-tag">Output</div>
+            </div>
+            <p class="path-text">
+              A modern audit model built around population signals, monitoring routines, and defensible proof in system-driven workflows.
+            </p>
+          </div>
+
+          <div class="path-card" style="cursor: default;">
+            <div class="path-top">
+              <div class="path-title">Who it’s for</div>
+              <div class="path-tag">Audience</div>
+            </div>
+            <p class="path-text">
+              Executives who need material visibility during stabilization and audit leaders rebuilding assurance with lean teams.
+            </p>
+          </div>
+        </div>
+
+        <div class="framework-actions reveal" style="margin-top: 16px;">
+          <a class="btn btn-secondary" href="about.html">Read the full About page</a>
+          <a class="btn btn-primary" href="#thesis">Continue to the thesis</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- THESIS (waterfall step 2; single CTA) -->
     <section class="section" id="thesis">
       <div class="container">
         <div class="feature-panel reveal">
           <div class="feature-kicker">The backbone</div>
-          <h2 class="feature-title">The Thesis</h2>
+          <h2 class="feature-title">Thesis</h2>
           <p class="feature-text">
-            Internal audit can’t remain a downstream reviewer while enterprises modernize. Transition creates new failure modes:
-            incomplete stabilization, fractured evidence, new exceptions, and shifting accountability. The thesis lays out why the audit
-            operating model must evolve—toward population signals, monitoring architecture, and real-time assurance.
+            As enterprises evolve, internal audit must evolve with them. The constraints that once justified default sampling
+            are changing. Risk increasingly appears between systems, inside temporary workarounds, and through evidence that
+            shifts shape during stabilization. The thesis defines the operating model shift: from periodic validation toward
+            population signals, monitoring architecture, and defensible evidence.
           </p>
           <div class="feature-actions">
             <a class="btn btn-primary" href="thesis.html">Read the thesis</a>
-            <a class="btn btn-secondary" href="#views">Choose your view</a>
+            <a class="btn btn-secondary" href="#views">After reading: pick a view</a>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- VIEWS (role selection, feels like a platform) -->
+    <!-- VIEWS (waterfall step 3) -->
     <section class="section section-alt" id="views">
       <div class="container">
         <div class="section-head reveal">
-          <h2 class="section-title">Choose your view</h2>
+          <h2 class="section-title">Pick a view</h2>
           <p class="section-subtitle">
-            Two entry points. Same backbone. Different depth and language.
+            Same backbone. Different language and depth.
           </p>
         </div>
 
@@ -123,35 +173,88 @@
           <div class="view-panel is-active" data-panel="executive">
             <div class="view-title">Executive Oversight</div>
             <div class="view-desc">
-              Business-first clarity on where value leaks during stabilization: margin erosion, fraud exposure, financial accuracy,
-              and operational drift—without heavy audit vocabulary.
+              Material visibility during stabilization: where value leaks, where accuracy drifts, and what can reasonably be expected
+              by phase as audit methodology evolves alongside industry direction.
             </div>
             <div class="view-actions">
-              <a class="btn btn-primary" href="executive-oversight.html">Enter executive view</a>
+              <a class="btn btn-primary" href="executive-oversight.html">Enter Executive Oversight</a>
             </div>
           </div>
 
           <div class="view-panel" data-panel="leadership">
             <div class="view-title">Audit Leadership</div>
             <div class="view-desc">
-              Architecture and execution planning for a lean team: what to rebuild, what to stop doing, how to shift from sampling
-              to population signals, and how to stand up monitoring that scales with enterprise change.
+              Rebuilding assurance with a lean team: access realities, swivel-chair constraints, monitoring architecture tied to value,
+              evidence discipline, exception ownership, and staged tooling strategy.
             </div>
             <div class="view-actions">
-              <a class="btn btn-primary" href="audit-leadership.html">Enter audit leadership</a>
+              <a class="btn btn-primary" href="audit-leadership.html">Enter Audit Leadership</a>
             </div>
           </div>
+        </div>
+
+        <div class="framework-actions reveal" style="margin-top: 16px;">
+          <a class="btn btn-secondary" href="#resources">Continue to resources</a>
         </div>
       </div>
     </section>
 
-    <!-- FRAMEWORK SNAPSHOT (looks like IP, not a blog) -->
-    <section class="section" id="framework">
+    <!-- RESOURCES (waterfall step 4) -->
+    <section class="section" id="resources">
       <div class="container">
         <div class="section-head reveal">
-          <h2 class="section-title">Framework</h2>
+          <h2 class="section-title">Resources</h2>
           <p class="section-subtitle">
-            The operating model is rebuilt through a small set of disciplined modules.
+            Standards direction, frameworks, and curated references that support the model.
+          </p>
+        </div>
+
+        <div class="path-grid reveal" style="grid-template-columns: repeat(3, minmax(0, 1fr));">
+          <div class="path-card" style="cursor: default;">
+            <div class="path-top">
+              <div class="path-title">Standards</div>
+              <div class="path-tag">Direction</div>
+            </div>
+            <p class="path-text">
+              Global internal audit standards and profession-wide signals that reinforce risk-based assurance and scalable enablement.
+            </p>
+          </div>
+
+          <div class="path-card" style="cursor: default;">
+            <div class="path-top">
+              <div class="path-title">Frameworks</div>
+              <div class="path-tag">Control</div>
+            </div>
+            <p class="path-text">
+              Control and ERM anchors that translate enterprise complexity into defensible oversight and evidence expectations.
+            </p>
+          </div>
+
+          <div class="path-card" style="cursor: default;">
+            <div class="path-top">
+              <div class="path-title">Research</div>
+              <div class="path-tag">Evidence</div>
+            </div>
+            <p class="path-text">
+              Curated perspectives on monitoring, transformation, and detection maturity as organizations digitize and scale.
+            </p>
+          </div>
+        </div>
+
+        <div class="framework-actions reveal" style="margin-top: 16px;">
+          <a class="btn btn-primary" href="resources.html">Open Resources</a>
+          <a class="btn btn-secondary" href="#top">Back to top</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- OPTIONAL: FRAMEWORK PREVIEW (kept, but moved AFTER resources so it doesn’t break the waterfall) -->
+    <section class="section section-alt" id="framework">
+      <div class="container">
+        <div class="section-head reveal">
+          <h2 class="section-title">Framework preview</h2>
+          <p class="section-subtitle">
+            The platform builds into a small set of disciplined modules over time.
           </p>
         </div>
 
@@ -159,13 +262,13 @@
           <div class="module module-soon">
             <div class="module-kicker">Module</div>
             <div class="module-title">Stabilization Playbook</div>
-            <div class="module-desc">Priorities, timelines, barriers, and what to stop doing while assurance is rebuilt post go-live.</div>
+            <div class="module-desc">Priorities, barriers, interim controls, and what to stop doing while assurance is rebuilt post go-live.</div>
           </div>
 
           <div class="module module-soon">
             <div class="module-kicker">Module</div>
             <div class="module-title">Standards Shift</div>
-            <div class="module-desc">From sample-based coverage to population signals, continuous monitoring, and real-time assurance.</div>
+            <div class="module-desc">From sample-based coverage to population signals, monitoring, and technology-enabled assurance.</div>
           </div>
 
           <div class="module module-soon">
@@ -190,26 +293,6 @@
             <div class="module-kicker">Module</div>
             <div class="module-title">Tooling Strategy</div>
             <div class="module-desc">Right-sized capability building for a lean team—repeatable workflows over product sprawl.</div>
-          </div>
-
-          <div class="module module-soon">
-            <div class="module-kicker">Module</div>
-            <div class="module-title">AI as Complement</div>
-            <div class="module-desc">Research-backed, non-defensive framing of why AI strengthens audit without replacing judgment.</div>
-          </div>
-        </div>
-
-        <div class="cta-panel reveal" style="margin-top: 18px;">
-          <div class="cta-copy">
-            <h3 class="cta-title">Build forward from the thesis.</h3>
-            <p class="cta-text">
-              The thesis is the backbone. The modules translate it into stabilization strategy, monitoring design, and modern assurance execution.
-            </p>
-          </div>
-          <div class="cta-actions">
-            <a class="btn btn-primary" href="thesis.html">Read the thesis</a>
-            <!-- Enable when ready -->
-            <!-- <a class="btn btn-secondary" href="resources.html">Resources</a> -->
           </div>
         </div>
       </div>
@@ -251,8 +334,8 @@
       </div>
       <div class="footer-right">
         <a class="footer-link" href="about.html">About</a>
-        <!-- Enable when ready -->
-        <!-- <a class="footer-link" href="resources.html">Resources</a> -->
+        <a class="footer-link" href="thesis.html">Thesis</a>
+        <a class="footer-link" href="resources.html">Resources</a>
       </div>
     </div>
     <div class="container footer-bottom">

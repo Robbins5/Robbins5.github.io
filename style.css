@@ -654,6 +654,13 @@ body.page-exec .exec-strip-value{
   border-color: rgba(255,255,255,0.92);
 }
 
+.path-callout{
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
 
 /* Timeline chart */
 body.page-exec .timeline-chart{

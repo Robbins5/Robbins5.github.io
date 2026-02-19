@@ -661,6 +661,10 @@ body.page-exec .exec-strip-value{
   justify-content: space-between;
 }
 
+/* Make resources stretch full width under 3-card row */
+.full-span {
+  grid-column: 1 / -1;
+}
 
 /* Timeline chart */
 body.page-exec .timeline-chart{

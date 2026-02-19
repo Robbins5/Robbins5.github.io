@@ -601,8 +601,8 @@ body.page-exec .exec-strip-value{
   letter-spacing: -0.2px;
 }
 
-/* Executive callout */
-body.page-exec .exec-callout{
+/* Executive callout — reusable component */
+.exec-callout{
   margin-top: 18px;
   background: #101010;
   color: #ffffff;
@@ -611,48 +611,49 @@ body.page-exec .exec-callout{
   box-shadow: var(--shadow-md);
 }
 
-body.page-exec .exec-callout-title{
+.exec-callout-title{
   font-weight: 980;
   letter-spacing: -0.3px;
   font-size: 1.12rem;
 }
 
-body.page-exec .exec-callout-text{
+.exec-callout-text{
   margin-top: 8px;
   color: rgba(255,255,255,0.78);
   line-height: 1.7;
   max-width: 90ch;
 }
 
-body.page-exec .exec-callout-actions{
+.exec-callout-actions{
   margin-top: 12px;
   display: flex;
   gap: 10px;
   flex-wrap: wrap;
 }
 
-body.page-exec .exec-callout .btn{
+.exec-callout .btn{
   background: rgba(255,255,255,0.10);
   border-color: rgba(255,255,255,0.18);
   color: #fff;
   box-shadow: none;
 }
 
-body.page-exec .exec-callout .btn:hover{
+.exec-callout .btn:hover{
   background: rgba(255,255,255,0.16);
   border-color: rgba(255,255,255,0.22);
 }
 
-body.page-exec .exec-callout .btn-primary{
+.exec-callout .btn-primary{
   background: #fff;
   color: #101010;
   border-color: #fff;
 }
 
-body.page-exec .exec-callout .btn-primary:hover{
+.exec-callout .btn-primary:hover{
   background: rgba(255,255,255,0.92);
   border-color: rgba(255,255,255,0.92);
 }
+
 
 /* Timeline chart */
 body.page-exec .timeline-chart{

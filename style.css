@@ -856,3 +856,18 @@ body.page-ia .ia-strip-value{
   width: 100%;
   height: auto;
 }
+/* Thesis triad SVG container */
+.thesis-triad-visual{
+  margin-top: 18px;
+  border-radius: 18px;
+  overflow: hidden;
+  border: 1px solid var(--border-soft);
+  background: rgba(255,255,255,0.06);
+  box-shadow: var(--shadow-sm);
+}
+
+.thesis-triad-visual img{
+  display: block;
+  width: 100%;
+  height: auto;
+}

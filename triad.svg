@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="260" viewBox="0 0 1400 260" role="img" aria-label="Thesis triad: Core claim, Method shift, Anchor">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0b0d10"/>
+      <stop offset="0.6" stop-color="#0a0c0f"/>
+      <stop offset="1" stop-color="#0f1116"/>
+    </linearGradient>
+
+    <radialGradient id="vignette" cx="50%" cy="35%" r="85%">
+      <stop offset="0" stop-color="#000" stop-opacity="0"/>
+      <stop offset="1" stop-color="#000" stop-opacity="0.55"/>
+    </radialGradient>
+
+    <linearGradient id="accentLine" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0.10"/>
+      <stop offset="0.55" stop-color="#f3d39a" stop-opacity="0.60"/>
+      <stop offset="1" stop-color="#ffffff" stop-opacity="0.12"/>
+    </linearGradient>
+
+    <radialGradient id="warmGlow" cx="50%" cy="50%" r="70%">
+      <stop offset="0" stop-color="#f3d39a" stop-opacity="0.85"/>
+      <stop offset="0.45" stop-color="#d2a86a" stop-opacity="0.35"/>
+      <stop offset="1" stop-color="#d2a86a" stop-opacity="0"/>
+    </radialGradient>
+
+    <filter id="softShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="10" stdDeviation="14" flood-color="#000" flood-opacity="0.55"/>
+    </filter>
+
+    <filter id="glow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="6" result="b"/>
+      <feMerge>
+        <feMergeNode in="b"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <style>
+      .kicker { font: 800 12px/1.2 system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial; letter-spacing: 0.18em; text-transform: uppercase; fill: rgba(255,255,255,0.62); }
+      .title  { font: 900 16px/1.2 system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial; letter-spacing: -0.02em; fill: rgba(255,255,255,0.92); }
+      .body   { font: 650 12.8px/1.6 system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial; fill: rgba(210,218,228,0.78); }
+    </style>
+  </defs>
+
+  <!-- Background frame -->
+  <rect width="1400" height="260" fill="url(#bg)"/>
+  <rect width="1400" height="260" fill="url(#vignette)"/>
+
+  <rect x="40" y="34" width="1320" height="192" rx="22"
+        fill="rgba(255,255,255,0.03)"
+        stroke="rgba(255,255,255,0.10)" stroke-width="1"/>
+
+  <!-- Subtle connector line across the three panels -->
+  <path d="M140 130 C 330 92, 520 170, 700 130 C 880 94, 1060 158, 1260 124"
+        fill="none" stroke="url(#accentLine)" stroke-width="3" stroke-linecap="round" opacity="0.9"/>
+
+  <!-- Panels (3) -->
+  <!-- Panel 1 -->
+  <g transform="translate(80,62)">
+    <rect x="0" y="0" width="400" height="136" rx="18"
+          fill="rgba(255,255,255,0.05)"
+          stroke="rgba(255,255,255,0.10)" stroke-width="1"
+          filter="url(#softShadow)"/>
+
+    <!-- icon -->
+    <g transform="translate(24,26)">
+      <circle cx="24" cy="24" r="38" fill="url(#warmGlow)" opacity="0.45"/>
+      <circle cx="24" cy="24" r="16" fill="rgba(255,255,255,0.05)" stroke="rgba(255,255,255,0.35)" stroke-width="2"/>
+      <path d="M12 24 L20 32 L36 16" fill="none" stroke="rgba(255,255,255,0.75)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+    </g>
+
+    <text x="92" y="36" class="kicker">Core claim</text>
+    <text x="92" y="64" class="title">Audit must modernize</text>
+    <text x="92" y="86" class="body">with enterprise evolution.</text>
+
+    <path d="M92 98 L356 98" stroke="rgba(210,168,106,0.35)" stroke-width="2" stroke-linecap="round"/>
+  </g>
+
+  <!-- Panel 2 -->
+  <g transform="translate(500,62)">
+    <rect x="0" y="0" width="400" height="136" rx="18"
+          fill="rgba(255,255,255,0.05)"
+          stroke="rgba(255,255,255,0.10)" stroke-width="1"
+          filter="url(#softShadow)"/>
+
+    <!-- icon -->
+    <g transform="translate(24,26)">
+      <circle cx="24" cy="24" r="38" fill="url(#warmGlow)" opacity="0.55"/>
+      <circle cx="24" cy="24" r="16" fill="rgba(255,255,255,0.05)" stroke="rgba(255,255,255,0.35)" stroke-width="2"/>
+      <path d="M10 30 C 18 18, 26 40, 38 18" fill="none" stroke="rgba(255,255,255,0.75)" stroke-width="3" stroke-linecap="round" filter="url(#glow)"/>
+    </g>
+
+    <text x="92" y="36" class="kicker">Method shift</text>
+    <text x="92" y="64" class="title">Signals & monitoring</text>
+    <text x="92" y="86" class="body">over default sampling.</text>
+
+    <path d="M92 98 L356 98" stroke="rgba(210,168,106,0.35)" stroke-width="2" stroke-linecap="round"/>
+  </g>
+
+  <!-- Panel 3 -->
+  <g transform="translate(920,62)">
+    <rect x="0" y="0" width="400" height="136" rx="18"
+          fill="rgba(255,255,255,0.05)"
+          stroke="rgba(255,255,255,0.10)" stroke-width="1"
+          filter="url(#softShadow)"/>
+
+    <!-- icon -->
+    <g transform="translate(24,26)">
+      <circle cx="24" cy="24" r="38" fill="url(#warmGlow)" opacity="0.50"/>
+      <circle cx="24" cy="24" r="16" fill="rgba(255,255,255,0.05)" stroke="rgba(255,255,255,0.35)" stroke-width="2"/>
+      <path d="M24 12 L34 18 L34 30 L24 36 L14 30 L14 18 Z" fill="none" stroke="rgba(255,255,255,0.75)" stroke-width="3" stroke-linejoin="round"/>
+    </g>
+
+    <text x="92" y="36" class="kicker">Anchor</text>
+    <text x="92" y="64" class="title">IIA & COSO direction</text>
+    <text x="92" y="86" class="body">+ real enterprise constraints.</text>
+
+    <path d="M92 98 L356 98" stroke="rgba(210,168,106,0.35)" stroke-width="2" stroke-linecap="round"/>
+  </g>
+</svg>

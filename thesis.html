@@ -31,223 +31,326 @@
 
   <main>
 
-    <!-- HERO -->
+    <!-- THESIS HERO (redesigned header layout) -->
     <section class="exec-hero">
       <div class="container">
-        <div class="exec-hero-inner">
-          <p class="exec-kicker">Thesis</p>
+        <div class="thesis-hero-grid">
 
-          <h1 class="exec-title">Redefining internal audit during system change, scale, and rising expectations.</h1>
+          <div class="thesis-hero-copy">
+            <p class="exec-kicker">The Thesis</p>
 
-          <p class="exec-subtitle">
-            Enterprise transition changes how controls operate, how evidence is produced, and where risk concentrates.
-            Standards direction increasingly reinforces risk-based assurance, scalable enablement, and monitoring where feasible.
-            The operating model must shift: less default sampling, more population signals, monitoring routines, and reconstructable evidence across systems.
-          </p>
+            <h1 class="exec-title">Redefining internal audit during system change, scale, and rising expectations.</h1>
 
-          <div class="exec-actions">
-            <a class="btn btn-primary" href="#read">Read the thesis</a>
-            <a class="btn btn-secondary" href="#statement">Thesis statement</a>
-            <a class="btn btn-secondary" href="executive-oversight.html">Executive view</a>
-          </div>
+            <p class="exec-subtitle">
+              Enterprises are evolving (new systems, new workflows, new decision support), and audit standards are evolving with them.
+              The operating model must shift from sampling-era assurance to population signals, monitoring-driven oversight,
+              and defensible evidence in system-driven environments.
+            </p>
 
-          <!-- “At a glance” strip (keeps cards limited and intentional) -->
-          <div class="exec-strip thesis-strip" aria-label="Thesis at a glance">
-            <div class="exec-strip-item">
-              <div class="exec-strip-label">Core claim</div>
-              <div class="exec-strip-value">Modernize with enterprise evolution</div>
-            </div>
-            <div class="exec-strip-item">
-              <div class="exec-strip-label">Method shift</div>
-              <div class="exec-strip-value">Signals & monitoring over default sampling</div>
-            </div>
-            <div class="exec-strip-item">
-              <div class="exec-strip-label">Anchor</div>
-              <div class="exec-strip-value">IIA & COSO direction + real constraints</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- READING LAYOUT -->
-    <section class="section" id="read">
-      <div class="container">
-
-        <div class="thesis-layout">
-
-          <!-- STICKY OUTLINE -->
-          <aside class="thesis-aside" aria-label="Thesis outline">
-            <div class="thesis-toc">
-              <div class="thesis-toc-title">On this page</div>
-              <a class="thesis-toc-link" href="#statement">Thesis statement</a>
-              <a class="thesis-toc-link" href="#conditions">Conditions driving the shift</a>
-              <a class="thesis-toc-link" href="#misalignment">Signals of misalignment</a>
-              <a class="thesis-toc-link" href="#implication">Operating model implication</a>
-              <a class="thesis-toc-link" href="#sequencing">Sequencing & constraints</a>
-              <a class="thesis-toc-link" href="#anchors">Anchors</a>
+            <div class="exec-actions">
+              <a class="btn btn-primary" href="#snapshot">Thesis snapshot</a>
+              <a class="btn btn-secondary" href="#argument">Read the argument</a>
+              <a class="btn btn-secondary" href="executive-oversight.html">Executive view</a>
             </div>
 
-            <div class="thesis-aside-cta">
-              <div class="thesis-aside-kicker">Use the views</div>
-              <div class="thesis-aside-text">
-                <a href="executive-oversight.html">Executive Oversight</a> translates this into leadership questions and progress markers.<br />
-                <a href="audit-leadership.html">Audit Leadership</a> translates it into build sequencing and operating routines.
+            <div class="exec-strip thesis-strip" aria-label="Thesis framing">
+              <div class="exec-strip-item">
+                <div class="exec-strip-label">Core claim</div>
+                <div class="exec-strip-value">Audit must modernize with enterprise evolution</div>
               </div>
-              <div class="thesis-aside-actions">
-                <a class="btn btn-primary" href="executive-oversight.html">Executive</a>
-                <a class="btn btn-secondary" href="audit-leadership.html">Leadership</a>
+              <div class="exec-strip-item">
+                <div class="exec-strip-label">Method shift</div>
+                <div class="exec-strip-value">Signals & monitoring over default sampling</div>
+              </div>
+              <div class="exec-strip-item">
+                <div class="exec-strip-label">Anchor</div>
+                <div class="exec-strip-value">IIA & COSO direction + real enterprise constraints</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right-side “On this page” (not a card grid, but a designed navigation block) -->
+          <aside class="thesis-hero-aside" aria-label="On this page">
+            <div class="thesis-aside-box">
+              <div class="thesis-aside-title">On this page</div>
+              <a class="thesis-aside-link" href="#snapshot">Thesis snapshot</a>
+              <a class="thesis-aside-link" href="#argument">The argument</a>
+              <a class="thesis-aside-link" href="#sources">Key sources</a>
+
+              <div class="thesis-aside-divider"></div>
+
+              <div class="thesis-aside-kicker">Continue</div>
+              <a class="thesis-aside-link" href="audit-leadership.html">Audit leadership view</a>
+              <a class="thesis-aside-link" href="executive-oversight.html">Executive oversight view</a>
+            </div>
+
+            <div class="thesis-aside-box thesis-aside-box-soft">
+              <div class="thesis-aside-kicker">Reading intention</div>
+              <div class="thesis-aside-text">
+                This is written as an operating model argument: conditions → misalignment → method shift → sequencing.
               </div>
             </div>
           </aside>
 
-          <!-- MAIN ARTICLE SURFACE -->
-          <article class="thesis-article" aria-label="Thesis text">
+        </div>
+      </div>
+    </section>
 
-            <!-- Thesis statement (one strong card, not a grid of cards) -->
-            <section class="thesis-section" id="statement">
-              <div class="thesis-eyebrow">Thesis statement</div>
+    <!-- THESIS SNAPSHOT (reformatted: not cards, a “thesis map”) -->
+    <section class="section section-alt" id="snapshot">
+      <div class="container">
+        <div class="section-head">
+          <h2 class="section-title">Thesis snapshot</h2>
+          <p class="section-subtitle">
+            The argument is simple and structural: enterprise environments changed, constraints shifted, and audit methods must follow.
+          </p>
+        </div>
 
-              <div class="cta-panel thesis-statement">
-                <div class="cta-copy">
-                  <h2 class="cta-title">Audit operating models must evolve proportionately.</h2>
-                  <p class="cta-text">
-                    As enterprises transition across systems and scale, internal audit must shift from periodic, sample-based validation
-                    toward population-aware testing, monitoring-driven oversight, and evidence discipline that remains defensible across interconnected workflows.
-                  </p>
-                </div>
-                <div class="cta-actions">
-                  <a class="btn btn-primary" href="#implication">Operating model</a>
-                  <a class="btn btn-secondary" href="resources.html">Sources</a>
-                </div>
+        <div class="thesis-map" role="list" aria-label="Thesis map">
+          <div class="thesis-map-row" role="listitem">
+            <div class="thesis-map-label">Enterprise reality</div>
+            <div class="thesis-map-body">
+              Core systems and workflows are shifting. Data and controls now span interconnected platforms.
+              Risk increasingly appears in the seams between systems and in “temporary” processes that linger after go-live.
+            </div>
+          </div>
+
+          <div class="thesis-map-row" role="listitem">
+            <div class="thesis-map-label">Standards direction</div>
+            <div class="thesis-map-body">
+              The profession is moving toward risk-based assurance, reliable evidence, and technology-enabled scalability
+              (including ongoing monitoring where feasible). Expectations are rising globally.
+            </div>
+          </div>
+
+          <div class="thesis-map-row" role="listitem">
+            <div class="thesis-map-label">Operating model shift</div>
+            <div class="thesis-map-body">
+              Population-level testing where it matters, monitoring routines with thresholds and owners,
+              and evidence discipline that holds up during transition (even when perfect automation isn’t yet realistic).
+            </div>
+          </div>
+
+          <div class="thesis-map-row" role="listitem">
+            <div class="thesis-map-label">Sequencing constraint</div>
+            <div class="thesis-map-body">
+              Stabilization comes first. Small teams rebuild after core processes settle. Early progress is measurable through improved visibility
+              and earlier detection—before full redesign is complete.
+            </div>
+          </div>
+        </div>
+
+        <div class="framework-actions" style="margin-top: 16px;">
+          <a class="btn btn-primary" href="audit-leadership.html">How audit leadership builds it</a>
+          <a class="btn btn-secondary" href="resources.html">Key sources</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- THE ARGUMENT (reformatted: alternating “paper sections,” not one giant card) -->
+    <section class="section" id="argument">
+      <div class="container">
+        <div class="section-head">
+          <h2 class="section-title">The argument</h2>
+          <p class="section-subtitle">
+            This is the backbone that the Executive Oversight and Audit Leadership views build from.
+          </p>
+        </div>
+
+        <!-- Section 1 -->
+        <section class="thesis-section">
+          <div class="thesis-section-head">
+            <div class="thesis-section-kicker">Section 1</div>
+            <h3 class="thesis-section-title">A structural shift is underway</h3>
+          </div>
+
+          <div class="thesis-section-body">
+            <p>
+              Internal audit is operating in an environment that has changed materially.
+              Organizations are upgrading core systems. Technology ecosystems are expanding across finance, operations,
+              procurement, HR, logistics, and compliance. At the same time, businesses are scaling—in transaction volume,
+              automation depth, geographic complexity, and decision velocity.
+            </p>
+            <p>
+              Overlaying these operational shifts is something equally significant: the audit profession itself is evolving,
+              and executive expectations are rising with it. Modern guidance increasingly reinforces risk-based,
+              forward-looking assurance, ongoing monitoring where feasible, data-enabled scalability, proportional oversight,
+              and reliable evidence.
+            </p>
+          </div>
+        </section>
+
+        <div class="thesis-rule"></div>
+
+        <!-- Section 2 -->
+        <section class="thesis-section thesis-section-alt">
+          <div class="thesis-section-head">
+            <div class="thesis-section-kicker">Section 2</div>
+            <h3 class="thesis-section-title">The old model was rational—for its time</h3>
+          </div>
+
+          <div class="thesis-section-body">
+            <p>
+              For decades, the traditional audit model was proportionate to technological constraint.
+              Sampling was necessary when tools could not process full populations efficiently.
+              System-by-system reviews were practical when cross-system analytics were limited.
+              Periodic testing was responsible oversight within the limits of available infrastructure.
+            </p>
+            <p>
+              The legacy model wasn’t wrong. It was built around constraint. Those constraints no longer define many enterprise environments.
+            </p>
+          </div>
+        </section>
+
+        <div class="thesis-rule"></div>
+
+        <!-- Section 3 -->
+        <section class="thesis-section">
+          <div class="thesis-section-head">
+            <div class="thesis-section-kicker">Section 3</div>
+            <h3 class="thesis-section-title">What has changed—and why it matters</h3>
+          </div>
+
+          <div class="thesis-section-body">
+            <p>
+              Modern enterprises no longer operate within contained systems. A transaction may originate in one platform,
+              route through another, execute in a third, and reconcile in a fourth. Each system may operate correctly in isolation.
+              Risk frequently emerges between them.
+            </p>
+
+            <!-- Here, a “designed” module keeps scannability without turning the whole page into cards -->
+            <div class="module" style="cursor: default; margin-top: 14px;">
+              <div class="module-kicker">Intersection risk examples</div>
+              <div class="module-desc">
+                <ul style="padding-left: 18px; line-height: 1.9;">
+                  <li>Segregation of duties conflicts spanning multiple systems</li>
+                  <li>Vendor master manipulation preceding suspicious payment activity</li>
+                  <li>Expense anomalies visible only when streams are combined</li>
+                  <li>Revenue inconsistencies tied to operational platforms</li>
+                  <li>Behavioral patterns that appear only in cross-system aggregation</li>
+                </ul>
               </div>
-            </section>
+            </div>
 
-            <div class="thesis-divider"></div>
+            <p style="margin-top: 14px;">
+              Auditing within silos while risk lives in intersections creates blind spots.
+              In parallel, the technology constraint that once justified sampling has shifted.
+              Full-population testing and monitoring are increasingly feasible in a right-sized way—especially when staged intentionally.
+            </p>
+          </div>
+        </section>
 
-            <!-- Conditions (clean text with one callout) -->
-            <section class="thesis-section" id="conditions">
-              <h2 class="thesis-h2">Conditions driving the shift</h2>
+        <div class="thesis-rule"></div>
 
-              <p class="thesis-p">
-                The audit environment has changed materially. Core systems are being upgraded. Workflow automation is expanding.
-                Decisions are increasingly mediated by tools that generate, recommend, route, or prioritize actions. Meanwhile, enterprises scale
-                in transaction volume, geographic complexity, speed, and interdependence.
-              </p>
+        <!-- Section 4 -->
+        <section class="thesis-section thesis-section-alt">
+          <div class="thesis-section-head">
+            <div class="thesis-section-kicker">Section 4</div>
+            <h3 class="thesis-section-title">Early signals of misalignment</h3>
+          </div>
 
-              <p class="thesis-p">
-                In modern environments, risk frequently concentrates in the seams—between systems, between process owners, and within transitional workarounds
-                that persist longer than intended. In these conditions, siloed reviews and periodic sampling produce lagging visibility.
-              </p>
+          <div class="thesis-section-body">
+            <p>
+              In organizations that have not yet evolved the operating model, the symptoms show up quietly:
+              findings repeat, remediation doesn’t change system behavior, visibility arrives too late to influence decisions,
+              and audit becomes reactive rather than embedded.
+            </p>
+            <p>
+              Over time, influence narrows and modernization becomes harder to resource.
+              This isn’t a reflection of effort. It’s what happens when an operating model built for prior constraints persists
+              after the enterprise environment changes.
+            </p>
+          </div>
+        </section>
 
-              <div class="thesis-callout" role="note" aria-label="Structural reality">
-                <div class="thesis-callout-title">Structural reality</div>
-                <div class="thesis-callout-text">
-                  When workflows span multiple platforms, “control effectiveness” is no longer a single-system question.
-                  Assurance depends on end-to-end traceability and reconstructable evidence across the workflow.
-                </div>
-              </div>
-            </section>
+        <div class="thesis-rule"></div>
 
-            <div class="thesis-divider"></div>
+        <!-- Section 5 -->
+        <section class="thesis-section">
+          <div class="thesis-section-head">
+            <div class="thesis-section-kicker">Section 5</div>
+            <h3 class="thesis-section-title">What modern audit maturity looks like</h3>
+          </div>
 
-            <!-- Misalignment (designed list—NOT cards) -->
-            <section class="thesis-section" id="misalignment">
-              <h2 class="thesis-h2">Signals of operating model misalignment</h2>
+          <div class="thesis-section-body">
+            <p>
+              In digitally mature environments, audit capability increasingly includes population testing where it matters,
+              monitoring routines with defined thresholds and ownership, cross-system visibility, and stronger evidence traceability.
+              This expands coverage across financial integrity, fraud detection, operational efficiency, and end-to-end process risk.
+            </p>
+            <p>
+              Audit maturity increasingly mirrors enterprise digital maturity. The question is no longer whether scalable oversight is possible.
+              The question is whether the function intends to operate at the level increasingly treated as standard within the profession.
+            </p>
+          </div>
+        </section>
 
-              <ul class="thesis-list">
-                <li><strong>Recurring findings</strong> with limited system behavior change (fixing instances, not drivers)</li>
-                <li><strong>Visibility arrives too late</strong> to influence outcomes (audit becomes explanatory, not preventive)</li>
-                <li><strong>Manual bridges persist</strong> and become semi-permanent operating layers</li>
-                <li><strong>Evidence cannot be reconstructed</strong> when decisions route through multiple tools and handoffs</li>
-                <li><strong>Coverage narrows</strong> because periodic testing cannot keep pace with scale and variability</li>
-              </ul>
+        <div class="thesis-rule"></div>
 
-              <p class="thesis-p">
-                These signals are not typically a failure of effort. They reflect a mismatch between modern enterprise conditions and an assurance model built for prior constraints.
-              </p>
-            </section>
+        <!-- Section 6 -->
+        <section class="thesis-section thesis-section-alt">
+          <div class="thesis-section-head">
+            <div class="thesis-section-kicker">Section 6</div>
+            <h3 class="thesis-section-title">How strong leaders navigate the transition</h3>
+          </div>
 
-            <div class="thesis-divider"></div>
+          <div class="thesis-section-body">
+            <p>
+              The response to structural evolution isn’t urgency—it’s discipline.
+              Mature sequencing stabilizes infrastructure and evidence first, activates embedded capabilities next,
+              expands cross-system analytics as access and data settle, and introduces third-party tooling deliberately where it adds differentiated value.
+            </p>
+            <p>
+              During transition, architecture and routine fieldwork cannot compete for the same bandwidth.
+              If modernization is treated as “extra,” it becomes intermittent, fragile, and slow.
+            </p>
+          </div>
+        </section>
 
-            <!-- Implication (three intentional cards only) -->
-            <section class="thesis-section" id="implication">
-              <h2 class="thesis-h2">Operating model implication</h2>
+        <div class="thesis-rule"></div>
 
-              <p class="thesis-p">
-                Modern audit maturity increasingly includes population-aware testing where it matters, recurring monitoring routines with thresholds and owners,
-                cross-system visibility, and evidence traceability designed for reconstruction. Sampling remains useful—but shifts to targeted validation,
-                exception investigation, and control design testing rather than serving as the default method of coverage.
-              </p>
+        <!-- Conclusion -->
+        <section class="thesis-section">
+          <div class="thesis-section-head">
+            <div class="thesis-section-kicker">Conclusion</div>
+            <h3 class="thesis-section-title">Architectural leadership defines the future</h3>
+          </div>
 
-              <div class="thesis-pillars" aria-label="Operating model pillars">
-                <div class="thesis-pillar">
-                  <div class="thesis-pillar-kicker">Method</div>
-                  <div class="thesis-pillar-title">Signals over default sampling</div>
-                  <div class="thesis-pillar-text">Signals surface drift early; sampling validates and investigates exceptions.</div>
-                </div>
+          <div class="thesis-section-body">
+            <p>
+              This moment is not about restoring what existed. It is about designing what must exist next.
+              Enterprises are evolving. Standards are advancing. Expectations are rising.
+              The audit operating model must evolve proportionately—without losing practical continuity in the real constraints of stabilization.
+            </p>
+          </div>
+        </section>
 
-                <div class="thesis-pillar">
-                  <div class="thesis-pillar-kicker">Assurance</div>
-                  <div class="thesis-pillar-title">Monitoring as infrastructure</div>
-                  <div class="thesis-pillar-text">Thresholds, ownership, cadence, escalation, and closure turn analytics into oversight.</div>
-                </div>
+      </div>
+    </section>
 
-                <div class="thesis-pillar">
-                  <div class="thesis-pillar-kicker">Evidence</div>
-                  <div class="thesis-pillar-title">Reconstructable proof</div>
-                  <div class="thesis-pillar-text">Logs, approvals, lineage, and exception handling that holds up during transition.</div>
-                </div>
-              </div>
-            </section>
-
-            <div class="thesis-divider"></div>
-
-            <!-- Sequencing (text + one accent callout) -->
-            <section class="thesis-section" id="sequencing">
-              <h2 class="thesis-h2">Sequencing and constraints</h2>
-
-              <p class="thesis-p">
-                The shift is not executed by urgency; it is executed by sequencing. During transition, architecture work and routine fieldwork
-                cannot compete for the same bandwidth. The path is staged: stabilize core processes and access paths first, establish minimum evidence discipline,
-                then expand monitoring and cross-system routines where feasibility and value justify the build.
-              </p>
-
-              <div class="thesis-callout thesis-callout-accent" role="note" aria-label="Sequencing principle">
-                <div class="thesis-callout-title">Sequencing principle</div>
-                <div class="thesis-callout-text">
-                  Stabilization precedes redesign. The modernization goal is “stable enough to rely on, detectable enough to intervene early.”
-                </div>
-              </div>
-            </section>
-
-            <div class="thesis-divider"></div>
-
-            <!-- Anchors (clean + compact actions) -->
-            <section class="thesis-section" id="anchors">
-              <h2 class="thesis-h2">Anchors</h2>
-
-              <p class="thesis-p">
-                This thesis aligns to widely adopted direction in global internal audit standards and control frameworks, while remaining constrained by real enterprise operating conditions:
-                transitional processes, access limitations, capacity realities, and the need to keep assurance decision-useful while the business stabilizes.
-              </p>
-
-              <ul class="thesis-list thesis-list-compact">
+    <!-- KEY SOURCES (keep as a single intentional card) -->
+    <section class="section section-alt" id="sources">
+      <div class="container">
+        <div class="cta-panel">
+          <div class="cta-copy">
+            <h3 class="cta-title">Key sources</h3>
+            <p class="cta-text">
+              A short list of anchors that reflect the direction of the profession and control thinking. The full library lives in Resources.
+            </p>
+            <div style="margin-top: 10px; color: var(--muted); line-height: 1.75;">
+              <ul style="padding-left: 18px;">
                 <li>IIA Global Internal Audit Standards (2024)</li>
-                <li>COSO Internal Control and ERM frameworks</li>
-                <li>Continuous monitoring / continuous assurance perspectives</li>
-                <li>Industry research on analytics-enabled detection and loss reduction</li>
+                <li>COSO Internal Control & ERM frameworks</li>
+                <li>Continuous controls monitoring / continuous assurance perspectives</li>
+                <li>Fraud analytics impact research (industry research bodies)</li>
               </ul>
+            </div>
+          </div>
 
-              <div class="framework-actions" style="margin-top: 14px;">
-                <a class="btn btn-primary" href="resources.html">Open resources</a>
-                <a class="btn btn-secondary" href="audit-leadership.html">Audit leadership</a>
-                <a class="btn btn-secondary" href="executive-oversight.html">Executive oversight</a>
-              </div>
-            </section>
-
-          </article>
-
+          <div class="cta-actions">
+            <a class="btn btn-primary" href="resources.html">Open resources</a>
+            <a class="btn btn-secondary" href="executive-oversight.html">Executive oversight</a>
+          </div>
         </div>
       </div>
     </section>

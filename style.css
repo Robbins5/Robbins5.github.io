@@ -828,3 +828,16 @@ body.page-ia .ia-strip-value{
   .banner{ height: 230px; }
   .hero-title{ font-size: 2.0rem; }
 }
+/* Thesis strip refinement */
+
+.thesis-strip {
+  margin-top: 26px;
+}
+
+.thesis-claim {
+  font-size: 1rem;
+  font-weight: 800;
+  letter-spacing: -0.2px;
+  line-height: 1.5;
+  color: var(--text);
+}

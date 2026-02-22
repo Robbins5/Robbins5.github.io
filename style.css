@@ -841,3 +841,18 @@ body.page-ia .ia-strip-value{
   line-height: 1.5;
   color: var(--text);
 }
+/* Thesis timeline SVG */
+.thesis-timeline-visual{
+  margin-top: 16px;
+  border-radius: 18px;
+  overflow: hidden;
+  border: 1px solid var(--border-soft);
+  background: rgba(255,255,255,0.06);
+  box-shadow: var(--shadow-sm);
+}
+
+.thesis-timeline-visual img{
+  display: block;
+  width: 100%;
+  height: auto;
+}

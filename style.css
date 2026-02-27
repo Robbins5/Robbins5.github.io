@@ -1232,3 +1232,48 @@ body.page-ia .ia-strip-value{
 @media (max-width: 820px){
   .format-grid{ grid-template-columns: 1fr; }
 }
+/* ============================================================
+   Traditional thesis native render (no iframe)
+   ============================================================ */
+.article-native{
+  margin-top: 14px;
+}
+
+.article-loading{
+  border: 1px solid var(--border-soft);
+  background: rgba(255,255,255,0.86);
+  border-radius: 18px;
+  padding: 14px 16px;
+  color: var(--muted);
+  box-shadow: var(--shadow-sm);
+}
+
+/* This becomes the “reading surface” */
+.article-slot{
+  margin-top: 12px;
+}
+
+/* Remove any accidental “page chrome” if it gets injected */
+.article-slot .site-header,
+.article-slot header,
+.article-slot .footer,
+.article-slot footer,
+.article-slot nav{
+  display: none !important;
+}
+
+/* If the injected content includes its own main wrapper, keep spacing consistent */
+.article-slot main{
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+/* Make sure embedded pages don’t force narrow widths */
+.article-slot .container{
+  max-width: 1100px;
+}
+
+/* Optional: if my-sixth-post uses a different body background, normalize */
+.article-slot{
+  color: var(--body);
+}

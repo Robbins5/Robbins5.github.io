@@ -47,17 +47,33 @@
             Choose the experience that works best for you.
           </p>
 
-          <div class="reading-toggle" role="group" aria-label="Reading format">
-            <button type="button" class="reading-pill" id="btn-web" data-view="web">
-              <span class="reading-pill-title">Structured Web Experience</span>
-              <span class="reading-pill-sub">Broken into sections for scanning and exploration.</span>
-            </button>
-
-            <button type="button" class="reading-pill" id="btn-article" data-view="article">
-              <span class="reading-pill-title">Traditional Thesis Article</span>
-              <span class="reading-pill-sub">Presented as a complete, continuous research paper.</span>
-            </button>
-          </div>
+            <div class="reading-toggle" role="group" aria-label="Reading format">
+      <button type="button" class="reading-pill reading-pill-web" id="btn-web" data-view="web">
+        <span class="reading-pill-top">
+          <span class="reading-pill-icon" aria-hidden="true">▦</span>
+          <span class="reading-pill-title">Structured Web Experience</span>
+          <span class="reading-pill-chip">Best for scanning</span>
+        </span>
+        <span class="reading-pill-sub">Broken into sections for scanning and exploration.</span>
+        <span class="reading-pill-foot">
+          <span class="reading-pill-cta">Open structured view</span>
+          <span class="reading-pill-arrow" aria-hidden="true">→</span>
+        </span>
+      </button>
+    
+      <button type="button" class="reading-pill reading-pill-article" id="btn-article" data-view="article">
+        <span class="reading-pill-top">
+          <span class="reading-pill-icon" aria-hidden="true">≡</span>
+          <span class="reading-pill-title">Traditional Thesis Article</span>
+          <span class="reading-pill-chip">Best for deep reading</span>
+        </span>
+        <span class="reading-pill-sub">Presented as a complete, continuous research paper.</span>
+        <span class="reading-pill-foot">
+          <span class="reading-pill-cta">Open article view</span>
+          <span class="reading-pill-arrow" aria-hidden="true">→</span>
+        </span>
+      </button>
+    </div>
 
           <p class="reading-gate-note">You can switch formats anytime.</p>
         </div>

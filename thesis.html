@@ -35,76 +35,80 @@
   </header>
 
   <main>
-<!-- PREMIUM READING GATE -->
-<section class="format-gate" id="reading-gate">
-  <div class="container">
-    <div class="format-gate-shell">
-      <div class="format-gate-header">
-        <p class="format-kicker">Welcome</p>
-        <h1 class="format-title">Choose your reading experience</h1>
-        <p class="format-subtitle">
-          This research is available in two formats to support different learning styles and personal reading preferences.
-          Pick what feels most natural — you can switch anytime.
-        </p>
+
+    <!-- PREMIUM READING GATE -->
+    <section class="format-gate" id="reading-gate">
+      <div class="container">
+        <div class="format-gate-shell">
+          <div class="format-gate-header">
+            <p class="format-kicker">Welcome</p>
+            <h1 class="format-title">Choose your reading experience</h1>
+            <p class="format-subtitle">
+              This research is available in two formats to support different learning styles and personal reading preferences.
+              Pick what feels most natural — you can switch anytime.
+            </p>
+          </div>
+
+          <div class="format-grid" role="group" aria-label="Reading format">
+            <button type="button" class="format-card" id="btn-web" data-view="web">
+              <div class="format-card-top">
+                <div class="format-icon" aria-hidden="true">
+                  <!-- simple inline svg: grid -->
+                  <svg viewBox="0 0 24 24" width="20" height="20" fill="none">
+                    <path d="M4 4h7v7H4V4Zm9 0h7v7h-7V4ZM4 13h7v7H4v-7Zm9 0h7v7h-7v-7Z" stroke="currentColor" stroke-width="1.8"/>
+                  </svg>
+                </div>
+                <div class="format-card-title-wrap">
+                  <div class="format-card-title">Structured Web Experience</div>
+                  <div class="format-card-tag">Best for scanning</div>
+                </div>
+              </div>
+
+              <div class="format-card-body">
+                Sectioned layout with visual hierarchy — easy to skim, jump, and revisit key points.
+              </div>
+
+              <div class="format-card-foot">
+                <span class="format-cta">Open structured view</span>
+                <span class="format-arrow" aria-hidden="true">→</span>
+              </div>
+            </button>
+
+            <button type="button" class="format-card" id="btn-article" data-view="article">
+              <div class="format-card-top">
+                <div class="format-icon" aria-hidden="true">
+                  <!-- simple inline svg: document -->
+                  <svg viewBox="0 0 24 24" width="20" height="20" fill="none">
+                    <path d="M7 3h7l3 3v15H7V3Z" stroke="currentColor" stroke-width="1.8"/>
+                    <path d="M9 11h6M9 15h6M9 7h3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                  </svg>
+                </div>
+                <div class="format-card-title-wrap">
+                  <div class="format-card-title">Traditional Thesis Article</div>
+                  <div class="format-card-tag">Best for deep reading</div>
+                </div>
+              </div>
+
+              <div class="format-card-body">
+                Continuous narrative in a single flow — written like a research article.
+              </div>
+
+              <div class="format-card-foot">
+                <span class="format-cta">Open article view</span>
+                <span class="format-arrow" aria-hidden="true">→</span>
+              </div>
+            </button>
+          </div>
+
+        </div>
       </div>
+    </section>
 
-      <div class="format-grid" role="group" aria-label="Reading format">
-        <button type="button" class="format-card" id="btn-web" data-view="web">
-          <div class="format-card-top">
-            <div class="format-icon" aria-hidden="true">
-              <!-- simple inline svg: grid -->
-              <svg viewBox="0 0 24 24" width="20" height="20" fill="none">
-                <path d="M4 4h7v7H4V4Zm9 0h7v7h-7V4ZM4 13h7v7H4v-7Zm9 0h7v7h-7v-7Z" stroke="currentColor" stroke-width="1.8"/>
-              </svg>
-            </div>
-            <div class="format-card-title-wrap">
-              <div class="format-card-title">Structured Web Experience</div>
-              <div class="format-card-tag">Best for scanning</div>
-            </div>
-          </div>
-
-          <div class="format-card-body">
-            Sectioned layout with visual hierarchy — easy to skim, jump, and revisit key points.
-          </div>
-
-          <div class="format-card-foot">
-            <span class="format-cta">Open structured view</span>
-            <span class="format-arrow" aria-hidden="true">→</span>
-          </div>
-        </button>
-
-        <button type="button" class="format-card" id="btn-article" data-view="article">
-          <div class="format-card-top">
-            <div class="format-icon" aria-hidden="true">
-              <!-- simple inline svg: document -->
-              <svg viewBox="0 0 24 24" width="20" height="20" fill="none">
-                <path d="M7 3h7l3 3v15H7V3Z" stroke="currentColor" stroke-width="1.8"/>
-                <path d="M9 11h6M9 15h6M9 7h3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
-              </svg>
-            </div>
-            <div class="format-card-title-wrap">
-              <div class="format-card-title">Traditional Thesis Article</div>
-              <div class="format-card-tag">Best for deep reading</div>
-            </div>
-          </div>
-
-          <div class="format-card-body">
-            Continuous narrative in a single flow - written like a research article.
-          </div>
-
-          <div class="format-card-foot">
-            <span class="format-cta">Open article view</span>
-            <span class="format-arrow" aria-hidden="true">→</span>
-          </div>
-        </button>
-      </div>
-    </div>
-  </div>
-</section>
-       <!-- ========================= -->
+    <!-- ========================= -->
     <!-- VIEW 1: WEB VERSION (HIDDEN UNTIL CLICK) -->
     <!-- ========================= -->
     <div id="view-web" class="thesis-view">
+
       <!-- HERO -->
       <section class="exec-hero">
         <div class="container">
@@ -488,11 +492,12 @@
           </div>
         </div>
       </section>
+
     </div>
 
     <!-- ========================= -->
     <!-- VIEW 2: TRADITIONAL ARTICLE (HIDDEN UNTIL CLICK) -->
-    <!-- Uses iframe to “connect” to my-sixth-post.html -->
+    <!-- Native load of my-sixth-post.html into this page -->
     <!-- ========================= -->
     <div id="view-article" class="thesis-view">
       <section class="section">
@@ -510,14 +515,14 @@
               </div>
             </div>
 
-                      <div class="article-native" id="article-native">
-            <div class="article-loading" id="article-loading">
-              Loading the traditional thesis…
+            <div class="article-native" id="article-native">
+              <div class="article-loading" id="article-loading">
+                Loading the traditional thesis…
+              </div>
+
+              <!-- Injected content lands here -->
+              <div id="article-slot" class="article-slot"></div>
             </div>
-          
-            <!-- Injected content lands here -->
-            <div id="article-slot" class="article-slot"></div>
-          </div>
 
             <div class="cta-actions" style="margin-top: 14px;">
               <button type="button" class="btn btn-secondary" data-switch="web">Switch back to structured web view</button>
@@ -567,19 +572,58 @@
     })();
   </script>
 
-  <!-- ✅ Gate + show/hide logic -->
+  <!-- ✅ Gate + show/hide + native article loader -->
   <script>
     (function () {
       const gate = document.getElementById('reading-gate');
       const viewWeb = document.getElementById('view-web');
       const viewArticle = document.getElementById('view-article');
+      const articleSlot = document.getElementById('article-slot');
+      const articleLoading = document.getElementById('article-loading');
 
-      // Ensure both views are hidden no matter what (no flash)
+      let articleLoaded = false;
+
       function hideAll() {
         viewWeb.style.display = 'none';
         viewArticle.style.display = 'none';
       }
-      hideAll();
+
+      function stripScripts(html) {
+        return html.replace(/<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi, '');
+      }
+
+      async function loadArticleOnce() {
+        if (articleLoaded) return;
+        articleLoaded = true;
+
+        try {
+          if (articleLoading) articleLoading.style.display = 'block';
+
+          const res = await fetch('my-sixth-post.html', { cache: 'no-store' });
+          if (!res.ok) throw new Error('Could not load my-sixth-post.html');
+
+          const text = await res.text();
+          const doc = new DOMParser().parseFromString(text, 'text/html');
+
+          // Pull ONLY the <article class="post"> if present, else fallback to <main>
+          const post = doc.querySelector('article.post');
+          const main = doc.querySelector('main');
+
+          const sourceEl = post || main;
+          if (!sourceEl) throw new Error('No <article class="post"> or <main> found in my-sixth-post.html');
+
+          // Inject cleaned content
+          articleSlot.innerHTML = stripScripts(sourceEl.outerHTML);
+
+          if (articleLoading) articleLoading.style.display = 'none';
+        } catch (err) {
+          articleLoaded = false; // allow retry
+          if (articleLoading) {
+            articleLoading.textContent = 'Sorry — the traditional thesis could not be loaded.';
+          }
+          console.error(err);
+        }
+      }
 
       function showView(which) {
         hideAll();
@@ -588,6 +632,7 @@
           viewWeb.style.display = 'block';
         } else {
           viewArticle.style.display = 'block';
+          loadArticleOnce();
         }
 
         // Collapse/hide gate after selection
@@ -597,9 +642,15 @@
         window.scrollTo({ top: 0, behavior: 'smooth' });
       }
 
+      // Ensure both views are hidden no matter what (no flash)
+      hideAll();
+
       // Initial gate selection buttons
-      document.getElementById('btn-web').addEventListener('click', () => showView('web'));
-      document.getElementById('btn-article').addEventListener('click', () => showView('article'));
+      const btnWeb = document.getElementById('btn-web');
+      const btnArticle = document.getElementById('btn-article');
+
+      if (btnWeb) btnWeb.addEventListener('click', () => showView('web'));
+      if (btnArticle) btnArticle.addEventListener('click', () => showView('article'));
 
       // Switchers inside the content (data-switch)
       document.addEventListener('click', (e) => {

@@ -35,7 +35,76 @@
   </header>
 
   <main>
+<!-- PREMIUM READING GATE -->
+<section class="format-gate" id="reading-gate">
+  <div class="container">
+    <div class="format-gate-shell">
+      <div class="format-gate-header">
+        <p class="format-kicker">Welcome</p>
+        <h1 class="format-title">Choose your reading experience</h1>
+        <p class="format-subtitle">
+          This research is available in two formats to support different learning styles and personal reading preferences.
+          Pick what feels most natural — you can switch anytime.
+        </p>
+      </div>
 
+      <div class="format-grid" role="group" aria-label="Reading format">
+        <button type="button" class="format-card" id="btn-web" data-view="web">
+          <div class="format-card-top">
+            <div class="format-icon" aria-hidden="true">
+              <!-- simple inline svg: grid -->
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="none">
+                <path d="M4 4h7v7H4V4Zm9 0h7v7h-7V4ZM4 13h7v7H4v-7Zm9 0h7v7h-7v-7Z" stroke="currentColor" stroke-width="1.8"/>
+              </svg>
+            </div>
+            <div class="format-card-title-wrap">
+              <div class="format-card-title">Structured Web Experience</div>
+              <div class="format-card-tag">Best for scanning</div>
+            </div>
+          </div>
+
+          <div class="format-card-body">
+            Sectioned layout with visual hierarchy — easy to skim, jump, and revisit key points.
+          </div>
+
+          <div class="format-card-foot">
+            <span class="format-cta">Open structured view</span>
+            <span class="format-arrow" aria-hidden="true">→</span>
+          </div>
+        </button>
+
+        <button type="button" class="format-card" id="btn-article" data-view="article">
+          <div class="format-card-top">
+            <div class="format-icon" aria-hidden="true">
+              <!-- simple inline svg: document -->
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="none">
+                <path d="M7 3h7l3 3v15H7V3Z" stroke="currentColor" stroke-width="1.8"/>
+                <path d="M9 11h6M9 15h6M9 7h3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <div class="format-card-title-wrap">
+              <div class="format-card-title">Traditional Thesis Article</div>
+              <div class="format-card-tag">Best for deep reading</div>
+            </div>
+          </div>
+
+          <div class="format-card-body">
+            Continuous long-form narrative (your <em>my-sixth-post</em> thesis article) in a single flow.
+          </div>
+
+          <div class="format-card-foot">
+            <span class="format-cta">Open article view</span>
+            <span class="format-arrow" aria-hidden="true">→</span>
+          </div>
+        </button>
+      </div>
+
+      <div class="format-gate-note">
+        Tip: If you’re short on time, start with the structured view. If you’re reading for depth, choose the article.
+      </div>
+    </div>
+  </div>
+</section>
     <!-- ✅ GATE: ONLY THING VISIBLE ON LOAD -->
     <section class="reading-gate" id="reading-gate">
       <div class="container">

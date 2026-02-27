@@ -130,7 +130,7 @@
               <div class="exec-actions">
                 <a class="btn btn-primary" href="#claim">Central claim</a>
                 <a class="btn btn-secondary" href="#argument">Expanded argument</a>
-                <a class="btn btn-secondary" href="#sources">Key sources</a>
+                <a class="btn btn-secondary" href="#resources">Resources</a>
               </div>
 
               <div class="cta-actions" style="margin-top: 14px;">
@@ -462,15 +462,22 @@
                 <a class="btn btn-secondary" href="executive-oversight.html">Executive translation</a>
               </div>
             </div>
-<hr style="border:0; border-top:1px solid rgba(0,0,0,0.10); margin: 22px 0;">
 
-<section class="resources-cta" aria-label="Resources">
-  <h3>Resources</h3>
-  <p>
-    Full source library, frameworks, and references are maintained on the Resources page.
           </article>
         </div>
       </section>
+
+      <!-- RESOURCES CTA (replaces "continued reading / key sources" blocks) -->
+      <section class="section section-alt" id="resources">
+        <div class="container">
+          <div class="cta-panel">
+            <div class="cta-copy">
+              <h3 class="cta-title">Resources</h3>
+              <p class="cta-text">
+                Full source library, frameworks, and references are maintained on the Resources page.
+              </p>
+            </div>
+
             <div class="cta-actions">
               <a class="btn btn-primary" href="resources.html">Open resources</a>
               <button type="button" class="btn btn-secondary" data-switch="article">Switch format</button>
@@ -478,6 +485,7 @@
           </div>
         </div>
       </section>
+
     </div>
 
     <!-- ========================= -->
@@ -535,7 +543,7 @@
     </div>
   </footer>
 
-  <!-- Reveal animation (your original, unchanged) -->
+  <!-- Reveal animation -->
   <script>
     (function () {
       const els = document.querySelectorAll('.reveal');
@@ -587,17 +595,16 @@
           const html = await res.text();
           const doc = new DOMParser().parseFromString(html, 'text/html');
 
-          // Grab ONLY the actual article content
+          // Prefer the core article content
           const article = doc.querySelector('article.post') || doc.querySelector('main') || doc.body;
 
-          // Inject into a consistent “prose” wrapper (your CSS will style this)
           slot.innerHTML = '';
           const wrapper = document.createElement('div');
           wrapper.className = 'article-prose';
           wrapper.appendChild(article.cloneNode(true));
           slot.appendChild(wrapper);
 
-          // Remove any accidental chrome embedded in the clone
+          // Strip any chrome that came along for the ride
           slot.querySelectorAll('header, nav, footer').forEach(el => el.remove());
 
           loading.style.display = 'none';
@@ -619,10 +626,7 @@
           await loadTraditionalArticle();
         }
 
-        // Collapse/hide gate after selection
         gate.classList.add('is-collapsed');
-
-        // Take them to the top of the content
         window.scrollTo({ top: 0, behavior: 'smooth' });
       }
 

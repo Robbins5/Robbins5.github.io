@@ -31,48 +31,10 @@
 
   <main>
 
-    <!-- HERO -->
-    <section class="exec-hero">
+    <!-- READING STYLE GATE (FIRST THING THEY SEE) -->
+    <section class="reading-gate" id="reading-gate">
       <div class="container">
-        <div class="thesis-hero">
-
-          <div class="thesis-hero-left">
-            <p class="exec-kicker">The Thesis</p>
-            <h1 class="exec-title">Redefining internal audit during system change, scale, and rising expectations.</h1>
-
-            <p class="exec-subtitle" style="margin-bottom: 14px;">
-              Enterprises are evolving (new systems, new workflows, new decision support), and audit standards are evolving with them.
-              When transaction volume, automation depth, and system integration move, sampling-era assurance stops scaling.
-              The operating model must shift toward population signals, monitoring-driven oversight, and defensible evidence in system-driven environments.
-            </p>
-
-            <p class="module-kicker" style="margin: 0 0 22px 0;">Estimated reading time: 5–7 minutes</p>
-
-            <div class="exec-actions">
-              <a class="btn btn-primary" href="#claim">Central claim</a>
-              <a class="btn btn-secondary" href="#argument">Expanded argument</a>
-              <a class="btn btn-secondary" href="#sources">Key sources</a>
-            </div>
-          </div>
-
-          <div class="thesis-hero-right" aria-label="Thesis at a glance">
-            <figure class="thesis-triad-visual reveal">
-              <img
-                src="/triad.svg"
-                alt="Thesis triad: core claim, method shift, and anchor."
-                loading="lazy"
-              />
-            </figure>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- READING STYLE TOGGLE (NEW) -->
-    <section class="section" style="padding-top: 18px; padding-bottom: 0;">
-      <div class="container">
-        <div class="reading-mode">
+        <div class="reading-mode reading-mode-gate">
           <div class="reading-mode-text">
             <div class="reading-mode-title">How Would You Like to Read This?</div>
             <p class="reading-mode-subtitle">
@@ -84,10 +46,10 @@
           <div class="reading-toggle" role="tablist" aria-label="Reading format">
             <button
               type="button"
-              class="reading-pill is-active"
+              class="reading-pill"
               id="btn-web"
               role="tab"
-              aria-selected="true"
+              aria-selected="false"
               aria-controls="view-web"
               data-view="web"
             >
@@ -108,12 +70,59 @@
               <span class="reading-pill-sub">Presented as a complete, continuous research paper.</span>
             </button>
           </div>
+
+          <p class="reading-gate-note">
+            Your selection will tailor the page and can be changed anytime.
+          </p>
         </div>
       </div>
     </section>
 
-    <!-- VIEW: STRUCTURED WEB EXPERIENCE (YOUR CURRENT CONTENT, CONTAINED) -->
-    <div id="view-web" class="thesis-view" role="tabpanel" aria-labelledby="btn-web">
+    <!-- VIEW: STRUCTURED WEB EXPERIENCE (YOUR CURRENT CONTENT, UNCHANGED—JUST CONTAINED) -->
+    <div id="view-web" class="thesis-view is-hidden" role="tabpanel" aria-labelledby="btn-web">
+
+      <!-- HERO -->
+      <section class="exec-hero">
+        <div class="container">
+          <div class="thesis-hero">
+
+            <div class="thesis-hero-left">
+              <p class="exec-kicker">The Thesis</p>
+              <h1 class="exec-title">Redefining internal audit during system change, scale, and rising expectations.</h1>
+
+              <p class="exec-subtitle" style="margin-bottom: 14px;">
+                Enterprises are evolving (new systems, new workflows, new decision support), and audit standards are evolving with them.
+                When transaction volume, automation depth, and system integration move, sampling-era assurance stops scaling.
+                The operating model must shift toward population signals, monitoring-driven oversight, and defensible evidence in system-driven environments.
+              </p>
+
+              <p class="module-kicker" style="margin: 0 0 22px 0;">Estimated reading time: 5–7 minutes</p>
+
+              <div class="exec-actions">
+                <a class="btn btn-primary" href="#claim">Central claim</a>
+                <a class="btn btn-secondary" href="#argument">Expanded argument</a>
+                <a class="btn btn-secondary" href="#sources">Key sources</a>
+              </div>
+
+              <!-- optional: keep a small “switch format” button once inside -->
+              <div class="cta-actions" style="margin-top: 14px;">
+                <button type="button" class="btn btn-secondary" data-view="article">Switch to Traditional Thesis Article</button>
+              </div>
+            </div>
+
+            <div class="thesis-hero-right" aria-label="Thesis at a glance">
+              <figure class="thesis-triad-visual reveal">
+                <img
+                  src="/triad.svg"
+                  alt="Thesis triad: core claim, method shift, and anchor."
+                  loading="lazy"
+                />
+              </figure>
+            </div>
+
+          </div>
+        </div>
+      </section>
 
       <!-- SECTION: CLAIM -->
       <section class="section section-alt" id="claim">
@@ -456,6 +465,7 @@
 
             <div class="cta-actions">
               <a class="btn btn-primary" href="resources.html">Open resources</a>
+              <button type="button" class="btn btn-secondary" data-view="article">Switch format</button>
             </div>
           </div>
         </div>
@@ -464,29 +474,27 @@
     </div>
     <!-- END VIEW: STRUCTURED WEB EXPERIENCE -->
 
-    <!-- VIEW: TRADITIONAL THESIS ARTICLE (NEW CONTAINER) -->
+    <!-- VIEW: TRADITIONAL THESIS ARTICLE -->
     <div id="view-article" class="thesis-view is-hidden" role="tabpanel" aria-labelledby="btn-article">
       <section class="section">
         <div class="container">
           <article class="article-view">
-            <h2 class="article-title">Traditional Thesis Article</h2>
+            <p class="exec-kicker">Traditional Thesis Article</p>
+            <h1 class="article-title">Redefining internal audit during system change, scale, and rising expectations.</h1>
             <p class="article-subtitle">
               Presented as a complete, continuous research narrative for readers who prefer long-form academic flow.
-              (Paste the my-sixth-post thesis narrative here.)
             </p>
 
+            <div class="cta-actions" style="margin-top: 14px;">
+              <button type="button" class="btn btn-secondary" data-view="web">Switch to structured web view</button>
+            </div>
+
             <div class="article-body">
-              <!--
-                PASTE YOUR "MY-SIXTH-POST" THESIS ARTICLE CONTENT HERE.
-                Tip: Paste only the main article body content (no header/nav/footer),
-                and use <h3>, <p>, and <ul> as needed.
-              -->
+              <!-- PASTE your my-sixth-post thesis narrative here (body only). -->
             </div>
 
             <div class="cta-actions" style="margin-top: 18px;">
-              <button type="button" class="btn btn-secondary" data-view="web" id="btn-back-web">
-                Switch back to structured web view
-              </button>
+              <button type="button" class="btn btn-secondary" data-view="web">Switch back to structured web view</button>
             </div>
           </article>
         </div>
@@ -512,7 +520,7 @@
     </div>
   </footer>
 
-  <!-- Reveal animation (UNCHANGED) -->
+  <!-- Reveal animation (unchanged) -->
   <script>
     (function () {
       const els = document.querySelectorAll('.reveal');
@@ -534,48 +542,54 @@
     })();
   </script>
 
-  <!-- Reading toggle logic (NEW) -->
+  <!-- Reading gate logic (shows nothing else until selection) -->
   <script>
     (function () {
+      const gate = document.getElementById('reading-gate');
       const btnWeb = document.getElementById('btn-web');
       const btnArticle = document.getElementById('btn-article');
-      const btnBackWeb = document.getElementById('btn-back-web');
       const viewWeb = document.getElementById('view-web');
       const viewArticle = document.getElementById('view-article');
 
       function setView(view) {
         const isWeb = view === 'web';
 
-        // Toggle panels
+        // Show chosen view
         viewWeb.classList.toggle('is-hidden', !isWeb);
         viewArticle.classList.toggle('is-hidden', isWeb);
 
-        // Toggle button styles
+        // Gate can collapse once selected (keeps the page clean)
+        gate.classList.add('is-collapsed');
+
+        // Button states (ARIA + styling)
         btnWeb.classList.toggle('is-active', isWeb);
         btnArticle.classList.toggle('is-active', !isWeb);
-
-        // ARIA
         btnWeb.setAttribute('aria-selected', isWeb ? 'true' : 'false');
         btnArticle.setAttribute('aria-selected', !isWeb ? 'true' : 'false');
 
-        // Remember preference
+        // Remember preference (optional)
         try { localStorage.setItem('thesisViewPreference', view); } catch (e) {}
 
-        // If switching to article, scroll to top so they don't land mid hidden content
-        if (!isWeb) {
-          window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
+        // Land at top of content
+        window.scrollTo({ top: 0, behavior: 'smooth' });
       }
 
-      // Click handlers
+      // Gate buttons
       btnWeb.addEventListener('click', () => setView('web'));
       btnArticle.addEventListener('click', () => setView('article'));
-      if (btnBackWeb) btnBackWeb.addEventListener('click', () => setView('web'));
 
-      // Load saved preference (default web)
-      let saved = null;
-      try { saved = localStorage.getItem('thesisViewPreference'); } catch (e) {}
-      if (saved === 'article') setView('article');
+      // Any “switch format” buttons inside content
+      document.addEventListener('click', (e) => {
+        const el = e.target.closest('[data-view]');
+        if (!el) return;
+
+        const view = el.getAttribute('data-view');
+        if (view === 'web' || view === 'article') setView(view);
+      });
+
+      // IMPORTANT: do NOT auto-load preference, because you asked to hide everything
+      // until the user explicitly selects an option.
+      // (If you ever change your mind, we can re-enable auto-load safely.)
     })();
   </script>
 

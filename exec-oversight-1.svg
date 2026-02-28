@@ -1,0 +1,126 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="520" viewBox="0 0 1600 520" role="img" aria-label="Executive oversight framing: stabilization, audit build, and scaled oversight.">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0.92"/>
+      <stop offset="1" stop-color="#ffffff" stop-opacity="0.78"/>
+    </linearGradient>
+
+    <pattern id="grid" width="48" height="48" patternUnits="userSpaceOnUse">
+      <path d="M 48 0 H 0 V 48" fill="none" stroke="#0f0f10" stroke-opacity="0.05" stroke-width="1"/>
+    </pattern>
+
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="10" stdDeviation="14" flood-color="#000000" flood-opacity="0.12"/>
+    </filter>
+
+    <style>
+      .frame { fill: url(#bg); stroke: rgba(0,0,0,0.10); stroke-width: 1.2; }
+      .grid { fill: url(#grid); }
+      .title { font: 800 28px ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Arial; fill: #0f0f10; letter-spacing: -0.3px; }
+      .sub   { font: 600 16px ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Arial; fill: rgba(15,15,16,0.72); }
+      .k     { font: 800 13px ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Arial; fill: rgba(15,15,16,0.66); letter-spacing: 2px; }
+      .nodeT { font: 900 18px ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Arial; fill: #0f0f10; letter-spacing: -0.2px; }
+      .nodeB { font: 600 15px ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Arial; fill: rgba(15,15,16,0.72); }
+      .pill  { fill: rgba(255,255,255,0.92); stroke: rgba(0,0,0,0.14); }
+      .pillT { font: 900 12px ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Arial; fill: rgba(15,15,16,0.78); letter-spacing: 2px; }
+      .card  { fill: rgba(255,255,255,0.94); stroke: rgba(0,0,0,0.10); }
+      .stroke { stroke: rgba(0,0,0,0.22); stroke-width: 2; fill: none; }
+      .arrow  { stroke: rgba(0,0,0,0.38); stroke-width: 2.2; fill: none; }
+      .dot    { fill: #0f0f10; }
+      .ring   { fill: rgba(255,255,255,0.96); stroke: rgba(0,0,0,0.18); stroke-width: 2; }
+      .muted  { fill: rgba(15,15,16,0.58); }
+    </style>
+  </defs>
+
+  <!-- Outer frame -->
+  <rect x="22" y="22" width="1556" height="476" rx="22" class="frame" filter="url(#shadow)"/>
+  <rect x="22" y="22" width="1556" height="476" rx="22" class="grid" opacity="1"/>
+
+  <!-- Header copy -->
+  <text x="72" y="96" class="k">EXECUTIVE OVERSIGHT</text>
+  <text x="72" y="138" class="title">Modernization requires sequencing</text>
+  <text x="72" y="168" class="sub">Stabilize the environment → rebuild audit visibility → scale oversight with measurable closure.</text>
+
+  <!-- Pill legend -->
+  <g transform="translate(72, 198)">
+    <rect x="0" y="0" rx="999" ry="999" width="280" height="34" class="pill"/>
+    <text x="16" y="22" class="pillT">WHAT TO EXPECT</text>
+  </g>
+
+  <!-- Node cards -->
+  <!-- Card 1 -->
+  <g transform="translate(72, 252)">
+    <rect x="0" y="0" width="432" height="200" rx="18" class="card" filter="url(#shadow)"/>
+    <g transform="translate(22, 24)">
+      <circle cx="18" cy="18" r="18" class="ring"/>
+      <path d="M12 18h12M18 12v12" class="stroke" stroke-linecap="round"/>
+      <text x="52" y="18" class="nodeT">Stabilize evidence and ownership</text>
+      <text x="52" y="44" class="nodeB">Access paths, data volatility, process bridges</text>
+
+      <g transform="translate(0, 76)">
+        <circle cx="10" cy="10" r="3.8" class="dot"/>
+        <text x="24" y="15" class="nodeB">Define authoritative sources and owners</text>
+
+        <circle cx="10" cy="46" r="3.8" class="dot"/>
+        <text x="24" y="51" class="nodeB">Document interim-state workflows and evidence</text>
+
+        <circle cx="10" cy="82" r="3.8" class="dot"/>
+        <text x="24" y="87" class="nodeB">Reduce manual bridges that weaken traceability</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- Card 2 -->
+  <g transform="translate(584, 252)">
+    <rect x="0" y="0" width="432" height="200" rx="18" class="card" filter="url(#shadow)"/>
+    <g transform="translate(22, 24)">
+      <circle cx="18" cy="18" r="18" class="ring"/>
+      <path d="M12 20c5-10 11-10 16 0" class="stroke" stroke-linecap="round"/>
+      <path d="M13 23h22" class="stroke" stroke-linecap="round"/>
+      <text x="52" y="18" class="nodeT">Rebuild audit visibility</text>
+      <text x="52" y="44" class="nodeB">Repeatable analytics + monitoring pilots</text>
+
+      <g transform="translate(0, 76)">
+        <circle cx="10" cy="10" r="3.8" class="dot"/>
+        <text x="24" y="15" class="nodeB">Stand up governed extraction + refresh cadence</text>
+
+        <circle cx="10" cy="46" r="3.8" class="dot"/>
+        <text x="24" y="51" class="nodeB">Launch high-impact population tests (where stable)</text>
+
+        <circle cx="10" cy="82" r="3.8" class="dot"/>
+        <text x="24" y="87" class="nodeB">Define thresholds, cadence, escalation, closure</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- Card 3 -->
+  <g transform="translate(1096, 252)">
+    <rect x="0" y="0" width="432" height="200" rx="18" class="card" filter="url(#shadow)"/>
+    <g transform="translate(22, 24)">
+      <circle cx="18" cy="18" r="18" class="ring"/>
+      <path d="M12 22l6-6 4 4 10-10" class="stroke" stroke-linecap="round" stroke-linejoin="round"/>
+      <text x="52" y="18" class="nodeT">Scale oversight with discipline</text>
+      <text x="52" y="44" class="nodeB">Earlier detection + faster closure + measured impact</text>
+
+      <g transform="translate(0, 76)">
+        <circle cx="10" cy="10" r="3.8" class="dot"/>
+        <text x="24" y="15" class="nodeB">Operate monitoring review as a routine</text>
+
+        <circle cx="10" cy="46" r="3.8" class="dot"/>
+        <text x="24" y="51" class="nodeB">Track aging, ownership, escalation, verified closure</text>
+
+        <circle cx="10" cy="82" r="3.8" class="dot"/>
+        <text x="24" y="87" class="nodeB">Quantify outcomes: leakage prevented, rework reduced</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- Arrows between cards -->
+  <path d="M 520 352 C 555 352, 555 352, 570 352" class="arrow"/>
+  <path d="M 1032 352 C 1067 352, 1067 352, 1082 352" class="arrow"/>
+  <path d="M 565 346 l 10 6 -10 6" class="arrow" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M 1077 346 l 10 6 -10 6" class="arrow" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- Footer note -->
+  <text x="72" y="476" class="sub">Executive signal: modernization is real when exceptions are detected earlier and closed faster—without increasing noise.</text>
+</svg>

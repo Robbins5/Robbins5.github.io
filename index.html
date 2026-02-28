@@ -7,7 +7,349 @@
   <meta name="description" content="The AI-Ready Audit: internal audit strategy for intelligent systems. Governance direction, assurance architecture, and monitoring-driven oversight for enterprise transition." />
   <link rel="stylesheet" href="style.css" />
 </head>
-  
+  <!-- =========================
+     Guided Onboarding (No AI)
+     Add before </body>
+========================= -->
+
+<button class="guide-fab" id="guide-open" type="button" aria-label="Open guide">
+  Need a starting point?
+</button>
+
+<div class="guide-backdrop" id="guide-backdrop" aria-hidden="true"></div>
+
+<div class="guide-modal" id="guide-modal" role="dialog" aria-modal="true" aria-labelledby="guide-title" aria-hidden="true">
+  <div class="guide-modal-inner">
+    <div class="guide-head">
+      <div>
+        <p class="guide-kicker">Before you get started</p>
+        <h2 class="guide-title" id="guide-title">Let’s pick the best path for you.</h2>
+        <p class="guide-sub">
+          Answer a few quick questions and I’ll guide you to the right pages and format.
+        </p>
+      </div>
+      <button class="guide-x" id="guide-close" type="button" aria-label="Close guide">×</button>
+    </div>
+
+    <div class="guide-steps">
+      <!-- Step 1 -->
+      <div class="guide-step is-active" data-step="1">
+        <h3 class="guide-step-title">What best describes your role?</h3>
+        <div class="guide-grid">
+          <button class="guide-card" type="button" data-pick="role" data-value="executive">
+            <div class="guide-card-title">Executive / Board</div>
+            <div class="guide-card-sub">Decision-focused summary and progress markers</div>
+          </button>
+          <button class="guide-card" type="button" data-pick="role" data-value="audit">
+            <div class="guide-card-title">Internal Audit</div>
+            <div class="guide-card-sub">Operating model, monitoring, and methods</div>
+          </button>
+          <button class="guide-card" type="button" data-pick="role" data-value="itdata">
+            <div class="guide-card-title">IT / Data</div>
+            <div class="guide-card-sub">Architecture, evidence trails, and data reliability</div>
+          </button>
+          <button class="guide-card" type="button" data-pick="role" data-value="student">
+            <div class="guide-card-title">Student / Research</div>
+            <div class="guide-card-sub">Thesis-first and source-forward reading</div>
+          </button>
+        </div>
+      </div>
+
+      <!-- Step 2 -->
+      <div class="guide-step" data-step="2">
+        <h3 class="guide-step-title">How much time do you have today?</h3>
+        <div class="guide-grid">
+          <button class="guide-card" type="button" data-pick="time" data-value="5">
+            <div class="guide-card-title">5 minutes</div>
+            <div class="guide-card-sub">High-level, fast scan</div>
+          </button>
+          <button class="guide-card" type="button" data-pick="time" data-value="10">
+            <div class="guide-card-title">10–15 minutes</div>
+            <div class="guide-card-sub">Core argument + executive translation</div>
+          </button>
+          <button class="guide-card" type="button" data-pick="time" data-value="30">
+            <div class="guide-card-title">30+ minutes</div>
+            <div class="guide-card-sub">Deep reading + sources</div>
+          </button>
+        </div>
+      </div>
+
+      <!-- Step 3 -->
+      <div class="guide-step" data-step="3">
+        <h3 class="guide-step-title">What’s your reading style?</h3>
+        <div class="guide-grid">
+          <button class="guide-card" type="button" data-pick="style" data-value="scan">
+            <div class="guide-card-title">I like to scan</div>
+            <div class="guide-card-sub">Structured web sections and quick jumps</div>
+          </button>
+          <button class="guide-card" type="button" data-pick="deep">
+            <div class="guide-card-title">I like to read deeply</div>
+            <div class="guide-card-sub">Traditional article-style narrative</div>
+          </button>
+        </div>
+      </div>
+
+      <!-- Step 4 -->
+      <div class="guide-step" data-step="4">
+        <h3 class="guide-step-title">Are you browsing or learning?</h3>
+        <div class="guide-grid">
+          <button class="guide-card" type="button" data-pick="intent" data-value="browse">
+            <div class="guide-card-title">Just browsing</div>
+            <div class="guide-card-sub">Give me the best starting point</div>
+          </button>
+          <button class="guide-card" type="button" data-pick="intent" data-value="learn">
+            <div class="guide-card-title">I want to learn it</div>
+            <div class="guide-card-sub">Give me a guided sequence</div>
+          </button>
+        </div>
+      </div>
+
+      <!-- Results -->
+      <div class="guide-step" data-step="5">
+        <h3 class="guide-step-title">Your recommended path</h3>
+        <div class="guide-result" id="guide-result"></div>
+
+        <div class="guide-actions">
+          <a class="btn btn-primary" id="guide-go" href="thesis.html">Start</a>
+          <button class="btn btn-secondary" id="guide-reset" type="button">Change answers</button>
+        </div>
+
+        <p class="guide-note">
+          Tip: You can reopen this guide anytime using the button in the bottom-right corner.
+        </p>
+      </div>
+    </div>
+
+    <div class="guide-footer">
+      <div class="guide-progress" id="guide-progress">Step 1 of 4</div>
+      <div class="guide-nav">
+        <button class="btn btn-secondary" id="guide-back" type="button" disabled>Back</button>
+        <button class="btn btn-primary" id="guide-next" type="button" disabled>Next</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+(function () {
+  const STORAGE_KEY = "airready_guide_v1";
+
+  const modal = document.getElementById("guide-modal");
+  const backdrop = document.getElementById("guide-backdrop");
+  const openBtn = document.getElementById("guide-open");
+  const closeBtn = document.getElementById("guide-close");
+
+  const steps = Array.from(document.querySelectorAll(".guide-step"));
+  const nextBtn = document.getElementById("guide-next");
+  const backBtn = document.getElementById("guide-back");
+  const progress = document.getElementById("guide-progress");
+
+  const resultEl = document.getElementById("guide-result");
+  const goLink = document.getElementById("guide-go");
+  const resetBtn = document.getElementById("guide-reset");
+
+  let stepIndex = 0; // 0..3 for questions, 4 results
+  let answers = { role: null, time: null, style: null, intent: null };
+
+  function save() {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify({ answers, completed: true, ts: Date.now() }));
+  }
+  function load() {
+    try {
+      return JSON.parse(localStorage.getItem(STORAGE_KEY));
+    } catch { return null; }
+  }
+  function clear() {
+    localStorage.removeItem(STORAGE_KEY);
+  }
+
+  function open() {
+    modal.setAttribute("aria-hidden", "false");
+    backdrop.setAttribute("aria-hidden", "false");
+    document.body.classList.add("guide-lock");
+  }
+  function close() {
+    modal.setAttribute("aria-hidden", "true");
+    backdrop.setAttribute("aria-hidden", "true");
+    document.body.classList.remove("guide-lock");
+  }
+
+  function setActiveStep(idx) {
+    steps.forEach((s, i) => s.classList.toggle("is-active", i === idx));
+    stepIndex = idx;
+
+    // Footer state
+    if (idx <= 3) {
+      progress.textContent = `Step ${idx + 1} of 4`;
+      backBtn.disabled = idx === 0;
+      nextBtn.style.display = "inline-block";
+      backBtn.style.display = "inline-block";
+      nextBtn.textContent = "Next";
+      nextBtn.disabled = !isStepAnswered(idx);
+    } else {
+      progress.textContent = "Ready";
+      nextBtn.style.display = "none";
+      backBtn.style.display = "none";
+    }
+  }
+
+  function isStepAnswered(idx) {
+    const keys = ["role", "time", "style", "intent"];
+    const key = keys[idx];
+    return Boolean(answers[key]);
+  }
+
+  function computeRecommendation(a) {
+    // Primary next page
+    // Role drives top destination; time/style tweak thesis format suggestion.
+    let primary = "thesis.html";
+    let primaryLabel = "Start with the Thesis";
+    let secondary = "resources.html";
+    let secondaryLabel = "Open Resources";
+
+    if (a.role === "executive") {
+      primary = "executive-oversight.html";
+      primaryLabel = "Start: Executive Oversight";
+    } else if (a.role === "audit") {
+      primary = "audit-leadership.html";
+      primaryLabel = "Start: Audit Leadership";
+    } else if (a.role === "itdata") {
+      primary = "thesis.html#argument";
+      primaryLabel = "Start: Thesis (evidence + architecture)";
+    } else if (a.role === "student") {
+      primary = "thesis.html";
+      primaryLabel = "Start: Thesis (full context)";
+    }
+
+    // If they want a guided sequence
+    let sequence = [];
+    if (a.intent === "learn") {
+      // Sequence by role, always pointing to pages you already have
+      if (a.role === "executive") {
+        sequence = ["executive-oversight.html#timeline", "thesis.html#claim", "audit-leadership.html", "resources.html"];
+      } else {
+        sequence = ["thesis.html#claim", "audit-leadership.html", "executive-oversight.html", "resources.html"];
+      }
+    }
+
+    // Reading style: suggest structured vs article view in language
+    const formatTip = (a.style === "scan")
+      ? "Tip: choose the structured view on the Thesis page for quicker scanning."
+      : "Tip: choose the traditional article view on the Thesis page for deep reading.";
+
+    // Time: adjust guidance
+    const timeTip = (a.time === "5")
+      ? "Keep it tight: hit the opening sections and the measurement set."
+      : (a.time === "10")
+        ? "You have enough time for the core argument + one companion page."
+        : "Go deep: read the full thesis, then use Resources to validate sources.";
+
+    return { primary, primaryLabel, secondary, secondaryLabel, sequence, formatTip, timeTip };
+  }
+
+  function renderResults() {
+    const rec = computeRecommendation(answers);
+
+    let seqHtml = "";
+    if (rec.sequence.length) {
+      const items = rec.sequence.map((href, i) => {
+        const text = href.replace(".html", "").replace(/[-#]/g, " ").trim();
+        return `<li><a href="${href}">Step ${i + 1}: ${text}</a></li>`;
+      }).join("");
+      seqHtml = `
+        <div class="guide-result-block">
+          <div class="guide-result-title">Your guided sequence</div>
+          <ul class="guide-result-list">${items}</ul>
+        </div>
+      `;
+    }
+
+    resultEl.innerHTML = `
+      <div class="guide-result-block">
+        <div class="guide-result-title">Recommended next step</div>
+        <p class="guide-result-text">${rec.timeTip}</p>
+        <p class="guide-result-text">${rec.formatTip}</p>
+      </div>
+      ${seqHtml}
+    `;
+
+    goLink.href = rec.primary;
+    goLink.textContent = rec.primaryLabel;
+
+    save();
+  }
+
+  // Click pickers
+  document.addEventListener("click", (e) => {
+    const btn = e.target.closest("[data-pick]");
+    if (!btn) return;
+
+    const key = btn.getAttribute("data-pick");
+    const value = btn.getAttribute("data-value");
+
+    answers[key] = value;
+
+    // Mark selected within this step
+    const stepEl = btn.closest(".guide-step");
+    stepEl.querySelectorAll("[data-pick='" + key + "']").forEach(b => b.classList.remove("is-selected"));
+    btn.classList.add("is-selected");
+
+    // Enable next
+    nextBtn.disabled = !isStepAnswered(stepIndex);
+  });
+
+  nextBtn.addEventListener("click", () => {
+    if (stepIndex < 3) {
+      setActiveStep(stepIndex + 1);
+    } else {
+      // shouldn’t happen
+    }
+  });
+
+  backBtn.addEventListener("click", () => {
+    if (stepIndex > 0) setActiveStep(stepIndex - 1);
+  });
+
+  openBtn.addEventListener("click", () => {
+    open();
+    setActiveStep(0);
+  });
+  closeBtn.addEventListener("click", close);
+  backdrop.addEventListener("click", close);
+
+  // When they finish step 4, jump to results automatically
+  // We do it by intercepting Next at step 4 via a watcher
+  const observer = new MutationObserver(() => {
+    // If step 4 answered and user presses next, we show results
+  });
+  // Simpler: override next button behavior at step 4
+  nextBtn.addEventListener("click", () => {
+    if (stepIndex === 3) {
+      // show results
+      renderResults();
+      setActiveStep(4);
+    }
+  }, true);
+
+  resetBtn.addEventListener("click", () => {
+    answers = { role: null, time: null, style: null, intent: null };
+    steps.forEach(s => s.querySelectorAll(".is-selected").forEach(x => x.classList.remove("is-selected")));
+    clear();
+    setActiveStep(0);
+  });
+
+  // Auto-open on first visit
+  const prior = load();
+  if (!prior || !prior.completed) {
+    // small delay so the page loads cleanly
+    setTimeout(() => {
+      open();
+      setActiveStep(0);
+    }, 500);
+  }
+
+})();
+</script>
 <body>
   <header class="site-header">
     <div class="container header-inner">

@@ -646,6 +646,17 @@
       hideAll();
     })();
   </script>
+<script>
+  const params = new URLSearchParams(window.location.search);
+  const view = params.get("view");
 
+  if (view === "executive") {
+    document.body.classList.add("exec-mode");
+  }
+
+  if (view === "audit") {
+    document.body.classList.add("audit-mode");
+  }
+</script>
 </body>
 </html>

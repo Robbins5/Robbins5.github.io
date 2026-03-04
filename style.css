@@ -1124,6 +1124,22 @@ body.page-thesis .article-prose .post-subtitle{
 }
 
 /* ============================================================
+   Thesis view memory (URL/localStorage-driven)
+   Add classes to <body>: exec-mode | audit-mode
+   ============================================================ */
+
+body.page-thesis .exec-only { display: none; }
+body.page-thesis .audit-only { display: none; }
+
+/* When Exec mode is active, show exec-only blocks */
+body.page-thesis.exec-mode .exec-only { display: block; }
+body.page-thesis.exec-mode .audit-only { display: none; }
+
+/* When Audit mode is active, show audit-only blocks */
+body.page-thesis.audit-mode .audit-only { display: block; }
+body.page-thesis.audit-mode .exec-only { display: none; }
+
+/* ============================================================
    Responsive
    ============================================================ */
 @media (max-width: 980px){

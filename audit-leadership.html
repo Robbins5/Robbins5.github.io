@@ -305,32 +305,59 @@
           </div>
 
           <!-- RESULTS -->
-          <div class="quiz-results" id="quiz-results" aria-live="polite" style="display:none;">
-            <div class="quiz-result-block">
-              <div class="quiz-result-title" id="quiz-result-title">Your result</div>
-              <div class="quiz-result-text" id="quiz-result-text"></div>
-            </div>
+<div class="quiz-results" id="quiz-results" aria-live="polite" style="display:none;">
 
-            <div class="quiz-result-block">
-              <div class="quiz-result-title">Your answers</div>
-              <div class="quiz-result-text" id="quiz-answer-summary"></div>
-            </div>
+  <!-- Overall result -->
+  <div class="quiz-result-block">
+    <div class="quiz-result-title" id="quiz-result-title">Your result</div>
+    <div class="quiz-result-text" id="quiz-result-text"></div>
+  </div>
 
-            <div class="quiz-result-block">
-              <div class="quiz-result-title">Modernization scale</div>
-              <div class="quiz-result-text" id="quiz-scale-text">
-                (Next: we’ll render the interactive scale here and plot your position.)
-              </div>
-            </div>
+  <!-- Modernization scale -->
+  <div class="quiz-result-block">
+    <div class="quiz-result-title">Modernization scale</div>
 
-            <div class="quiz-result-block">
-              <div class="quiz-result-title">Continue</div>
-              <div class="quiz-result-text">
-                Scroll down to the four pillars and modules to translate your result into an operating plan.
-              </div>
-              <div class="guide-actions" style="margin-top:10px;">
-                <a class="btn btn-primary" href="#playbook">Open the playbook</a>
-              </div>
+    <div class="scale-shell" id="scale-shell" style="display:none;">
+      <div class="scale-title" id="scale-title">You are here</div>
+
+      <div class="scale-track" id="scale-track">
+        <div class="scale-marker" id="scale-marker" aria-hidden="true"></div>
+
+        <div class="scale-step" data-step="1">Baseline</div>
+        <div class="scale-step" data-step="2">Developing</div>
+        <div class="scale-step" data-step="3">Modernizing</div>
+        <div class="scale-step" data-step="4">Monitoring-led</div>
+        <div class="scale-step" data-step="5">Integrated</div>
+      </div>
+
+      <div class="scale-note" id="scale-note"></div>
+    </div>
+  </div>
+
+  <!-- Dimension readout -->
+  <div class="quiz-result-block">
+    <div class="quiz-result-title">Dimension readout</div>
+    <div class="quiz-result-text" id="quiz-dimension-readout"></div>
+  </div>
+
+  <!-- Your answers -->
+  <div class="quiz-result-block">
+    <div class="quiz-result-title">Your answers</div>
+    <div class="quiz-result-text" id="quiz-answer-summary"></div>
+  </div>
+
+  <!-- Continue -->
+  <div class="quiz-result-block">
+    <div class="quiz-result-title">Continue</div>
+    <div class="quiz-result-text">
+      Scroll down to the four pillars and modules to translate your result into an operating plan.
+    </div>
+    <div class="guide-actions" style="margin-top:10px;">
+      <a class="btn btn-primary" href="#playbook">Open the playbook</a>
+    </div>
+  </div>
+
+</div>
             </div>
           </div>
 

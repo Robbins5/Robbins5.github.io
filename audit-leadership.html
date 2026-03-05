@@ -48,7 +48,7 @@
           </p>
 
           <div class="ia-actions">
-            <a class="btn btn-primary" href="#audit-assessment">Take the assessment</a>
+            <a class="btn btn-primary" href="#quiz">Take the modernization quiz</a>
             <a class="btn btn-secondary" href="thesis.html">Read the thesis</a>
           </div>
 
@@ -71,173 +71,180 @@
       </div>
     </section>
 
-    <!-- MODERNIZATION SELF-ASSESSMENT -->
-    <section class="section" id="audit-assessment">
+    <!-- MODERNIZATION QUIZ (GUIDED, NOT STACKED) -->
+    <section class="section" id="quiz">
       <div class="container">
+        <div class="quiz-shell" id="ia-quiz" aria-label="Audit modernization self-assessment">
+          <div class="quiz-head">
+            <div class="quiz-kicker">Need a starting point?</div>
+            <div class="quiz-title">Quick modernization self-assessment</div>
+            <div class="quiz-sub">
+              Answer the questions below based on where the <strong>majority of your audit work</strong> happens today.
+              You’ll get a short “you are here” readout and what to focus on next.
+            </div>
+          </div>
 
-        <div class="section-head">
-          <h2 class="section-title">Audit Modernization Self-Assessment</h2>
-          <p class="section-subtitle">
-            Most internal audit functions operate across multiple methods depending on engagement type.
-            This short assessment evaluates where the audit function typically operates today.
-          </p>
+          <!-- STEP 1 -->
+          <div class="quiz-step is-active" data-step="1">
+            <div class="quiz-q">1) How easy is data to obtain for the majority of audits?</div>
+            <div class="quiz-help">Think access paths, autonomy, and how often you rely on other teams for extracts and modeling.</div>
+
+            <div class="quiz-grid">
+              <button class="quiz-card" type="button" data-value="1">
+                <div class="quiz-card-title">Limited autonomy</div>
+                <div class="quiz-card-sub">Heavy reliance on other teams for extracts/data modeling; access varies by system.</div>
+              </button>
+
+              <button class="quiz-card" type="button" data-value="2">
+                <div class="quiz-card-title">Some self-serve, inconsistent</div>
+                <div class="quiz-card-sub">Some tools are self-serve, but larger extracts and key systems still require others.</div>
+              </button>
+
+              <button class="quiz-card" type="button" data-value="3">
+                <div class="quiz-card-title">Mostly self-serve</div>
+                <div class="quiz-card-sub">Repeatable access paths exist for most audits (standard exports/queries/ODBC for many datasets).</div>
+              </button>
+
+              <button class="quiz-card" type="button" data-value="4">
+                <div class="quiz-card-title">Reliable pipelines</div>
+                <div class="quiz-card-sub">Governed connections (APIs/ODBC/warehouse) with defined datasets and minimal extract friction.</div>
+              </button>
+            </div>
+          </div>
+
+          <!-- STEP 2 -->
+          <div class="quiz-step" data-step="2">
+            <div class="quiz-q">2) Where does the majority of analytics happen across the audit team?</div>
+            <div class="quiz-help">This is about the overall team, not a single advanced analyst.</div>
+
+            <div class="quiz-grid">
+              <button class="quiz-card" type="button" data-value="1">
+                <div class="quiz-card-title">Spreadsheets (Excel-first)</div>
+                <div class="quiz-card-sub">Most work is pivots, formulas, manual joins, and template-based review packs.</div>
+              </button>
+
+              <button class="quiz-card" type="button" data-value="2">
+                <div class="quiz-card-title">Mixed toolset</div>
+                <div class="quiz-card-sub">Excel is still the default, but BI/SQL/Alteryx/other tools support a meaningful share.</div>
+              </button>
+
+              <button class="quiz-card" type="button" data-value="3">
+                <div class="quiz-card-title">Analytics platforms</div>
+                <div class="quiz-card-sub">Alteryx/ACL/IDEA/KNIME/SQL are the primary workbench for most engagements.</div>
+              </button>
+
+              <button class="quiz-card" type="button" data-value="4">
+                <div class="quiz-card-title">Monitoring + embedded controls</div>
+                <div class="quiz-card-sub">GRC/ERP modules, monitoring routines, and platforms drive most testing rather than spreadsheets.</div>
+              </button>
+            </div>
+          </div>
+
+          <!-- STEP 3 -->
+          <div class="quiz-step" data-step="3">
+            <div class="quiz-q">3) Once the data is obtained, how is the majority of analytics built and reused?</div>
+            <div class="quiz-help">
+              “Rebuilt” means recreating joins, formulas, pivots, filters, and logic each time. “Template reuse” means you drop in new data and outputs refresh.
+            </div>
+
+            <div class="quiz-grid">
+              <button class="quiz-card" type="button" data-value="1">
+                <div class="quiz-card-title">Rebuilt each time</div>
+                <div class="quiz-card-sub">Manual preparation steps and logic are recreated for most audits.</div>
+              </button>
+
+              <button class="quiz-card" type="button" data-value="2">
+                <div class="quiz-card-title">Limited reuse (templates)</div>
+                <div class="quiz-card-sub">Excel templates exist—formulas/pivots are prebuilt, you overlay updated data.</div>
+              </button>
+
+              <button class="quiz-card" type="button" data-value="3">
+                <div class="quiz-card-title">Repeatable workflows</div>
+                <div class="quiz-card-sub">Automated pipelines (e.g., Alteryx workflows) are reused with minimal rebuild.</div>
+              </button>
+
+              <button class="quiz-card" type="button" data-value="4">
+                <div class="quiz-card-title">Continuous monitoring routines</div>
+                <div class="quiz-card-sub">Scheduled runs, thresholds, exception queues, and ownership are the default pattern.</div>
+              </button>
+            </div>
+          </div>
+
+          <!-- STEP 4 -->
+          <div class="quiz-step" data-step="4">
+            <div class="quiz-q">4) How often do findings land inside the actionable window?</div>
+            <div class="quiz-help">
+              Think timeliness: do you detect issues early enough to change outcomes (e.g., budget timing manipulation, evasion patterns, override behavior)?
+            </div>
+
+            <div class="quiz-grid">
+              <button class="quiz-card" type="button" data-value="1">
+                <div class="quiz-card-title">Mostly retrospective</div>
+                <div class="quiz-card-sub">Findings are typically discovered after the impact window has passed.</div>
+              </button>
+
+              <button class="quiz-card" type="button" data-value="2">
+                <div class="quiz-card-title">Sometimes timely</div>
+                <div class="quiz-card-sub">Some work detects issues in time, but it’s inconsistent and engagement-dependent.</div>
+              </button>
+
+              <button class="quiz-card" type="button" data-value="3">
+                <div class="quiz-card-title">Mostly timely</div>
+                <div class="quiz-card-sub">Defined cadence + ownership; detection usually lands early enough to intervene.</div>
+              </button>
+
+              <button class="quiz-card" type="button" data-value="4">
+                <div class="quiz-card-title">Early detection as default</div>
+                <div class="quiz-card-sub">Signals/monitoring provide near-real-time or frequent detection with an action path to close.</div>
+              </button>
+            </div>
+          </div>
+
+          <!-- FOOTER NAV -->
+          <div class="quiz-footer">
+            <div class="quiz-progress" id="quiz-progress">Step 1 of 4</div>
+            <div class="quiz-actions">
+              <button class="btn" type="button" id="quiz-back" disabled>Back</button>
+              <button class="btn btn-primary" type="button" id="quiz-next" disabled>Next</button>
+            </div>
+          </div>
+
+          <!-- RESULTS -->
+          <div class="quiz-results" id="quiz-results" aria-live="polite">
+            <div class="quiz-result-block">
+              <div class="quiz-result-title" id="quiz-result-title">Your result</div>
+              <div class="quiz-result-text" id="quiz-result-text"></div>
+            </div>
+
+            <div class="quiz-result-block">
+              <div class="quiz-result-title">Your answers</div>
+              <div class="quiz-result-text" id="quiz-answer-summary"></div>
+            </div>
+
+            <!-- Placeholder for your interactive scale graphic -->
+            <div class="quiz-result-block" id="quiz-scale">
+              <div class="quiz-result-title">Modernization scale</div>
+              <div class="quiz-result-text">
+                (Next: we’ll render the interactive scale here and plot your position.)
+              </div>
+            </div>
+
+            <div class="quiz-result-block">
+              <div class="quiz-result-title">Continue</div>
+              <div class="quiz-result-text">
+                Scroll down to the four pillars and modules to translate your result into an operating plan.
+              </div>
+              <div class="guide-actions" style="margin-top:10px;">
+                <a class="btn btn-primary" href="#playbook">Open the playbook</a>
+              </div>
+            </div>
+          </div>
+
         </div>
-
-        <form id="auditQuiz" class="quiz-shell">
-
-          <!-- Q1 -->
-          <div class="quiz-question">
-            <h3 class="quiz-qtitle">1. Data autonomy</h3>
-            <p class="quiz-qtext">
-              How easy is it for your audit team to obtain usable data for analysis?
-            </p>
-
-            <label class="quiz-option"><input type="radio" name="q1" value="1">
-              Limited autonomy — heavy reliance on IT, reporting teams, or business units to obtain extracts.
-            </label>
-            <label class="quiz-option"><input type="radio" name="q1" value="2">
-              Partial autonomy — some direct access, but frequent reliance on other teams for larger datasets or modeling.
-            </label>
-            <label class="quiz-option"><input type="radio" name="q1" value="3">
-              Moderate autonomy — several systems accessible independently, though preparation and transformation still require effort.
-            </label>
-            <label class="quiz-option"><input type="radio" name="q1" value="4">
-              High autonomy — audit can independently obtain most datasets needed for analysis using reporting tools, queries, or connections.
-            </label>
-            <label class="quiz-option"><input type="radio" name="q1" value="5">
-              Integrated data access — structured or automated feeds support repeatable analytics or monitoring routines.
-            </label>
-          </div>
-
-          <!-- Q2 -->
-          <div class="quiz-question">
-            <h3 class="quiz-qtitle">2. Analytics environment</h3>
-            <p class="quiz-qtext">
-              Where are the majority of analytics performed across the audit team?
-              Consider tools used by the majority of auditors, not specialized work performed by a single expert.
-            </p>
-
-            <label class="quiz-option"><input type="radio" name="q2" value="1">
-              Primarily spreadsheets (Excel) — filters, pivot tables, and manual calculations.
-            </label>
-            <label class="quiz-option"><input type="radio" name="q2" value="2">
-              Spreadsheet-dominant with limited advanced tools — a small number of team members occasionally use analytics tools.
-            </label>
-            <label class="quiz-option"><input type="radio" name="q2" value="3">
-              Analytics platforms — multiple auditors regularly use Alteryx, SQL, ACL/IDEA, Python, or similar tools.
-            </label>
-            <label class="quiz-option"><input type="radio" name="q2" value="4">
-              Structured workflows — reusable analytics workflows support multiple audits and are used broadly across the team.
-            </label>
-            <label class="quiz-option"><input type="radio" name="q2" value="5">
-              Monitoring platforms — automated analytics or continuous monitoring tools run routinely and support oversight.
-            </label>
-          </div>
-
-          <!-- Q3 -->
-          <div class="quiz-question">
-            <h3 class="quiz-qtitle">3. Repeatability</h3>
-            <p class="quiz-qtext">
-              Across the majority of your audit work, once the data is obtained, how repeatable are analytics procedures?
-              For this assessment, analytics includes steps such as cleaning/restructuring data, creating formulas or pivot tables,
-              joining datasets, and building queries or workflows.
-            </p>
-
-            <label class="quiz-option"><input type="radio" name="q3" value="1">
-              Rebuilt each time — formulas, pivots, joins, filters, and preparation steps are recreated for each engagement.
-            </label>
-            <label class="quiz-option"><input type="radio" name="q3" value="2">
-              Spreadsheet templates — Excel templates exist where formulas/pivots are already built and auditors paste in updated data.
-            </label>
-            <label class="quiz-option"><input type="radio" name="q3" value="3">
-              Repeatable workflows with manual inputs — standard workflows exist (Alteryx/SQL/etc.) but rely on manual extracts or flat files.
-            </label>
-            <label class="quiz-option"><input type="radio" name="q3" value="4">
-              Standardized repeatable procedures — workflows and prep steps are standardized and reused across audits with minimal rebuild.
-            </label>
-            <label class="quiz-option"><input type="radio" name="q3" value="5">
-              Automated repeatable procedures — workflows run automatically or on schedules using structured feeds or integrations.
-            </label>
-          </div>
-
-          <!-- Q4 -->
-          <div class="quiz-question">
-            <h3 class="quiz-qtitle">4. Detection timing</h3>
-            <p class="quiz-qtext">
-              Across the majority of your audit work, when are issues typically detected relative to when they occur?
-              Consider whether findings are detected within an actionable window — early enough to intervene or correct behavior.
-            </p>
-
-            <label class="quiz-option"><input type="radio" name="q4" value="1">
-              After the fact — issues are typically identified during or after audits, often long after activity occurred.
-            </label>
-            <label class="quiz-option"><input type="radio" name="q4" value="2">
-              During audit testing — analytics may identify issues during an engagement, but still after activity has occurred.
-            </label>
-            <label class="quiz-option"><input type="radio" name="q4" value="3">
-              Periodic analytics reviews — risks are reviewed monthly/quarterly, allowing issues to be identified closer to occurrence.
-            </label>
-            <label class="quiz-option"><input type="radio" name="q4" value="4">
-              Monitoring signals — anomalies are highlighted soon after activity occurs, allowing time for investigation and corrective action.
-            </label>
-            <label class="quiz-option"><input type="radio" name="q4" value="5">
-              Continuous monitoring — automated signals detect anomalies as activity occurs, enabling proactive intervention.
-            </label>
-          </div>
-
-          <!-- Q5 -->
-          <div class="quiz-question">
-            <h3 class="quiz-qtitle">5. AI augmentation</h3>
-            <p class="quiz-qtext">
-              Across the majority of your audit work, how are AI tools currently used within the audit function?
-              Select the option that reflects how AI is used across the team, not isolated examples.
-            </p>
-
-            <label class="quiz-option"><input type="radio" name="q5" value="1">
-              Not used — AI tools are not currently used within the audit function.
-            </label>
-            <label class="quiz-option"><input type="radio" name="q5" value="2">
-              Research and documentation — AI supports research, summarization, and drafting (e.g., Copilot, ChatGPT, Claude).
-            </label>
-            <label class="quiz-option"><input type="radio" name="q5" value="3">
-              Development assistance — AI supports building analytics, writing queries, or developing workflows (e.g., Copilot/ChatGPT assisting SQL or Alteryx).
-            </label>
-            <label class="quiz-option"><input type="radio" name="q5" value="4">
-              Analytical assistance — AI-enabled tools help review datasets, identify patterns, or support anomaly investigation (e.g., AI-enabled ERP monitoring modules).
-            </label>
-            <label class="quiz-option"><input type="radio" name="q5" value="5">
-              Integrated AI capability — AI is embedded in monitoring workflows or oversight systems (e.g., Detect by Oversight or similar platforms).
-            </label>
-          </div>
-
-          <div class="quiz-actions">
-            <button type="button" class="btn btn-primary" onclick="calculateAuditScore()">See results</button>
-            <button type="reset" class="btn btn-secondary" onclick="resetAuditQuiz()">Reset</button>
-          </div>
-
-        </form>
-
-        <!-- RESULTS -->
-        <div id="auditQuizResult" class="quiz-result" aria-live="polite"></div>
-
-        <!-- SCALE -->
-        <div id="auditScale" class="scale-shell" aria-hidden="true">
-          <div class="scale-title">Modernization scale</div>
-          <div class="scale-track" role="img" aria-label="Audit modernization scale">
-            <div class="scale-step" data-step="1">Sampling</div>
-            <div class="scale-step" data-step="2">Ad hoc</div>
-            <div class="scale-step" data-step="3">Repeatable</div>
-            <div class="scale-step" data-step="4">Monitoring</div>
-            <div class="scale-step" data-step="5">AI-enabled</div>
-            <div id="scaleMarker" class="scale-marker" aria-hidden="true"></div>
-          </div>
-          <div id="scaleNote" class="scale-note"></div>
-        </div>
-
       </div>
     </section>
 
-    <!-- PILLARS + PLAYBOOK -->
+    <!-- PLAYBOOK -->
     <section class="section section-alt" id="playbook">
       <div class="container">
         <div class="section-head">
@@ -249,7 +256,6 @@
         </div>
 
         <div class="module-grid" style="grid-template-columns: repeat(2, minmax(0, 1fr));">
-
           <a class="module" href="#pillar-stabilize">
             <div class="module-kicker">Pillar 1</div>
             <div class="module-title">Stabilize the assurance baseline</div>
@@ -270,7 +276,7 @@
             <div class="module-kicker">Pillar 3</div>
             <div class="module-title">Build monitoring tied to value</div>
             <div class="module-desc">
-              Signals designed around margin protection, forecasting accuracy, and operational performance—built for action, not display.
+              Signals designed around margin protection, forecasting accuracy, operational performance, and behavioral indicators.
             </div>
           </a>
 
@@ -281,7 +287,6 @@
               Evidence traceability, exception ownership, escalation, and closure discipline that stays decision-useful and lean.
             </div>
           </a>
-
         </div>
       </div>
     </section>
@@ -298,11 +303,19 @@
 
         <div class="module-grid" style="grid-template-columns: repeat(3, minmax(0, 1fr));">
           <div class="module" style="cursor: default;">
+            <div class="module-kicker">How-to</div>
+            <div class="module-title">ERP change: now what?</div>
+            <div class="module-desc">
+              Establish “stable enough” criteria, map key process shifts, confirm evidence sources, and define interim routines
+              while access, roles, and reconciliation maturity normalize.
+            </div>
+          </div>
+
+          <div class="module" style="cursor: default;">
             <div class="module-kicker">Baseline</div>
             <div class="module-title">Define “stable enough”</div>
             <div class="module-desc">
-              Establish criteria for when audit can rely on process and data again: volatility thresholds, reconciliation maturity,
-              role clarity, and evidence consistency.
+              Set volatility thresholds, reconciliation expectations, role clarity, and evidence consistency so audit knows when reliance can restart.
             </div>
           </div>
 
@@ -310,54 +323,10 @@
             <div class="module-kicker">Continuity</div>
             <div class="module-title">Rebuild minimum coverage</div>
             <div class="module-desc">
-              Prioritize the coverage that protects enterprise value while the broader organization stabilizes:
-              financial integrity, pricing discipline, inventory accuracy, and fraud indicators.
-            </div>
-          </div>
-
-          <div class="module" style="cursor: default;">
-            <div class="module-kicker">Access</div>
-            <div class="module-title">Create “safe” routines</div>
-            <div class="module-desc">
-              Build repeatable access paths that minimize disruption, reduce ad hoc extract burden,
-              and work within transitional constraints.
+              Protect enterprise value while stabilizing: financial integrity, pricing discipline, inventory accuracy, and fraud indicators.
             </div>
           </div>
         </div>
-
-        <!-- HOW-TO MODULE (Pillar 1) -->
-        <div class="section-head" style="margin-top:18px;">
-          <h3 class="section-title" style="font-size:1.25rem;">Module — After the ERP upgrade: now what?</h3>
-          <p class="section-subtitle">
-            A practical sequence for rebuilding assurance when processes, controls, and reporting layers are still stabilizing.
-          </p>
-        </div>
-
-        <div class="module-grid" style="grid-template-columns: repeat(3, minmax(0, 1fr));">
-          <div class="module" style="cursor: default;">
-            <div class="module-kicker">Step 1</div>
-            <div class="module-title">Protect continuity coverage</div>
-            <div class="module-desc">
-              Identify the minimum coverage needed to protect value during transition: revenue integrity, pricing discipline,
-              inventory accuracy, and fraud indicators.
-            </div>
-          </div>
-          <div class="module" style="cursor: default;">
-            <div class="module-kicker">Step 2</div>
-            <div class="module-title">Stabilize data evidence</div>
-            <div class="module-desc">
-              Define reliable data sources, reconciliation checkpoints, and traceable artifacts audit can consistently obtain.
-            </div>
-          </div>
-          <div class="module" style="cursor: default;">
-            <div class="module-kicker">Step 3</div>
-            <div class="module-title">Codify “safe routines”</div>
-            <div class="module-desc">
-              Create repeatable extraction, testing, and follow-up routines that reduce burden and enable earlier detection.
-            </div>
-          </div>
-        </div>
-
       </div>
     </section>
 
@@ -367,25 +336,17 @@
         <div class="section-head">
           <h2 class="section-title">Pillar 2 — Shift methodology with standards direction</h2>
           <p class="section-subtitle">
-            The standards direction is clear: broader coverage, better timeliness, stronger evidence, and technology-enabled assurance.
+            Direction is clear: broader coverage, better timeliness, stronger evidence, and technology-enabled assurance.
             Sampling becomes a tool, not the default.
           </p>
         </div>
 
         <div class="module-grid" style="grid-template-columns: repeat(3, minmax(0, 1fr));">
           <div class="module" style="cursor: default;">
-            <div class="module-kicker">Coverage</div>
-            <div class="module-title">Population signals</div>
+            <div class="module-kicker">How-to</div>
+            <div class="module-title">Signals over sampling</div>
             <div class="module-desc">
-              Define what should be full-population tested and why. Sampling shifts to targeted validation and exception follow-up.
-            </div>
-          </div>
-
-          <div class="module" style="cursor: default;">
-            <div class="module-kicker">Assurance</div>
-            <div class="module-title">Continuous monitoring</div>
-            <div class="module-desc">
-              Recurring signals with thresholds, ownership, and cadence. Monitoring becomes assurance infrastructure.
+              Convert sample-era steps into population checks where feasible, define thresholds, and use sampling for validation and exception follow-up.
             </div>
           </div>
 
@@ -393,11 +354,18 @@
             <div class="module-kicker">Evidence</div>
             <div class="module-title">Traceability discipline</div>
             <div class="module-desc">
-              Evidence that holds up in transition: logs, approvals, lineage, exception handling, and reconstructable decisions.
+              Evidence that holds up in transition: logs, approvals, lineage, exception handling, and reconstructable decision paths.
+            </div>
+          </div>
+
+          <div class="module" style="cursor: default;">
+            <div class="module-kicker">Upskilling</div>
+            <div class="module-title">Rebalance skills for modern IA</div>
+            <div class="module-desc">
+              Shift from purely accounting-centric staffing to analytics, data literacy, process engineering, and risk sensing across the team.
             </div>
           </div>
         </div>
-
       </div>
     </section>
 
@@ -414,62 +382,29 @@
 
         <div class="module-grid" style="grid-template-columns: repeat(3, minmax(0, 1fr));">
           <div class="module" style="cursor: default;">
+            <div class="module-kicker">How-to</div>
+            <div class="module-title">Build signals with action paths</div>
+            <div class="module-desc">
+              Define what “actionable” means, set thresholds, assign owners, and build an exception workflow that drives closure—not reporting.
+            </div>
+          </div>
+
+          <div class="module" style="cursor: default;">
             <div class="module-kicker">Value</div>
-            <div class="module-title">Margin protection</div>
+            <div class="module-title">Margin + timing behavior</div>
             <div class="module-desc">
-              Signals for override behavior, out-of-policy pricing, credit/return anomalies, and drift concentration.
+              Watch for override behavior, out-of-policy pricing, credit/return anomalies, and timing patterns (e.g., budget surge indicating postponed sales).
             </div>
           </div>
 
           <div class="module" style="cursor: default;">
-            <div class="module-kicker">Planning</div>
-            <div class="module-title">Forecasting accuracy</div>
+            <div class="module-kicker">Behavioral</div>
+            <div class="module-title">Manipulation + evasion signals</div>
             <div class="module-desc">
-              Signals for inventory distortion, demand anomalies, replenishment noise, and forecast bias during stabilization.
-            </div>
-          </div>
-
-          <div class="module" style="cursor: default;">
-            <div class="module-kicker">Execution</div>
-            <div class="module-title">Logistics performance</div>
-            <div class="module-desc">
-              Signals tied to route efficiency, delivery performance, exception clusters, and operational friction that creates cost.
+              Detect clustering, threshold gaming, approval routing patterns, split transactions, and unusual bursts that suggest human evasion behavior.
             </div>
           </div>
         </div>
-
-        <!-- Behavioral signals add-on -->
-        <div class="section-head" style="margin-top:18px;">
-          <h3 class="section-title" style="font-size:1.25rem;">Module — Behavioral signals for early detection</h3>
-          <p class="section-subtitle">
-            Human interaction with systems often reveals risk before financial outcomes do. These signals are designed to be monitored.
-          </p>
-        </div>
-
-        <div class="module-grid" style="grid-template-columns: repeat(3, minmax(0, 1fr));">
-          <div class="module" style="cursor: default;">
-            <div class="module-kicker">Behavior</div>
-            <div class="module-title">Override concentration</div>
-            <div class="module-desc">
-              Overrides clustered within a small set of users, locations, or managers may indicate control erosion or circumvention.
-            </div>
-          </div>
-          <div class="module" style="cursor: default;">
-            <div class="module-kicker">Behavior</div>
-            <div class="module-title">Timing anomalies</div>
-            <div class="module-desc">
-              Surges near period close or budget resets may indicate incentive-driven timing behavior affecting margin and forecasting.
-            </div>
-          </div>
-          <div class="module" style="cursor: default;">
-            <div class="module-kicker">Behavior</div>
-            <div class="module-title">Transaction splitting</div>
-            <div class="module-desc">
-              Multiple transactions clustered just below thresholds can indicate attempts to avoid approvals or scrutiny.
-            </div>
-          </div>
-        </div>
-
       </div>
     </section>
 
@@ -485,8 +420,8 @@
 
         <div class="module-grid" style="grid-template-columns: repeat(2, minmax(0, 1fr));">
           <div class="module" style="cursor: default;">
-            <div class="module-kicker">Exceptions</div>
-            <div class="module-title">Ownership + escalation</div>
+            <div class="module-kicker">How-to</div>
+            <div class="module-title">Exception ownership + closure</div>
             <div class="module-desc">
               Define who owns what, when escalation occurs, and what “closed” means. Keep it lean. Make it enforceable.
             </div>
@@ -496,11 +431,10 @@
             <div class="module-kicker">Evidence</div>
             <div class="module-title">Audit-ready proof</div>
             <div class="module-desc">
-              Capture consistent artifacts with timestamps, decision records, and a reconstruction path—without friction.
+              Capture consistent artifacts with timestamps, decision records, and a reconstruction path—without adding friction.
             </div>
           </div>
         </div>
-
       </div>
     </section>
 
@@ -523,79 +457,116 @@
   </footer>
 
   <script>
-    function stageFromAverage(avg){
-      if (avg < 2.0) return { stage: 1, label: "Sampling-based audit", note: "Primary delivery is engagement-based with sampling and manual review. Focus next on data autonomy and repeatable templates." };
-      if (avg < 3.0) return { stage: 2, label: "Ad hoc analytics", note: "Analytics exist, but are not consistently embedded across the team. Focus next on repeatability and workflow standardization." };
-      if (avg < 4.0) return { stage: 3, label: "Repeatable analytics", note: "Repeatable analytics procedures support broader coverage in some areas. Focus next on monitoring signals and actionable thresholds." };
-      if (avg < 4.5) return { stage: 4, label: "Monitoring-based audit", note: "Signals are used to detect risk closer to occurrence. Focus next on ownership/closure discipline and scaling coverage." };
-      return { stage: 5, label: "AI-enabled assurance", note: "AI augments analytics and monitoring. Focus next on governance, traceability, and measured expansion of automation." };
+  (function(){
+    const quiz = document.getElementById('ia-quiz');
+    if(!quiz) return;
+
+    const steps = Array.from(quiz.querySelectorAll('.quiz-step'));
+    const backBtn = document.getElementById('quiz-back');
+    const nextBtn = document.getElementById('quiz-next');
+    const progress = document.getElementById('quiz-progress');
+
+    const resultsWrap = document.getElementById('quiz-results');
+    const resultText = document.getElementById('quiz-result-text');
+    const answerSummary = document.getElementById('quiz-answer-summary');
+
+    let current = 0; // 0-based index
+    const answers = {}; // { stepNumber: {value, label} }
+
+    function totalSteps(){ return steps.length; }
+
+    function showStep(idx){
+      steps.forEach((s,i)=>s.classList.toggle('is-active', i === idx));
+      progress.textContent = `Step ${idx+1} of ${totalSteps()}`;
+
+      backBtn.disabled = idx === 0;
+
+      const stepKey = String(idx+1);
+      nextBtn.disabled = !answers[stepKey];
+      nextBtn.textContent = (idx === totalSteps()-1) ? 'See results' : 'Next';
+
+      resultsWrap.classList.remove('is-visible');
     }
 
-    function calculateAuditScore(){
-      const ids = ["q1","q2","q3","q4","q5"];
-      let total = 0;
+    function clearSelectionsForStep(stepEl){
+      stepEl.querySelectorAll('.quiz-card').forEach(btn=>btn.classList.remove('is-selected'));
+    }
 
-      for (const id of ids){
-        const pick = document.querySelector(`input[name="${id}"]:checked`);
-        if (!pick){
-          alert("Please answer all questions to see your results.");
-          return;
-        }
-        total += parseInt(pick.value, 10);
+    function getCardLabel(btn){
+      const title = btn.querySelector('.quiz-card-title')?.textContent?.trim() || 'Selected';
+      const sub = btn.querySelector('.quiz-card-sub')?.textContent?.trim() || '';
+      return sub ? `<strong>${title}:</strong> ${sub}` : `<strong>${title}</strong>`;
+    }
+
+    function computeResult(){
+      const vals = Object.values(answers).map(a=>Number(a.value));
+      const avg = vals.reduce((a,b)=>a+b,0) / vals.length;
+
+      let bandTitle = '';
+      let bandText = '';
+
+      if(avg <= 1.75){
+        bandTitle = 'Baseline / Spreadsheet-era delivery';
+        bandText = 'Constraints are primarily access + manual rebuild + retrospective timing. The fastest “next” is standardizing data access paths and moving repeatable prep into workflows (even before new platforms).';
+      } else if(avg <= 2.5){
+        bandTitle = 'Developing / Mixed maturity';
+        bandText = 'You have pockets of capability, but defaults are inconsistent. The best “next” is making repeatability standard: templates → workflows → routines, with ownership and cadence.';
+      } else if(avg <= 3.25){
+        bandTitle = 'Modernizing / Repeatable analytics';
+        bandText = 'You’re building repeatability. The next move is timeliness + action paths: thresholds, exception queues, and routines tied to decisions (including behavioral signals).';
+      } else {
+        bandTitle = 'Monitoring-led / Early detection';
+        bandText = 'You’re operating with detection infrastructure. Next is scaling breadth, tightening governance (evidence traceability), and upskilling so the team—not just specialists—can sustain it.';
       }
 
-      const avg = total / ids.length;
-      const rounded = Math.round(avg * 10) / 10;
+      const ordered = [];
+      for(let i=1;i<=totalSteps();i++){
+        const a = answers[String(i)];
+        ordered.push(`<div style="margin-top:10px;"><div><strong>Q${i}:</strong></div><div>${a ? a.label : '—'}</div></div>`);
+      }
 
-      const result = stageFromAverage(avg);
+      resultText.innerHTML = `<strong>${bandTitle}</strong><br><br>${bandText}<br><br><em>Score:</em> ${avg.toFixed(2)} / 4`;
+      answerSummary.innerHTML = ordered.join('');
 
-      const resultEl = document.getElementById("auditQuizResult");
-      resultEl.innerHTML =
-        `<div class="quiz-result-card">
-          <div class="quiz-result-kicker">Your result</div>
-          <div class="quiz-result-title">${result.label}</div>
-          <div class="quiz-result-metric">Average score: <strong>${rounded}</strong> / 5</div>
-          <div class="quiz-result-text">${result.note}</div>
-          <div class="quiz-result-actions">
-            <a class="btn btn-secondary" href="#playbook">Continue to the playbook</a>
-          </div>
-        </div>`;
-
-      // show + position marker
-      const scaleShell = document.getElementById("auditScale");
-      scaleShell.setAttribute("aria-hidden", "false");
-      scaleShell.style.display = "block";
-
-      const marker = document.getElementById("scaleMarker");
-      const note = document.getElementById("scaleNote");
-
-      // 5 steps: place marker at 0%, 25%, 50%, 75%, 100%
-      const positions = [0, 25, 50, 75, 100];
-      marker.style.left = positions[result.stage - 1] + "%";
-      marker.style.display = "block";
-      marker.setAttribute("aria-hidden", "false");
-
-      // highlight step labels
-      document.querySelectorAll(".scale-step").forEach(el => el.classList.remove("is-active"));
-      const active = document.querySelector(`.scale-step[data-step="${result.stage}"]`);
-      if (active) active.classList.add("is-active");
-
-      note.textContent = result.note;
-
-      // smooth scroll to results
-      resultEl.scrollIntoView({ behavior: "smooth", block: "start" });
+      resultsWrap.classList.add('is-visible');
+      resultsWrap.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
 
-    function resetAuditQuiz(){
-      const resultEl = document.getElementById("auditQuizResult");
-      resultEl.innerHTML = "";
+    steps.forEach((stepEl, idx)=>{
+      const cards = Array.from(stepEl.querySelectorAll('.quiz-card'));
+      cards.forEach(btn=>{
+        btn.addEventListener('click', ()=>{
+          clearSelectionsForStep(stepEl);
+          btn.classList.add('is-selected');
 
-      const scaleShell = document.getElementById("auditScale");
-      scaleShell.setAttribute("aria-hidden", "true");
-      scaleShell.style.display = "none";
+          const key = String(idx+1);
+          answers[key] = {
+            value: btn.getAttribute('data-value'),
+            label: getCardLabel(btn)
+          };
 
-      document.querySelectorAll(".scale-step").forEach(el => el.classList.remove("is-active"));
-    }
+          nextBtn.disabled = false;
+        });
+      });
+    });
+
+    backBtn.addEventListener('click', ()=>{
+      if(current === 0) return;
+      current -= 1;
+      showStep(current);
+    });
+
+    nextBtn.addEventListener('click', ()=>{
+      if(current === totalSteps()-1){
+        computeResult();
+        return;
+      }
+      current += 1;
+      showStep(current);
+    });
+
+    showStep(current);
+  })();
   </script>
 
 </body>

@@ -1733,3 +1733,175 @@ body.page-ia .quiz-result-text{
 @media (max-width: 820px){
   body.page-ia .quiz-grid{ grid-template-columns: 1fr; }
 }
+/* =========================
+   IA Quiz: Selected answer styling
+   ========================= */
+
+.quiz-shell{
+  background: rgba(255,255,255,0.92);
+  border: 1px solid var(--border-soft);
+  border-radius: 22px;
+  box-shadow: var(--shadow-md);
+  overflow: hidden;
+}
+
+.quiz-head{
+  padding: 18px 18px 10px;
+  border-bottom: 1px solid var(--border-soft);
+}
+
+.quiz-title{
+  font-weight: 980;
+  color: var(--text);
+  letter-spacing: -0.3px;
+  font-size: 1.25rem;
+}
+
+.quiz-sub{
+  margin-top: 8px;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+.quiz-step{ display:none; padding: 16px 18px 0; }
+.quiz-step.is-active{ display:block; }
+
+.quiz-q{
+  font-weight: 980;
+  color: var(--text);
+  letter-spacing: -0.3px;
+  font-size: 1.05rem;
+}
+
+.quiz-help{
+  margin-top: 10px;
+  color: var(--muted);
+  line-height: 1.7;
+  max-width: 92ch;
+}
+
+.quiz-bullets{
+  margin-top: 10px;
+  padding-left: 18px;
+  line-height: 1.8;
+}
+
+.quiz-grid{
+  display:grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: 12px;
+}
+
+/* Base card */
+.quiz-card{
+  text-align: left;
+  border-radius: 18px;
+  border: 1px solid var(--border-soft);
+  background: rgba(255,255,255,0.92);
+  padding: 14px;
+  cursor: pointer;
+  box-shadow: var(--shadow-sm);
+  transition: transform 160ms ease, box-shadow 160ms ease, border-color 160ms ease, background 160ms ease;
+  position: relative;
+}
+.quiz-card:hover{
+  transform: translateY(-2px);
+  border-color: var(--border);
+  box-shadow: var(--shadow-md);
+  background: rgba(255,255,255,0.98);
+}
+.quiz-card:focus-visible{
+  outline: 3px solid rgba(0,0,0,0.18);
+  outline-offset: 3px;
+}
+
+.quiz-card-title{
+  font-weight: 980;
+  color: var(--text);
+  letter-spacing: -0.2px;
+}
+.quiz-card-sub{
+  margin-top: 6px;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+/* ✅ Selected state (high contrast, obvious) */
+.quiz-card.is-selected{
+  background: rgba(140,111,63,0.12);      /* uses your warm metallic accent */
+  border-color: rgba(140,111,63,0.45);
+  box-shadow: 0 18px 55px rgba(0,0,0,0.14);
+}
+
+/* Optional: a subtle left “selection bar” */
+.quiz-card.is-selected::before{
+  content:"";
+  position:absolute;
+  left:0;
+  top:0;
+  bottom:0;
+  width: 6px;
+  background: var(--accent);
+  border-radius: 18px 0 0 18px;
+}
+
+/* Optional: add a checkmark badge */
+.quiz-card.is-selected::after{
+  content:"✓";
+  position:absolute;
+  top: 12px;
+  right: 12px;
+  width: 28px;
+  height: 28px;
+  border-radius: 999px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-weight: 950;
+  color: #fff;
+  background: #101010;
+  border: 1px solid rgba(255,255,255,0.18);
+}
+
+/* Footer + Results */
+.quiz-footer{
+  display:flex;
+  align-items:center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 14px 18px 18px;
+  border-top: 1px solid var(--border-soft);
+  margin-top: 14px;
+}
+.quiz-progress{
+  color: var(--muted-2);
+  font-weight: 850;
+}
+.quiz-actions{ display:flex; gap: 10px; flex-wrap:wrap; }
+
+.quiz-results{
+  padding: 16px 18px 18px;
+  display:grid;
+  gap: 12px;
+}
+.quiz-result-block{
+  border: 1px solid var(--border-soft);
+  background: rgba(255,255,255,0.92);
+  border-radius: 18px;
+  padding: 14px;
+  box-shadow: var(--shadow-sm);
+}
+.quiz-result-title{
+  font-weight: 980;
+  color: var(--text);
+}
+.quiz-result-text{
+  margin-top: 8px;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+@media (max-width: 820px){
+  .quiz-grid{ grid-template-columns: 1fr; }
+}

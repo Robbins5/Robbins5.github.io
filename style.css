@@ -1,10 +1,8 @@
 /* ============================================================
-   The AI-Ready Audit — Clean Monochrome System (v3)
-   Goal: cohesive, premium, low-noise, page-scoped variations
-   Notes:
-   - Removed older/duplicate “reading-pill” gate styles.
-   - Scoped ALL traditional thesis (injected article) styles to body.page-thesis
-     so the homepage layout will NOT be affected.
+   The AI-Ready Audit — Clean Monochrome System (v3.1)
+   Update:
+   - Added IA quiz + modernization scale styles (scoped to body.page-ia)
+   - Kept all prior scoping + thesis memory mode rules
    ============================================================ */
 
 /* =========================
@@ -239,6 +237,7 @@ a:hover{ color: var(--accent); }
   color: var(--text);
   box-shadow: var(--shadow-sm);
   transition: transform 140ms ease, box-shadow 140ms ease, border-color 140ms ease, background 140ms ease;
+  cursor: pointer;
 }
 .btn:hover{
   transform: translateY(-1px);
@@ -746,11 +745,221 @@ body.page-ia .ia-strip-value{
 }
 
 /* ============================================================
+   IA Quiz + Modernization Scale (scoped)
+   ============================================================ */
+body.page-ia .quiz-shell{
+  border: 1px solid var(--border-soft);
+  background: rgba(255,255,255,0.92);
+  border-radius: 22px;
+  padding: 18px;
+  box-shadow: var(--shadow-sm);
+}
+
+body.page-ia .quiz-question{
+  padding: 16px;
+  border-radius: 18px;
+  border: 1px solid var(--border-soft);
+  background: rgba(255,255,255,0.96);
+  box-shadow: 0 1px 0 rgba(0,0,0,0.03), 0 10px 26px rgba(0,0,0,0.06);
+}
+body.page-ia .quiz-question + .quiz-question{ margin-top: 12px; }
+
+body.page-ia .quiz-qtitle{
+  color: var(--text);
+  font-weight: 980;
+  letter-spacing: -0.3px;
+  font-size: 1.10rem;
+}
+body.page-ia .quiz-qtext{
+  margin-top: 8px;
+  color: var(--muted);
+  line-height: 1.7;
+  max-width: 95ch;
+}
+
+body.page-ia .quiz-option{
+  display:flex;
+  gap: 10px;
+  align-items:flex-start;
+  margin-top: 10px;
+  padding: 10px 12px;
+  border-radius: 14px;
+  border: 1px solid transparent;
+  background: rgba(255,255,255,0.70);
+  color: var(--body);
+  line-height: 1.55;
+  cursor: pointer;
+  transition: background 160ms ease, border-color 160ms ease, transform 160ms ease, box-shadow 160ms ease;
+}
+body.page-ia .quiz-option:hover{
+  background: rgba(255,255,255,0.92);
+  border-color: var(--border-soft);
+  transform: translateY(-1px);
+  box-shadow: 0 10px 22px rgba(0,0,0,0.06);
+}
+body.page-ia .quiz-option input{
+  margin-top: 2px;
+  accent-color: #101010;
+  flex: 0 0 auto;
+}
+
+body.page-ia .quiz-actions{
+  margin-top: 14px;
+  display:flex;
+  gap: 10px;
+  flex-wrap:wrap;
+}
+
+/* Results */
+body.page-ia .quiz-result{
+  margin-top: 16px;
+}
+body.page-ia .quiz-result-card{
+  border: 1px solid var(--border-soft);
+  background: rgba(255,255,255,0.95);
+  border-radius: 22px;
+  padding: 18px;
+  box-shadow: var(--shadow-md);
+}
+body.page-ia .quiz-result-kicker{
+  font-size: 0.78rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted-2);
+  font-weight: 950;
+}
+body.page-ia .quiz-result-title{
+  margin-top: 8px;
+  font-weight: 1000;
+  letter-spacing: -0.6px;
+  color: var(--text);
+  font-size: 1.35rem;
+}
+body.page-ia .quiz-result-metric{
+  margin-top: 8px;
+  color: var(--muted);
+}
+body.page-ia .quiz-result-text{
+  margin-top: 10px;
+  color: var(--body);
+  line-height: 1.75;
+  max-width: 95ch;
+}
+body.page-ia .quiz-result-actions{
+  margin-top: 12px;
+  display:flex;
+  gap: 10px;
+  flex-wrap:wrap;
+}
+
+/* Modernization Scale */
+body.page-ia .scale-shell{
+  margin-top: 14px;
+  border: 1px solid var(--border-soft);
+  background: rgba(255,255,255,0.92);
+  border-radius: 22px;
+  padding: 16px;
+  box-shadow: var(--shadow-sm);
+  display: none; /* shown by JS */
+}
+body.page-ia .scale-title{
+  color: var(--text);
+  font-weight: 980;
+  letter-spacing: -0.3px;
+  margin-bottom: 10px;
+}
+
+body.page-ia .scale-track{
+  position: relative;
+  display:grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 10px;
+  align-items:center;
+  border-radius: 18px;
+  padding: 14px;
+  background:
+    radial-gradient(900px 260px at 10% 10%, rgba(0,0,0,0.05), transparent 55%),
+    radial-gradient(900px 260px at 90% 0%, rgba(0,0,0,0.04), transparent 60%),
+    rgba(255,255,255,0.96);
+  border: 1px solid var(--border-soft);
+  overflow: hidden;
+}
+
+/* Track line behind steps */
+body.page-ia .scale-track::before{
+  content:"";
+  position:absolute;
+  left: 16px;
+  right: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 2px;
+  background: var(--border);
+  opacity: 0.75;
+  pointer-events:none;
+}
+
+body.page-ia .scale-step{
+  position: relative;
+  z-index: 2;
+  text-align:center;
+  font-weight: 950;
+  color: var(--muted);
+  letter-spacing: -0.2px;
+  padding: 10px 10px;
+  border-radius: 999px;
+  border: 1px solid var(--border-soft);
+  background: rgba(255,255,255,0.78);
+  box-shadow: 0 8px 18px rgba(0,0,0,0.05);
+  user-select:none;
+}
+
+body.page-ia .scale-step.is-active{
+  color: var(--text);
+  border-color: var(--border);
+  background: rgba(255,255,255,0.96);
+  box-shadow: 0 18px 46px rgba(0,0,0,0.12);
+}
+
+/* Marker: placed by JS using left:% */
+body.page-ia .scale-marker{
+  position:absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 14px;
+  height: 14px;
+  border-radius: 999px;
+  background: #101010;
+  box-shadow: 0 12px 28px rgba(0,0,0,0.20);
+  z-index: 3;
+  display: none;
+}
+
+/* a small pointer stem */
+body.page-ia .scale-marker::after{
+  content:"";
+  position:absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: -16px;
+  width: 2px;
+  height: 14px;
+  background: #101010;
+  opacity: 0.85;
+  border-radius: 2px;
+}
+
+body.page-ia .scale-note{
+  margin-top: 12px;
+  color: var(--muted);
+  line-height: 1.7;
+  max-width: 95ch;
+}
+
+/* ============================================================
    Thesis page (structured view visuals + premium gate)
    Scoped to body.page-thesis where appropriate
    ============================================================ */
-
-/* Thesis hero layout (used in your thesis.html web view) */
 body.page-thesis .exec-hero{ padding: 56px 0 18px; }
 
 body.page-thesis .thesis-hero{
@@ -796,7 +1005,6 @@ body.page-thesis .exec-actions{
   flex-wrap:wrap;
 }
 
-/* Thesis SVG containers */
 body.page-thesis .thesis-timeline-visual,
 body.page-thesis .thesis-triad-visual{
   margin-top: 16px;
@@ -813,7 +1021,6 @@ body.page-thesis .thesis-triad-visual img{
   height:auto;
 }
 
-/* Small strip refinement you had */
 body.page-thesis .thesis-strip{ margin-top: 26px; }
 body.page-thesis .thesis-claim{
   font-size: 1rem;
@@ -823,7 +1030,6 @@ body.page-thesis .thesis-claim{
   color: var(--text);
 }
 
-/* A light note block used in thesis sections */
 body.page-thesis .thesis-note{
   border: 1px solid var(--border-soft);
   background: rgba(255,255,255,0.86);
@@ -836,23 +1042,17 @@ body.page-thesis .thesis-note-text{
   line-height: 1.7;
 }
 
-/* A helper two-column region if used */
 body.page-thesis .thesis-two-col{
   display:grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 14px;
 }
 
-/* -------------------------
-   Premium Reading Gate
-   (This is the only gate style you need now)
-   ------------------------- */
+/* Premium Reading Gate */
 body.page-thesis .format-gate{
   padding: 64px 0 42px;
   position: relative;
 }
-
-/* soft background */
 body.page-thesis .format-gate::before{
   content:"";
   position:absolute;
@@ -875,8 +1075,6 @@ body.page-thesis .format-gate-shell{
   padding: 26px;
   overflow: hidden;
 }
-
-/* subtle sheen */
 body.page-thesis .format-gate-shell::after{
   content:"";
   position:absolute;
@@ -1031,10 +1229,7 @@ body.page-thesis #reading-gate.is-collapsed .format-gate-shell{
   box-shadow: 0 10px 26px rgba(0,0,0,0.10);
 }
 
-/* -------------------------
-   Traditional thesis injected content
-   FULLY SCOPED to thesis page (prevents homepage break)
-   ------------------------- */
+/* Traditional thesis injected content */
 body.page-thesis .article-native{ margin-top: 14px; }
 
 body.page-thesis .article-loading{
@@ -1051,7 +1246,6 @@ body.page-thesis .article-slot{
   color: var(--body);
 }
 
-/* Hide any embedded “chrome” inside injected content ONLY */
 body.page-thesis .article-slot .site-header,
 body.page-thesis .article-slot header,
 body.page-thesis .article-slot nav,
@@ -1059,14 +1253,12 @@ body.page-thesis .article-slot footer{
   display: none !important;
 }
 
-/* Prevent injected content from enforcing narrow container widths */
 body.page-thesis .article-slot .container{
   max-width: 100% !important;
   padding: 0 !important;
   margin: 0 !important;
 }
 
-/* Prose “paper” surface */
 body.page-thesis .article-prose{
   background: rgba(255,255,255,0.96);
   border: 1px solid var(--border-soft);
@@ -1075,7 +1267,6 @@ body.page-thesis .article-prose{
   padding: 26px;
 }
 
-/* Typography for injected article */
 body.page-thesis .article-prose h1,
 body.page-thesis .article-prose h2,
 body.page-thesis .article-prose h3,
@@ -1110,7 +1301,6 @@ body.page-thesis .article-prose a{
 }
 body.page-thesis .article-prose a:hover{ color: var(--accent); }
 
-/* Make the my-sixth-post title area feel like a paper header */
 body.page-thesis .article-prose .post-header{
   padding-bottom: 14px;
   border-bottom: 1px solid var(--border-soft);
@@ -1127,15 +1317,12 @@ body.page-thesis .article-prose .post-subtitle{
    Thesis view memory (URL/localStorage-driven)
    Add classes to <body>: exec-mode | audit-mode
    ============================================================ */
-
 body.page-thesis .exec-only { display: none; }
 body.page-thesis .audit-only { display: none; }
 
-/* When Exec mode is active, show exec-only blocks */
 body.page-thesis.exec-mode .exec-only { display: block; }
 body.page-thesis.exec-mode .audit-only { display: none; }
 
-/* When Audit mode is active, show audit-only blocks */
 body.page-thesis.audit-mode .audit-only { display: block; }
 body.page-thesis.audit-mode .exec-only { display: none; }
 
@@ -1161,6 +1348,13 @@ body.page-thesis.audit-mode .exec-only { display: none; }
 
   body.page-thesis .thesis-hero{ grid-template-columns: 1fr; }
   body.page-thesis .thesis-two-col{ grid-template-columns: 1fr; }
+
+  /* IA quiz spacing */
+  body.page-ia .quiz-shell{ padding: 14px; }
+  body.page-ia .quiz-question{ padding: 14px; }
+  body.page-ia .scale-track{ grid-template-columns: 1fr; }
+  body.page-ia .scale-track::before{ display:none; }
+  body.page-ia .scale-marker{ display:none !important; } /* marker doesn't map well in stacked layout */
 }
 
 @media (max-width: 820px){
@@ -1176,11 +1370,14 @@ body.page-thesis.audit-mode .exec-only { display: none; }
   .hero-title{ font-size: 2.0rem; }
 
   body.page-thesis .article-prose{ padding: 18px; }
+
+  body.page-ia .quiz-option{ padding: 10px; }
+  body.page-ia .quiz-qtitle{ font-size: 1.02rem; }
 }
+
 /* =========================
    Guided Onboarding (No AI)
    ========================= */
-
 body.guide-lock { overflow: hidden; }
 
 .guide-fab{

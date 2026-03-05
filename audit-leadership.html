@@ -49,7 +49,7 @@
 
           <div class="ia-actions">
             <a class="btn btn-primary" href="#quiz">Take the modernization quiz</a>
-            <a class="btn btn-secondary" href="thesis.html">Read the thesis</a>
+            <a class="btn btn-secondary" href="#playbook">Open the playbook</a>
           </div>
 
           <div class="ia-strip" aria-label="Leadership framing">
@@ -79,25 +79,28 @@
             <div class="quiz-kicker">Need a starting point?</div>
             <div class="quiz-title">Quick modernization self-assessment</div>
             <div class="quiz-sub">
-              Answer the questions below based on where the <strong>majority of your audit work</strong> happens today.
+              Answer the questions below based on where the <strong>majority of audit work</strong> happens today.
               You’ll get a short “you are here” readout and what to focus on next.
             </div>
           </div>
 
           <!-- STEP 1 -->
           <div class="quiz-step is-active" data-step="1">
-            <div class="quiz-q">1) How easy is data to obtain for the majority of audits?</div>
-            <div class="quiz-help">Think access paths, autonomy, and how often you rely on other teams for extracts and modeling.</div>
+            <div class="quiz-q">1) How easy is data to obtain?</div>
+            <div class="quiz-help">
+              Emphasis: answer based on where the <strong>majority</strong> of audit work lives today.
+              Think access paths, autonomy, and how often you rely on other teams for extracts and data modeling.
+            </div>
 
             <div class="quiz-grid">
               <button class="quiz-card" type="button" data-value="1">
                 <div class="quiz-card-title">Limited autonomy</div>
-                <div class="quiz-card-sub">Heavy reliance on other teams for extracts/data modeling; access varies by system.</div>
+                <div class="quiz-card-sub">Heavy reliance on other teams for extracts and data modeling; access varies by system.</div>
               </button>
 
               <button class="quiz-card" type="button" data-value="2">
                 <div class="quiz-card-title">Some self-serve, inconsistent</div>
-                <div class="quiz-card-sub">Some tools are self-serve, but larger extracts and key systems still require others.</div>
+                <div class="quiz-card-sub">Some tools are self-serve, but larger extracts and key systems still require other teams.</div>
               </button>
 
               <button class="quiz-card" type="button" data-value="3">
@@ -115,17 +118,19 @@
           <!-- STEP 2 -->
           <div class="quiz-step" data-step="2">
             <div class="quiz-q">2) Where does the majority of analytics happen across the audit team?</div>
-            <div class="quiz-help">This is about the overall team, not a single advanced analyst.</div>
+            <div class="quiz-help">
+              This is about the overall team (what the majority uses), not a single advanced analyst.
+            </div>
 
             <div class="quiz-grid">
               <button class="quiz-card" type="button" data-value="1">
                 <div class="quiz-card-title">Spreadsheets (Excel-first)</div>
-                <div class="quiz-card-sub">Most work is pivots, formulas, manual joins, and template-based review packs.</div>
+                <div class="quiz-card-sub">Most analytics is pivots, formulas, manual joins, and template-based review packs.</div>
               </button>
 
               <button class="quiz-card" type="button" data-value="2">
                 <div class="quiz-card-title">Mixed toolset</div>
-                <div class="quiz-card-sub">Excel is still the default, but BI/SQL/Alteryx/other tools support a meaningful share.</div>
+                <div class="quiz-card-sub">Excel is the default, but BI/SQL/Alteryx/other tools support a meaningful share.</div>
               </button>
 
               <button class="quiz-card" type="button" data-value="3">
@@ -144,7 +149,8 @@
           <div class="quiz-step" data-step="3">
             <div class="quiz-q">3) Once the data is obtained, how is the majority of analytics built and reused?</div>
             <div class="quiz-help">
-              “Rebuilt” means recreating joins, formulas, pivots, filters, and logic each time. “Template reuse” means you drop in new data and outputs refresh.
+              “Rebuilt” means recreating joins, formulas, pivots, filters, and logic each time.
+              “Limited reuse” usually means an Excel template where you don’t rebuild formulas/pivots— you overlay updated data.
             </div>
 
             <div class="quiz-grid">
@@ -155,7 +161,7 @@
 
               <button class="quiz-card" type="button" data-value="2">
                 <div class="quiz-card-title">Limited reuse (templates)</div>
-                <div class="quiz-card-sub">Excel templates exist—formulas/pivots are prebuilt, you overlay updated data.</div>
+                <div class="quiz-card-sub">Templates exist; you drop in new data and outputs refresh without rebuilding the logic.</div>
               </button>
 
               <button class="quiz-card" type="button" data-value="3">
@@ -174,7 +180,8 @@
           <div class="quiz-step" data-step="4">
             <div class="quiz-q">4) How often do findings land inside the actionable window?</div>
             <div class="quiz-help">
-              Think timeliness: do you detect issues early enough to change outcomes (e.g., budget timing manipulation, evasion patterns, override behavior)?
+              Think timeliness: do you detect issues early enough to change outcomes?
+              Example: budget timing surges that may indicate postponed year-end sales; manipulation/evasion patterns.
             </div>
 
             <div class="quiz-grid">
@@ -195,12 +202,12 @@
 
               <button class="quiz-card" type="button" data-value="4">
                 <div class="quiz-card-title">Early detection as default</div>
-                <div class="quiz-card-sub">Signals/monitoring provide near-real-time or frequent detection with an action path to close.</div>
+                <div class="quiz-card-sub">Signals/monitoring provide frequent detection with an action path to close.</div>
               </button>
             </div>
           </div>
 
-          <!-- FOOTER NAV -->
+          <!-- NAV -->
           <div class="quiz-footer">
             <div class="quiz-progress" id="quiz-progress">Step 1 of 4</div>
             <div class="quiz-actions">
@@ -210,7 +217,7 @@
           </div>
 
           <!-- RESULTS -->
-          <div class="quiz-results" id="quiz-results" aria-live="polite">
+          <div class="quiz-results" id="quiz-results" aria-live="polite" style="display:none;">
             <div class="quiz-result-block">
               <div class="quiz-result-title" id="quiz-result-title">Your result</div>
               <div class="quiz-result-text" id="quiz-result-text"></div>
@@ -221,10 +228,9 @@
               <div class="quiz-result-text" id="quiz-answer-summary"></div>
             </div>
 
-            <!-- Placeholder for your interactive scale graphic -->
-            <div class="quiz-result-block" id="quiz-scale">
+            <div class="quiz-result-block">
               <div class="quiz-result-title">Modernization scale</div>
-              <div class="quiz-result-text">
+              <div class="quiz-result-text" id="quiz-scale-text">
                 (Next: we’ll render the interactive scale here and plot your position.)
               </div>
             </div>
@@ -256,6 +262,7 @@
         </div>
 
         <div class="module-grid" style="grid-template-columns: repeat(2, minmax(0, 1fr));">
+
           <a class="module" href="#pillar-stabilize">
             <div class="module-kicker">Pillar 1</div>
             <div class="module-title">Stabilize the assurance baseline</div>
@@ -287,6 +294,7 @@
               Evidence traceability, exception ownership, escalation, and closure discipline that stays decision-useful and lean.
             </div>
           </a>
+
         </div>
       </div>
     </section>
@@ -470,8 +478,8 @@
     const resultText = document.getElementById('quiz-result-text');
     const answerSummary = document.getElementById('quiz-answer-summary');
 
-    let current = 0; // 0-based index
-    const answers = {}; // { stepNumber: {value, label} }
+    let current = 0;
+    const answers = {};
 
     function totalSteps(){ return steps.length; }
 
@@ -485,7 +493,7 @@
       nextBtn.disabled = !answers[stepKey];
       nextBtn.textContent = (idx === totalSteps()-1) ? 'See results' : 'Next';
 
-      resultsWrap.classList.remove('is-visible');
+      resultsWrap.style.display = 'none';
     }
 
     function clearSelectionsForStep(stepEl){
@@ -522,13 +530,18 @@
       const ordered = [];
       for(let i=1;i<=totalSteps();i++){
         const a = answers[String(i)];
-        ordered.push(`<div style="margin-top:10px;"><div><strong>Q${i}:</strong></div><div>${a ? a.label : '—'}</div></div>`);
+        ordered.push(
+          `<div style="margin-top:10px;">
+             <div><strong>Q${i}:</strong></div>
+             <div>${a ? a.label : '—'}</div>
+           </div>`
+        );
       }
 
       resultText.innerHTML = `<strong>${bandTitle}</strong><br><br>${bandText}<br><br><em>Score:</em> ${avg.toFixed(2)} / 4`;
       answerSummary.innerHTML = ordered.join('');
 
-      resultsWrap.classList.add('is-visible');
+      resultsWrap.style.display = 'grid';
       resultsWrap.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
 

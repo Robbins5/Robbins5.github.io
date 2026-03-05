@@ -1564,7 +1564,56 @@ body.guide-lock { overflow: hidden; }
   color: var(--muted);
   line-height: 1.8;
 }
+/* ============================================================
+   IA Quiz — Selected state (FIX: match specificity)
+   Paste at VERY bottom of style.css
+   ============================================================ */
 
+body.page-ia .quiz-card{
+  position: relative; /* needed for ::before/::after */
+}
+
+/* Strong visible selected state */
+body.page-ia .quiz-card.is-selected{
+  background: rgba(140,111,63,0.12);
+  border-color: rgba(140,111,63,0.45);
+  box-shadow: 0 18px 55px rgba(0,0,0,0.14);
+}
+
+/* Left accent bar */
+body.page-ia .quiz-card.is-selected::before{
+  content:"";
+  position:absolute;
+  left:0;
+  top:0;
+  bottom:0;
+  width:6px;
+  background: var(--accent);
+  border-radius: 18px 0 0 18px;
+}
+
+/* Check badge */
+body.page-ia .quiz-card.is-selected::after{
+  content:"✓";
+  position:absolute;
+  top:12px;
+  right:12px;
+  width:28px;
+  height:28px;
+  border-radius:999px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-weight:950;
+  color:#fff;
+  background:#101010;
+  border:1px solid rgba(255,255,255,0.18);
+}
+
+/* Optional: make the selected title pop a bit */
+body.page-ia .quiz-card.is-selected .quiz-card-title{
+  color: var(--text);
+}
 .guide-actions{
   display:flex;
   gap: 10px;

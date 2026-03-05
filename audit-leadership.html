@@ -17,7 +17,7 @@
           <div class="brand-tagline">Architecting Internal Audit for Intelligent Systems</div>
         </a>
       </div>
-      
+
       <nav class="nav" aria-label="Primary">
         <a class="nav-link" href="index.html">Home</a>
         <a class="nav-link" href="executive-oversight.html">Executive Oversight</a>
@@ -75,6 +75,7 @@
     <section class="section" id="quiz">
       <div class="container">
         <div class="quiz-shell" id="ia-quiz" aria-label="Audit modernization self-assessment">
+
           <div class="quiz-head">
             <div class="quiz-title">Quick modernization self-assessment</div>
             <div class="quiz-sub">
@@ -83,132 +84,220 @@
             </div>
           </div>
 
-          <!-- STEP 1 -->
+          <!-- STEP 1 (WORDING LOCKED) -->
           <div class="quiz-step is-active" data-step="1">
-            <div class="quiz-q">1) How easy is data to obtain?</div>
+            <div class="quiz-q">Question 1 — Data Autonomy</div>
             <div class="quiz-help">
-              Emphasis: answer based on where the <strong>majority</strong> of audit work lives today.
-              Think access paths, autonomy, and how often you rely on other teams for extracts and data modeling.
+              <strong>How easy is it for your audit team to obtain usable data for analysis?</strong><br />
+              Consider the typical effort required to obtain data when starting an audit.
             </div>
 
             <div class="quiz-grid">
               <button class="quiz-card" type="button" data-value="1">
-                <div class="quiz-card-title">Limited autonomy</div>
-                <div class="quiz-card-sub">Heavy reliance on other teams for extracts and data modeling; access varies by system.</div>
+                <div class="quiz-card-title">1 — Limited autonomy</div>
+                <div class="quiz-card-sub">Audit relies heavily on IT, reporting teams, or business units to obtain data extracts.</div>
               </button>
 
               <button class="quiz-card" type="button" data-value="2">
-                <div class="quiz-card-title">Some self-serve, inconsistent</div>
-                <div class="quiz-card-sub">Some tools are self-serve, but larger extracts and key systems still require other teams.</div>
+                <div class="quiz-card-title">2 — Partial autonomy</div>
+                <div class="quiz-card-sub">Audit can pull some data independently, but many analyses still require assistance from IT or reporting teams.</div>
               </button>
 
               <button class="quiz-card" type="button" data-value="3">
-                <div class="quiz-card-title">Mostly self-serve</div>
-                <div class="quiz-card-sub">Repeatable access paths exist for most audits (standard exports/queries/ODBC for many datasets).</div>
+                <div class="quiz-card-title">3 — Moderate autonomy</div>
+                <div class="quiz-card-sub">Audit can independently extract data from several enterprise systems, though preparation and transformation may still require significant effort.</div>
               </button>
 
               <button class="quiz-card" type="button" data-value="4">
-                <div class="quiz-card-title">Reliable pipelines</div>
-                <div class="quiz-card-sub">Governed connections (APIs/ODBC/warehouse) with defined datasets and minimal extract friction.</div>
+                <div class="quiz-card-title">4 — High autonomy</div>
+                <div class="quiz-card-sub">Audit can reliably obtain most datasets needed for analysis using reporting tools, queries, or data connections.</div>
+              </button>
+
+              <button class="quiz-card" type="button" data-value="5">
+                <div class="quiz-card-title">5 — Integrated data access</div>
+                <div class="quiz-card-sub">Audit has structured or automated data feeds that support repeatable analytics or monitoring routines.</div>
               </button>
             </div>
           </div>
 
-          <!-- STEP 2 -->
+          <!-- STEP 2 (WORDING LOCKED) -->
           <div class="quiz-step" data-step="2">
-            <div class="quiz-q">2) Where does the majority of analytics happen across the audit team?</div>
+            <div class="quiz-q">Question 2 — Analytics Environment (Team-Level)</div>
             <div class="quiz-help">
-              This is about the overall team (what the majority uses), not a single advanced analyst.
+              <strong>Where is most data analysis performed across your audit team?</strong><br />
+              Consider the tools used by the majority of the audit staff during typical audit work, not specialized analysis performed by a single expert or analytics specialist.
             </div>
 
             <div class="quiz-grid">
               <button class="quiz-card" type="button" data-value="1">
-                <div class="quiz-card-title">Spreadsheets (Excel-first)</div>
-                <div class="quiz-card-sub">Most analytics is pivots, formulas, manual joins, and template-based review packs.</div>
+                <div class="quiz-card-title">1 — Spreadsheets</div>
+                <div class="quiz-card-sub">Most analysis across the audit team is performed in Excel or similar spreadsheets, often using filters, pivot tables, and manual calculations.</div>
               </button>
 
               <button class="quiz-card" type="button" data-value="2">
-                <div class="quiz-card-title">Mixed toolset</div>
-                <div class="quiz-card-sub">Excel is the default, but BI/SQL/Alteryx/other tools support a meaningful share.</div>
+                <div class="quiz-card-title">2 — Spreadsheet-dominant with limited advanced tools</div>
+                <div class="quiz-card-sub">Spreadsheets are still the primary environment for most audit staff, though a small number of team members occasionally use analytics tools or scripts.</div>
               </button>
 
               <button class="quiz-card" type="button" data-value="3">
-                <div class="quiz-card-title">Analytics platforms</div>
-                <div class="quiz-card-sub">Alteryx/ACL/IDEA/KNIME/SQL are the primary workbench for most engagements.</div>
+                <div class="quiz-card-title">3 — Analytics platforms used by multiple auditors</div>
+                <div class="quiz-card-sub">Several auditors regularly use analytics platforms (e.g., Alteryx, ACL, IDEA, SQL, Python) to perform testing or analyze full datasets.</div>
               </button>
 
               <button class="quiz-card" type="button" data-value="4">
-                <div class="quiz-card-title">Monitoring + embedded controls</div>
-                <div class="quiz-card-sub">GRC/ERP modules, monitoring routines, and platforms drive most testing rather than spreadsheets.</div>
+                <div class="quiz-card-title">4 — Structured analytics workflows</div>
+                <div class="quiz-card-sub">Analytics are built into repeatable workflows or analytics pipelines that support multiple audits and are used by a broader portion of the audit team.</div>
+              </button>
+
+              <button class="quiz-card" type="button" data-value="5">
+                <div class="quiz-card-title">5 — Monitoring or automated analytics environment</div>
+                <div class="quiz-card-sub">Analytics are embedded in continuous monitoring platforms or automated workflows that run regularly and support audit oversight.</div>
               </button>
             </div>
           </div>
 
-          <!-- STEP 3 -->
+          <!-- STEP 3 (WORDING LOCKED) -->
           <div class="quiz-step" data-step="3">
-            <div class="quiz-q">3) Once the data is obtained, how is the majority of analytics built and reused?</div>
+            <div class="quiz-q">Question 3 — Repeatability of Audit Analytics</div>
             <div class="quiz-help">
-              “Rebuilt” means recreating joins, formulas, pivots, filters, and logic each time.
-              “Limited reuse” usually means an Excel template where you don’t rebuild formulas/pivots— you overlay updated data.
+              <strong>Across the majority of your audit work, once the data is obtained, how repeatable are analytics procedures?</strong><br />
+              For this assessment, analytics includes any steps used to prepare or analyze data, such as:
+              <ul class="quiz-bullets">
+                <li>cleaning or restructuring data</li>
+                <li>creating formulas or pivot tables</li>
+                <li>joining datasets</li>
+                <li>building queries or workflows</li>
+              </ul>
+              Select the option that best reflects how the majority of analytics are performed across the audit team, not the most advanced example that exists within the function.
             </div>
 
             <div class="quiz-grid">
               <button class="quiz-card" type="button" data-value="1">
-                <div class="quiz-card-title">Rebuilt each time</div>
-                <div class="quiz-card-sub">Manual preparation steps and logic are recreated for most audits.</div>
+                <div class="quiz-card-title">1 — Rebuilt each time</div>
+                <div class="quiz-card-sub">
+                  The majority of analytics are recreated from scratch for each audit engagement.
+                  This may include rebuilding formulas, pivot tables, joins, filters, or data preparation steps.
+                </div>
               </button>
 
               <button class="quiz-card" type="button" data-value="2">
-                <div class="quiz-card-title">Limited reuse (templates)</div>
-                <div class="quiz-card-sub">Templates exist; you drop in new data and outputs refresh without rebuilding the logic.</div>
+                <div class="quiz-card-title">2 — Spreadsheet templates</div>
+                <div class="quiz-card-sub">
+                  Some repeatable templates exist (often in Excel), where formulas or pivot tables are already built and auditors paste in updated data each time.
+                </div>
               </button>
 
               <button class="quiz-card" type="button" data-value="3">
-                <div class="quiz-card-title">Repeatable workflows</div>
-                <div class="quiz-card-sub">Automated pipelines (e.g., Alteryx workflows) are reused with minimal rebuild.</div>
+                <div class="quiz-card-title">3 — Repeatable workflows with manual inputs</div>
+                <div class="quiz-card-sub">
+                  Standard analytics workflows exist (for example in Alteryx, SQL, or analytics tools), but they rely on manual extracts or flat files before running.
+                </div>
               </button>
 
               <button class="quiz-card" type="button" data-value="4">
-                <div class="quiz-card-title">Continuous monitoring routines</div>
-                <div class="quiz-card-sub">Scheduled runs, thresholds, exception queues, and ownership are the default pattern.</div>
+                <div class="quiz-card-title">4 — Standardized repeatable procedures</div>
+                <div class="quiz-card-sub">
+                  Analytics workflows and preparation steps are standardized and reused across multiple audits with minimal rebuilding.
+                </div>
+              </button>
+
+              <button class="quiz-card" type="button" data-value="5">
+                <div class="quiz-card-title">5 — Automated repeatable procedures</div>
+                <div class="quiz-card-sub">
+                  Analytics workflows run automatically or on scheduled intervals using structured data feeds or system integrations.
+                </div>
               </button>
             </div>
           </div>
 
-          <!-- STEP 4 -->
+          <!-- STEP 4 (WORDING LOCKED) -->
           <div class="quiz-step" data-step="4">
-            <div class="quiz-q">4) How often do findings land inside the actionable window?</div>
+            <div class="quiz-q">Refined Question 4 — Risk Detection and Actionability</div>
             <div class="quiz-help">
-              Think timeliness: do you detect issues early enough to change outcomes?
-              Example: budget timing surges that may indicate postponed year-end sales; manipulation/evasion patterns.
+              <strong>Across the majority of your audit work, when are issues or anomalies typically identified relative to when they occur?</strong><br />
+              Consider whether issues are detected early enough to intervene or correct behavior, not just discovered during audit review.<br />
+              Select the option that best reflects how the majority of issues are detected across the audit function.
             </div>
 
             <div class="quiz-grid">
               <button class="quiz-card" type="button" data-value="1">
-                <div class="quiz-card-title">Mostly retrospective</div>
-                <div class="quiz-card-sub">Findings are typically discovered after the impact window has passed.</div>
+                <div class="quiz-card-title">1 — After the fact (post-audit findings)</div>
+                <div class="quiz-card-sub">Issues are typically identified during or after audit engagements, often long after the activity occurred.</div>
               </button>
 
               <button class="quiz-card" type="button" data-value="2">
-                <div class="quiz-card-title">Sometimes timely</div>
-                <div class="quiz-card-sub">Some work detects issues in time, but it’s inconsistent and engagement-dependent.</div>
+                <div class="quiz-card-title">2 — During audit testing</div>
+                <div class="quiz-card-sub">Analytics or testing may identify issues during an audit, but detection still occurs after the activity has already occurred.</div>
               </button>
 
               <button class="quiz-card" type="button" data-value="3">
-                <div class="quiz-card-title">Mostly timely</div>
-                <div class="quiz-card-sub">Defined cadence + ownership; detection usually lands early enough to intervene.</div>
+                <div class="quiz-card-title">3 — Periodic analytics reviews</div>
+                <div class="quiz-card-sub">Certain risks are reviewed periodically (for example monthly or quarterly), allowing some issues to be identified closer to when they occur.</div>
               </button>
 
               <button class="quiz-card" type="button" data-value="4">
-                <div class="quiz-card-title">Early detection as default</div>
-                <div class="quiz-card-sub">Signals/monitoring provide frequent detection with an action path to close.</div>
+                <div class="quiz-card-title">4 — Monitoring signals with intervention window</div>
+                <div class="quiz-card-sub">Analytics routines or dashboards highlight anomalies soon after activity occurs, allowing time for investigation or corrective action.</div>
+              </button>
+
+              <button class="quiz-card" type="button" data-value="5">
+                <div class="quiz-card-title">5 — Continuous monitoring with proactive intervention</div>
+                <div class="quiz-card-sub">Automated signals detect anomalies as activity occurs, allowing rapid intervention and prevention.</div>
+              </button>
+            </div>
+          </div>
+
+          <!-- STEP 5 (WORDING LOCKED) -->
+          <div class="quiz-step" data-step="5">
+            <div class="quiz-q">Question 5 — AI Augmentation in Audit Work</div>
+            <div class="quiz-help">
+              <strong>Across the majority of your audit work, how are AI tools currently used within the audit function?</strong><br />
+              Select the option that best reflects how the majority of AI usage occurs across the audit team, not isolated examples.
+            </div>
+
+            <div class="quiz-grid">
+              <button class="quiz-card" type="button" data-value="1">
+                <div class="quiz-card-title">1 — Not used</div>
+                <div class="quiz-card-sub">AI tools are not currently used within the audit function.</div>
+              </button>
+
+              <button class="quiz-card" type="button" data-value="2">
+                <div class="quiz-card-title">2 — Research and documentation assistance</div>
+                <div class="quiz-card-sub">
+                  AI tools are occasionally used for tasks such as research, summarizing information, or drafting documentation.
+                  Examples may include tools such as Microsoft Copilot, ChatGPT, or Claude used for research support or documentation drafting.
+                </div>
+              </button>
+
+              <button class="quiz-card" type="button" data-value="3">
+                <div class="quiz-card-title">3 — Development assistance</div>
+                <div class="quiz-card-sub">
+                  AI tools assist with building analytics, writing queries, or developing workflows, but the outputs still require manual execution.
+                  Examples may include Copilot, ChatGPT, or Claude assisting with SQL queries, Alteryx workflows, or data preparation logic.
+                </div>
+              </button>
+
+              <button class="quiz-card" type="button" data-value="4">
+                <div class="quiz-card-title">4 — Analytical assistance</div>
+                <div class="quiz-card-sub">
+                  AI-enabled tools assist with reviewing datasets, identifying patterns, or highlighting potential anomalies that require investigation.
+                  Examples may include AI-enabled ERP monitoring tools, SAP monitoring modules, or AI-driven analytics platforms.
+                </div>
+              </button>
+
+              <button class="quiz-card" type="button" data-value="5">
+                <div class="quiz-card-title">5 — Integrated AI capability</div>
+                <div class="quiz-card-sub">
+                  AI tools are integrated into monitoring workflows or oversight systems, helping continuously detect anomalies or prioritize investigations.
+                  Examples may include platforms like Detect by Oversight or other integrated AI monitoring solutions.
+                </div>
               </button>
             </div>
           </div>
 
           <!-- NAV -->
           <div class="quiz-footer">
-            <div class="quiz-progress" id="quiz-progress">Step 1 of 4</div>
+            <div class="quiz-progress" id="quiz-progress">Step 1 of 5</div>
             <div class="quiz-actions">
               <button class="btn" type="button" id="quiz-back" disabled>Back</button>
               <button class="btn btn-primary" type="button" id="quiz-next" disabled>Next</button>
@@ -261,7 +350,6 @@
         </div>
 
         <div class="module-grid" style="grid-template-columns: repeat(2, minmax(0, 1fr));">
-
           <a class="module" href="#pillar-stabilize">
             <div class="module-kicker">Pillar 1</div>
             <div class="module-title">Stabilize the assurance baseline</div>
@@ -293,7 +381,6 @@
               Evidence traceability, exception ownership, escalation, and closure discipline that stays decision-useful and lean.
             </div>
           </a>
-
         </div>
       </div>
     </section>
@@ -473,30 +560,37 @@
     const nextBtn = document.getElementById('quiz-next');
     const progress = document.getElementById('quiz-progress');
 
+    const footer = quiz.querySelector('.quiz-footer');
+
     const resultsWrap = document.getElementById('quiz-results');
     const resultText = document.getElementById('quiz-result-text');
     const answerSummary = document.getElementById('quiz-answer-summary');
 
+    if(!steps.length || !backBtn || !nextBtn || !progress || !resultsWrap || !resultText || !answerSummary){
+      return;
+    }
+
     let current = 0;
-    const answers = {};
+    const answers = {}; // { "1": { value: "2", label: "<strong>...</strong>" }, ... }
 
     function totalSteps(){ return steps.length; }
 
-    function showStep(idx){
-      steps.forEach((s,i)=>s.classList.toggle('is-active', i === idx));
-      progress.textContent = `Step ${idx+1} of ${totalSteps()}`;
-
-      backBtn.disabled = idx === 0;
-
-      const stepKey = String(idx+1);
-      nextBtn.disabled = !answers[stepKey];
-      nextBtn.textContent = (idx === totalSteps()-1) ? 'See results' : 'Next';
-
-      resultsWrap.style.display = 'none';
+    function clearSelectionsForStep(stepEl){
+      stepEl.querySelectorAll('.quiz-card').forEach(btn => btn.classList.remove('is-selected'));
     }
 
-    function clearSelectionsForStep(stepEl){
-      stepEl.querySelectorAll('.quiz-card').forEach(btn=>btn.classList.remove('is-selected'));
+    function restoreSelectionForStep(idx){
+      const key = String(idx + 1);
+      const stepEl = steps[idx];
+      if(!stepEl) return;
+
+      clearSelectionsForStep(stepEl);
+
+      const saved = answers[key];
+      if(!saved) return;
+
+      const match = stepEl.querySelector(`.quiz-card[data-value="${saved.value}"]`);
+      if(match) match.classList.add('is-selected');
     }
 
     function getCardLabel(btn){
@@ -505,25 +599,56 @@
       return sub ? `<strong>${title}:</strong> ${sub}` : `<strong>${title}</strong>`;
     }
 
+    function setNextState(){
+      const stepKey = String(current + 1);
+      const hasAnswer = !!answers[stepKey];
+      nextBtn.disabled = !hasAnswer;
+      nextBtn.textContent = (current === totalSteps() - 1) ? 'See results' : 'Next';
+    }
+
+    function showStep(idx){
+      steps.forEach((s,i)=>s.classList.toggle('is-active', i === idx));
+
+      if(footer) footer.style.display = 'flex';
+
+      resultsWrap.style.display = 'none';
+
+      progress.textContent = `Step ${idx + 1} of ${totalSteps()}`;
+      backBtn.disabled = idx === 0;
+
+      restoreSelectionForStep(idx);
+      setNextState();
+    }
+
     function computeResult(){
-      const vals = Object.values(answers).map(a=>Number(a.value));
+      // Defensive: ensure all steps are answered
+      for(let i=1;i<=totalSteps();i++){
+        if(!answers[String(i)]){
+          current = i - 1;
+          showStep(current);
+          return;
+        }
+      }
+
+      const vals = Object.values(answers).map(a => Number(a.value));
       const avg = vals.reduce((a,b)=>a+b,0) / vals.length;
 
+      // Bands tuned for a 1–5 scale average (because each question is 1–5)
       let bandTitle = '';
       let bandText = '';
 
-      if(avg <= 1.75){
+      if(avg <= 1.9){
         bandTitle = 'Baseline / Spreadsheet-era delivery';
-        bandText = 'Constraints are primarily access + manual rebuild + retrospective timing. The fastest “next” is standardizing data access paths and moving repeatable prep into workflows (even before new platforms).';
-      } else if(avg <= 2.5){
+        bandText = 'Constraints are primarily access + manual rebuild + retrospective timing. The fastest next step is standardizing data access paths and converting repeatable prep into reusable templates/workflows (even before new platforms).';
+      } else if(avg <= 2.8){
         bandTitle = 'Developing / Mixed maturity';
-        bandText = 'You have pockets of capability, but defaults are inconsistent. The best “next” is making repeatability standard: templates → workflows → routines, with ownership and cadence.';
-      } else if(avg <= 3.25){
+        bandText = 'You have pockets of capability, but defaults are inconsistent. The best next step is making repeatability standard: templates → workflows → routines, with clear ownership and cadence.';
+      } else if(avg <= 3.8){
         bandTitle = 'Modernizing / Repeatable analytics';
         bandText = 'You’re building repeatability. The next move is timeliness + action paths: thresholds, exception queues, and routines tied to decisions (including behavioral signals).';
       } else {
         bandTitle = 'Monitoring-led / Early detection';
-        bandText = 'You’re operating with detection infrastructure. Next is scaling breadth, tightening governance (evidence traceability), and upskilling so the team—not just specialists—can sustain it.';
+        bandText = 'You’re operating with detection infrastructure. Next is scaling coverage breadth, tightening governance (evidence traceability), and upskilling so the team—not just specialists—can sustain it.';
       }
 
       const ordered = [];
@@ -537,13 +662,21 @@
         );
       }
 
-      resultText.innerHTML = `<strong>${bandTitle}</strong><br><br>${bandText}<br><br><em>Score:</em> ${avg.toFixed(2)} / 4`;
+      resultText.innerHTML =
+        `<strong>${bandTitle}</strong><br><br>${bandText}<br><br>` +
+        `<em>Average score:</em> ${avg.toFixed(2)} / 5`;
+
       answerSummary.innerHTML = ordered.join('');
+
+      // Hide steps and footer, show results
+      steps.forEach(s => s.classList.remove('is-active'));
+      if(footer) footer.style.display = 'none';
 
       resultsWrap.style.display = 'grid';
       resultsWrap.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
 
+    // Card selection handlers
     steps.forEach((stepEl, idx)=>{
       const cards = Array.from(stepEl.querySelectorAll('.quiz-card'));
       cards.forEach(btn=>{
@@ -551,13 +684,13 @@
           clearSelectionsForStep(stepEl);
           btn.classList.add('is-selected');
 
-          const key = String(idx+1);
+          const key = String(idx + 1);
           answers[key] = {
             value: btn.getAttribute('data-value'),
             label: getCardLabel(btn)
           };
 
-          nextBtn.disabled = false;
+          setNextState();
         });
       });
     });
@@ -569,7 +702,10 @@
     });
 
     nextBtn.addEventListener('click', ()=>{
-      if(current === totalSteps()-1){
+      const stepKey = String(current + 1);
+      if(!answers[stepKey]) return;
+
+      if(current === totalSteps() - 1){
         computeResult();
         return;
       }
@@ -577,6 +713,7 @@
       showStep(current);
     });
 
+    // init
     showStep(current);
   })();
   </script>

@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Maturity Assessment | The AI-Ready Audit</title>
+  <meta name="description" content="Interactive audit modernization maturity assessment across six dimensions: data access, analytics capability, technology literacy, methodology, monitoring, and governance readiness." />
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="brand">
+        <a class="brand-link" href="index.html">
+          <div class="brand-title">The AI-Ready Audit</div>
+          <div class="brand-tagline">Internal Audit for Electrical Distribution Enterprises</div>
+        </a>
+      </div>
+
+      <button class="nav-toggle" id="nav-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false">
+        &#9776;
+      </button>
+
+      <nav class="nav" id="primary-nav" aria-label="Primary">
+        <a class="nav-link" href="index.html">Home</a>
+        <a class="nav-link" href="executive-summary.html">Executive Summary</a>
+        <a class="nav-link" href="thesis.html">Why It's Changing</a>
+        <a class="nav-link" href="audit-leadership.html">Methodology</a>
+        <a class="nav-link nav-cta" href="maturity-assessment.html">Self-Assessment</a>
+        <a class="nav-link" href="resources.html">Resources</a>
+        <a class="nav-link" href="about.html">About</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- HERO -->
+    <section class="page-hero">
+      <div class="container">
+        <div class="page-hero-inner">
+          <p class="page-kicker">Interactive Maturity Assessment</p>
+          <h1 class="page-title">Where does your audit function stand today?</h1>
+          <p class="page-subtitle">
+            This assessment evaluates your audit function across six dimensions of modernization maturity.
+            Your results will map to a maturity level with interpretation and recommended next steps.
+            Results are saved locally and can be resumed on return.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ASSESSMENT -->
+    <section class="section" id="assessment">
+      <div class="container">
+
+        <div class="maturity-shell" id="maturity-shell">
+
+          <div class="maturity-head">
+            <div class="maturity-title">AI-Ready Audit Maturity Assessment</div>
+            <div class="maturity-sub">
+              For each dimension, select the statement that best describes your audit function today.
+              Be honest -- the goal is an accurate baseline, not an aspirational picture.
+              All six dimensions are required before results are calculated.
+            </div>
+          </div>
+
+          <div class="maturity-dimensions" id="maturity-dimensions">
+
+            <!-- Dimension 1: Data Access -->
+            <div class="maturity-dimension" data-dim="data-access">
+              <div class="maturity-dim-label">1. Data Access</div>
+              <div class="maturity-scale" role="group" aria-label="Data access maturity">
+                <button class="maturity-btn" type="button" data-score="1" aria-label="Level 1: Dependent">
+                  Dependent<br><span style="font-size:0.75rem;font-weight:700;">Extracts provided by IT</span>
+                </button>
+                <button class="maturity-btn" type="button" data-score="2" aria-label="Level 2: Partial">
+                  Partial<br><span style="font-size:0.75rem;font-weight:700;">Some self-service access</span>
+                </button>
+                <button class="maturity-btn" type="button" data-score="3" aria-label="Level 3: Functional">
+                  Functional<br><span style="font-size:0.75rem;font-weight:700;">Most data independently obtained</span>
+                </button>
+                <button class="maturity-btn" type="button" data-score="4" aria-label="Level 4: Governed">
+                  Governed<br><span style="font-size:0.75rem;font-weight:700;">Structured, documented pathways</span>
+                </button>
+                <button class="maturity-btn" type="button" data-score="5" aria-label="Level 5: Integrated">
+                  Integrated<br><span style="font-size:0.75rem;font-weight:700;">Automated feeds and lineage</span>
+                </button>
+              </div>
+              <div class="maturity-level-labels">
+                <span>Beginning</span>
+                <span>Advanced</span>
+              </div>
+            </div>
+
+            <!-- Dimension 2: Analytics Capability -->
+            <div class="maturity-dimension" data-dim="analytics">
+              <div class="maturity-dim-label">2. Analytics Capability</div>
+              <div class="maturity-scale" role="group" aria-label="Analytics capability maturity">
+                <button class="maturity-btn" type="button" data-score="1" aria-label="Level 1: Spreadsheets only">
+                  Spreadsheets<br><span style="font-size:0.75rem;font-weight:700;">Excel filters and pivots</span>
+                </button>
+                <button class="maturity-btn" type="button" data-score="2" aria-label="Level 2: Basic tools">
+                  Basic tools<br><span style="font-size:0.75rem;font-weight:700;">Occasional analytics platforms</span>
+                </button>
+                <button class="maturity-btn" type="button" data-score="3" aria-label="Level 3: Team analytics">
+                  Team use<br><span style="font-size:0.75rem;font-weight:700;">Multiple auditors use analytics</span>
+                </button>
+                <button class="maturity-btn" type="button" data-score="4" aria-label="Level 4: Structured workflows">
+                  Workflows<br><span style="font-size:0.75rem;font-weight:700;">Repeatable analytics pipelines</span>
+                </button>
+                <button class="maturity-btn" type="button" data-score="5" aria-label="Level 5: Automated">
+                  Automated<br><span style="font-size:0.75rem;font-weight:700;">Monitoring and automation embedded</span>
+                </button>
+              </div>
+              <div class="maturity-level-labels">
+                <span>Beginning</span>
+                <span>Advanced</span>
+              </div>
+            </div>
+
+            <!-- Dimension 3: Technology Literacy -->
+            <div class="maturity-dimension" data-dim="tech-literacy">
+              <div class="maturity-dim-label">3. Technology Literacy</div>
+              <div class="maturity-scale" role="group" aria-label="Technology literacy maturity">
+                <button class="maturity-btn" type="button" data-score="1" aria-label="Level 1: General awareness">
+                  Awareness<br><span style="font-size:0.75rem;font-weight:700;">General IT familiarity</span>
+                </button>
+                <button class="maturity-btn" type="button" data-score="2" aria-label="Level 2: System knowledge">
+                  Systems<br><span style="font-size:0.75rem;font-weight:700;">Knows which systems exist</span>
+                </button>
+                <button class="maturity-btn" type="button" data-score="3" aria-label="Level 3: Architecture understanding">
+                  Architecture<br><span style="font-size:0.75rem;font-weight:700;">Understands data flows</span>
+                </button>
+                <button class="maturity-btn" type="button" data-score="4" aria-label="Level 4: Integration depth">
+                  Integration<br><span style="font-size:0.75rem;font-weight:700;">Cross-system risk visibility</span>
+                </button>
+                <button class="maturity-btn" type="button" data-score="5" aria-label="Level 5: AI and automation">
+                  AI ready<br><span style="font-size:0.75rem;font-weight:700;">Can audit AI-enabled systems</span>
+                </button>
+              </div>
+              <div class="maturity-level-labels">
+                <span>Beginning</span>
+                <span>Advanced</span>
+              </div>
+            </div>
+
+            <!-- Dimension 4: Methodology Modernization -->
+            <div class="maturity-dimension" data-dim="methodology">
+              <div class="maturity-dim-label">4. Methodology Modernization</div>
+              <div class="maturity-scale" role="group" aria-label="Methodology modernization maturity">
+                <button class="maturity-btn" type="button" data-score="1" aria-label="Level 1: Legacy only">
+                  Legacy<br><span style="font-size:0.75rem;font-weight:700;">All procedures sample-based</span>
+                </button>
+                <button class="maturity-btn" type="button" data-score="2" aria-label="Level 2: Some analytics">
+                  Emerging<br><span style="font-size:0.75rem;font-weight:700;">Analytics in select audits</span>
+                </button>
+                <button class="maturity-btn" type="button" data-score="3" aria-label="Level 3: Mixed approach">
+                  Mixed<br><span style="font-size:0.75rem;font-weight:700;">Deliberate rebuild decisions</span>
+                </button>
+                <button class="maturity-btn" type="button" data-score="4" aria-label="Level 4: Analytics-first design">
+                  Analytics-first<br><span style="font-size:0.75rem;font-weight:700;">Population testing is default</span>
+                </button>
+                <button class="maturity-btn" type="button" data-score="5" aria-label="Level 5: Continuous by design">
+                  Continuous<br><span style="font-size:0.75rem;font-weight:700;">Monitoring replaces periodic cycles</span>
+                </button>
+              </div>
+              <div class="maturity-level-labels">
+                <span>Beginning</span>
+                <span>Advanced</span>
+              </div>
+            </div>
+
+            <!-- Dimension 5: Monitoring Capability -->
+            <div class="maturity-dimension" data-dim="monitoring">
+              <div class="maturity-dim-label">5. Monitoring Capability</div>
+              <div class="maturity-scale" role="group" aria-label="Monitoring capability maturity">
+                <button class="maturity-btn" type="button" data-score="1" aria-label="Level 1: No monitoring">
+                  None<br><span style="font-size:0.75rem;font-weight:700;">No ongoing monitoring</span>
+                </button>
+                <button class="maturity-btn" type="button" data-score="2" aria-label="Level 2: Ad hoc monitoring">
+                  Ad hoc<br><span style="font-size:0.75rem;font-weight:700;">Informal, periodic checks</span>
+                </button>
+                <button class="maturity-btn" type="button" data-score="3" aria-label="Level 3: Pilot monitoring">
+                  Pilots<br><span style="font-size:0.75rem;font-weight:700;">Defined routines in 1 to 2 areas</span>
+                </button>
+                <button class="maturity-btn" type="button" data-score="4" aria-label="Level 4: Operational monitoring">
+                  Operational<br><span style="font-size:0.75rem;font-weight:700;">Multi-area monitoring with closure tracking</span>
+                </button>
+                <button class="maturity-btn" type="button" data-score="5" aria-label="Level 5: Scaled monitoring">
+                  Scaled<br><span style="font-size:0.75rem;font-weight:700;">Enterprise-wide continuous oversight</span>
+                </button>
+              </div>
+              <div class="maturity-level-labels">
+                <span>Beginning</span>
+                <span>Advanced</span>
+              </div>
+            </div>
+
+            <!-- Dimension 6: Governance Readiness -->
+            <div class="maturity-dimension" data-dim="governance">
+              <div class="maturity-dim-label">6. Governance Readiness</div>
+              <div class="maturity-scale" role="group" aria-label="Governance readiness maturity">
+                <button class="maturity-btn" type="button" data-score="1" aria-label="Level 1: No AI governance">
+                  None<br><span style="font-size:0.75rem;font-weight:700;">No AI governance framework</span>
+                </button>
+                <button class="maturity-btn" type="button" data-score="2" aria-label="Level 2: Aware">
+                  Aware<br><span style="font-size:0.75rem;font-weight:700;">Monitoring AI adoption informally</span>
+                </button>
+                <button class="maturity-btn" type="button" data-score="3" aria-label="Level 3: Planning">
+                  Planning<br><span style="font-size:0.75rem;font-weight:700;">Governance framework in development</span>
+                </button>
+                <button class="maturity-btn" type="button" data-score="4" aria-label="Level 4: Implemented">
+                  Implemented<br><span style="font-size:0.75rem;font-weight:700;">Active AI audit coverage</span>
+                </button>
+                <button class="maturity-btn" type="button" data-score="5" aria-label="Level 5: Leading">
+                  Leading<br><span style="font-size:0.75rem;font-weight:700;">Assurance over agentic systems</span>
+                </button>
+              </div>
+              <div class="maturity-level-labels">
+                <span>Beginning</span>
+                <span>Advanced</span>
+              </div>
+            </div>
+
+          </div><!-- /.maturity-dimensions -->
+
+          <!-- Actions -->
+          <div style="padding: 0 24px 18px; display: flex; gap: 10px; flex-wrap: wrap; align-items: center;">
+            <button class="btn btn-primary" id="maturity-submit" type="button" disabled>Calculate my maturity level</button>
+            <button class="btn btn-secondary" id="maturity-reset" type="button">Reset</button>
+            <span id="maturity-status" style="font-size: 0.88rem; color: var(--muted-2);">Select all 6 dimensions to calculate.</span>
+          </div>
+
+          <!-- Results -->
+          <div class="maturity-result" id="maturity-result" aria-live="polite">
+            <div class="maturity-result-level" id="maturity-result-level"></div>
+            <div class="maturity-bar-wrap">
+              <div class="maturity-bar-fill" id="maturity-bar-fill" style="width: 0%;"></div>
+            </div>
+            <div class="maturity-interpretation" id="maturity-interpretation"></div>
+            <ul class="maturity-next-steps" id="maturity-next-steps"></ul>
+          </div>
+
+        </div><!-- /.maturity-shell -->
+
+        <p style="margin-top: 14px; font-size: 0.88rem; color: var(--muted-2);">
+          Your selections are saved automatically in your browser. Return to this page to resume or review your results.
+        </p>
+
+      </div>
+    </section>
+
+    <!-- MATURITY LEVEL REFERENCE -->
+    <section class="section section-alt" id="levels">
+      <div class="container">
+        <div class="section-head">
+          <h2 class="section-title">Understanding the maturity levels</h2>
+          <p class="section-subtitle">
+            The five maturity levels represent a progression from traditional audit operations
+            toward AI-enabled oversight. Most audit functions sit somewhere in the middle -- and that is fine.
+            The goal is to know where you are and what the next move is.
+          </p>
+        </div>
+
+        <div class="pillars-grid">
+
+          <div class="pillar-card">
+            <div class="pillar-card-accent"></div>
+            <div class="pillar-number">Level 1</div>
+            <div class="pillar-title">Traditional Audit</div>
+            <p class="pillar-desc">
+              Sample-based testing, manual data processes, and periodic coverage. This is a functional
+              starting point -- but not proportionate to the complexity of a modern electrical distribution
+              enterprise. The gap between this approach and the organization's risk profile is likely widening.
+            </p>
+          </div>
+
+          <div class="pillar-card">
+            <div class="pillar-card-accent"></div>
+            <div class="pillar-number">Level 2</div>
+            <div class="pillar-title">Emerging Analytics</div>
+            <p class="pillar-desc">
+              Analytics tools are present and some team members use them, but coverage is inconsistent
+              and procedures are not yet repeatable or documented. Data access depends on external help.
+              The foundation is beginning -- capability needs to be structured and scaled.
+            </p>
+          </div>
+
+          <div class="pillar-card">
+            <div class="pillar-card-accent"></div>
+            <div class="pillar-number">Level 3</div>
+            <div class="pillar-title">Integrated Analytics</div>
+            <p class="pillar-desc">
+              Analytics are embedded in regular audit work, data access is largely self-sufficient,
+              and procedures are documented and repeatable across the team. Monitoring is piloting.
+              This is a strong foundation -- the next challenge is scaling and formalizing.
+            </p>
+          </div>
+
+          <div class="pillar-card">
+            <div class="pillar-card-accent"></div>
+            <div class="pillar-number">Level 4</div>
+            <div class="pillar-title">Continuous Monitoring</div>
+            <p class="pillar-desc">
+              Population-level testing is the default for high-risk areas. Monitoring routines are
+              operational with defined thresholds, escalation paths, and closure tracking.
+              Audit provides ongoing visibility rather than periodic snapshots.
+              Governance coverage of AI systems is developing.
+            </p>
+          </div>
+
+          <div class="pillar-card">
+            <div class="pillar-card-accent"></div>
+            <div class="pillar-number">Level 5</div>
+            <div class="pillar-title">AI-Enabled Oversight</div>
+            <p class="pillar-desc">
+              The audit function provides active governance over AI-enabled decision systems, operates
+              intelligent monitoring at enterprise scale, and delivers strategic insights to executives
+              and the audit committee in near-real-time. This is the destination -- few functions are here yet.
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- NEXT STEP CALLOUT -->
+    <section class="section">
+      <div class="container">
+        <div class="next-step-callout">
+          <div>
+            <div class="next-step-label">Recommended next step</div>
+            <div class="next-step-title">Reference Library</div>
+            <div class="next-step-sub">
+              Explore the standards, frameworks, and research that anchor the AI-Ready Audit Model --
+              useful for supporting modernization business cases and professional development.
+            </div>
+          </div>
+          <a class="btn-next-step" href="resources.html">Open the reference library &rarr;</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-left">
+        <div class="footer-brand">The AI-Ready Audit</div>
+        <div class="footer-note">
+          A framework for how internal audit must evolve in large electrical distribution enterprises
+          as organizations adopt modern enterprise systems, analytics, and artificial intelligence.
+        </div>
+      </div>
+      <div class="footer-right">
+        <a class="footer-link" href="executive-summary.html">Executive Summary</a>
+        <a class="footer-link" href="thesis.html">Why It's Changing</a>
+        <a class="footer-link" href="audit-leadership.html">Methodology</a>
+        <a class="footer-link" href="skills-evolution.html">Skills</a>
+        <a class="footer-link" href="maturity-assessment.html">Assessment</a>
+        <a class="footer-link" href="resources.html">Resources</a>
+        <a class="footer-link" href="about.html">About</a>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <p>&copy; 2026 Nicole Heflin</p>
+    </div>
+  </footer>
+
+  <script>
+  (function () {
+
+    /* ---- Mobile nav toggle ---- */
+    var navToggle = document.getElementById("nav-toggle");
+    var primaryNav = document.getElementById("primary-nav");
+    if (navToggle && primaryNav) {
+      navToggle.addEventListener("click", function () {
+        var isOpen = primaryNav.classList.toggle("is-open");
+        navToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+      });
+      primaryNav.addEventListener("click", function (e) {
+        if (e.target.classList.contains("nav-link")) {
+          primaryNav.classList.remove("is-open");
+          navToggle.setAttribute("aria-expanded", "false");
+        }
+      });
+    }
+
+    /* ---- Maturity Assessment ---- */
+    var STORAGE_KEY = "aiready_maturity_v1";
+
+    var submitBtn  = document.getElementById("maturity-submit");
+    var resetBtn   = document.getElementById("maturity-reset");
+    var statusEl   = document.getElementById("maturity-status");
+    var resultEl   = document.getElementById("maturity-result");
+    var levelEl    = document.getElementById("maturity-result-level");
+    var barEl      = document.getElementById("maturity-bar-fill");
+    var interpEl   = document.getElementById("maturity-interpretation");
+    var stepsEl    = document.getElementById("maturity-next-steps");
+
+    // Track scores per dimension
+    var scores = {};
+    var DIMENSIONS = ["data-access","analytics","tech-literacy","methodology","monitoring","governance"];
+
+    /* Save and load */
+    function saveState() {
+      try { localStorage.setItem(STORAGE_KEY, JSON.stringify(scores)); } catch(e) {}
+    }
+    function loadState() {
+      try { return JSON.parse(localStorage.getItem(STORAGE_KEY)) || {}; } catch(e) { return {}; }
+    }
+    function clearState() {
+      try { localStorage.removeItem(STORAGE_KEY); } catch(e) {}
+    }
+
+    /* Restore selections from saved state */
+    function restoreSelections() {
+      DIMENSIONS.forEach(function(dim) {
+        if (scores[dim] === undefined) return;
+        var dimEl = document.querySelector('[data-dim="' + dim + '"]');
+        if (!dimEl) return;
+        dimEl.querySelectorAll(".maturity-btn").forEach(function(btn) {
+          if (parseInt(btn.getAttribute("data-score"), 10) === scores[dim]) {
+            btn.classList.add("is-selected");
+          }
+        });
+      });
+    }
+
+    /* Update submit button and status */
+    function updateStatus() {
+      var answered = Object.keys(scores).length;
+      var remaining = DIMENSIONS.length - answered;
+      submitBtn.disabled = remaining > 0;
+      if (remaining === 0) {
+        statusEl.textContent = "All dimensions answered. Click to see results.";
+      } else {
+        statusEl.textContent = remaining + " dimension" + (remaining === 1 ? "" : "s") + " remaining.";
+      }
+    }
+
+    /* Maturity level definitions */
+    var LEVELS = [
+      {
+        min: 1, max: 1.8,
+        label: "Level 1 — Traditional Audit",
+        pct: 15,
+        interpretation: "Your audit function is operating primarily with traditional sample-based methods. This is a common starting point, but the gap between your current approach and the complexity of a modern electrical distribution enterprise is likely widening. The most important first move is establishing self-sufficient data access.",
+        steps: [
+          "Identify the two highest-risk process areas and begin data access conversations with IT.",
+          "Map your enterprise system landscape: what data exists, where it lives, and who controls access.",
+          "Read the <a href=\"thesis.html\">Why Audit is Changing</a> page to build the strategic foundation.",
+          "Consider the <a href=\"skills-evolution.html\">Skills and Team Evolution</a> framework to identify capability gaps."
+        ]
+      },
+      {
+        min: 1.81, max: 2.6,
+        label: "Level 2 — Emerging Analytics",
+        pct: 35,
+        interpretation: "Analytics tools are present in your function and some team members use them, but procedures are not yet repeatable, documented, or consistently applied. Data access still depends significantly on IT assistance. You have the seed of capability -- the next phase is structuring and scaling it.",
+        steps: [
+          "Document existing analytics procedures so they can be replicated by other team members.",
+          "Establish formal data access pathways for your two to three highest-volume data sources.",
+          "Review the <a href=\"audit-leadership.html\">Methodology Playbook</a> to design a rebuild/redesign/replace decision framework.",
+          "Consider protecting a dedicated role or partial allocation for methodology development. See the <a href=\"capacity-model.html\">Capacity Model</a>."
+        ]
+      },
+      {
+        min: 2.61, max: 3.4,
+        label: "Level 3 — Integrated Analytics",
+        pct: 55,
+        interpretation: "Analytics are embedded in regular audit work. Data access is largely self-sufficient. Procedures are documented and repeatable across the team. You are in the most common position among modernizing audit functions -- with a solid foundation and clear room to grow. The next challenge is moving from integrated analytics into continuous monitoring.",
+        steps: [
+          "Launch one to two pilot monitoring routines in your highest-risk, most data-stable process areas.",
+          "Define threshold criteria, escalation ownership, and closure tracking for each pilot.",
+          "Evaluate your team's current skill gaps for monitoring design and governance coverage. See <a href=\"skills-evolution.html\">Skills Evolution</a>.",
+          "Present a monitoring business case to leadership using the measures on the <a href=\"executive-oversight.html\">Transformation Timeline</a> page."
+        ]
+      },
+      {
+        min: 3.41, max: 4.2,
+        label: "Level 4 — Continuous Monitoring",
+        pct: 75,
+        interpretation: "Population-level testing is the default for high-risk areas. Monitoring routines are operational with defined thresholds, escalation, and closure tracking. You are providing ongoing visibility rather than periodic snapshots. The remaining gap is typically AI governance coverage and cross-system signal integration.",
+        steps: [
+          "Expand monitoring to additional risk areas based on pilot performance and data stability.",
+          "Develop a governance framework for AI-enabled systems within your organization.",
+          "Report monitoring outcomes to the audit committee alongside traditional audit results.",
+          "Explore the <a href=\"resources.html\">Reference Library</a> for AI governance frameworks and regulatory guidance."
+        ]
+      },
+      {
+        min: 4.21, max: 5,
+        label: "Level 5 — AI-Enabled Oversight",
+        pct: 95,
+        interpretation: "Your audit function is operating at an advanced level -- providing active governance over AI-enabled decision systems, operating intelligent monitoring at scale, and delivering strategic insights in near-real-time. You are positioned as a strategic partner to the business. The focus at this level is continuous refinement, evidence quality, and staying ahead of the AI adoption curve.",
+        steps: [
+          "Share your monitoring design and governance frameworks as a model for the profession.",
+          "Evaluate emerging agentic AI risks and expand assurance coverage accordingly.",
+          "Build executive dashboards that surface monitoring trends and exception closure rates.",
+          "Review the <a href=\"resources.html\">Reference Library</a> for the latest AI governance and standards guidance."
+        ]
+      }
+    ];
+
+    function getLevel(avg) {
+      for (var i = 0; i < LEVELS.length; i++) {
+        if (avg >= LEVELS[i].min && avg <= LEVELS[i].max) return LEVELS[i];
+      }
+      return LEVELS[LEVELS.length - 1];
+    }
+
+    /* Handle selection clicks */
+    document.querySelectorAll(".maturity-dimension").forEach(function(dimEl) {
+      var dim = dimEl.getAttribute("data-dim");
+      dimEl.querySelectorAll(".maturity-btn").forEach(function(btn) {
+        btn.addEventListener("click", function() {
+          // Deselect others in this dimension
+          dimEl.querySelectorAll(".maturity-btn").forEach(function(b) {
+            b.classList.remove("is-selected");
+          });
+          btn.classList.add("is-selected");
+          scores[dim] = parseInt(btn.getAttribute("data-score"), 10);
+          saveState();
+          updateStatus();
+          // Hide results if re-selecting
+          resultEl.classList.remove("is-visible");
+        });
+      });
+    });
+
+    /* Submit */
+    submitBtn.addEventListener("click", function() {
+      var total = 0;
+      var count = 0;
+      DIMENSIONS.forEach(function(dim) {
+        if (scores[dim] !== undefined) {
+          total += scores[dim];
+          count++;
+        }
+      });
+      if (count < DIMENSIONS.length) return;
+
+      var avg = total / count;
+      var level = getLevel(avg);
+
+      levelEl.textContent = level.label + " (avg " + avg.toFixed(1) + " / 5.0)";
+      barEl.style.width = level.pct + "%";
+      interpEl.textContent = level.interpretation;
+
+      stepsEl.innerHTML = level.steps.map(function(s) {
+        return "<li>" + s + "</li>";
+      }).join("");
+
+      resultEl.classList.add("is-visible");
+      resultEl.scrollIntoView({ behavior: "smooth", block: "start" });
+    });
+
+    /* Reset */
+    resetBtn.addEventListener("click", function() {
+      scores = {};
+      clearState();
+      document.querySelectorAll(".maturity-btn").forEach(function(btn) {
+        btn.classList.remove("is-selected");
+      });
+      resultEl.classList.remove("is-visible");
+      barEl.style.width = "0%";
+      updateStatus();
+    });
+
+    /* Init: load saved state */
+    scores = loadState();
+    restoreSelections();
+    updateStatus();
+
+    /* If all dims answered from saved state, show submit prompt */
+    if (Object.keys(scores).length === DIMENSIONS.length) {
+      statusEl.textContent = "All dimensions answered. Click to see results.";
+      submitBtn.disabled = false;
+    }
+
+  })();
+  </script>
+
+</body>
+</html>

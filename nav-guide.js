@@ -1,6 +1,6 @@
 /* ============================================================
-   nav-guide.js — Role-based guided navigation
-   Phase 2 of the AI-Ready Audit platform
+   nav-guide.js — Guided Journey System v2
+   The AI-Ready Audit
    ============================================================ */
 
 /* ============================================================
@@ -11,30 +11,36 @@ var ROLES = {
   executive: {
     label: 'Executive',
     fullLabel: 'Executive / Board Member',
-    selectorText: "I'm an executive, board member, or audit committee member",
-    color: '#8c6f3f'
+    selectorText: "I'm an executive, board member, or audit committee member"
   },
   leader: {
     label: 'Audit Leader',
     fullLabel: 'Audit Leader / CAE',
-    selectorText: "I'm an audit leader or CAE",
-    color: '#8c6f3f'
+    selectorText: "I'm an audit leader or CAE"
   },
   practitioner: {
     label: 'Audit Practitioner',
     fullLabel: 'Audit Practitioner / Manager',
-    selectorText: "I'm an audit practitioner or manager",
-    color: '#8c6f3f'
+    selectorText: "I'm an audit practitioner or manager"
   }
 };
 
-var STORAGE_KEY = 'audit-role';
+var STORAGE_KEY = 'audit-role';        // sessionStorage — URL param override
+var JOURNEY_KEY = 'aiready_journey_v1'; // localStorage — persists role across sessions
 
 /* ============================================================
-   SECTION B — PAGE CONFIG
-   12 pages x 3 roles = 36 callout entries.
-   Callouts are informed by the data-audience tags and actual
-   section content read during Phase 1 audit.
+   SECTION B — JOURNEY SEQUENCES
+   Ordered page slugs per role.
+   ============================================================ */
+
+var JOURNEY = {
+  executive:   ['thesis', 'executive-oversight', 'executive-assessment', 'maturity-assessment', 'organizational-intelligence', 'resources'],
+  leader:      ['thesis', 'maturity-assessment', 'erp-transition', 'data-access', 'audit-leadership', 'continuous-monitoring', 'team-structure', 'technology-stack', 'organizational-intelligence'],
+  practitioner:['thesis', 'skills-evolution', 'data-access', 'continuous-monitoring', 'technology-stack', 'team-structure', 'maturity-assessment']
+};
+
+/* ============================================================
+   SECTION C — PER-PAGE ROLE CALLOUTS
    ============================================================ */
 
 var ROLE_PAGE_CONFIG = {
@@ -51,6 +57,21 @@ var ROLE_PAGE_CONFIG = {
     practitioner: {
       callout: 'The six framework pillars define the capabilities that modernized practitioners need. Use this as an orientation map before moving into the methodology, monitoring, and technology sections.',
       suggestedNext: { label: 'Continuous Monitoring', href: 'continuous-monitoring.html' }
+    }
+  },
+
+  'thesis': {
+    executive: {
+      callout: 'The strategic case for why audit modernization is not optional. The data environment and modernization arc sections frame what leaders should expect -- and what they need to provide -- for the transformation to succeed.',
+      suggestedNext: { label: 'Executive Oversight', href: 'executive-oversight.html' }
+    },
+    leader: {
+      callout: 'The full argument that defines the transformation your function needs to make. The methodology redesign framing and distribution-specific context establish the "why" before you build the "how."',
+      suggestedNext: { label: 'Maturity Assessment', href: 'maturity-assessment.html' }
+    },
+    practitioner: {
+      callout: 'The case establishes why the skills and methods you were trained for are no longer sufficient on their own in complex enterprise environments. The methodology redesign section is the most directly relevant for understanding what your work needs to become.',
+      suggestedNext: { label: 'Skills and Development', href: 'skills-evolution.html' }
     }
   },
 
@@ -147,15 +168,15 @@ var ROLE_PAGE_CONFIG = {
   'team-structure': {
     executive: {
       callout: 'Team structure determines whether modernization can be sustained. The target structure section defines the role architecture that separates strategic leadership from operational delivery -- a distinction most small audit teams blur in ways that cost both sides.',
-      suggestedNext: { label: 'Talent and Retention', href: 'talent-retention.html' }
+      suggestedNext: { label: 'Talent Retention', href: 'talent-retention.html' }
     },
     leader: {
       callout: 'The target structure, small-team paradox, and advancement sections address the decisions that determine whether your modernization has the organizational foundation to hold. Inherited structure is one of the most common hidden constraints on transformation pace.',
-      suggestedNext: { label: 'Talent and Retention', href: 'talent-retention.html' }
+      suggestedNext: { label: 'Talent Retention', href: 'talent-retention.html' }
     },
     practitioner: {
       callout: 'The upskilling priorities section maps the development paths most relevant to practitioner-level roles -- from foundational data literacy through domain-specific analytics depth. The advancement section explains how career progression works in a flat team structure.',
-      suggestedNext: { label: 'Talent and Retention', href: 'talent-retention.html' }
+      suggestedNext: { label: 'Talent Retention', href: 'talent-retention.html' }
     }
   },
 
@@ -196,18 +217,18 @@ var ROLE_PAGE_CONFIG = {
     },
     leader: {
       callout: 'The four-stage technology pathway matches tool sophistication to actual team maturity -- preventing both under-investment that stalls development and over-investment in tools the team cannot yet use. The data-access prerequisite section defines the foundational condition that must exist before any analytics tooling will work.',
-      suggestedNext: { label: 'Continuous Monitoring', href: 'continuous-monitoring.html' }
+      suggestedNext: { label: 'Organizational Intelligence', href: 'organizational-intelligence.html' }
     },
     practitioner: {
       callout: 'The technology pathway and budget-case sections give you the framework to make the case for specific tool investments. The data-access prerequisite section defines the foundational condition that determines whether any analytics platform will actually deliver population-level results.',
-      suggestedNext: { label: 'Continuous Monitoring', href: 'continuous-monitoring.html' }
+      suggestedNext: { label: 'Team Structure', href: 'team-structure.html' }
     }
   },
 
   'executive-assessment': {
     executive: {
       callout: 'This ten-question diagnostic assesses your organization\'s partnership with internal audit across five dimensions: alignment, advocacy, access, time, and budget. Respond based on how things actually work in your organization -- the most useful result is an honest one.',
-      suggestedNext: { label: 'Executive Oversight', href: 'executive-oversight.html' }
+      suggestedNext: { label: 'Maturity Assessment', href: 'maturity-assessment.html' }
     },
     leader: {
       callout: 'This tool assesses the executive partnership conditions that determine whether your modernization will get the support it needs. Sharing it with your executive sponsor can open a direct conversation about the specific areas where support is thinnest.',
@@ -217,202 +238,84 @@ var ROLE_PAGE_CONFIG = {
       callout: 'This assessment is designed for executive audiences. It evaluates whether your organization\'s leadership is providing the access, advocacy, and investment the audit function requires. Understanding this perspective is useful context for making the case for the resources your work depends on.',
       suggestedNext: { label: 'Maturity Assessment', href: 'maturity-assessment.html' }
     }
+  },
+
+  'skills-evolution': {
+    executive: {
+      callout: 'Team capability is an investment question, not a staffing one. The skills matrix defines what "modern" means in practice; the archetypes section maps what roles need to exist -- and which gaps co-sourcing or cross-training can fill versus which require dedicated headcount.',
+      suggestedNext: { label: 'Executive Oversight', href: 'executive-oversight.html' }
+    },
+    leader: {
+      callout: 'The skills matrix and team archetypes define the capability range your function needs to build or access through co-sourcing. The "For audit leaders" tab in the actions section maps the near-term decisions -- skills inventory, credential aperture, and protected development paths.',
+      suggestedNext: { label: 'Team Structure', href: 'team-structure.html' }
+    },
+    practitioner: {
+      callout: 'The skills matrix defines where the gaps are between traditional and modern audit profiles. The "For practitioners" tab in the actions section maps the most direct development path -- SQL, system architecture, and repeatability discipline -- from where most practitioners start.',
+      suggestedNext: { label: 'Data Access', href: 'data-access.html' }
+    }
+  },
+
+  'capacity-model': {
+    executive: {
+      callout: 'Dedicated capacity for methodology redesign is an investment with a measurable return: earlier detection, broader coverage, and defensible evidence. The executive framing section translates the case into language for your next resource allocation conversation.',
+      suggestedNext: { label: 'Maturity Assessment', href: 'maturity-assessment.html' }
+    },
+    leader: {
+      callout: 'The "why shared capacity doesn\'t work" section explains the architecture problem that keeps most audit modernizations from completing on schedule. The 12-month plan maps the realistic sequence once protected capacity is in place.',
+      suggestedNext: { label: 'Organizational Intelligence', href: 'organizational-intelligence.html' }
+    },
+    practitioner: {
+      callout: 'The 12-month transformation plan defines the work sequence for the dedicated methodology role. If you are in or aspiring to that role, this page maps the scope, the decision sequence, and what sustained focused effort actually looks like over a full year.',
+      suggestedNext: { label: 'Skills and Development', href: 'skills-evolution.html' }
+    }
+  },
+
+  'resources': {
+    executive: {
+      callout: 'The standards, frameworks, and regulatory context on this page anchor the governance and oversight framing across the platform. The regulatory context section is particularly relevant for board and audit committee conversations about AI governance expectations.',
+      suggestedNext: { label: 'About', href: 'about.html' }
+    },
+    leader: {
+      callout: 'The standards, research signals, and people-management research cited here underpin the methodology and team frameworks on this platform. A useful reference when building the internal case for transformation investment.',
+      suggestedNext: { label: 'About', href: 'about.html' }
+    },
+    practitioner: {
+      callout: 'The tools, standards, and people-side research sections anchor the technical frameworks referenced in the practitioner-focused pages. Particularly useful when building internal documentation for monitoring programs or development plans.',
+      suggestedNext: { label: 'About', href: 'about.html' }
+    }
   }
 
 };
 
 /* ============================================================
-   SECTION C — ROLE DETECTION
+   SECTION D — ROLE DETECTION
    ============================================================ */
 
 function detectRole() {
-  var validRoles = ['executive', 'leader', 'practitioner'];
+  var valid = ['executive', 'leader', 'practitioner'];
 
-  // Check URL param ?role= first — allows external links to pre-set role
+  // 1. URL param ?role= (sets sessionStorage, strips param)
   var params = new URLSearchParams(window.location.search);
   var urlRole = params.get('role');
-  if (urlRole && validRoles.indexOf(urlRole) !== -1) {
+  if (urlRole && valid.indexOf(urlRole) !== -1) {
     sessionStorage.setItem(STORAGE_KEY, urlRole);
-    // Strip param from URL without triggering a reload
     params.delete('role');
     var newSearch = params.toString();
-    var newUrl = window.location.pathname + (newSearch ? '?' + newSearch : '') + window.location.hash;
-    history.replaceState(null, '', newUrl);
+    history.replaceState(null, '', window.location.pathname + (newSearch ? '?' + newSearch : '') + window.location.hash);
     return urlRole;
   }
 
-  // Fall back to sessionStorage
-  var stored = sessionStorage.getItem(STORAGE_KEY);
-  if (stored && validRoles.indexOf(stored) !== -1) {
-    return stored;
-  }
+  // 2. sessionStorage override (URL param already stored this session)
+  var session = sessionStorage.getItem(STORAGE_KEY);
+  if (session && valid.indexOf(session) !== -1) return session;
+
+  // 3. Persistent localStorage role
+  var stored = localStorage.getItem(JOURNEY_KEY);
+  if (stored && valid.indexOf(stored) !== -1) return stored;
 
   return null;
 }
 
-/* ============================================================
-   SECTION D — ROLE SELECTOR BANNER
-   Called only when no role is detected.
-   Injects immediately after <header>.
-   ============================================================ */
-
-function injectRoleSelector() {
-  var header = document.querySelector('header');
-  if (!header) return;
-
-  var banner = document.createElement('div');
-  banner.setAttribute('data-role-banner', 'selector');
-  banner.style.cssText = [
-    'background:#1a1a1a',
-    'border-top:2px solid #8c6f3f',
-    'padding:1.5rem 2rem',
-    'text-align:center',
-    'position:relative',
-    'z-index:40'
-  ].join(';');
-
-  var heading = document.createElement('p');
-  heading.textContent = 'Tailor your experience';
-  heading.style.cssText = [
-    'font-family:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif',
-    'font-size:0.95rem',
-    'font-weight:700',
-    'color:rgba(255,255,255,0.9)',
-    'margin:0 0 0.3rem'
-  ].join(';');
-
-  var subtext = document.createElement('p');
-  subtext.textContent = 'Select your role to surface the most relevant content on every page.';
-  subtext.style.cssText = [
-    'font-family:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif',
-    'font-size:0.8rem',
-    'color:rgba(255,255,255,0.5)',
-    'margin:0 0 1rem'
-  ].join(';');
-
-  var btnRow = document.createElement('div');
-  btnRow.style.cssText = [
-    'display:flex',
-    'gap:0.75rem',
-    'justify-content:center',
-    'flex-wrap:wrap'
-  ].join(';');
-
-  ['executive', 'leader', 'practitioner'].forEach(function(roleKey) {
-    var roleDef = ROLES[roleKey];
-    var btn = document.createElement('button');
-    btn.type = 'button';
-    btn.textContent = roleDef.selectorText;
-    btn.style.cssText = [
-      'display:inline-block',
-      'font-family:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif',
-      'font-size:0.88rem',
-      'font-weight:700',
-      'border-radius:999px',
-      'padding:10px 14px',
-      'border:1px solid rgba(0,0,0,0.12)',
-      'background:rgba(255,255,255,0.92)',
-      'color:#0f0f10',
-      'box-shadow:0 2px 10px rgba(0,0,0,0.06)',
-      'cursor:pointer',
-      'transition:border-color 140ms ease,color 140ms ease'
-    ].join(';');
-
-    btn.addEventListener('mouseover', function() {
-      this.style.borderColor = '#8c6f3f';
-      this.style.color = '#8c6f3f';
-    });
-    btn.addEventListener('mouseout', function() {
-      this.style.borderColor = 'rgba(0,0,0,0.12)';
-      this.style.color = '#0f0f10';
-    });
-
-    btn.addEventListener('click', function() {
-      sessionStorage.setItem(STORAGE_KEY, roleKey);
-      if (banner.parentNode) banner.parentNode.removeChild(banner);
-      injectRoleIndicator(roleKey);
-      adaptPageForRole(roleKey);
-    });
-
-    btnRow.appendChild(btn);
-  });
-
-  banner.appendChild(heading);
-  banner.appendChild(subtext);
-  banner.appendChild(btnRow);
-
-  header.parentNode.insertBefore(banner, header.nextSibling);
-}
-
-/* ============================================================
-   SECTION E — ROLE INDICATOR
-   Called when a role IS detected.
-   Shows "Viewing as [Role]" with a "Change role" link.
-   ============================================================ */
-
-function injectRoleIndicator(role) {
-  // Remove any existing indicator before injecting a new one
-  var existing = document.querySelector('[data-role-banner="indicator"]');
-  if (existing && existing.parentNode) existing.parentNode.removeChild(existing);
-
-  var header = document.querySelector('header');
-  if (!header) return;
-
-  var roleDef = ROLES[role];
-  if (!roleDef) return;
-
-  var bar = document.createElement('div');
-  bar.setAttribute('data-role-banner', 'indicator');
-  bar.style.cssText = [
-    'background:rgba(140,111,63,0.08)',
-    'border-bottom:1px solid rgba(140,111,63,0.2)',
-    'padding:0.4rem 2rem',
-    'display:flex',
-    'align-items:center',
-    'justify-content:space-between',
-    'position:relative',
-    'z-index:40'
-  ].join(';');
-
-  var label = document.createElement('span');
-  label.textContent = 'Viewing as ' + roleDef.fullLabel;
-  label.style.cssText = [
-    'font-family:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif',
-    'font-size:0.75rem',
-    'color:rgba(255,255,255,0.5)'
-  ].join(';');
-
-  var changeLink = document.createElement('a');
-  changeLink.textContent = 'Change role';
-  changeLink.href = '#';
-  changeLink.style.cssText = [
-    'font-family:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif',
-    'font-size:0.75rem',
-    'color:#8c6f3f',
-    'text-decoration:none',
-    'cursor:pointer'
-  ].join(';');
-
-  changeLink.addEventListener('click', function(e) {
-    e.preventDefault();
-    sessionStorage.removeItem(STORAGE_KEY);
-    if (bar.parentNode) bar.parentNode.removeChild(bar);
-    injectRoleSelector();
-  });
-
-  bar.appendChild(label);
-  bar.appendChild(changeLink);
-
-  header.parentNode.insertBefore(bar, header.nextSibling);
-}
-
-/* ============================================================
-   SECTION F — PAGE ADAPTATION
-   ============================================================ */
-
-/* Derives page slug from the URL path.
-   e.g. /team-structure.html -> 'team-structure'
-        / or /index.html     -> 'index'            */
 function getPageSlug() {
   var filename = window.location.pathname.split('/').pop();
   if (!filename) return 'index';
@@ -420,74 +323,285 @@ function getPageSlug() {
   return slug === '' ? 'index' : slug;
 }
 
-/* Injects the role-specific callout box after the page hero section.
-   Inject point priority:
-   1. After first element with class .page-hero inside <main>
-   2. After first <section> inside <main>
-   3. As first child of <main> (fallback)           */
+/* ============================================================
+   SECTION E — FULL-SCREEN ROLE OVERLAY
+   Shown only on first visit (localStorage flag not set).
+   ============================================================ */
+
+function injectRoleOverlay() {
+  var overlay = document.createElement('div');
+  overlay.setAttribute('data-journey-overlay', 'true');
+  overlay.style.cssText = [
+    'position:fixed', 'inset:0', 'z-index:9000',
+    'background:rgba(14,14,16,0.97)',
+    'display:flex', 'flex-direction:column',
+    'align-items:center', 'justify-content:center',
+    'padding:2rem', 'backdrop-filter:blur(8px)',
+    'overflow-y:auto'
+  ].join(';');
+
+  var inner = document.createElement('div');
+  inner.style.cssText = 'max-width:560px;width:100%;text-align:center;';
+
+  var kicker = el('p', 'The AI-Ready Audit', [
+    'font-family:"Cormorant Garamond",serif',
+    'font-size:0.88rem', 'letter-spacing:0.12em',
+    'text-transform:uppercase', 'color:rgba(140,111,63,0.8)',
+    'margin:0 0 1rem'
+  ]);
+
+  var heading = el('h2', 'Who are you reading this as?', [
+    'font-family:"Cormorant Garamond",serif',
+    'font-size:clamp(1.8rem,4vw,2.5rem)', 'font-weight:300',
+    'color:#f5f2ec', 'line-height:1.2', 'margin:0 0 0.75rem',
+    'letter-spacing:-0.01em'
+  ]);
+
+  var sub = el('p', 'Select your role to get a guided reading sequence and relevant highlights on every page.', [
+    'font-family:ui-sans-serif,system-ui,sans-serif',
+    'font-size:0.9rem', 'color:rgba(255,255,255,0.4)',
+    'margin:0 0 2rem', 'line-height:1.6'
+  ]);
+
+  var btnCol = document.createElement('div');
+  btnCol.style.cssText = 'display:flex;flex-direction:column;gap:0.65rem;margin-bottom:1.5rem;';
+
+  ['executive', 'leader', 'practitioner'].forEach(function(roleKey) {
+    var btn = document.createElement('button');
+    btn.type = 'button';
+    btn.textContent = ROLES[roleKey].selectorText;
+    applyStyle(btn, [
+      'font-family:ui-sans-serif,system-ui,sans-serif',
+      'font-size:0.93rem', 'font-weight:400',
+      'padding:13px 20px',
+      'border:1px solid rgba(140,111,63,0.3)',
+      'border-radius:8px',
+      'background:rgba(140,111,63,0.05)',
+      'color:rgba(255,255,255,0.65)',
+      'cursor:pointer',
+      'transition:border-color 180ms,background 180ms,color 180ms',
+      'text-align:left', 'width:100%'
+    ]);
+    btn.addEventListener('mouseover', function() {
+      this.style.borderColor = '#8c6f3f';
+      this.style.background = 'rgba(140,111,63,0.12)';
+      this.style.color = '#f5f2ec';
+    });
+    btn.addEventListener('mouseout', function() {
+      this.style.borderColor = 'rgba(140,111,63,0.3)';
+      this.style.background = 'rgba(140,111,63,0.05)';
+      this.style.color = 'rgba(255,255,255,0.65)';
+    });
+    btn.addEventListener('click', function() {
+      localStorage.setItem(JOURNEY_KEY, roleKey);
+      sessionStorage.setItem(STORAGE_KEY, roleKey);
+      document.body.removeChild(overlay);
+      document.body.style.overflow = '';
+      injectJourneyBar(roleKey);
+      adaptPageForRole(roleKey);
+    });
+    btnCol.appendChild(btn);
+  });
+
+  var skipLink = document.createElement('a');
+  skipLink.href = '#';
+  skipLink.textContent = 'Skip for now -- explore on your own';
+  applyStyle(skipLink, [
+    'font-family:ui-sans-serif,system-ui,sans-serif',
+    'font-size:0.78rem', 'color:rgba(255,255,255,0.2)',
+    'text-decoration:none', 'transition:color 180ms'
+  ]);
+  skipLink.addEventListener('mouseover', function() { this.style.color = 'rgba(255,255,255,0.45)'; });
+  skipLink.addEventListener('mouseout', function() { this.style.color = 'rgba(255,255,255,0.2)'; });
+  skipLink.addEventListener('click', function(e) {
+    e.preventDefault();
+    localStorage.setItem(JOURNEY_KEY, 'skip');
+    document.body.removeChild(overlay);
+    document.body.style.overflow = '';
+  });
+
+  inner.appendChild(kicker);
+  inner.appendChild(heading);
+  inner.appendChild(sub);
+  inner.appendChild(btnCol);
+  inner.appendChild(skipLink);
+  overlay.appendChild(inner);
+  document.body.appendChild(overlay);
+  document.body.style.overflow = 'hidden';
+}
+
+/* ============================================================
+   SECTION F — PERSISTENT JOURNEY BOTTOM BAR
+   Shows Previous / Page X of Y / Next based on role sequence.
+   ============================================================ */
+
+function injectJourneyBar(role) {
+  var existing = document.querySelector('[data-journey-bar]');
+  if (existing && existing.parentNode) existing.parentNode.removeChild(existing);
+
+  var roleDef = ROLES[role];
+  if (!roleDef) return;
+
+  var slug = getPageSlug();
+  var seq = JOURNEY[role] || [];
+  var pos = seq.indexOf(slug);
+  var inJourney = pos !== -1;
+
+  var bar = document.createElement('div');
+  bar.setAttribute('data-journey-bar', 'true');
+  applyStyle(bar, [
+    'position:fixed', 'bottom:0', 'left:0', 'right:0', 'z-index:8000',
+    'background:rgba(16,16,18,0.97)',
+    'border-top:1px solid rgba(140,111,63,0.2)',
+    'backdrop-filter:blur(12px)',
+    'display:flex', 'align-items:center', 'justify-content:space-between',
+    'padding:8px 24px', 'gap:12px', 'min-height:50px',
+    'box-sizing:border-box'
+  ]);
+
+  var navLinkBase = [
+    'font-family:ui-sans-serif,system-ui,sans-serif',
+    'font-size:0.78rem', 'color:#8c6f3f',
+    'text-decoration:none', 'white-space:nowrap',
+    'transition:opacity 200ms'
+  ].join(';');
+
+  /* LEFT: Previous */
+  var leftEl = document.createElement('div');
+  leftEl.style.cssText = 'min-width:110px;';
+  if (inJourney && pos > 0) {
+    var prevLink = document.createElement('a');
+    prevLink.href = seq[pos - 1] + '.html';
+    prevLink.innerHTML = '&#8592; Previous';
+    prevLink.style.cssText = navLinkBase;
+    prevLink.addEventListener('mouseover', function() { this.style.opacity = '0.65'; });
+    prevLink.addEventListener('mouseout', function() { this.style.opacity = '1'; });
+    leftEl.appendChild(prevLink);
+  }
+
+  /* CENTER: page indicator, role label, change-role link */
+  var centerEl = document.createElement('div');
+  centerEl.style.cssText = 'flex:1;text-align:center;line-height:1.3;';
+
+  if (inJourney) {
+    var posLabel = el('span', 'Page ' + (pos + 1) + ' of ' + seq.length, [
+      'font-family:ui-sans-serif,system-ui,sans-serif',
+      'font-size:0.78rem', 'color:rgba(255,255,255,0.45)', 'display:block'
+    ]);
+    var roleLabel = el('span', roleDef.label + ' Journey', [
+      'font-family:ui-sans-serif,system-ui,sans-serif',
+      'font-size:0.68rem', 'color:rgba(140,111,63,0.55)',
+      'letter-spacing:0.06em', 'display:block'
+    ]);
+    centerEl.appendChild(posLabel);
+    centerEl.appendChild(roleLabel);
+  } else {
+    var viewLabel = el('span', 'Viewing as ' + roleDef.fullLabel, [
+      'font-family:ui-sans-serif,system-ui,sans-serif',
+      'font-size:0.78rem', 'color:rgba(255,255,255,0.3)', 'display:block'
+    ]);
+    centerEl.appendChild(viewLabel);
+  }
+
+  var changeLink = document.createElement('a');
+  changeLink.href = '#';
+  changeLink.textContent = 'Change role';
+  changeLink.style.cssText = [
+    'font-family:ui-sans-serif,system-ui,sans-serif',
+    'font-size:0.68rem', 'color:rgba(140,111,63,0.4)',
+    'text-decoration:none', 'display:inline-block',
+    'margin-top:2px', 'transition:color 200ms'
+  ].join(';');
+  changeLink.addEventListener('mouseover', function() { this.style.color = '#8c6f3f'; });
+  changeLink.addEventListener('mouseout', function() { this.style.color = 'rgba(140,111,63,0.4)'; });
+  changeLink.addEventListener('click', function(e) {
+    e.preventDefault();
+    localStorage.removeItem(JOURNEY_KEY);
+    sessionStorage.removeItem(STORAGE_KEY);
+    bar.parentNode.removeChild(bar);
+    document.body.style.paddingBottom = '';
+    injectRoleOverlay();
+  });
+  centerEl.appendChild(changeLink);
+
+  /* RIGHT: Next */
+  var rightEl = document.createElement('div');
+  rightEl.style.cssText = 'min-width:110px;text-align:right;';
+  if (inJourney && pos < seq.length - 1) {
+    var nextLink = document.createElement('a');
+    nextLink.href = seq[pos + 1] + '.html';
+    nextLink.innerHTML = 'Next &#8594;';
+    nextLink.style.cssText = navLinkBase;
+    nextLink.addEventListener('mouseover', function() { this.style.opacity = '0.65'; });
+    nextLink.addEventListener('mouseout', function() { this.style.opacity = '1'; });
+    rightEl.appendChild(nextLink);
+  } else if (inJourney && pos === seq.length - 1) {
+    var doneEl = el('span', 'Journey complete', [
+      'font-family:ui-sans-serif,system-ui,sans-serif',
+      'font-size:0.78rem', 'color:rgba(255,255,255,0.2)'
+    ]);
+    rightEl.appendChild(doneEl);
+  }
+
+  bar.appendChild(leftEl);
+  bar.appendChild(centerEl);
+  bar.appendChild(rightEl);
+  document.body.appendChild(bar);
+  document.body.style.paddingBottom = '54px';
+}
+
+/* ============================================================
+   SECTION G — PAGE ADAPTATION
+   Injects per-page callout and highlights role sections.
+   ============================================================ */
+
 function injectCallout(config, roleLabel) {
-  if (document.querySelector('[data-role-callout]')) return; // prevent double injection
+  if (document.querySelector('[data-role-callout]')) return;
 
   var main = document.querySelector('main');
   if (!main) return;
 
   var callout = document.createElement('div');
   callout.setAttribute('data-role-callout', 'true');
-  callout.style.cssText = [
+  applyStyle(callout, [
     'background:rgba(140,111,63,0.06)',
     'border-left:3px solid #8c6f3f',
     'padding:1.1rem 1.5rem',
     'margin-bottom:1.5rem',
     'box-sizing:border-box'
-  ].join(';');
+  ]);
 
-  // Label: "FOR EXECUTIVE" etc.
-  var labelEl = document.createElement('div');
-  labelEl.textContent = 'FOR ' + roleLabel.toUpperCase();
-  labelEl.style.cssText = [
-    'font-family:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif',
-    'font-size:0.68rem',
-    'letter-spacing:0.12em',
-    'text-transform:uppercase',
-    'color:#8c6f3f',
-    'font-weight:700'
-  ].join(';');
+  var labelEl = el('div', 'FOR ' + roleLabel.toUpperCase(), [
+    'font-family:ui-sans-serif,system-ui,sans-serif',
+    'font-size:0.68rem', 'letter-spacing:0.12em',
+    'text-transform:uppercase', 'color:#8c6f3f', 'font-weight:700'
+  ]);
 
-  // Callout body text
-  var textEl = document.createElement('p');
-  textEl.textContent = config.callout;
-  textEl.style.cssText = [
-    'font-family:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif',
-    'font-size:0.9rem',
-    'line-height:1.7',
-    'color:rgba(255,255,255,0.75)',
-    'margin-top:0.4rem'
-  ].join(';');
+  var textEl = el('p', config.callout, [
+    'font-family:ui-sans-serif,system-ui,sans-serif',
+    'font-size:0.9rem', 'line-height:1.7',
+    'color:rgba(255,255,255,0.75)', 'margin-top:0.4rem'
+  ]);
 
   callout.appendChild(labelEl);
   callout.appendChild(textEl);
 
-  // Suggested next link
   if (config.suggestedNext) {
     var nextEl = document.createElement('p');
-    nextEl.style.cssText = [
-      'font-family:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif',
-      'font-size:0.8rem',
-      'margin-top:0.6rem',
-      'color:rgba(255,255,255,0.5)'
-    ].join(';');
-
+    applyStyle(nextEl, [
+      'font-family:ui-sans-serif,system-ui,sans-serif',
+      'font-size:0.8rem', 'margin-top:0.6rem',
+      'color:rgba(255,255,255,0.45)'
+    ]);
     nextEl.appendChild(document.createTextNode('Suggested next: '));
-
     var nextLink = document.createElement('a');
     nextLink.textContent = config.suggestedNext.label;
     nextLink.href = config.suggestedNext.href;
-    nextLink.style.cssText = 'color:#8c6f3f;text-decoration:none;font-weight:700;';
+    nextLink.style.cssText = 'color:#8c6f3f;text-decoration:none;font-weight:600;';
     nextEl.appendChild(nextLink);
     callout.appendChild(nextEl);
   }
 
-  // Find the best inject point
   var anchor = main.querySelector('.page-hero') || main.querySelector('section');
   if (anchor) {
     anchor.parentNode.insertBefore(callout, anchor.nextSibling);
@@ -496,29 +610,13 @@ function injectCallout(config, roleLabel) {
   }
 }
 
-/* Adds a subtle left-border highlight to all sections tagged for the
-   current role, and scrolls to the first one if the user just arrived. */
 function highlightAudienceSections(role) {
   var matched = document.querySelectorAll('[data-audience="' + role + '"]');
-  var firstMatch = null;
-
   matched.forEach(function(el) {
     el.style.borderLeft = '2px solid rgba(140,111,63,0.35)';
-    if (!firstMatch) firstMatch = el;
   });
-
-  // Smooth-scroll to first role-relevant section only if user hasn't scrolled yet
-  if (firstMatch) {
-    var scrollTop = window.scrollY !== undefined ? window.scrollY : window.pageYOffset;
-    if (scrollTop < 100) {
-      setTimeout(function() {
-        firstMatch.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }, 300);
-    }
-  }
 }
 
-/* Coordinates callout injection and section highlighting for the current page. */
 function adaptPageForRole(role) {
   var slug = getPageSlug();
   var pageConfig = ROLE_PAGE_CONFIG[slug];
@@ -533,18 +631,38 @@ function adaptPageForRole(role) {
 }
 
 /* ============================================================
-   SECTION G — INIT
-   Runs on DOMContentLoaded. Detects role and either shows
-   the selector banner or the role indicator + page adaptation.
+   SECTION H — UTILITIES
+   ============================================================ */
+
+function el(tag, text, styles) {
+  var node = document.createElement(tag);
+  node.textContent = text;
+  if (styles && styles.length) {
+    node.style.cssText = (Array.isArray(styles) ? styles : [styles]).join(';');
+  }
+  return node;
+}
+
+function applyStyle(node, styles) {
+  node.style.cssText = (Array.isArray(styles) ? styles : [styles]).join(';');
+}
+
+/* ============================================================
+   SECTION I — INIT
    ============================================================ */
 
 document.addEventListener('DOMContentLoaded', function() {
   var role = detectRole();
 
-  if (role === null) {
-    injectRoleSelector();
-  } else {
-    injectRoleIndicator(role);
+  if (role !== null) {
+    injectJourneyBar(role);
     adaptPageForRole(role);
+  } else {
+    var storedChoice = localStorage.getItem(JOURNEY_KEY);
+    if (!storedChoice) {
+      // First-ever visit — show the role overlay
+      injectRoleOverlay();
+    }
+    // If storedChoice === 'skip', user dismissed the overlay; do nothing
   }
 });

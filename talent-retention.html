@@ -24,21 +24,47 @@
         &#9776;
       </button>
 
-      <nav class="nav" id="primary-nav" aria-label="Primary">
+            <nav class="nav" id="primary-nav" aria-label="Primary">
         <a class="nav-link" href="index.html">Home</a>
-        <a class="nav-link" href="executive-summary.html">Executive Summary</a>
-        <a class="nav-link" href="thesis.html">Why It's Changing</a>
-        <a class="nav-link" href="maturity-assessment.html">Self-Assessment</a>
-        <a class="nav-link" href="audit-leadership.html">Methodology</a>
-        <a class="nav-link" href="erp-transition.html">ERP Transition</a>
-        <a class="nav-link" href="data-access.html">Data Access</a>
-        <a class="nav-link" href="continuous-monitoring.html">Continuous Monitoring</a>
-        <a class="nav-link" href="team-structure.html">Team Structure</a>
-        <a class="nav-link nav-cta" href="talent-retention.html">Talent</a>
-        <a class="nav-link" href="organizational-intelligence.html">Org Intelligence</a>
-        <a class="nav-link" href="technology-stack.html">Technology</a>
-        <a class="nav-link" href="executive-oversight.html">Executive Oversight</a>
-        <a class="nav-link" href="skills-evolution.html">Skills</a>
+
+        <div class="nav-group">
+          <button class="nav-group-btn" type="button" aria-expanded="false">Framework</button>
+          <div class="nav-dropdown">
+          <a class="nav-link" href="thesis.html">Why It's Changing</a>
+          <a class="nav-link" href="maturity-assessment.html">Self-Assessment</a>
+          <a class="nav-link" href="executive-summary.html">Executive Summary</a>
+          </div>
+        </div>
+
+        <div class="nav-group">
+          <button class="nav-group-btn" type="button" aria-expanded="false">For Executives</button>
+          <div class="nav-dropdown">
+          <a class="nav-link" href="executive-oversight.html">Executive Oversight</a>
+          <a class="nav-link" href="executive-assessment.html">Executive Assessment</a>
+          </div>
+        </div>
+
+        <div class="nav-group has-active">
+          <button class="nav-group-btn" type="button" aria-expanded="false">For Audit Leaders</button>
+          <div class="nav-dropdown">
+          <a class="nav-link" href="audit-leadership.html">Methodology</a>
+          <a class="nav-link" href="erp-transition.html">ERP Transition</a>
+          <a class="nav-link nav-cta" href="team-structure.html">Team and Talent</a>
+          <a class="nav-link" href="organizational-intelligence.html">Organizational Intelligence</a>
+          <a class="nav-link" href="capacity-model.html">Dedicated Capacity</a>
+          </div>
+        </div>
+
+        <div class="nav-group">
+          <button class="nav-group-btn" type="button" aria-expanded="false">For Practitioners</button>
+          <div class="nav-dropdown">
+          <a class="nav-link" href="data-access.html">Data Access</a>
+          <a class="nav-link" href="continuous-monitoring.html">Continuous Monitoring</a>
+          <a class="nav-link" href="technology-stack.html">Technology Stack</a>
+          <a class="nav-link" href="skills-evolution.html">Skills and Development</a>
+          </div>
+        </div>
+
         <a class="nav-link" href="resources.html">Resources</a>
         <a class="nav-link" href="about.html">About</a>
       </nav>
@@ -128,50 +154,14 @@
       </div>
     </section>
 
-    <!-- SECTION 3: ADVANCEMENT WITHOUT TITLES -->
+    <!-- ADVANCEMENT CROSS-REFERENCE -->
     <section class="section" id="advancement" data-audience="leader">
       <div class="container">
-        <div class="section-head">
-          <h2 class="section-title">Advancement Without Titles</h2>
-          <p class="section-subtitle">
-            In a function with limited title progression, the mechanisms that create career momentum are scope, ownership, visibility, and recognition -- not headcount growth.
-          </p>
-        </div>
-
-        <div class="module-grid" style="grid-template-columns: repeat(2, minmax(0, 1fr));">
-
-          <div class="module" style="cursor: default;">
-            <div class="module-kicker">Mechanism 1</div>
-            <div class="module-title">Expanded scope before the title</div>
-            <div class="module-desc">
-              Give auditors lead roles on higher-complexity engagements before they hold the title that would normally come with that responsibility. This creates stretch experience, demonstrates readiness for advancement, and signals organizational trust without requiring a formal promotion cycle.
-            </div>
+        <div class="callout" style="max-width: 780px;">
+          <div class="callout-title">Advancement Without Titles</div>
+          <div class="callout-text">
+            The mechanisms that create career momentum in a flat audit structure -- expanded scope, methodology ownership, external representation, and structured mentoring recognition -- are covered in detail on the <a href="team-structure.html#advancement" style="color: var(--accent); font-weight: 700;">Team Design and Development page</a>. Career development and retention strategy are most effective when they are designed together.
           </div>
-
-          <div class="module" style="cursor: default;">
-            <div class="module-kicker">Mechanism 2</div>
-            <div class="module-title">Methodology ownership</div>
-            <div class="module-desc">
-              Assign named ownership of specific methodology components, analytics frameworks, or monitoring routines. Owning something that the whole function relies on creates professional identity, external credibility, and a form of advancement that does not require a title change. It also directly reduces single-point-of-failure risk.
-            </div>
-          </div>
-
-          <div class="module" style="cursor: default;">
-            <div class="module-kicker">Mechanism 3</div>
-            <div class="module-title">External representation</div>
-            <div class="module-desc">
-              IIA chapter involvement, conference presentations, published frameworks, and peer network participation create credentials that travel beyond the organization. For professionals who cannot advance through title in a flat structure, external visibility is the alternative currency of professional growth.
-            </div>
-          </div>
-
-          <div class="module" style="cursor: default;">
-            <div class="module-kicker">Mechanism 4</div>
-            <div class="module-title">Structured mentoring recognition</div>
-            <div class="module-desc">
-              More experienced auditors who develop junior staff are providing a function-level service that has direct impact on team capability and retention. Recognizing and compensating that contribution explicitly -- rather than treating it as an informal expectation -- signals that development is valued, not just expected.
-            </div>
-          </div>
-
         </div>
       </div>
     </section>
@@ -224,7 +214,7 @@
             <div class="module-kicker">Flexibility</div>
             <div class="module-title">Hybrid flexibility where the role allows</div>
             <div class="module-desc">
-              IIA 2024 Pulse Survey data finds that 70 percent of internal audit functions work remotely at least 50 percent of the time. The travel requirement inherent in district audit work is a known constraint. Maximizing flexibility in the non-travel portions of the role is a meaningful retention lever that costs nothing additional.
+              IIA 2024 Pulse Survey data finds that 70 percent of internal audit functions work remotely at least 50 percent of the time. The travel requirement inherent in branch or region audit work is a known constraint. Maximizing flexibility in the non-travel portions of the role is a meaningful retention lever that costs nothing additional.
             </div>
           </div>
 
@@ -256,9 +246,12 @@
     <section style="background: #141416; padding: 72px 0;" data-audience="all">
       <div class="container">
         <div style="text-align: center; margin-bottom: 48px;">
-          <h2 style="font-size: 2rem; font-weight: 980; color: #ffffff; letter-spacing: -0.5px; margin: 0 0 14px;">The team is the methodology.</h2>
-          <p style="color: rgba(255,255,255,0.60); font-size: 1.05rem; max-width: 52ch; margin: 0 auto; line-height: 1.65;">
-            Every framework on this platform depends on people who understand it, believe in it, and choose to stay long enough to execute it.
+          <h2 style="font-size: 2rem; font-weight: 980; color: #ffffff; letter-spacing: -0.5px; margin: 0 0 14px;">Retention is a capability investment.</h2>
+          <p style="color: rgba(255,255,255,0.60); font-size: 1.05rem; max-width: 54ch; margin: 0 auto; line-height: 1.65;">
+            Audit functions that retain skilled practitioners through periods of modernization share a common pattern: they pair visible development investment with structural clarity about how careers progress. The research is consistent -- people stay where they feel seen, developed, and able to build toward something. Building that environment deliberately is not a soft benefit. It is one of the highest-return investments a modernizing function can make.
+          </p>
+          <p style="color: rgba(255,255,255,0.50); font-size: 0.97rem; max-width: 52ch; margin: 18px auto 0; line-height: 1.65;">
+            Turnover in a small function is not a personnel event. It is a capability loss that compounds against every other priority simultaneously. The best time to address it is before it becomes urgent.
           </p>
         </div>
 
@@ -366,6 +359,7 @@
     </div>
     <div class="container footer-bottom">
       <p>&copy; 2026 Nicole Robbins</p>
+          <p style="font-size: 0.75rem; color: rgba(255,255,255,0.3); margin-top: 8px; line-height: 1.5; max-width: 80ch;">The frameworks, recommendations, and perspectives published on this platform represent independent professional views and analysis. This site is not affiliated with, endorsed by, or a publication of any employer or organization.</p>
     </div>
   </footer>
 
@@ -379,6 +373,15 @@
       navToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
     });
     primaryNav.addEventListener("click", function (e) {
+      var groupBtn = e.target.closest(".nav-group-btn");
+      if (groupBtn) {
+        var group = groupBtn.closest(".nav-group");
+        if (group) {
+          group.classList.toggle("is-open");
+          groupBtn.setAttribute("aria-expanded", group.classList.contains("is-open") ? "true" : "false");
+        }
+        return;
+      }
       if (e.target.classList.contains("nav-link")) {
         primaryNav.classList.remove("is-open");
         navToggle.setAttribute("aria-expanded", "false");

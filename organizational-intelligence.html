@@ -24,19 +24,47 @@
         &#9776;
       </button>
 
-      <nav class="nav" id="primary-nav" aria-label="Primary">
+            <nav class="nav" id="primary-nav" aria-label="Primary">
         <a class="nav-link" href="index.html">Home</a>
-        <a class="nav-link" href="executive-summary.html">Executive Summary</a>
-        <a class="nav-link" href="thesis.html">Why It's Changing</a>
-        <a class="nav-link" href="maturity-assessment.html">Self-Assessment</a>
-        <a class="nav-link" href="audit-leadership.html">Methodology</a>
-        <a class="nav-link" href="erp-transition.html">ERP Transition</a>
-        <a class="nav-link" href="data-access.html">Data Access</a>
-        <a class="nav-link" href="continuous-monitoring.html">Continuous Monitoring</a>
-        <a class="nav-link" href="team-structure.html">Team Structure</a>
-        <a class="nav-link nav-cta" href="organizational-intelligence.html">Org Intelligence</a>
-        <a class="nav-link" href="executive-oversight.html">Executive Oversight</a>
-        <a class="nav-link" href="skills-evolution.html">Skills</a>
+
+        <div class="nav-group">
+          <button class="nav-group-btn" type="button" aria-expanded="false">Framework</button>
+          <div class="nav-dropdown">
+          <a class="nav-link" href="thesis.html">Why It's Changing</a>
+          <a class="nav-link" href="maturity-assessment.html">Self-Assessment</a>
+          <a class="nav-link" href="executive-summary.html">Executive Summary</a>
+          </div>
+        </div>
+
+        <div class="nav-group">
+          <button class="nav-group-btn" type="button" aria-expanded="false">For Executives</button>
+          <div class="nav-dropdown">
+          <a class="nav-link" href="executive-oversight.html">Executive Oversight</a>
+          <a class="nav-link" href="executive-assessment.html">Executive Assessment</a>
+          </div>
+        </div>
+
+        <div class="nav-group has-active">
+          <button class="nav-group-btn" type="button" aria-expanded="false">For Audit Leaders</button>
+          <div class="nav-dropdown">
+          <a class="nav-link" href="audit-leadership.html">Methodology</a>
+          <a class="nav-link" href="erp-transition.html">ERP Transition</a>
+          <a class="nav-link" href="team-structure.html">Team and Talent</a>
+          <a class="nav-link nav-cta" href="organizational-intelligence.html">Organizational Intelligence</a>
+          <a class="nav-link" href="capacity-model.html">Dedicated Capacity</a>
+          </div>
+        </div>
+
+        <div class="nav-group">
+          <button class="nav-group-btn" type="button" aria-expanded="false">For Practitioners</button>
+          <div class="nav-dropdown">
+          <a class="nav-link" href="data-access.html">Data Access</a>
+          <a class="nav-link" href="continuous-monitoring.html">Continuous Monitoring</a>
+          <a class="nav-link" href="technology-stack.html">Technology Stack</a>
+          <a class="nav-link" href="skills-evolution.html">Skills and Development</a>
+          </div>
+        </div>
+
         <a class="nav-link" href="resources.html">Resources</a>
         <a class="nav-link" href="about.html">About</a>
       </nav>
@@ -218,9 +246,9 @@
     <section style="background: #141416; padding: 72px 0;" data-audience="all">
       <div class="container">
         <div style="text-align: center; margin-bottom: 48px;">
-          <h2 style="font-size: 2rem; font-weight: 980; color: #ffffff; letter-spacing: -0.5px; margin: 0 0 14px;">Relevance is built between engagements, not during them.</h2>
-          <p style="color: rgba(255,255,255,0.60); font-size: 1.05rem; max-width: 52ch; margin: 0 auto; line-height: 1.65;">
-            The functions that stay in the room are the ones that have made themselves useful enough to be invited back.
+          <h2 style="font-size: 2rem; font-weight: 980; color: #ffffff; letter-spacing: -0.5px; margin: 0 0 14px;">Relevance is not lost in a single conversation.</h2>
+          <p style="color: rgba(255,255,255,0.60); font-size: 1.05rem; max-width: 56ch; margin: 0 auto; line-height: 1.65;">
+            It erodes between them. The functions that stay in the room are the ones that made themselves useful enough to be invited back -- consistently, between engagements, before they needed to be.
           </p>
         </div>
 
@@ -326,6 +354,7 @@
     </div>
     <div class="container footer-bottom">
       <p>&copy; 2026 Nicole Robbins</p>
+          <p style="font-size: 0.75rem; color: rgba(255,255,255,0.3); margin-top: 8px; line-height: 1.5; max-width: 80ch;">The frameworks, recommendations, and perspectives published on this platform represent independent professional views and analysis. This site is not affiliated with, endorsed by, or a publication of any employer or organization.</p>
     </div>
   </footer>
 
@@ -339,6 +368,15 @@
       navToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
     });
     primaryNav.addEventListener("click", function (e) {
+      var groupBtn = e.target.closest(".nav-group-btn");
+      if (groupBtn) {
+        var group = groupBtn.closest(".nav-group");
+        if (group) {
+          group.classList.toggle("is-open");
+          groupBtn.setAttribute("aria-expanded", group.classList.contains("is-open") ? "true" : "false");
+        }
+        return;
+      }
       if (e.target.classList.contains("nav-link")) {
         primaryNav.classList.remove("is-open");
         navToggle.setAttribute("aria-expanded", "false");

@@ -13,118 +13,6 @@
 <body>
 
   <!-- =========================
-     Guided Onboarding Modal
-  ========================= -->
-  <button class="guide-fab" id="guide-open" type="button" aria-label="Open guide">
-    Where should I start?
-  </button>
-
-  <div class="guide-backdrop" id="guide-backdrop" aria-hidden="true"></div>
-
-  <div class="guide-modal" id="guide-modal" role="dialog" aria-modal="true" aria-labelledby="guide-title" aria-hidden="true">
-    <div class="guide-modal-inner">
-
-      <div class="guide-head">
-        <div>
-          <p class="guide-kicker">Before you dive in</p>
-          <h2 class="guide-title" id="guide-title">Let's find the right starting point.</h2>
-          <p class="guide-sub">
-            Answer three quick questions and I'll recommend the right path through the platform.
-          </p>
-        </div>
-        <button class="guide-x" id="guide-close" type="button" aria-label="Close guide">&times;</button>
-      </div>
-
-      <div class="guide-steps">
-
-        <!-- Step 1: Role -->
-        <div class="guide-step is-active" data-step="1">
-          <h3 class="guide-step-title">What best describes your role?</h3>
-          <div class="guide-grid">
-            <button class="guide-card" type="button" data-pick="role" data-value="executive">
-              <div class="guide-card-title">Executive or Audit Committee</div>
-              <div class="guide-card-sub">Strategic oversight, resource decisions, and progress expectations</div>
-            </button>
-            <button class="guide-card" type="button" data-pick="role" data-value="ia-leader">
-              <div class="guide-card-title">Internal Audit Leader</div>
-              <div class="guide-card-sub">Operating model, team design, and methodology modernization</div>
-            </button>
-            <button class="guide-card" type="button" data-pick="role" data-value="auditor">
-              <div class="guide-card-title">Internal Auditor</div>
-              <div class="guide-card-sub">Fieldwork, testing methods, and skills development</div>
-            </button>
-            <button class="guide-card" type="button" data-pick="role" data-value="analytics">
-              <div class="guide-card-title">Analytics Practitioner</div>
-              <div class="guide-card-sub">Data access, monitoring design, and audit analytics</div>
-            </button>
-            <button class="guide-card" type="button" data-pick="role" data-value="general">
-              <div class="guide-card-title">General / Learning</div>
-              <div class="guide-card-sub">Exploring the topic or building foundational knowledge</div>
-            </button>
-          </div>
-        </div>
-
-        <!-- Step 2: Priority -->
-        <div class="guide-step" data-step="2">
-          <h3 class="guide-step-title">What's your main priority right now?</h3>
-          <div class="guide-grid">
-            <button class="guide-card" type="button" data-pick="priority" data-value="understand">
-              <div class="guide-card-title">Understand the problem</div>
-              <div class="guide-card-sub">Why traditional audit falls short in modern enterprise environments</div>
-            </button>
-            <button class="guide-card" type="button" data-pick="priority" data-value="build">
-              <div class="guide-card-title">Build the solution</div>
-              <div class="guide-card-sub">How to modernize methodology, team, and monitoring</div>
-            </button>
-            <button class="guide-card" type="button" data-pick="priority" data-value="assess">
-              <div class="guide-card-title">Assess where we are</div>
-              <div class="guide-card-sub">Evaluate current maturity and identify the next steps</div>
-            </button>
-          </div>
-        </div>
-
-        <!-- Step 3: Reading intent -->
-        <div class="guide-step" data-step="3">
-          <h3 class="guide-step-title">How would you like to explore?</h3>
-          <div class="guide-grid">
-            <button class="guide-card" type="button" data-pick="intent" data-value="browse">
-              <div class="guide-card-title">Give me a starting point</div>
-              <div class="guide-card-sub">Jump to the most relevant page for my role</div>
-            </button>
-            <button class="guide-card" type="button" data-pick="intent" data-value="sequence">
-              <div class="guide-card-title">Give me a full sequence</div>
-              <div class="guide-card-sub">Walk me through the platform step by step</div>
-            </button>
-          </div>
-        </div>
-
-        <!-- Results -->
-        <div class="guide-step" data-step="4">
-          <h3 class="guide-step-title">Your recommended path</h3>
-          <div class="guide-result" id="guide-result"></div>
-          <div class="guide-actions">
-            <a id="guide-go" class="btn btn-primary" href="executive-summary.html">Get started</a>
-            <button class="btn btn-secondary" id="guide-reset" type="button">Change answers</button>
-          </div>
-          <p class="guide-note">
-            You can reopen this guide anytime using the button in the bottom-right corner.
-          </p>
-        </div>
-
-      </div><!-- /.guide-steps -->
-
-      <div class="guide-footer">
-        <div class="guide-progress" id="guide-progress">Step 1 of 3</div>
-        <div class="guide-nav">
-          <button class="btn btn-secondary" id="guide-back" type="button" disabled>Back</button>
-          <button class="btn btn-primary" id="guide-next" type="button" disabled>Next</button>
-        </div>
-      </div>
-
-    </div><!-- /.guide-modal-inner -->
-  </div><!-- /.guide-modal -->
-
-  <!-- =========================
      Site Header
   ========================= -->
   <header class="site-header">
@@ -140,17 +28,47 @@
         &#9776;
       </button>
 
-      <nav class="nav" id="primary-nav" aria-label="Primary">
-        <a class="nav-link" href="index.html">Home</a>
-        <a class="nav-link" href="executive-summary.html">Executive Summary</a>
-        <a class="nav-link" href="thesis.html">Why It's Changing</a>
-        <a class="nav-link" href="maturity-assessment.html">Self-Assessment</a>
-        <a class="nav-link" href="audit-leadership.html">Methodology</a>
-        <a class="nav-link" href="erp-transition.html">ERP Transition</a>
-        <a class="nav-link" href="data-access.html">Data Access</a>
-        <a class="nav-link" href="continuous-monitoring.html">Continuous Monitoring</a>
-        <a class="nav-link" href="executive-oversight.html">Executive Oversight</a>
-        <a class="nav-link" href="skills-evolution.html">Skills</a>
+            <nav class="nav" id="primary-nav" aria-label="Primary">
+        <a class="nav-link nav-cta" href="index.html">Home</a>
+
+        <div class="nav-group">
+          <button class="nav-group-btn" type="button" aria-expanded="false">Framework</button>
+          <div class="nav-dropdown">
+          <a class="nav-link" href="thesis.html">Why It's Changing</a>
+          <a class="nav-link" href="maturity-assessment.html">Self-Assessment</a>
+          <a class="nav-link" href="executive-summary.html">Executive Summary</a>
+          </div>
+        </div>
+
+        <div class="nav-group">
+          <button class="nav-group-btn" type="button" aria-expanded="false">For Executives</button>
+          <div class="nav-dropdown">
+          <a class="nav-link" href="executive-oversight.html">Executive Oversight</a>
+          <a class="nav-link" href="executive-assessment.html">Executive Assessment</a>
+          </div>
+        </div>
+
+        <div class="nav-group">
+          <button class="nav-group-btn" type="button" aria-expanded="false">For Audit Leaders</button>
+          <div class="nav-dropdown">
+          <a class="nav-link" href="audit-leadership.html">Methodology</a>
+          <a class="nav-link" href="erp-transition.html">ERP Transition</a>
+          <a class="nav-link" href="team-structure.html">Team and Talent</a>
+          <a class="nav-link" href="organizational-intelligence.html">Organizational Intelligence</a>
+          <a class="nav-link" href="capacity-model.html">Dedicated Capacity</a>
+          </div>
+        </div>
+
+        <div class="nav-group">
+          <button class="nav-group-btn" type="button" aria-expanded="false">For Practitioners</button>
+          <div class="nav-dropdown">
+          <a class="nav-link" href="data-access.html">Data Access</a>
+          <a class="nav-link" href="continuous-monitoring.html">Continuous Monitoring</a>
+          <a class="nav-link" href="technology-stack.html">Technology Stack</a>
+          <a class="nav-link" href="skills-evolution.html">Skills and Development</a>
+          </div>
+        </div>
+
         <a class="nav-link" href="resources.html">Resources</a>
         <a class="nav-link" href="about.html">About</a>
       </nav>
@@ -176,6 +94,7 @@
             generate data that periodic sampling cannot fully interrogate. This platform presents a framework
             for how internal audit must evolve -- from sample-based testing to continuous monitoring,
             multidisciplinary teams, and AI-enabled oversight.
+            Whether your function is navigating recovery from a system transition already underway or building ahead of one, the path forward is the same.
           </p>
 
           <div class="hero-actions">
@@ -186,7 +105,7 @@
           <div class="hero-metrics" aria-label="Key context">
             <div class="metric">
               <div class="metric-label">Stabilization window</div>
-              <div class="metric-value">6 to 12 months</div>
+              <div class="metric-value">commonly six to twelve months</div>
             </div>
             <div class="metric">
               <div class="metric-label">Method shift</div>
@@ -352,7 +271,7 @@
           </div>
           <div class="stat-band-item">
             <div class="stat-band-label">Stabilization period</div>
-            <div class="stat-band-value">6 to 12 months</div>
+            <div class="stat-band-value">commonly six to twelve months</div>
             <div class="stat-band-sub">Following major system implementations</div>
           </div>
           <div class="stat-band-item">
@@ -364,87 +283,6 @@
             <div class="stat-band-label">Team evolution</div>
             <div class="stat-band-value">Multidisciplinary</div>
             <div class="stat-band-sub">Analytics, tech, and domain expertise</div>
-          </div>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- ===========================
-         WHERE TO START
-    =========================== -->
-    <section class="section section-alt" id="start" data-audience="all">
-      <div class="container">
-
-        <div class="section-head">
-          <h2 class="section-title">Choose your starting point</h2>
-          <p class="section-subtitle">
-            The platform is designed to serve different readers differently. Each path is calibrated for a
-            specific role and purpose -- strategic, operational, or analytical.
-          </p>
-        </div>
-
-        <div class="path-grid">
-
-          <a class="path-card" href="executive-summary.html">
-            <div class="path-top">
-              <div class="path-title">Executive Summary</div>
-              <div class="path-tag">2 minutes</div>
-            </div>
-            <p class="path-text">
-              The concise case for why audit expectations are changing and what leaders should expect
-              during and after modernization. Designed for executives and audit committees.
-            </p>
-            <div class="path-cta">Read the executive summary &rarr;</div>
-          </a>
-
-          <a class="path-card" href="thesis.html">
-            <div class="path-top">
-              <div class="path-title">Why Audit is Changing</div>
-              <div class="path-tag">10 minutes</div>
-            </div>
-            <p class="path-text">
-              The full argument: data-rich enterprise environments, the limits of periodic sampling,
-              and the case for methodology modernization in electrical distribution organizations.
-            </p>
-            <div class="path-cta">Read the full argument &rarr;</div>
-          </a>
-
-          <a class="path-card" href="audit-leadership.html">
-            <div class="path-top">
-              <div class="path-title">Methodology Playbook</div>
-              <div class="path-tag">For audit leaders</div>
-            </div>
-            <p class="path-text">
-              A framework for audit leaders to decide what legacy procedures to rebuild, redesign
-              with analytics, or replace with continuous monitoring. Includes a modernization self-assessment.
-            </p>
-            <div class="path-cta">Open the playbook &rarr;</div>
-          </a>
-
-          <a class="path-card" href="maturity-assessment.html">
-            <div class="path-top">
-              <div class="path-title">Maturity Assessment</div>
-              <div class="path-tag">Interactive</div>
-            </div>
-            <p class="path-text">
-              Evaluate your audit function across six dimensions: data access, analytics capability,
-              technology literacy, methodology, monitoring, and governance readiness.
-            </p>
-            <div class="path-cta">Take the assessment &rarr;</div>
-          </a>
-
-        </div><!-- /.path-grid -->
-
-        <!-- Resources callout -->
-        <div class="exec-callout path-callout full-span" style="margin-top: 16px;">
-          <div class="exec-callout-title">Reference library</div>
-          <div class="exec-callout-text">
-            Standards, frameworks, regulatory context, and industry research that anchor the model.
-            IIA standards, COSO ERM, PCAOB, GAO, SEC AI guidance, and more.
-          </div>
-          <div class="exec-callout-actions">
-            <a class="btn btn-primary" href="resources.html">Open the reference library</a>
           </div>
         </div>
 
@@ -484,7 +322,7 @@
             <div class="timeline-h-dot is-accent"></div>
             <div class="timeline-h-label">
               <strong>Stabilization period</strong>
-              6 to 12 months of process settling
+              commonly six to twelve months of process settling
             </div>
           </div>
           <div class="timeline-h-item">
@@ -652,6 +490,7 @@
     </div>
     <div class="container footer-bottom">
       <p>&copy; 2026 Nicole Heflin</p>
+          <p style="font-size: 0.75rem; color: rgba(255,255,255,0.3); margin-top: 8px; line-height: 1.5; max-width: 80ch;">The frameworks, recommendations, and perspectives published on this platform represent independent professional views and analysis. This site is not affiliated with, endorsed by, or a publication of any employer or organization.</p>
     </div>
   </footer>
 
@@ -671,207 +510,20 @@
 
     // Close nav when a link is clicked (mobile)
     primaryNav.addEventListener("click", function (e) {
+      var groupBtn = e.target.closest(".nav-group-btn");
+      if (groupBtn) {
+        var group = groupBtn.closest(".nav-group");
+        if (group) {
+          group.classList.toggle("is-open");
+          groupBtn.setAttribute("aria-expanded", group.classList.contains("is-open") ? "true" : "false");
+        }
+        return;
+      }
       if (e.target.classList.contains("nav-link")) {
         primaryNav.classList.remove("is-open");
         navToggle.setAttribute("aria-expanded", "false");
       }
     });
-
-    /* ---- Guide modal ---- */
-    const STORAGE_KEY = "aiready_guide_v2";
-
-    const modal    = document.getElementById("guide-modal");
-    const backdrop = document.getElementById("guide-backdrop");
-    const openBtn  = document.getElementById("guide-open");
-    const closeBtn = document.getElementById("guide-close");
-    const goLink   = document.getElementById("guide-go");
-    const resetBtn = document.getElementById("guide-reset");
-    const nextBtn  = document.getElementById("guide-next");
-    const backBtn  = document.getElementById("guide-back");
-    const progress = document.getElementById("guide-progress");
-    const resultEl = document.getElementById("guide-result");
-
-    const steps = Array.from(document.querySelectorAll(".guide-step"));
-    let stepIndex = 0;
-    let answers = { role: null, priority: null, intent: null };
-
-    function save() {
-      localStorage.setItem(STORAGE_KEY, JSON.stringify({ answers, completed: true, ts: Date.now() }));
-    }
-    function load() {
-      try { return JSON.parse(localStorage.getItem(STORAGE_KEY)); }
-      catch { return null; }
-    }
-    function clear() { localStorage.removeItem(STORAGE_KEY); }
-
-    function openModal() {
-      modal.setAttribute("aria-hidden", "false");
-      backdrop.setAttribute("aria-hidden", "false");
-      document.body.classList.add("guide-lock");
-    }
-    function closeModal() {
-      modal.setAttribute("aria-hidden", "true");
-      backdrop.setAttribute("aria-hidden", "true");
-      document.body.classList.remove("guide-lock");
-    }
-
-    function setStep(idx) {
-      steps.forEach((s, i) => s.classList.toggle("is-active", i === idx));
-      stepIndex = idx;
-
-      // Questions are steps 0, 1, 2 (indices); results is step 3
-      if (idx <= 2) {
-        progress.textContent = "Step " + (idx + 1) + " of 3";
-        backBtn.disabled = idx === 0;
-        nextBtn.style.display = "inline-block";
-        backBtn.style.display = "inline-block";
-        nextBtn.textContent = idx < 2 ? "Next" : "See recommendation";
-        nextBtn.disabled = !isAnswered(idx);
-      } else {
-        progress.textContent = "Ready";
-        nextBtn.style.display = "none";
-        backBtn.style.display = "none";
-      }
-    }
-
-    function isAnswered(idx) {
-      const keys = ["role", "priority", "intent"];
-      return Boolean(answers[keys[idx]]);
-    }
-
-    /* Path logic: returns { primary, primaryLabel, sequence, tip } */
-    function computePath() {
-      const r = answers.role;
-      const p = answers.priority;
-      const i = answers.intent;
-
-      // Default paths by role
-      const rolePaths = {
-        executive: {
-          url: "executive-summary.html",
-          label: "Read the Executive Summary",
-          sequence: ["executive-summary.html", "executive-oversight.html", "resources.html"],
-          seqLabels: ["Executive Summary", "Transformation Timeline", "Reference Library"],
-          tip: "Start with the executive summary, then review the transformation timeline to understand what modernization looks like in practice."
-        },
-        "ia-leader": {
-          url: "thesis.html",
-          label: "Start: Why Audit is Changing",
-          sequence: ["thesis.html", "audit-leadership.html", "capacity-model.html", "maturity-assessment.html"],
-          seqLabels: ["Why Audit is Changing", "Methodology Playbook", "Capacity Model", "Maturity Assessment"],
-          tip: "Begin with the strategic case, then move through the playbook, capacity model, and self-assessment."
-        },
-        auditor: {
-          url: "skills-evolution.html",
-          label: "Start: Skills and Team Evolution",
-          sequence: ["skills-evolution.html", "audit-leadership.html", "maturity-assessment.html"],
-          seqLabels: ["Skills Evolution", "Methodology Playbook", "Maturity Assessment"],
-          tip: "Start with the skills framework to understand how audit roles are changing, then explore methodology redesign."
-        },
-        analytics: {
-          url: "skills-evolution.html",
-          label: "Start: Analytics in Audit",
-          sequence: ["skills-evolution.html", "audit-leadership.html", "resources.html"],
-          seqLabels: ["Skills & Analytics Roles", "Methodology Playbook", "Reference Library"],
-          tip: "Review the analytics-focused sections of the skills and methodology pages, then dive into the reference library."
-        },
-        general: {
-          url: "executive-summary.html",
-          label: "Start: Executive Summary",
-          sequence: ["executive-summary.html", "thesis.html", "resources.html"],
-          seqLabels: ["Executive Summary", "Full Argument", "Reference Library"],
-          tip: "The executive summary gives you the landscape quickly. Follow it with the full argument for depth."
-        }
-      };
-
-      // Priority override: if 'assess', go to maturity assessment first
-      if (p === "assess") {
-        return {
-          url: "maturity-assessment.html",
-          label: "Take the Maturity Assessment",
-          sequence: ["maturity-assessment.html", ...(rolePaths[r] || rolePaths.general).sequence.slice(0, 2)],
-          seqLabels: ["Maturity Assessment", ...(rolePaths[r] || rolePaths.general).seqLabels.slice(0, 2)],
-          tip: "The assessment will tell you exactly where to focus. Complete it first, then follow the recommended reading."
-        };
-      }
-
-      return rolePaths[r] || rolePaths.general;
-    }
-
-    function renderResults() {
-      const rec = computePath();
-      goLink.href = rec.url;
-      goLink.textContent = rec.label;
-
-      let seqHtml = "";
-      if (answers.intent === "sequence" && rec.sequence.length) {
-        const items = rec.sequence.map((href, i) => {
-          const label = rec.seqLabels[i] || href;
-          return '<li><a href="' + href + '">Step ' + (i + 1) + ': ' + label + '</a></li>';
-        }).join("");
-        seqHtml = '<div class="guide-result-block"><div class="guide-result-title">Your guided sequence</div><ul class="guide-result-list">' + items + '</ul></div>';
-      }
-
-      resultEl.innerHTML =
-        '<div class="guide-result-block"><div class="guide-result-title">Recommended next step</div><p class="guide-result-text">' + rec.tip + '</p></div>' +
-        seqHtml;
-
-      save();
-    }
-
-    /* Picker clicks */
-    document.addEventListener("click", function (e) {
-      const btn = e.target.closest("[data-pick]");
-      if (!btn) return;
-
-      const key   = btn.getAttribute("data-pick");
-      const value = btn.getAttribute("data-value");
-      answers[key] = value;
-
-      const stepEl = btn.closest(".guide-step");
-      stepEl.querySelectorAll("[data-pick='" + key + "']").forEach(function (b) {
-        b.classList.remove("is-selected");
-      });
-      btn.classList.add("is-selected");
-
-      nextBtn.disabled = !isAnswered(stepIndex);
-    });
-
-    nextBtn.addEventListener("click", function () {
-      if (stepIndex < 2) {
-        setStep(stepIndex + 1);
-      } else if (stepIndex === 2) {
-        renderResults();
-        setStep(3);
-      }
-    });
-
-    backBtn.addEventListener("click", function () {
-      if (stepIndex > 0) setStep(stepIndex - 1);
-    });
-
-    openBtn.addEventListener("click", function () {
-      openModal();
-      setStep(0);
-    });
-    closeBtn.addEventListener("click", closeModal);
-    backdrop.addEventListener("click", closeModal);
-
-    resetBtn.addEventListener("click", function () {
-      answers = { role: null, priority: null, intent: null };
-      steps.forEach(function (s) {
-        s.querySelectorAll(".is-selected").forEach(function (x) { x.classList.remove("is-selected"); });
-      });
-      clear();
-      setStep(0);
-    });
-
-    // Auto-open on first visit
-    const prior = load();
-    if (!prior || !prior.completed) {
-      setTimeout(openModal, 600);
-      setTimeout(function () { setStep(0); }, 601);
-    }
 
     /* ---- Accordion (reusable across site) ---- */
     document.addEventListener("click", function (e) {

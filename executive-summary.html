@@ -24,17 +24,47 @@
         &#9776;
       </button>
 
-      <nav class="nav" id="primary-nav" aria-label="Primary">
+            <nav class="nav" id="primary-nav" aria-label="Primary">
         <a class="nav-link" href="index.html">Home</a>
-        <a class="nav-link nav-cta" href="executive-summary.html">Executive Summary</a>
-        <a class="nav-link" href="thesis.html">Why It's Changing</a>
-        <a class="nav-link" href="maturity-assessment.html">Self-Assessment</a>
-        <a class="nav-link" href="audit-leadership.html">Methodology</a>
-        <a class="nav-link" href="erp-transition.html">ERP Transition</a>
-        <a class="nav-link" href="data-access.html">Data Access</a>
-        <a class="nav-link" href="continuous-monitoring.html">Continuous Monitoring</a>
-        <a class="nav-link" href="executive-oversight.html">Executive Oversight</a>
-        <a class="nav-link" href="skills-evolution.html">Skills</a>
+
+        <div class="nav-group has-active">
+          <button class="nav-group-btn" type="button" aria-expanded="false">Framework</button>
+          <div class="nav-dropdown">
+          <a class="nav-link" href="thesis.html">Why It's Changing</a>
+          <a class="nav-link" href="maturity-assessment.html">Self-Assessment</a>
+          <a class="nav-link nav-cta" href="executive-summary.html">Executive Summary</a>
+          </div>
+        </div>
+
+        <div class="nav-group">
+          <button class="nav-group-btn" type="button" aria-expanded="false">For Executives</button>
+          <div class="nav-dropdown">
+          <a class="nav-link" href="executive-oversight.html">Executive Oversight</a>
+          <a class="nav-link" href="executive-assessment.html">Executive Assessment</a>
+          </div>
+        </div>
+
+        <div class="nav-group">
+          <button class="nav-group-btn" type="button" aria-expanded="false">For Audit Leaders</button>
+          <div class="nav-dropdown">
+          <a class="nav-link" href="audit-leadership.html">Methodology</a>
+          <a class="nav-link" href="erp-transition.html">ERP Transition</a>
+          <a class="nav-link" href="team-structure.html">Team and Talent</a>
+          <a class="nav-link" href="organizational-intelligence.html">Organizational Intelligence</a>
+          <a class="nav-link" href="capacity-model.html">Dedicated Capacity</a>
+          </div>
+        </div>
+
+        <div class="nav-group">
+          <button class="nav-group-btn" type="button" aria-expanded="false">For Practitioners</button>
+          <div class="nav-dropdown">
+          <a class="nav-link" href="data-access.html">Data Access</a>
+          <a class="nav-link" href="continuous-monitoring.html">Continuous Monitoring</a>
+          <a class="nav-link" href="technology-stack.html">Technology Stack</a>
+          <a class="nav-link" href="skills-evolution.html">Skills and Development</a>
+          </div>
+        </div>
+
         <a class="nav-link" href="resources.html">Resources</a>
         <a class="nav-link" href="about.html">About</a>
       </nav>
@@ -73,7 +103,7 @@
           </div>
           <div class="stat-band-item">
             <div class="stat-band-label">Stabilization window</div>
-            <div class="stat-band-value">6 to 12 months</div>
+            <div class="stat-band-value">commonly six to twelve months</div>
             <div class="stat-band-sub">After major system implementations</div>
           </div>
           <div class="stat-band-item">
@@ -301,7 +331,7 @@
           <div class="callout-title">On the stabilization window</div>
           <div class="callout-text">
             Research on enterprise system implementations consistently supports post-implementation stabilization periods
-            of six to twelve months before mature measurement of outcomes is appropriate. See the
+            of commonly six to twelve months before mature measurement of outcomes is appropriate. See the
             <a href="executive-oversight.html">Transformation Timeline</a> for a full explanation with source anchors.
           </div>
         </div>
@@ -420,6 +450,15 @@
       navToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
     });
     primaryNav.addEventListener("click", function (e) {
+      var groupBtn = e.target.closest(".nav-group-btn");
+      if (groupBtn) {
+        var group = groupBtn.closest(".nav-group");
+        if (group) {
+          group.classList.toggle("is-open");
+          groupBtn.setAttribute("aria-expanded", group.classList.contains("is-open") ? "true" : "false");
+        }
+        return;
+      }
       if (e.target.classList.contains("nav-link")) {
         primaryNav.classList.remove("is-open");
         navToggle.setAttribute("aria-expanded", "false");

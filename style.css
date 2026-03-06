@@ -2845,3 +2845,224 @@ body.page-ia .quiz-result-text{
 }
 
 @media (max-width: 900px){ .content-layout{ grid-template-columns: 1fr; } .content-sidebar{ display: none; } }
+
+/* ============================================================
+   Design Polish v4.1
+   Visual-only pass — no content or structure changes
+   ============================================================ */
+
+/* 1. Header — solid white with shadow, accent brand */
+.site-header{
+  background: #fff;
+  box-shadow: 0 1px 0 rgba(0,0,0,0.08), 0 2px 12px rgba(0,0,0,0.06);
+  backdrop-filter: none;
+}
+.brand-title{
+  color: var(--accent);
+}
+
+/* 2. Nav active state */
+.nav-cta{
+  color: var(--accent);
+  font-weight: 900;
+}
+.nav-cta:hover{
+  color: var(--accent);
+  opacity: 0.8;
+}
+
+/* 3. Micro-interactions — smooth transitions site-wide */
+a, button,
+.path-card, .pillar-card, .stat-item,
+.accordion-trigger, .tab-btn,
+.guide-card, .maturity-btn, .quiz-card,
+.metric-card, .mod-card, .phase-card{
+  transition: background 0.18s ease, color 0.18s ease,
+              box-shadow 0.18s ease, transform 0.18s ease,
+              border-color 0.18s ease, opacity 0.18s ease;
+}
+
+/* 4. Stat / metric cards — left accent border, hover lift */
+.stat-item{
+  border-left: 3px solid var(--accent);
+  border-top: none;
+  border-right: none;
+  border-bottom: none;
+  background: var(--surface);
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  box-shadow: var(--shadow-sm);
+}
+.stat-item:hover{
+  transform: translateY(-3px);
+  box-shadow: 0 6px 24px rgba(0,0,0,0.10);
+}
+.metric-card{
+  border-left: 3px solid var(--accent);
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+}
+.metric-card:hover{
+  transform: translateY(-3px);
+  box-shadow: 0 6px 24px rgba(0,0,0,0.10);
+}
+
+/* 5. Section background rhythm */
+.section-alt{
+  background: #f6f6f6;
+}
+.section-white{
+  background: #fff;
+}
+
+/* 6. Image caption as overlay inside .banner */
+.media-caption-overlay{
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 10px 20px;
+  background: linear-gradient(to top, rgba(0,0,0,0.62) 0%, rgba(0,0,0,0) 100%);
+  color: rgba(255,255,255,0.88);
+  font-size: 0.78rem;
+  font-style: italic;
+  letter-spacing: 0.01em;
+  line-height: 1.5;
+  pointer-events: none;
+}
+/* Ensure .banner is positioned for the overlay */
+.banner{
+  position: relative;
+  overflow: hidden;
+}
+
+/* 7. Dark page-hero bands for all content pages */
+.page-hero{
+  background: #141416;
+  color: #f0ede8;
+}
+.page-hero .page-hero-eyebrow{
+  color: var(--accent);
+  opacity: 1;
+}
+.page-hero .page-hero-title{
+  color: #fff;
+}
+.page-hero .page-hero-sub{
+  color: rgba(240,237,232,0.78);
+}
+
+/* Dark exec-hero / ia-hero / page-hero variants per body class */
+body.page-exec .exec-hero,
+body.page-ia .ia-hero,
+body.page-thesis .exec-hero,
+body.page-resources .exec-hero{
+  background: #141416;
+  color: #f0ede8;
+}
+body.page-exec .exec-hero h1,
+body.page-ia .ia-hero h1,
+body.page-thesis .exec-hero h1,
+body.page-resources .exec-hero h1{
+  color: #fff;
+}
+body.page-exec .exec-hero p,
+body.page-ia .ia-hero p,
+body.page-thesis .exec-hero p,
+body.page-resources .exec-hero p{
+  color: rgba(240,237,232,0.78);
+}
+body.page-exec .exec-hero .eyebrow,
+body.page-ia .ia-hero .eyebrow,
+body.page-thesis .exec-hero .eyebrow,
+body.page-resources .exec-hero .eyebrow{
+  color: var(--accent);
+}
+
+/* 8. Dark footer */
+.site-footer{
+  background: #141416;
+  color: rgba(240,237,232,0.62);
+  border-top: none;
+}
+.site-footer a{
+  color: rgba(240,237,232,0.75);
+}
+.site-footer a:hover{
+  color: var(--accent);
+}
+.site-footer .footer-brand{
+  color: #fff;
+}
+.site-footer .footer-tagline{
+  color: rgba(240,237,232,0.50);
+}
+
+/* 9. Interactive selection states */
+/* Guide path cards */
+.guide-card.is-selected{
+  background: var(--accent);
+  color: #fff;
+  border: 2px solid var(--accent);
+  box-shadow: 0 4px 18px rgba(140,111,63,0.28);
+}
+.guide-card.is-selected *{ color: #fff; }
+
+/* Maturity assessment buttons */
+.maturity-btn.is-selected{
+  background: var(--accent);
+  color: #fff;
+  border: 2px solid var(--accent);
+  box-shadow: 0 3px 12px rgba(140,111,63,0.25);
+}
+
+/* Quiz cards (audit-leadership) */
+.quiz-card.is-selected{
+  background: var(--accent);
+  color: #fff;
+  border: 2px solid var(--accent);
+  box-shadow: 0 4px 18px rgba(140,111,63,0.28);
+}
+.quiz-card.is-selected *{ color: #fff; }
+
+/* Gold-tint hover for unselected interactive cards */
+.guide-card:not(.is-selected):hover,
+.maturity-btn:not(.is-selected):hover,
+.quiz-card:not(.is-selected):hover,
+.path-card:hover{
+  background: #f5f0e8;
+  border-color: var(--accent);
+}
+
+/* Sibling dimming via :has() when a selection exists */
+.guide-options:has(.guide-card.is-selected) .guide-card:not(.is-selected){
+  opacity: 0.45;
+}
+.maturity-dimension:has(.maturity-btn.is-selected) .maturity-btn:not(.is-selected){
+  opacity: 0.45;
+}
+
+/* Accordion open state — accent trigger text */
+.accordion-item.is-open .accordion-trigger{
+  color: var(--accent);
+}
+
+/* Tab active state — accent underline */
+.tab-btn.is-active{
+  color: var(--accent);
+  border-bottom-color: var(--accent);
+}
+
+/* Path cards hover */
+.path-card{
+  border: 1px solid var(--border-soft);
+}
+.path-card:hover{
+  transform: translateY(-3px);
+  box-shadow: 0 6px 24px rgba(0,0,0,0.10);
+}
+
+/* Pillar cards hover */
+.pillar-card:hover{
+  transform: translateY(-3px);
+  box-shadow: 0 6px 24px rgba(0,0,0,0.10);
+  background: #f5f0e8;
+}

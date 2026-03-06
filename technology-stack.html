@@ -174,39 +174,132 @@
       </div>
     </section>
 
-    <!-- SECTION 3: THE BUDGET CASE TO LEADERSHIP -->
+    <!-- SECTION 3: TOOLS BY DOMAIN AND RISK AREA -->
     <section class="section" id="budget-case">
       <div class="container">
         <div class="section-head">
-          <h2 class="section-title">The Budget Case to Leadership</h2>
+          <h2 class="section-title">Tools by Domain and Risk Area</h2>
           <p class="section-subtitle">
-            The framing that works with CFO-level audiences is return on investment, not cost. An audit function that generates a meaningful return through better detection, reduced travel, or lower external audit fees typically exceeds its technology investment before the end of the budget cycle.
+            Not every audit risk area requires the same tool. The catalog below organizes platform and analytics choices by operational domain -- matching tool capability to the specific evidence and detection requirements of each risk category.
           </p>
         </div>
+
+        <!-- LOGISTICS PLATFORM COVERAGE -->
+        <p style="font-size: 0.75rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 16px;">Logistics Platform Coverage</p>
+
+        <div class="callout" style="margin-bottom: 44px;">
+          <div class="callout-title">Logistics Platform Coverage -- When the System Goes Live</div>
+          <div class="callout-text">
+            When a new logistics platform is deployed, audit access to that data should be part of the go-live readiness conversation -- not something requested six months later. The platform contains meaningful audit risk across driver hours of service compliance, proof of delivery reconciliation, carrier invoice accuracy, and driver behavior patterns. Before the platform stabilizes operationally, ask IT and the implementation team what data extraction pathways exist, whether read-only audit access can be provisioned, and what native reporting or API connectivity is available for Power BI. The window to establish access during implementation is substantially easier than attempting it post-go-live.
+          </div>
+        </div>
+
+        <!-- OPERATIONS AND INVENTORY ANALYTICS -->
+        <p style="font-size: 0.75rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 16px;">Operations and Inventory Analytics</p>
+
+        <div class="module-grid" style="grid-template-columns: repeat(2, minmax(0, 1fr)); margin-bottom: 24px;">
+
+          <div class="module" style="cursor: default;">
+            <div class="module-kicker">Large Warehouse Environments</div>
+            <div class="module-title">WMS inventory monitoring</div>
+            <div class="module-desc">
+              Purpose-built warehouse management systems produce detailed transaction logs covering receipts, adjustments, cycle counts, picks, and putaways. The highest-priority audit signals are receiving quantities that do not reconcile to purchase order, and inventory adjustments that fall outside normal business hours, expected authorization patterns, or established variance thresholds. Cycle count accuracy trends by location and product category surface systemic shrinkage patterns that point-in-time testing misses entirely. These are Alteryx workflows against WMS data extracts. Access to WMS data for audit purposes requires the same data access governance conversation as ERP access -- the professional standards argument is identical.
+            </div>
+          </div>
+
+          <div class="module" style="cursor: default;">
+            <div class="module-kicker">Branch and ERP Locations</div>
+            <div class="module-title">Branch inventory and operations monitoring</div>
+            <div class="module-desc">
+              For locations running operations directly in SAP, inventory monitoring uses the same data access pathway as financial analytics. Standard monitoring signals include goods receipt and goods issue discrepancies, inventory adjustment patterns by branch and user, pricing deviations from standard at point of order or fulfillment, and returns volume relative to sales. Once data access is established, these are scheduled Alteryx workflows that run without manual triggering.
+            </div>
+          </div>
+
+        </div>
+
+        <div class="cta-panel" style="margin-bottom: 44px;">
+          <div class="cta-copy">
+            <p style="font-size: 0.75rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 8px;">Shrinkage and Theft Correlation</p>
+            <h3 class="cta-title">Connecting inventory loss to behavioral signals</h3>
+            <p class="cta-text">
+              Shrinkage monitoring tells you where inventory is disappearing. Theft investigation tells you whether human behavior caused it. The gap between those two questions is an analytics design problem, not a vendor problem -- and it requires layering three data populations that most monitoring routines treat separately.
+            </p>
+            <p class="cta-text" style="margin-top: 10px;">
+              The first population is inventory adjustment records from the WMS or ERP: what was adjusted, how much, when, and by whom. The second is access and badge log data: who was present in the warehouse or branch during the adjustment window. The third is shift and schedule data from the HR or workforce management system: who was scheduled, who was actually on premises, and whether the personnel picture matches the adjustment record.
+            </p>
+            <p class="cta-text" style="margin-top: 10px;">
+              When shrinkage concentrates at the intersection of a specific time window, a specific location, and a consistent set of personnel -- and when that concentration persists across multiple inventory periods -- the pattern is the finding. That pattern does not require a vendor. It requires read access to three systems and an Alteryx workflow that joins them.
+            </p>
+            <p class="cta-text" style="margin-top: 10px;">
+              What a vendor does provide is the investigation layer. Once a pattern is flagged, Resolver's Investigations and Case Management platform connects the inventory event to the investigation record, maintains the evidence chain of custody, links related incidents across locations, and tracks the case through resolution. That is the right separation: audit builds the detection logic, Resolver manages the investigation workflow.
+            </p>
+          </div>
+        </div>
+
+        <!-- AUDIT MANAGEMENT -->
+        <p style="font-size: 0.75rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 16px;">Audit Management</p>
+
+        <div class="module-grid" style="grid-template-columns: repeat(2, minmax(0, 1fr)); margin-bottom: 44px;">
+
+          <div class="module" style="cursor: default;">
+            <div class="module-kicker">Engagement and Workflow Platform</div>
+            <div class="module-title">AuditBoard</div>
+            <div class="module-desc">
+              AuditBoard combines audit management, SOX compliance, risk management, and reporting in a single platform. For teams managing multiple concurrent engagements across distributed locations, the workflow and sign-off tracking tools reduce the administrative burden of engagement management. The risk and control mapping capability is particularly useful for teams rebuilding their control framework after an ERP transition.
+            </div>
+          </div>
+
+          <div class="module" style="cursor: default;">
+            <div class="module-kicker">Document and Evidence Management</div>
+            <div class="module-title">SharePoint + Teams as audit workspace</div>
+            <div class="module-desc">
+              For teams already in the Microsoft ecosystem, SharePoint provides a structured document management environment for working papers and evidence. Teams channels by engagement create a natural collaboration and communication layer. This approach does not provide the workflow automation of a purpose-built audit platform, but it integrates with Power BI and the rest of the Microsoft stack without additional licensing cost.
+            </div>
+          </div>
+
+        </div>
+
+        <!-- ANALYTIC CO-PILOTS -->
+        <p style="font-size: 0.75rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 12px;">Analytic Co-Pilots -- Building More Complex Tools Yourself</p>
+        <p style="color: var(--muted); line-height: 1.7; font-size: 0.97rem; max-width: 80ch; margin-bottom: 28px;">
+          The tools in the previous sections are purpose-built for specific risk domains. This section is different. These are platforms that help audit teams design and build their own analytics -- more complex monitoring routines, custom detection logic, and eventually automated workflows that run without manual effort. The category is growing quickly, and the realistic entry point is lower than most audit leaders expect.
+        </p>
 
         <div class="module-grid" style="grid-template-columns: repeat(3, minmax(0, 1fr));">
 
           <div class="module" style="cursor: default;">
-            <div class="module-kicker">Direct return</div>
-            <div class="module-title">Findings that sampling misses</div>
+            <div class="module-kicker">Conversational AI for Analytics Building</div>
+            <div class="module-title">Claude (Anthropic) / ChatGPT (OpenAI)</div>
             <div class="module-desc">
-              Population-level analytics routinely surface anomalies that sample-based testing would not reach. A single significant finding -- fraud, systematic override, vendor manipulation -- can represent a financial recovery that exceeds years of analytics investment.
+              <strong>Primary use:</strong> Plain-language description of what you want to detect, returned as working Alteryx logic, SQL queries, Python scripts, or Power BI DAX formulas.
+              <br><br>
+              Describe the detection logic you want in plain English: "Flag any inventory adjustment over $500 that occurs between 8pm and 6am where the adjusting user also processed the original receipt." A capable AI model returns working formula, SQL query, or Alteryx workflow logic that a non-developer can implement directly. This removes the dependency on a data science team or IT developer for moderately complex analytics work. The practical ceiling is higher than most teams have tested. Treat it as a junior developer who works in every language simultaneously and never gets tired of revision requests.
+              <br><br>
+              <em>Strongest fit for teams with strong audit instincts but limited coding experience. The skill being developed is learning to describe what you want precisely -- which is itself a valuable audit competency.</em>
             </div>
           </div>
 
           <div class="module" style="cursor: default;">
-            <div class="module-kicker">Indirect return</div>
-            <div class="module-title">Travel cost reduction</div>
+            <div class="module-kicker">Integrated Analytics Platform with AI Assistance</div>
+            <div class="module-title">Microsoft Fabric + Copilot</div>
             <div class="module-desc">
-              The compressed engagement model enabled by pre-engagement analytics reduces on-site time by approximately one third compared to traditional discovery-based fieldwork. For a team with 25-30 percent annual travel, that reduction is a tangible, quantifiable offset against technology investment.
+              <strong>Primary use:</strong> Cloud-based unified analytics platform combining data ingestion, transformation, notebook-based analysis, and Power BI reporting -- with Copilot generating code and queries from natural language prompts.
+              <br><br>
+              Microsoft Fabric is the natural next layer for teams already using Power BI who are ready to move toward more complex, scheduled, or real-time monitoring. It combines data engineering, data science notebooks, and reporting in a single platform, with OneLake providing a unified data store that all workloads share. Copilot generates PySpark code, SQL queries, and KQL queries from natural language prompts -- meaning an auditor can describe a detection routine in plain English and Copilot drafts the code. As of 2025, Copilot is available across all paid Fabric SKUs.
+              <br><br>
+              <em>Best for teams that have outgrown what Alteryx handles well and are ready to build population-level or near-real-time monitoring infrastructure. Requires more technical setup than Alteryx but provides substantially more capability at scale.</em>
             </div>
           </div>
 
           <div class="module" style="cursor: default;">
-            <div class="module-kicker">Risk return</div>
-            <div class="module-title">External audit fee reduction</div>
+            <div class="module-kicker">AI-Enhanced Analytics for Existing Alteryx Users</div>
+            <div class="module-title">Alteryx AI + Auto Insights</div>
             <div class="module-desc">
-              Audit functions that can demonstrate reliable automated controls and continuous monitoring coverage give external auditors greater basis for reliance, which directly reduces the substantive testing burden and the associated fee. This is a CFO argument, not just an audit argument.
+              <strong>Primary use:</strong> Anomaly detection, pattern surfacing, and narrative generation built into the Alteryx platform -- no separate tool or new platform required.
+              <br><br>
+              For teams already running Alteryx workflows, Alteryx has embedded AI capabilities that extend what those workflows surface without requiring a platform change. Auto Insights automatically identifies the most significant drivers of change in a dataset and generates plain-language narratives explaining what changed and why -- surfacing anomalies that a standard workflow would flag as a number but not explain as a pattern. The generative AI layer also supports workflow building assistance, helping less experienced users construct more complex logic by describing the outcome they want.
+              <br><br>
+              <em>Strongest fit for teams with existing Alteryx investments who want AI assistance without a new platform decision. Not a replacement for Fabric if the goal is large-scale or real-time monitoring infrastructure.</em>
             </div>
           </div>
 

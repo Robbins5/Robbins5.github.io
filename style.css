@@ -3066,3 +3066,33 @@ body.page-resources .exec-hero .eyebrow{
   box-shadow: 0 6px 24px rgba(0,0,0,0.10);
   background: #f5f0e8;
 }
+
+/* Fix 1: page-hero heading — .page-title class (not .page-hero-title) must be white */
+.page-hero h1,
+.page-hero h2,
+.page-hero .page-title{
+  color: #ffffff;
+}
+
+/* Fix 2: button row on dark hero — all .btn look identical, accent for primary */
+.page-hero .btn{
+  background: transparent;
+  border: 1.5px solid rgba(255,255,255,0.45);
+  color: #fff;
+  box-shadow: none;
+}
+.page-hero .btn:hover{
+  border-color: var(--accent);
+  color: var(--accent);
+  background: rgba(140,111,63,0.08);
+}
+.page-hero .btn-primary{
+  background: transparent;
+  border-color: var(--accent);
+  color: var(--accent);
+}
+.page-hero .btn-primary:hover{
+  background: rgba(140,111,63,0.12);
+  border-color: var(--accent);
+  color: var(--accent);
+}

@@ -3328,3 +3328,600 @@ body.page-resources .exec-hero .eyebrow{
 @media (max-width: 540px){
   .ctx-grid{ grid-template-columns: 1fr; }
 }
+
+/* ============================================================
+   Dark Theme — Global Override
+   Design reference: executive-assessment.html
+   Cormorant Garamond + DM Sans, dark palette, gold accent
+   ============================================================ */
+
+:root {
+  --bg:           #141416;
+  --surface:      #1c1c1f;
+  --surface-2:    #242428;
+  --text:         #f5f2ec;
+  --body:         #e8e4dc;
+  --muted:        #9a9490;
+  --muted-2:      #6b6760;
+  --border:       rgba(140,111,63,0.30);
+  --border-soft:  rgba(140,111,63,0.15);
+  --accent:       #8c6f3f;
+  --accent-soft:  rgba(140,111,63,0.15);
+  --shadow-sm:    0 2px 10px rgba(0,0,0,0.30);
+  --shadow-md:    0 26px 80px rgba(0,0,0,0.40);
+  /* Gold aliases for components that use them directly */
+  --gold:         #8c6f3f;
+  --gold-light:   #b8924f;
+  --gold-dim:     rgba(140,111,63,0.15);
+  --gold-border:  rgba(140,111,63,0.30);
+  --dark:         #141416;
+  --dark-2:       #1c1c1f;
+  --dark-3:       #242428;
+  --white:        #f5f2ec;
+}
+
+/* ---- Base ---- */
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--bg);
+  color: var(--body);
+  padding-top: 64px;
+}
+
+/* ---- Fixed nav ---- */
+.site-header {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  background: rgba(20,20,22,0.95);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--gold-border);
+  box-shadow: none;
+  padding: 0;
+  z-index: 100;
+}
+.container.header-inner,
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0 2rem;
+  height: 100%;
+  max-width: none;
+}
+.brand-link { text-decoration: none; display: inline-flex; align-items: center; gap: 0; }
+.brand-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: var(--gold-light);
+  letter-spacing: 0.05em;
+}
+.brand-tagline { display: none; }
+
+.nav-link {
+  font-size: 0.78rem;
+  font-weight: 400;
+  color: var(--muted);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border: none;
+  background: none;
+  border-radius: 0;
+  padding: 4px 8px;
+  transition: color 0.2s;
+}
+.nav-link:hover {
+  color: var(--gold-light);
+  background: none;
+  border-color: transparent;
+  transform: none;
+  box-shadow: none;
+}
+.nav-cta {
+  color: var(--gold);
+  font-weight: 500;
+  background: none;
+  border-color: transparent;
+}
+.nav-cta:hover {
+  color: var(--gold-light);
+  opacity: 1;
+}
+
+/* Mobile nav override */
+.nav-toggle {
+  border-color: var(--gold-border);
+  color: var(--muted);
+  background: transparent;
+}
+.nav-toggle:hover { background: rgba(140,111,63,0.10); }
+
+@media (max-width: 820px) {
+  .site-header { position: fixed; }
+  .nav {
+    background: rgba(20,20,22,0.98);
+    border-bottom: 1px solid var(--gold-border);
+    backdrop-filter: blur(12px);
+  }
+}
+
+/* ---- Footer ---- */
+.footer {
+  background: var(--bg);
+  border-top: 1px solid var(--gold-border);
+  margin-top: 0;
+}
+.footer-brand { color: var(--white); }
+.footer-note  { color: var(--muted); }
+.footer-link  { color: var(--muted); }
+.footer-link:hover { color: var(--gold); }
+.footer-bottom { color: var(--muted-2); }
+
+/* site-footer class variant */
+.site-footer {
+  background: var(--bg);
+  color: var(--muted-2);
+  border-top: 1px solid var(--gold-border);
+}
+.site-footer a { color: var(--muted); }
+.site-footer a:hover { color: var(--gold); }
+.site-footer .footer-brand { color: var(--white); }
+.site-footer .footer-tagline { color: var(--muted-2); }
+
+/* ---- Headings — Cormorant Garamond ---- */
+h1, h2, h3,
+.hero-title, .page-title, .section-title,
+.exec-title, .ia-title,
+.cta-title, .path-title, .module-title,
+.guide-title, .maturity-title {
+  font-family: 'Cormorant Garamond', serif;
+}
+
+/* ---- Page hero ---- */
+.page-hero {
+  background: #141416;
+  color: var(--body);
+}
+.page-hero .page-kicker { color: var(--gold); }
+.page-hero h1,
+.page-hero h2,
+.page-hero .page-title { color: var(--white); font-family: 'Cormorant Garamond', serif; font-weight: 300; }
+.page-hero .page-subtitle { color: var(--muted); }
+.page-hero .btn {
+  background: transparent;
+  border: 1px solid var(--gold-border);
+  color: var(--gold-light);
+  box-shadow: none;
+}
+.page-hero .btn:hover {
+  background: rgba(140,111,63,0.10);
+  border-color: var(--gold);
+  color: var(--gold-light);
+  transform: none;
+}
+.page-hero .btn-primary {
+  background: var(--gold);
+  border-color: var(--gold);
+  color: var(--dark);
+}
+.page-hero .btn-primary:hover {
+  background: var(--gold-light);
+  border-color: var(--gold-light);
+  color: var(--dark);
+}
+
+/* ---- Cards / surfaces ---- */
+.card, .path-card, .module, .disclosure,
+.pillar-card, .capacity-phase,
+.accordion-item, .sidebar-nav {
+  background: var(--surface);
+  border-color: var(--border-soft);
+}
+.stat-band { background: var(--surface); border-color: var(--border-soft); }
+.stat-band-item { border-right-color: var(--border-soft); }
+
+/* cta-panel */
+.cta-panel {
+  background: var(--surface);
+  border-color: var(--border-soft);
+  box-shadow: none;
+}
+
+/* callout */
+.callout { background: rgba(140,111,63,0.10); border-left-color: var(--gold); }
+.callout-title { color: var(--text); }
+.callout-text { color: var(--muted); }
+
+/* exec-callout */
+.exec-callout {
+  background: var(--dark-2);
+  border: 1px solid var(--gold-border);
+  color: var(--body);
+}
+.exec-callout-title { color: var(--white); }
+.exec-callout-text { color: var(--muted); }
+.exec-callout .btn {
+  background: rgba(140,111,63,0.10);
+  border-color: var(--gold-border);
+  color: var(--gold-light);
+}
+.exec-callout .btn-primary {
+  background: var(--gold);
+  color: var(--dark);
+  border-color: var(--gold);
+}
+
+/* next-step callout */
+.next-step-callout { background: var(--dark-2); border: 1px solid var(--gold-border); }
+.btn-next-step {
+  background: var(--gold);
+  color: var(--dark);
+  border-color: var(--gold);
+}
+.btn-next-step:hover { background: var(--gold-light); color: var(--dark); }
+
+/* ---- Buttons ---- */
+.btn {
+  background: transparent;
+  border: 1px solid var(--gold-border);
+  color: var(--text);
+  box-shadow: none;
+}
+.btn:hover {
+  background: rgba(140,111,63,0.10);
+  border-color: var(--gold);
+  color: var(--gold-light);
+  transform: none;
+  box-shadow: none;
+}
+.btn-primary {
+  background: var(--gold);
+  border-color: var(--gold);
+  color: var(--dark);
+}
+.btn-primary:hover {
+  background: var(--gold-light);
+  border-color: var(--gold-light);
+  color: var(--dark);
+}
+
+/* ---- Section bands ---- */
+.section-alt  { background: var(--surface-2); border-color: var(--border-soft); }
+.section-white{ background: var(--surface); }
+
+/* ---- Hero (homepage) ---- */
+.hero { background: var(--bg); }
+.hero-title { color: var(--white); font-family: 'Cormorant Garamond', serif; font-weight: 300; }
+.hero-subtitle { color: var(--muted); }
+.pill {
+  background: var(--surface);
+  border-color: var(--gold-border);
+  color: var(--gold);
+}
+.banner { border-color: var(--border-soft); }
+.metric {
+  background: var(--surface);
+  border-color: var(--border-soft);
+  box-shadow: none;
+}
+.metric-label { color: var(--muted-2); }
+.metric-value { color: var(--white); }
+
+/* ---- Timeline ---- */
+.timeline-dot {
+  background: var(--surface);
+  border-color: var(--gold-border);
+  box-shadow: 0 0 0 3px var(--bg);
+}
+.timeline-h-dot {
+  background: var(--surface);
+  border-color: var(--gold-border);
+  box-shadow: 0 0 0 3px var(--bg);
+}
+.timeline-item::before { background: var(--border-soft); }
+.timeline-h::before { background: var(--border-soft); }
+body.page-exec .timeline-card { background: var(--surface); border-color: var(--border-soft); }
+body.page-exec .exec-strip {
+  background: var(--surface);
+  border-color: var(--border-soft);
+}
+body.page-exec .timeline-track { background: var(--border-soft); }
+body.page-exec .timeline-dot { background: var(--gold); border-color: var(--gold); }
+
+/* ---- Skills matrix ---- */
+.skills-matrix { background: var(--surface); border-color: var(--border-soft); }
+.skills-matrix thead tr { background: var(--dark-3); }
+.skills-matrix tbody tr { border-color: var(--border-soft); }
+.skills-matrix tbody tr:hover { background: rgba(140,111,63,0.06); }
+.skills-matrix td:first-child { color: var(--text); }
+
+/* ---- Pillars ---- */
+.pillar-card { background: var(--surface); border-color: var(--border-soft); box-shadow: none; }
+.pillar-card:hover { background: rgba(140,111,63,0.08); border-color: var(--gold-border); box-shadow: none; }
+
+/* ---- Accordion ---- */
+.accordion-item { background: var(--surface); border-color: var(--border-soft); box-shadow: none; }
+.accordion-trigger { color: var(--text); }
+.accordion-trigger:hover { background: rgba(140,111,63,0.06); }
+.accordion-body { color: var(--muted); border-top-color: var(--border-soft); }
+
+/* ---- Tabs ---- */
+.tab-list { border-color: var(--border-soft); }
+.tab-btn { color: var(--muted-2); }
+.tab-btn:hover { color: var(--text); }
+.tab-btn.is-active { color: var(--gold); border-color: var(--gold); }
+
+/* ---- Maturity assessment (v1 inline) ---- */
+.maturity-shell { background: var(--surface); border-color: var(--border-soft); }
+.maturity-head { border-color: var(--border-soft); }
+.maturity-title { color: var(--text); }
+.maturity-sub { color: var(--muted); }
+.maturity-dim-label { color: var(--text); }
+.maturity-btn {
+  background: var(--surface-2);
+  border-color: var(--border-soft);
+  color: var(--muted);
+}
+.maturity-btn:hover {
+  background: rgba(140,111,63,0.10);
+  border-color: var(--gold-border);
+  color: var(--text);
+}
+.maturity-btn.is-selected {
+  background: var(--gold);
+  border-color: var(--gold);
+  color: var(--dark);
+  box-shadow: none;
+}
+.maturity-dimension:has(.maturity-btn.is-selected) .maturity-btn:not(.is-selected) { opacity: 0.45; }
+.maturity-bar-wrap { background: var(--dark-3); }
+.maturity-result { border-color: var(--border-soft); }
+
+/* ---- Maturity v2 (one-per-screen) ---- */
+.mat-progress-track { background: var(--border-soft); }
+.mat-progress-fill  { background: var(--gold); }
+.mat-progress-step  { color: var(--gold); }
+.mat-q-title  { color: var(--text); }
+.mat-q-note   { background: rgba(140,111,63,0.10); border-left-color: var(--gold); color: var(--muted); }
+.ctx-card {
+  background: var(--surface);
+  border-color: rgba(140,111,63,0.20);
+  color: var(--text);
+}
+.ctx-card:hover:not(.is-selected) {
+  background: rgba(140,111,63,0.10);
+  border-color: var(--gold);
+}
+.ctx-card.is-selected { background: var(--gold); color: var(--dark); border-color: var(--gold); }
+.mat-card {
+  background: var(--surface);
+  border-color: rgba(140,111,63,0.20);
+}
+.mat-card-label { color: var(--text); }
+.mat-card-desc  { color: var(--muted); }
+.mat-card:hover:not(.is-selected) {
+  background: rgba(140,111,63,0.10);
+  border-color: var(--gold);
+}
+.mat-card.is-selected { background: var(--gold); color: var(--dark); border-color: var(--gold); }
+.mat-card.is-selected .mat-card-label { color: var(--dark); }
+.mat-card.is-selected .mat-card-desc  { color: rgba(20,20,22,0.75); }
+.mat-context-note {
+  background: rgba(140,111,63,0.10);
+  border-left-color: var(--gold);
+  color: var(--text);
+}
+
+/* ---- Guide modal / FAB ---- */
+.guide-fab {
+  background: var(--surface);
+  border-color: var(--gold-border);
+  color: var(--text);
+}
+.guide-fab:hover { background: rgba(140,111,63,0.12); }
+.guide-modal-inner {
+  background: var(--dark-2);
+  border-color: var(--gold-border);
+}
+.guide-head { border-color: var(--border-soft); }
+.guide-kicker { color: var(--muted-2); }
+.guide-title  { color: var(--white); }
+.guide-sub    { color: var(--muted); }
+.guide-x {
+  background: var(--dark-3);
+  border-color: var(--border-soft);
+  color: var(--muted);
+}
+.guide-step-title { color: var(--text); }
+.guide-card {
+  background: var(--dark-3);
+  border-color: rgba(140,111,63,0.20);
+}
+.guide-card:hover {
+  background: rgba(140,111,63,0.10);
+  border-color: var(--gold);
+  box-shadow: none;
+  transform: none;
+}
+.guide-card.is-selected {
+  background: rgba(140,111,63,0.20);
+  border: 2px solid var(--gold);
+  color: var(--white);
+  box-shadow: none;
+}
+.guide-card.is-selected * { color: var(--white); }
+.guide-options:has(.guide-card.is-selected) .guide-card:not(.is-selected) { opacity: 0.45; }
+.guide-card-title { color: var(--text); }
+.guide-card-sub   { color: var(--muted); }
+.guide-footer { border-color: var(--border-soft); }
+.guide-progress { color: var(--muted-2); }
+.guide-result-block {
+  background: var(--surface);
+  border-color: var(--border-soft);
+}
+.guide-result-title { color: var(--text); }
+.guide-result-text  { color: var(--muted); }
+.guide-note { color: var(--muted-2); }
+
+/* ---- IA quiz shell (audit-leadership) ---- */
+body.page-ia .ia-strip-item { background: var(--surface); border-color: var(--border-soft); }
+body.page-ia .quiz-shell { background: var(--surface); border-color: var(--border-soft); box-shadow: none; }
+body.page-ia .quiz-question { background: var(--surface); border-color: var(--border-soft); box-shadow: none; }
+body.page-ia .quiz-option {
+  background: var(--dark-3);
+  border-color: transparent;
+  color: var(--muted);
+}
+body.page-ia .quiz-option:hover {
+  background: rgba(140,111,63,0.10);
+  border-color: var(--gold-border);
+  transform: none;
+  box-shadow: none;
+}
+body.page-ia .quiz-result-card  { background: var(--surface); border-color: var(--border-soft); }
+body.page-ia .scale-shell        { background: var(--surface); border-color: var(--border-soft); }
+body.page-ia .scale-track {
+  background: var(--dark-3);
+  border-color: var(--border-soft);
+}
+body.page-ia .scale-track::before { background: var(--border-soft); }
+body.page-ia .scale-step {
+  background: var(--dark-3);
+  border-color: var(--border-soft);
+  color: var(--muted);
+}
+body.page-ia .scale-step.is-active {
+  background: var(--surface);
+  border-color: var(--gold-border);
+  color: var(--text);
+}
+body.page-ia .scale-marker { background: var(--gold); }
+body.page-ia .scale-marker::after { background: var(--gold); }
+body.page-ia .quiz-card { background: var(--surface); border-color: var(--border-soft); }
+body.page-ia .quiz-card:hover { background: rgba(140,111,63,0.10); border-color: var(--gold-border); transform: none; box-shadow: none; }
+body.page-ia .quiz-card.is-selected { background: rgba(140,111,63,0.20); border-color: var(--gold); color: var(--white); }
+body.page-ia .quiz-card.is-selected * { color: var(--white); }
+body.page-ia .quiz-result-block { background: var(--surface); border-color: var(--border-soft); }
+body.page-ia .quiz-head { border-color: var(--border-soft); }
+body.page-ia .quiz-footer { border-color: var(--border-soft); }
+body.page-ia .quiz-progress { color: var(--muted-2); }
+
+/* ---- Thesis page ---- */
+body.page-thesis .article-prose {
+  background: var(--surface);
+  border-color: var(--border-soft);
+  box-shadow: none;
+}
+body.page-thesis .article-prose h1,
+body.page-thesis .article-prose h2,
+body.page-thesis .article-prose h3,
+body.page-thesis .article-prose h4 { color: var(--text); }
+body.page-thesis .article-prose p { color: var(--body); }
+body.page-thesis .article-loading { background: var(--surface); border-color: var(--border-soft); box-shadow: none; color: var(--muted); }
+body.page-thesis .thesis-note { background: var(--surface); border-color: var(--border-soft); }
+body.page-thesis .thesis-note-text { color: var(--muted); }
+body.page-thesis .format-gate-shell {
+  background: var(--surface);
+  border-color: var(--border-soft);
+  box-shadow: none;
+}
+body.page-thesis .format-gate-shell::after { display: none; }
+body.page-thesis .format-card {
+  background: var(--dark-3);
+  border-color: var(--border-soft);
+  box-shadow: none;
+}
+body.page-thesis .format-card:hover {
+  background: rgba(140,111,63,0.10);
+  border-color: var(--gold-border);
+  transform: none;
+  box-shadow: none;
+}
+body.page-thesis .format-icon {
+  background: var(--dark-2);
+  border-color: var(--border-soft);
+  color: var(--gold);
+}
+body.page-thesis .format-card-title { color: var(--text); }
+body.page-thesis .format-card-tag { background: var(--dark-2); border-color: var(--border-soft); color: var(--muted); }
+body.page-thesis .format-card-body { color: var(--muted); }
+body.page-thesis .format-gate-note { color: var(--muted-2); }
+
+/* ---- Dark hero sections (exec, ia, thesis) ---- */
+body.page-exec .exec-hero,
+body.page-ia .ia-hero,
+body.page-thesis .exec-hero,
+body.page-resources .exec-hero {
+  background: #141416;
+}
+body.page-exec .exec-hero h1,
+body.page-ia .ia-hero h1,
+body.page-thesis .exec-hero h1 { color: var(--white); font-family: 'Cormorant Garamond', serif; font-weight: 300; }
+body.page-exec .exec-hero p,
+body.page-ia .ia-hero p,
+body.page-thesis .exec-hero p { color: var(--muted); }
+body.page-exec .exec-kicker,
+body.page-ia .ia-kicker,
+body.page-thesis .exec-kicker { color: var(--gold); }
+
+/* ---- Disclosure ---- */
+.disclosure { background: var(--surface); border-color: var(--border-soft); box-shadow: none; }
+.disclosure[open] { border-color: var(--gold-border); box-shadow: none; }
+.disclosure-summary { color: var(--text); }
+.disclosure-body { color: var(--muted); }
+
+/* ---- Sidebar nav ---- */
+.sidebar-nav { background: var(--surface); border-color: var(--border-soft); box-shadow: none; }
+.sidebar-nav-title { color: var(--muted-2); }
+.sidebar-nav-list a { color: var(--muted); }
+.sidebar-nav-list a:hover,
+.sidebar-nav-list a.is-active { background: rgba(140,111,63,0.10); color: var(--gold); }
+
+/* ---- Content prose (my-* / practitioner-* posts) ---- */
+article h2, article h3, article h4 {
+  font-family: 'Cormorant Garamond', serif;
+  color: var(--text);
+}
+article p, article li { color: var(--body); line-height: 1.75; }
+.post-hero { border-radius: 12px; }
+.image-caption { color: var(--muted-2); font-size: 0.88rem; }
+header h1 { font-family: 'Cormorant Garamond', serif; color: var(--gold-light); }
+header .tagline { color: var(--muted); }
+header nav a { color: var(--muted); text-decoration: none; font-size: 0.82rem; letter-spacing: 0.08em; text-transform: uppercase; }
+header nav a:hover { color: var(--gold-light); }
+
+/* ---- Path / module card text ---- */
+.path-title  { color: var(--text); }
+.path-tag    { background: var(--surface-2); border-color: var(--border-soft); color: var(--muted-2); }
+.path-text   { color: var(--muted); }
+.path-cta    { color: var(--gold); }
+.path-card:hover .path-cta { color: var(--gold-light); }
+.module-kicker { color: var(--muted-2); }
+.module-title  { color: var(--text); }
+.module-desc   { color: var(--muted); }
+.soon { background: var(--surface-2); border-color: var(--border-soft); color: var(--muted); }
+
+/* ---- Global interactive transition reset (no bounce on dark) ---- */
+a, button,
+.path-card, .pillar-card,
+.accordion-trigger, .tab-btn,
+.guide-card, .maturity-btn, .quiz-card,
+.metric-card, .mod-card, .phase-card {
+  transition: background 0.18s ease, color 0.18s ease,
+              border-color 0.18s ease, opacity 0.18s ease;
+}
+.path-card:hover, .pillar-card:hover { transform: none; box-shadow: none; }
+
+/* ---- Hover gold-tint for interactive cards on dark ---- */
+.guide-card:not(.is-selected):hover,
+.maturity-btn:not(.is-selected):hover,
+.quiz-card:not(.is-selected):hover,
+.path-card:hover {
+  background: rgba(140,111,63,0.10);
+  border-color: var(--gold-border);
+}
+

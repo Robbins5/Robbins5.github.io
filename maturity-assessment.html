@@ -55,195 +55,370 @@
     <section class="section" id="assessment">
       <div class="container">
 
-        <div class="maturity-shell" id="maturity-shell">
+        <div class="maturity-v2" id="maturity-shell">
 
-          <div class="maturity-head">
-            <div class="maturity-title">AI-Ready Audit Maturity Assessment</div>
-            <div class="maturity-sub">
-              For each dimension, select the statement that best describes your audit function today.
-              Be honest -- the goal is an accurate baseline, not an aspirational picture.
-              All six dimensions are required before results are calculated.
+          <!-- ── SCREEN 0: Context ── -->
+          <div class="maturity-screen is-active" id="screen-context">
+            <h2 class="ctx-title">About your team</h2>
+            <p class="ctx-sub">A little context helps us tailor your results. All fields are optional.</p>
+
+            <!-- Field 1: Team size -->
+            <div class="ctx-field">
+              <div class="ctx-field-label">How large is your internal audit function?</div>
+              <div class="ctx-grid">
+                <button class="ctx-card" type="button" data-ctx="teamSize" data-value="1-5">1 to 5 people</button>
+                <button class="ctx-card" type="button" data-ctx="teamSize" data-value="6-15">6 to 15 people</button>
+                <button class="ctx-card" type="button" data-ctx="teamSize" data-value="16-30">16 to 30 people</button>
+                <button class="ctx-card" type="button" data-ctx="teamSize" data-value="30+">More than 30 people</button>
+              </div>
+            </div>
+
+            <!-- Field 2: Dedicated analytics role -->
+            <div class="ctx-field">
+              <div class="ctx-field-label">Does your team include a dedicated analytics or data role that is not responsible for traditional audit fieldwork?</div>
+              <div class="ctx-field-note">A dedicated role means this person focuses on analytics, data strategy, or methodology design rather than carrying a standard audit fieldwork assignment.</div>
+              <div class="ctx-grid is-col1">
+                <button class="ctx-card" type="button" data-ctx="dedicatedRole" data-value="yes">Yes, we have at least one dedicated analytics or data role</button>
+                <button class="ctx-card" type="button" data-ctx="dedicatedRole" data-value="no">No, analytics work is performed by auditors alongside their fieldwork responsibilities</button>
+                <button class="ctx-card" type="button" data-ctx="dedicatedRole" data-value="in-progress">We are in the process of establishing this role</button>
+              </div>
+            </div>
+
+            <!-- Field 3: Recent system implementation -->
+            <div class="ctx-field">
+              <div class="ctx-field-label">Has your organization completed a major enterprise system implementation in the last 24 months?</div>
+              <div class="ctx-grid">
+                <button class="ctx-card" type="button" data-ctx="recentImpl" data-value="yes">Yes</button>
+                <button class="ctx-card" type="button" data-ctx="recentImpl" data-value="no">No</button>
+                <button class="ctx-card" type="button" data-ctx="recentImpl" data-value="in-progress">Currently in progress</button>
+              </div>
+            </div>
+
+            <div class="mat-nav">
+              <button class="btn btn-primary" id="ctx-continue" type="button">Continue</button>
             </div>
           </div>
 
-          <div class="maturity-dimensions" id="maturity-dimensions">
-
-            <!-- Dimension 1: Data Access -->
-            <div class="maturity-dimension" data-dim="data-access">
-              <div class="maturity-dim-label">1. Data Access</div>
-              <div class="maturity-scale" role="group" aria-label="Data access maturity">
-                <button class="maturity-btn" type="button" data-score="1" aria-label="Level 1: Dependent">
-                  Dependent<br><span style="font-size:0.75rem;font-weight:700;">Extracts provided by IT</span>
-                </button>
-                <button class="maturity-btn" type="button" data-score="2" aria-label="Level 2: Partial">
-                  Partial<br><span style="font-size:0.75rem;font-weight:700;">Some self-service access</span>
-                </button>
-                <button class="maturity-btn" type="button" data-score="3" aria-label="Level 3: Functional">
-                  Functional<br><span style="font-size:0.75rem;font-weight:700;">Most data independently obtained</span>
-                </button>
-                <button class="maturity-btn" type="button" data-score="4" aria-label="Level 4: Governed">
-                  Governed<br><span style="font-size:0.75rem;font-weight:700;">Structured, documented pathways</span>
-                </button>
-                <button class="maturity-btn" type="button" data-score="5" aria-label="Level 5: Integrated">
-                  Integrated<br><span style="font-size:0.75rem;font-weight:700;">Automated feeds and lineage</span>
-                </button>
+          <!-- ── SCREEN 1: Data Autonomy ── -->
+          <div class="maturity-screen" id="screen-q1">
+            <div class="mat-progress">
+              <div class="mat-progress-step">Step 1 of 6</div>
+              <div class="mat-progress-track"><div class="mat-progress-fill" style="width:16.7%"></div></div>
+            </div>
+            <h2 class="mat-q-title">How easily can your team get data when you need it?</h2>
+            <div class="mat-cards" data-dim="data-autonomy">
+              <div class="mat-card" data-score="1" tabindex="0" role="button" aria-label="Level 1">
+                <span class="mat-card-check">&#10003;</span>
+                <div class="mat-card-label">We depend on IT or other teams to pull data for us</div>
+                <div class="mat-card-desc">Data extracts are requested by ticket or email and delivered on IT's timeline.</div>
+                <button class="mat-see-examples" type="button">See examples</button>
+                <div class="mat-card-detail">Extracts provided by IT &mdash; your team has limited ability to retrieve data directly from source systems. Access requires a formal request and you work with whatever format IT provides.</div>
               </div>
-              <div class="maturity-level-labels">
-                <span>Beginning</span>
-                <span>Advanced</span>
+              <div class="mat-card" data-score="2" tabindex="0" role="button" aria-label="Level 2">
+                <span class="mat-card-check">&#10003;</span>
+                <div class="mat-card-label">We can pull some data ourselves but often need help</div>
+                <div class="mat-card-desc">Some reports or exports are self-service, but complex queries or unfamiliar systems still require IT assistance.</div>
+                <button class="mat-see-examples" type="button">See examples</button>
+                <div class="mat-card-detail">Some self-service access &mdash; your team can run standard reports in key systems but relies on IT for extracts from databases, ERP modules, or less familiar platforms.</div>
+              </div>
+              <div class="mat-card" data-score="3" tabindex="0" role="button" aria-label="Level 3">
+                <span class="mat-card-check">&#10003;</span>
+                <div class="mat-card-label">We can get most data independently with some effort</div>
+                <div class="mat-card-desc">The team can navigate most key systems and pull needed datasets, though manual steps or workarounds remain.</div>
+                <button class="mat-see-examples" type="button">See examples</button>
+                <div class="mat-card-detail">Most data independently obtained &mdash; access exists for primary systems. Your team knows where the data lives and can retrieve it, but the process is not yet documented or streamlined into repeatable pathways.</div>
+              </div>
+              <div class="mat-card" data-score="4" tabindex="0" role="button" aria-label="Level 4">
+                <span class="mat-card-check">&#10003;</span>
+                <div class="mat-card-label">We reliably access data using reporting tools or queries</div>
+                <div class="mat-card-desc">Documented, structured pathways exist for primary data sources and most team members can use them independently.</div>
+                <button class="mat-see-examples" type="button">See examples</button>
+                <div class="mat-card-detail">Structured, documented pathways &mdash; data access is reliable and repeatable. Team members can pull data from major systems without IT involvement. Access methods are documented and shared across the function.</div>
+              </div>
+              <div class="mat-card" data-score="5" tabindex="0" role="button" aria-label="Level 5">
+                <span class="mat-card-check">&#10003;</span>
+                <div class="mat-card-label">We have structured or automated data feeds for audit use</div>
+                <div class="mat-card-desc">Automated extracts or pipelines deliver data to audit on a defined schedule without manual requests.</div>
+                <button class="mat-see-examples" type="button">See examples</button>
+                <div class="mat-card-detail">Automated feeds and lineage &mdash; data flows to the audit function automatically. Extracts are scheduled, versioned, and traceable back to source systems. The team spends time on analysis, not data retrieval.</div>
               </div>
             </div>
-
-            <!-- Dimension 2: Analytics Capability -->
-            <div class="maturity-dimension" data-dim="analytics">
-              <div class="maturity-dim-label">2. Analytics Capability</div>
-              <div class="maturity-scale" role="group" aria-label="Analytics capability maturity">
-                <button class="maturity-btn" type="button" data-score="1" aria-label="Level 1: Spreadsheets only">
-                  Spreadsheets<br><span style="font-size:0.75rem;font-weight:700;">Excel filters and pivots</span>
-                </button>
-                <button class="maturity-btn" type="button" data-score="2" aria-label="Level 2: Basic tools">
-                  Basic tools<br><span style="font-size:0.75rem;font-weight:700;">Occasional analytics platforms</span>
-                </button>
-                <button class="maturity-btn" type="button" data-score="3" aria-label="Level 3: Team analytics">
-                  Team use<br><span style="font-size:0.75rem;font-weight:700;">Multiple auditors use analytics</span>
-                </button>
-                <button class="maturity-btn" type="button" data-score="4" aria-label="Level 4: Structured workflows">
-                  Workflows<br><span style="font-size:0.75rem;font-weight:700;">Repeatable analytics pipelines</span>
-                </button>
-                <button class="maturity-btn" type="button" data-score="5" aria-label="Level 5: Automated">
-                  Automated<br><span style="font-size:0.75rem;font-weight:700;">Monitoring and automation embedded</span>
-                </button>
-              </div>
-              <div class="maturity-level-labels">
-                <span>Beginning</span>
-                <span>Advanced</span>
-              </div>
+            <div class="mat-nav">
+              <button class="btn btn-secondary mat-back" type="button" data-target="screen-context">Back</button>
+              <button class="btn btn-primary mat-next" type="button" data-target="screen-q2" data-dim="data-autonomy" disabled>Next</button>
             </div>
-
-            <!-- Dimension 3: Technology Literacy -->
-            <div class="maturity-dimension" data-dim="tech-literacy">
-              <div class="maturity-dim-label">3. Technology Literacy</div>
-              <div class="maturity-scale" role="group" aria-label="Technology literacy maturity">
-                <button class="maturity-btn" type="button" data-score="1" aria-label="Level 1: General awareness">
-                  Awareness<br><span style="font-size:0.75rem;font-weight:700;">General IT familiarity</span>
-                </button>
-                <button class="maturity-btn" type="button" data-score="2" aria-label="Level 2: System knowledge">
-                  Systems<br><span style="font-size:0.75rem;font-weight:700;">Knows which systems exist</span>
-                </button>
-                <button class="maturity-btn" type="button" data-score="3" aria-label="Level 3: Architecture understanding">
-                  Architecture<br><span style="font-size:0.75rem;font-weight:700;">Understands data flows</span>
-                </button>
-                <button class="maturity-btn" type="button" data-score="4" aria-label="Level 4: Integration depth">
-                  Integration<br><span style="font-size:0.75rem;font-weight:700;">Cross-system risk visibility</span>
-                </button>
-                <button class="maturity-btn" type="button" data-score="5" aria-label="Level 5: AI and automation">
-                  AI ready<br><span style="font-size:0.75rem;font-weight:700;">Can audit AI-enabled systems</span>
-                </button>
-              </div>
-              <div class="maturity-level-labels">
-                <span>Beginning</span>
-                <span>Advanced</span>
-              </div>
-            </div>
-
-            <!-- Dimension 4: Methodology Modernization -->
-            <div class="maturity-dimension" data-dim="methodology">
-              <div class="maturity-dim-label">4. Methodology Modernization</div>
-              <div class="maturity-scale" role="group" aria-label="Methodology modernization maturity">
-                <button class="maturity-btn" type="button" data-score="1" aria-label="Level 1: Legacy only">
-                  Legacy<br><span style="font-size:0.75rem;font-weight:700;">All procedures sample-based</span>
-                </button>
-                <button class="maturity-btn" type="button" data-score="2" aria-label="Level 2: Some analytics">
-                  Emerging<br><span style="font-size:0.75rem;font-weight:700;">Analytics in select audits</span>
-                </button>
-                <button class="maturity-btn" type="button" data-score="3" aria-label="Level 3: Mixed approach">
-                  Mixed<br><span style="font-size:0.75rem;font-weight:700;">Deliberate rebuild decisions</span>
-                </button>
-                <button class="maturity-btn" type="button" data-score="4" aria-label="Level 4: Analytics-first design">
-                  Analytics-first<br><span style="font-size:0.75rem;font-weight:700;">Population testing is default</span>
-                </button>
-                <button class="maturity-btn" type="button" data-score="5" aria-label="Level 5: Continuous by design">
-                  Continuous<br><span style="font-size:0.75rem;font-weight:700;">Monitoring replaces periodic cycles</span>
-                </button>
-              </div>
-              <div class="maturity-level-labels">
-                <span>Beginning</span>
-                <span>Advanced</span>
-              </div>
-            </div>
-
-            <!-- Dimension 5: Monitoring Capability -->
-            <div class="maturity-dimension" data-dim="monitoring">
-              <div class="maturity-dim-label">5. Monitoring Capability</div>
-              <div class="maturity-scale" role="group" aria-label="Monitoring capability maturity">
-                <button class="maturity-btn" type="button" data-score="1" aria-label="Level 1: No monitoring">
-                  None<br><span style="font-size:0.75rem;font-weight:700;">No ongoing monitoring</span>
-                </button>
-                <button class="maturity-btn" type="button" data-score="2" aria-label="Level 2: Ad hoc monitoring">
-                  Ad hoc<br><span style="font-size:0.75rem;font-weight:700;">Informal, periodic checks</span>
-                </button>
-                <button class="maturity-btn" type="button" data-score="3" aria-label="Level 3: Pilot monitoring">
-                  Pilots<br><span style="font-size:0.75rem;font-weight:700;">Defined routines in 1 to 2 areas</span>
-                </button>
-                <button class="maturity-btn" type="button" data-score="4" aria-label="Level 4: Operational monitoring">
-                  Operational<br><span style="font-size:0.75rem;font-weight:700;">Multi-area monitoring with closure tracking</span>
-                </button>
-                <button class="maturity-btn" type="button" data-score="5" aria-label="Level 5: Scaled monitoring">
-                  Scaled<br><span style="font-size:0.75rem;font-weight:700;">Enterprise-wide continuous oversight</span>
-                </button>
-              </div>
-              <div class="maturity-level-labels">
-                <span>Beginning</span>
-                <span>Advanced</span>
-              </div>
-            </div>
-
-            <!-- Dimension 6: Governance Readiness -->
-            <div class="maturity-dimension" data-dim="governance">
-              <div class="maturity-dim-label">6. Governance Readiness</div>
-              <div class="maturity-scale" role="group" aria-label="Governance readiness maturity">
-                <button class="maturity-btn" type="button" data-score="1" aria-label="Level 1: No AI governance">
-                  None<br><span style="font-size:0.75rem;font-weight:700;">No AI governance framework</span>
-                </button>
-                <button class="maturity-btn" type="button" data-score="2" aria-label="Level 2: Aware">
-                  Aware<br><span style="font-size:0.75rem;font-weight:700;">Monitoring AI adoption informally</span>
-                </button>
-                <button class="maturity-btn" type="button" data-score="3" aria-label="Level 3: Planning">
-                  Planning<br><span style="font-size:0.75rem;font-weight:700;">Governance framework in development</span>
-                </button>
-                <button class="maturity-btn" type="button" data-score="4" aria-label="Level 4: Implemented">
-                  Implemented<br><span style="font-size:0.75rem;font-weight:700;">Active AI audit coverage</span>
-                </button>
-                <button class="maturity-btn" type="button" data-score="5" aria-label="Level 5: Leading">
-                  Leading<br><span style="font-size:0.75rem;font-weight:700;">Assurance over agentic systems</span>
-                </button>
-              </div>
-              <div class="maturity-level-labels">
-                <span>Beginning</span>
-                <span>Advanced</span>
-              </div>
-            </div>
-
-          </div><!-- /.maturity-dimensions -->
-
-          <!-- Actions -->
-          <div style="padding: 0 24px 18px; display: flex; gap: 10px; flex-wrap: wrap; align-items: center;">
-            <button class="btn btn-primary" id="maturity-submit" type="button" disabled>Calculate my maturity level</button>
-            <button class="btn btn-secondary" id="maturity-reset" type="button">Reset</button>
-            <span id="maturity-status" style="font-size: 0.88rem; color: var(--muted-2);">Select all 6 dimensions to calculate.</span>
           </div>
 
-          <!-- Results -->
-          <div class="maturity-result" id="maturity-result" aria-live="polite">
-            <div class="maturity-result-level" id="maturity-result-level"></div>
-            <div class="maturity-bar-wrap">
-              <div class="maturity-bar-fill" id="maturity-bar-fill" style="width: 0%;"></div>
+          <!-- ── SCREEN 2: Analytics Environment ── -->
+          <div class="maturity-screen" id="screen-q2">
+            <div class="mat-progress">
+              <div class="mat-progress-step">Step 2 of 6</div>
+              <div class="mat-progress-track"><div class="mat-progress-fill" style="width:33.3%"></div></div>
             </div>
-            <div class="maturity-interpretation" id="maturity-interpretation"></div>
-            <ul class="maturity-next-steps" id="maturity-next-steps"></ul>
+            <h2 class="mat-q-title">How does most of your team analyze data day to day?</h2>
+            <p class="mat-q-note">Answer based on how the majority of your audit team works day to day, not your most advanced analyst or specialist role.</p>
+            <div class="mat-cards" data-dim="analytics-env">
+              <div class="mat-card" data-score="1" tabindex="0" role="button" aria-label="Level 1">
+                <span class="mat-card-check">&#10003;</span>
+                <div class="mat-card-label">Primarily Excel with filters, pivots, and manual calculations</div>
+                <div class="mat-card-desc">Most analysis involves spreadsheet formulas, sorting, and manual data manipulation.</div>
+                <button class="mat-see-examples" type="button">See examples</button>
+                <div class="mat-card-detail">Excel filters and pivots &mdash; VLOOKUP, PivotTables, and manual calculations are the primary tools. Results are built by hand each time and typically require significant rework between audits.</div>
+              </div>
+              <div class="mat-card" data-score="2" tabindex="0" role="button" aria-label="Level 2">
+                <span class="mat-card-check">&#10003;</span>
+                <div class="mat-card-label">Mostly Excel, with a few team members using other tools occasionally</div>
+                <div class="mat-card-desc">One or two individuals sometimes use BI tools or query languages, but Excel remains the team default.</div>
+                <button class="mat-see-examples" type="button">See examples</button>
+                <div class="mat-card-detail">Occasional analytics platforms &mdash; individual use of Power BI, ACL, SQL, or Python exists in isolated cases. This capability is not broadly shared or embedded in standard procedures.</div>
+              </div>
+              <div class="mat-card" data-score="3" tabindex="0" role="button" aria-label="Level 3">
+                <span class="mat-card-check">&#10003;</span>
+                <div class="mat-card-label">Several auditors regularly use analytics platforms beyond spreadsheets</div>
+                <div class="mat-card-desc">A meaningful portion of the team uses tools like Power BI, SQL, or analytics platforms for audit work.</div>
+                <button class="mat-see-examples" type="button">See examples</button>
+                <div class="mat-card-detail">Multiple auditors use analytics &mdash; the function is not reliant on a single person for advanced analysis. Several team members can run queries, build dashboards, or perform structured population analysis.</div>
+              </div>
+              <div class="mat-card" data-score="4" tabindex="0" role="button" aria-label="Level 4">
+                <span class="mat-card-check">&#10003;</span>
+                <div class="mat-card-label">Analytics are built into repeatable workflows used across the team</div>
+                <div class="mat-card-desc">Analytics steps are documented and most auditors follow standardized procedures rather than building from scratch each time.</div>
+                <button class="mat-see-examples" type="button">See examples</button>
+                <div class="mat-card-detail">Repeatable analytics pipelines &mdash; analytics procedures are standardized and version-controlled. A new team member can follow documented steps and produce consistent results without rebuilding the analysis.</div>
+              </div>
+              <div class="mat-card" data-score="5" tabindex="0" role="button" aria-label="Level 5">
+                <span class="mat-card-check">&#10003;</span>
+                <div class="mat-card-label">Continuous monitoring or automated analytics run regularly</div>
+                <div class="mat-card-desc">Monitoring routines run on a schedule and surface exceptions automatically without manual initiation.</div>
+                <button class="mat-see-examples" type="button">See examples</button>
+                <div class="mat-card-detail">Monitoring and automation embedded &mdash; automated analytics execute on a defined schedule and flag anomalies for review. The team focuses on interpretation and follow-up rather than running the analysis itself.</div>
+              </div>
+            </div>
+            <div class="mat-nav">
+              <button class="btn btn-secondary mat-back" type="button" data-target="screen-q1">Back</button>
+              <button class="btn btn-primary mat-next" type="button" data-target="screen-q3" data-dim="analytics-env" disabled>Next</button>
+            </div>
           </div>
 
-        </div><!-- /.maturity-shell -->
+          <!-- ── SCREEN 3: Repeatability ── -->
+          <div class="maturity-screen" id="screen-q3">
+            <div class="mat-progress">
+              <div class="mat-progress-step">Step 3 of 6</div>
+              <div class="mat-progress-track"><div class="mat-progress-fill" style="width:50%"></div></div>
+            </div>
+            <h2 class="mat-q-title">When you finish an audit, how much of the analytics work carries forward to the next one?</h2>
+            <p class="mat-q-note">Select the option that best reflects how the majority of analytics are performed across the audit team, not the most advanced example that exists within the function.</p>
+            <div class="mat-cards" data-dim="repeatability">
+              <div class="mat-card" data-score="1" tabindex="0" role="button" aria-label="Level 1">
+                <span class="mat-card-check">&#10003;</span>
+                <div class="mat-card-label">We rebuild most analytics from scratch each time</div>
+                <div class="mat-card-desc">Each audit starts fresh &mdash; there are no templates or saved procedures to build on.</div>
+                <button class="mat-see-examples" type="button">See examples</button>
+                <div class="mat-card-detail">Starting from scratch &mdash; analytics are rebuilt each engagement. Workpapers may be saved but the logic or queries are not reused in a structured way. Each audit reinvents the approach.</div>
+              </div>
+              <div class="mat-card" data-score="2" tabindex="0" role="button" aria-label="Level 2">
+                <span class="mat-card-check">&#10003;</span>
+                <div class="mat-card-label">We have some Excel templates we reuse</div>
+                <div class="mat-card-desc">A few spreadsheet templates exist for common calculations, but they still require significant manual setup each time.</div>
+                <button class="mat-see-examples" type="button">See examples</button>
+                <div class="mat-card-detail">Excel templates &mdash; some reuse exists in spreadsheet form. Templates need to be repopulated manually with new data each cycle. The structure exists but is not yet connected to a repeatable data pull process.</div>
+              </div>
+              <div class="mat-card" data-score="3" tabindex="0" role="button" aria-label="Level 3">
+                <span class="mat-card-check">&#10003;</span>
+                <div class="mat-card-label">We have repeatable workflows but still rely on manual data pulls</div>
+                <div class="mat-card-desc">Analytics steps are documented and consistent, but data still needs to be manually pulled before each run.</div>
+                <button class="mat-see-examples" type="button">See examples</button>
+                <div class="mat-card-detail">Repeatable workflows with manual data &mdash; the analysis logic is documented and reusable. Queries or scripts may exist. But the data itself must be manually requested or retrieved before the workflow can run.</div>
+              </div>
+              <div class="mat-card" data-score="4" tabindex="0" role="button" aria-label="Level 4">
+                <span class="mat-card-check">&#10003;</span>
+                <div class="mat-card-label">Most analytics are standardized and reused with minimal rework</div>
+                <div class="mat-card-desc">Procedures are documented and reusable &mdash; a new engagement requires parameterization, not rebuilding from scratch.</div>
+                <button class="mat-see-examples" type="button">See examples</button>
+                <div class="mat-card-detail">Standardized and reused &mdash; analytics are consistent across engagements. Scripts, queries, and workpaper templates are maintained and version-controlled. New auditors can follow the documented approach without significant ramp-up.</div>
+              </div>
+              <div class="mat-card" data-score="5" tabindex="0" role="button" aria-label="Level 5">
+                <span class="mat-card-check">&#10003;</span>
+                <div class="mat-card-label">Analytics run automatically on scheduled intervals</div>
+                <div class="mat-card-desc">Monitoring or analytics jobs run on a defined schedule and deliver results without manual action.</div>
+                <button class="mat-see-examples" type="button">See examples</button>
+                <div class="mat-card-detail">Automated on schedule &mdash; analytics execute automatically and surface results at defined intervals. The team reviews outputs and takes action on exceptions rather than initiating the analysis each time.</div>
+              </div>
+            </div>
+            <div class="mat-nav">
+              <button class="btn btn-secondary mat-back" type="button" data-target="screen-q2">Back</button>
+              <button class="btn btn-primary mat-next" type="button" data-target="screen-q4" data-dim="repeatability" disabled>Next</button>
+            </div>
+          </div>
+
+          <!-- ── SCREEN 4: Risk Detection ── -->
+          <div class="maturity-screen" id="screen-q4">
+            <div class="mat-progress">
+              <div class="mat-progress-step">Step 4 of 6</div>
+              <div class="mat-progress-track"><div class="mat-progress-fill" style="width:66.7%"></div></div>
+            </div>
+            <h2 class="mat-q-title">When issues occur in the business, how quickly does audit typically find out?</h2>
+            <div class="mat-cards" data-dim="risk-detection">
+              <div class="mat-card" data-score="1" tabindex="0" role="button" aria-label="Level 1">
+                <span class="mat-card-check">&#10003;</span>
+                <div class="mat-card-label">We find out during or after an audit, often long after the fact</div>
+                <div class="mat-card-desc">Issues surface through periodic testing cycles &mdash; significant time passes between the event and detection.</div>
+                <button class="mat-see-examples" type="button">See examples</button>
+                <div class="mat-card-detail">During or after an audit &mdash; detection is reactive and tied to scheduled engagement cycles. By the time an issue is identified, it may have been occurring for months or longer.</div>
+              </div>
+              <div class="mat-card" data-score="2" tabindex="0" role="button" aria-label="Level 2">
+                <span class="mat-card-check">&#10003;</span>
+                <div class="mat-card-label">We find issues during audit testing, but still after the activity occurred</div>
+                <div class="mat-card-desc">Testing is structured, but findings always reflect past events rather than current or near-current activity.</div>
+                <button class="mat-see-examples" type="button">See examples</button>
+                <div class="mat-card-detail">During audit testing &mdash; issues are identified during fieldwork in a structured way. But the timing is still retrospective &mdash; audit is looking back at what already happened, not forward at what is happening now.</div>
+              </div>
+              <div class="mat-card" data-score="3" tabindex="0" role="button" aria-label="Level 3">
+                <span class="mat-card-check">&#10003;</span>
+                <div class="mat-card-label">We review certain risks periodically and catch some issues earlier</div>
+                <div class="mat-card-desc">Targeted reviews of specific risk areas happen between audits, reducing the detection lag for those areas.</div>
+                <button class="mat-see-examples" type="button">See examples</button>
+                <div class="mat-card-detail">Periodic risk reviews &mdash; some proactive coverage exists for high-risk areas. Quarterly or monthly reviews in select domains mean issues are caught within weeks rather than months for those areas.</div>
+              </div>
+              <div class="mat-card" data-score="4" tabindex="0" role="button" aria-label="Level 4">
+                <span class="mat-card-check">&#10003;</span>
+                <div class="mat-card-label">We have analytics or dashboards that flag anomalies soon after they occur</div>
+                <div class="mat-card-desc">Monitoring routines surface exceptions within days or weeks of the underlying activity.</div>
+                <button class="mat-see-examples" type="button">See examples</button>
+                <div class="mat-card-detail">Anomaly flagging &mdash; dashboards or scheduled analytics identify exceptions shortly after they occur. Exception owners receive alerts and closure is tracked. Detection lag is measured in days or weeks, not months.</div>
+              </div>
+              <div class="mat-card" data-score="5" tabindex="0" role="button" aria-label="Level 5">
+                <span class="mat-card-check">&#10003;</span>
+                <div class="mat-card-label">Automated signals detect issues as they happen and allow rapid response</div>
+                <div class="mat-card-desc">Exception signals are generated automatically and routed to owners in near-real-time.</div>
+                <button class="mat-see-examples" type="button">See examples</button>
+                <div class="mat-card-detail">Automated near-real-time signals &mdash; issues are detected and escalated as they occur across monitored areas. Audit provides strategic oversight of the signal environment rather than initiating detection manually.</div>
+              </div>
+            </div>
+            <div class="mat-nav">
+              <button class="btn btn-secondary mat-back" type="button" data-target="screen-q3">Back</button>
+              <button class="btn btn-primary mat-next" type="button" data-target="screen-q5" data-dim="risk-detection" disabled>Next</button>
+            </div>
+          </div>
+
+          <!-- ── SCREEN 5: AI Augmentation ── -->
+          <div class="maturity-screen" id="screen-q5">
+            <div class="mat-progress">
+              <div class="mat-progress-step">Step 5 of 6</div>
+              <div class="mat-progress-track"><div class="mat-progress-fill" style="width:83.3%"></div></div>
+            </div>
+            <h2 class="mat-q-title">How is your team currently using AI tools in audit work?</h2>
+            <div class="mat-cards" data-dim="ai-augmentation">
+              <div class="mat-card" data-score="1" tabindex="0" role="button" aria-label="Level 1">
+                <span class="mat-card-check">&#10003;</span>
+                <div class="mat-card-label">We are not using AI tools yet</div>
+                <div class="mat-card-desc">No AI-assisted tools are currently part of the audit workflow.</div>
+                <button class="mat-see-examples" type="button">See examples</button>
+                <div class="mat-card-detail">No AI tools &mdash; the team has not yet adopted AI-assisted capabilities in audit procedures. Traditional methods are used exclusively for all audit work.</div>
+              </div>
+              <div class="mat-card" data-score="2" tabindex="0" role="button" aria-label="Level 2">
+                <span class="mat-card-check">&#10003;</span>
+                <div class="mat-card-label">We use AI occasionally for research, summarizing, or drafting documents</div>
+                <div class="mat-card-desc">Tools like ChatGPT or Copilot are used informally to support writing and research tasks.</div>
+                <button class="mat-see-examples" type="button">See examples</button>
+                <div class="mat-card-detail">Informal AI use &mdash; AI assists with productivity tasks such as summarizing documents, drafting audit communications, or researching topics. It is not integrated into audit procedures or evidence evaluation.</div>
+              </div>
+              <div class="mat-card" data-score="3" tabindex="0" role="button" aria-label="Level 3">
+                <span class="mat-card-check">&#10003;</span>
+                <div class="mat-card-label">We use AI to help build queries, workflows, or analytics</div>
+                <div class="mat-card-desc">AI tools help write scripts, structure queries, or design analytics approaches during engagement work.</div>
+                <button class="mat-see-examples" type="button">See examples</button>
+                <div class="mat-card-detail">AI-assisted analytics development &mdash; AI accelerates the building and design of analytical work products. Team members use AI to write SQL, generate Python scripts, or structure data transformation logic.</div>
+              </div>
+              <div class="mat-card" data-score="4" tabindex="0" role="button" aria-label="Level 4">
+                <span class="mat-card-check">&#10003;</span>
+                <div class="mat-card-label">AI-enabled tools help us review data and flag potential issues</div>
+                <div class="mat-card-desc">Purpose-built or configured AI tools scan populations and surface anomalies as part of audit procedures.</div>
+                <button class="mat-see-examples" type="button">See examples</button>
+                <div class="mat-card-detail">AI-enabled issue flagging &mdash; AI assists in reviewing data populations and identifying potential exceptions for auditor review. The AI does the scanning; auditors evaluate and act on the results.</div>
+              </div>
+              <div class="mat-card" data-score="5" tabindex="0" role="button" aria-label="Level 5">
+                <span class="mat-card-check">&#10003;</span>
+                <div class="mat-card-label">AI is integrated into monitoring workflows and runs continuously</div>
+                <div class="mat-card-desc">AI-powered monitoring runs on a schedule, surfaces signals, and routes exceptions without manual initiation.</div>
+                <button class="mat-see-examples" type="button">See examples</button>
+                <div class="mat-card-detail">Continuous AI monitoring &mdash; AI is embedded in operational monitoring workflows and runs without manual triggers. Exception routing, threshold management, and signal escalation are handled by configured AI systems.</div>
+              </div>
+            </div>
+            <div class="mat-nav">
+              <button class="btn btn-secondary mat-back" type="button" data-target="screen-q4">Back</button>
+              <button class="btn btn-primary mat-next" type="button" data-target="screen-q6" data-dim="ai-augmentation" disabled>Next</button>
+            </div>
+          </div>
+
+          <!-- ── SCREEN 6: Analytics Skill Depth ── -->
+          <div class="maturity-screen" id="screen-q6">
+            <div class="mat-progress">
+              <div class="mat-progress-step">Step 6 of 6</div>
+              <div class="mat-progress-track"><div class="mat-progress-fill" style="width:100%"></div></div>
+            </div>
+            <h2 class="mat-q-title">How would you describe the analytics capability across your audit team?</h2>
+            <p class="mat-q-note">Consider the depth of skill across the team as a whole, not your most advanced individual.</p>
+            <div class="mat-cards" data-dim="skill-depth">
+              <div class="mat-card" data-score="1" tabindex="0" role="button" aria-label="Level 1">
+                <span class="mat-card-check">&#10003;</span>
+                <div class="mat-card-label">Analytics capability is limited to basic Excel use across most of the team</div>
+                <div class="mat-card-desc">Most team members work with standard spreadsheet functions &mdash; advanced analysis is rare or absent.</div>
+                <button class="mat-see-examples" type="button">See examples</button>
+                <div class="mat-card-detail">The team primarily uses Excel for filtering, sorting, and basic calculations. Analytics beyond standard spreadsheet functions are uncommon.</div>
+              </div>
+              <div class="mat-card" data-score="2" tabindex="0" role="button" aria-label="Level 2">
+                <span class="mat-card-check">&#10003;</span>
+                <div class="mat-card-label">Most of the team is comfortable with Excel; one or two individuals have more advanced skills</div>
+                <div class="mat-card-desc">Excel is the standard across the team, with isolated examples of more advanced capability.</div>
+                <button class="mat-see-examples" type="button">See examples</button>
+                <div class="mat-card-detail">Excel is the dominant tool for most staff. One or two individuals occasionally use more advanced tools or techniques but this is not typical across the team.</div>
+              </div>
+              <div class="mat-card" data-score="3" tabindex="0" role="button" aria-label="Level 3">
+                <span class="mat-card-check">&#10003;</span>
+                <div class="mat-card-label">Several team members can perform structured analysis using tools beyond spreadsheets</div>
+                <div class="mat-card-desc">A subset of auditors can use analytics platforms, write queries, or work with larger datasets.</div>
+                <button class="mat-see-examples" type="button">See examples</button>
+                <div class="mat-card-detail">Several auditors can use analytics platforms, write basic queries, or perform structured data analysis. This capability exists but is not yet broadly distributed.</div>
+              </div>
+              <div class="mat-card" data-score="4" tabindex="0" role="button" aria-label="Level 4">
+                <span class="mat-card-check">&#10003;</span>
+                <div class="mat-card-label">A meaningful portion of the team can build repeatable analytics or work with large datasets independently</div>
+                <div class="mat-card-desc">The function is not dependent on a single specialist &mdash; multiple people can design and run analytics.</div>
+                <button class="mat-see-examples" type="button">See examples</button>
+                <div class="mat-card-detail">Multiple team members can independently build analytics, write queries, or analyze large datasets. The function is not dependent on a single specialist.</div>
+              </div>
+              <div class="mat-card" data-score="5" tabindex="0" role="button" aria-label="Level 5">
+                <span class="mat-card-check">&#10003;</span>
+                <div class="mat-card-label">Analytics capability is distributed broadly with multiple staff able to design, build, and maintain workflows</div>
+                <div class="mat-card-desc">Analytics skill is a core competency &mdash; most team members can contribute to building and maintaining repeatable routines.</div>
+                <button class="mat-see-examples" type="button">See examples</button>
+                <div class="mat-card-detail">Analytics skill is a core competency across the team. Multiple staff can design, build, and maintain repeatable workflows and monitoring routines without relying on one individual.</div>
+              </div>
+            </div>
+            <div class="mat-nav">
+              <button class="btn btn-secondary mat-back" type="button" data-target="screen-q5">Back</button>
+              <button class="btn btn-primary mat-next" id="see-results-btn" type="button" data-target="screen-results" data-dim="skill-depth" disabled>See My Results</button>
+            </div>
+          </div>
+
+          <!-- ── SCREEN 7: Results ── -->
+          <div class="maturity-screen" id="screen-results">
+            <div class="mat-context-note" id="mat-context-note" style="display:none"></div>
+            <div class="maturity-result is-visible" id="maturity-result" aria-live="polite">
+              <div class="maturity-result-level" id="maturity-result-level"></div>
+              <div class="maturity-bar-wrap">
+                <div class="maturity-bar-fill" id="maturity-bar-fill" style="width: 0%;"></div>
+              </div>
+              <div class="maturity-interpretation" id="maturity-interpretation"></div>
+              <ul class="maturity-next-steps" id="maturity-next-steps"></ul>
+            </div>
+            <div class="mat-nav">
+              <button class="btn btn-secondary" id="maturity-reset" type="button">Start Over</button>
+            </div>
+          </div>
+
+        </div><!-- /.maturity-v2 -->
 
         <p style="margin-top: 14px; font-size: 0.88rem; color: var(--muted-2);">
           Your selections are saved automatically in your browser. Return to this page to resume or review your results.
@@ -388,60 +563,10 @@
       });
     }
 
-    /* ---- Maturity Assessment ---- */
+    /* ── Storage key ── */
     var STORAGE_KEY = "aiready_maturity_v1";
 
-    var submitBtn  = document.getElementById("maturity-submit");
-    var resetBtn   = document.getElementById("maturity-reset");
-    var statusEl   = document.getElementById("maturity-status");
-    var resultEl   = document.getElementById("maturity-result");
-    var levelEl    = document.getElementById("maturity-result-level");
-    var barEl      = document.getElementById("maturity-bar-fill");
-    var interpEl   = document.getElementById("maturity-interpretation");
-    var stepsEl    = document.getElementById("maturity-next-steps");
-
-    // Track scores per dimension
-    var scores = {};
-    var DIMENSIONS = ["data-access","analytics","tech-literacy","methodology","monitoring","governance"];
-
-    /* Save and load */
-    function saveState() {
-      try { localStorage.setItem(STORAGE_KEY, JSON.stringify(scores)); } catch(e) {}
-    }
-    function loadState() {
-      try { return JSON.parse(localStorage.getItem(STORAGE_KEY)) || {}; } catch(e) { return {}; }
-    }
-    function clearState() {
-      try { localStorage.removeItem(STORAGE_KEY); } catch(e) {}
-    }
-
-    /* Restore selections from saved state */
-    function restoreSelections() {
-      DIMENSIONS.forEach(function(dim) {
-        if (scores[dim] === undefined) return;
-        var dimEl = document.querySelector('[data-dim="' + dim + '"]');
-        if (!dimEl) return;
-        dimEl.querySelectorAll(".maturity-btn").forEach(function(btn) {
-          if (parseInt(btn.getAttribute("data-score"), 10) === scores[dim]) {
-            btn.classList.add("is-selected");
-          }
-        });
-      });
-    }
-
-    /* Update submit button and status */
-    function updateStatus() {
-      var answered = Object.keys(scores).length;
-      var remaining = DIMENSIONS.length - answered;
-      submitBtn.disabled = remaining > 0;
-      if (remaining === 0) {
-        statusEl.textContent = "All dimensions answered. Click to see results.";
-      } else {
-        statusEl.textContent = remaining + " dimension" + (remaining === 1 ? "" : "s") + " remaining.";
-      }
-    }
-
-    /* Maturity level definitions */
+    /* ── Maturity level definitions ── */
     var LEVELS = [
       {
         min: 1, max: 1.8,
@@ -512,74 +637,223 @@
       return LEVELS[LEVELS.length - 1];
     }
 
-    /* Handle selection clicks */
-    document.querySelectorAll(".maturity-dimension").forEach(function(dimEl) {
-      var dim = dimEl.getAttribute("data-dim");
-      dimEl.querySelectorAll(".maturity-btn").forEach(function(btn) {
-        btn.addEventListener("click", function() {
-          // Deselect others in this dimension
-          dimEl.querySelectorAll(".maturity-btn").forEach(function(b) {
-            b.classList.remove("is-selected");
-          });
-          btn.classList.add("is-selected");
-          scores[dim] = parseInt(btn.getAttribute("data-score"), 10);
-          saveState();
-          updateStatus();
-          // Hide results if re-selecting
-          resultEl.classList.remove("is-visible");
+    /* ── Assessment state ── */
+    var DIMS = ["data-autonomy","analytics-env","repeatability","risk-detection","ai-augmentation","skill-depth"];
+    var scores  = {};
+    var context = {};
+    var currentScreen = "screen-context";
+
+    /* ── Persistence ── */
+    function saveState() {
+      try {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify({
+          scores: scores, context: context, currentScreen: currentScreen
+        }));
+      } catch(e) {}
+    }
+    function loadState() {
+      try {
+        var raw = JSON.parse(localStorage.getItem(STORAGE_KEY));
+        if (!raw) return;
+        if (raw.scores) {
+          scores  = raw.scores  || {};
+          context = raw.context || {};
+          currentScreen = raw.currentScreen || "screen-context";
+        }
+      } catch(e) {}
+    }
+    function clearState() {
+      try { localStorage.removeItem(STORAGE_KEY); } catch(e) {}
+    }
+
+    /* ── Screen navigation ── */
+    function showScreen(id) {
+      document.querySelectorAll(".maturity-screen").forEach(function(s) {
+        s.classList.remove("is-active");
+      });
+      var el = document.getElementById(id);
+      if (el) el.classList.add("is-active");
+      currentScreen = id;
+      saveState();
+      var anchor = document.getElementById("assessment");
+      if (anchor) window.scrollTo({ top: anchor.offsetTop - 80, behavior: "smooth" });
+    }
+
+    /* ── Context screen ── */
+    document.querySelectorAll(".ctx-card").forEach(function(card) {
+      card.addEventListener("click", function() {
+        var field = card.getAttribute("data-ctx");
+        document.querySelectorAll('.ctx-card[data-ctx="' + field + '"]').forEach(function(c) {
+          c.classList.remove("is-selected");
+        });
+        card.classList.add("is-selected");
+        context[field] = card.getAttribute("data-value");
+        saveState();
+      });
+    });
+
+    document.getElementById("ctx-continue").addEventListener("click", function() {
+      showScreen("screen-q1");
+    });
+
+    /* ── "See examples" toggle ── */
+    document.querySelectorAll(".mat-see-examples").forEach(function(btn) {
+      btn.addEventListener("click", function(e) {
+        e.stopPropagation();
+        var detail = btn.nextElementSibling;
+        var isOpen = detail.classList.toggle("is-open");
+        btn.textContent = isOpen ? "Hide examples" : "See examples";
+      });
+    });
+
+    /* ── Answer card selection ── */
+    document.querySelectorAll(".mat-cards").forEach(function(group) {
+      var dim = group.getAttribute("data-dim");
+      group.querySelectorAll(".mat-card").forEach(function(card) {
+        card.addEventListener("click", function(e) {
+          if (e.target.classList.contains("mat-see-examples")) return;
+          selectCard(group, card, dim);
+        });
+        card.addEventListener("keydown", function(e) {
+          if (e.key === "Enter" || e.key === " ") {
+            e.preventDefault();
+            selectCard(group, card, dim);
+          }
         });
       });
     });
 
-    /* Submit */
-    submitBtn.addEventListener("click", function() {
-      var total = 0;
-      var count = 0;
-      DIMENSIONS.forEach(function(dim) {
-        if (scores[dim] !== undefined) {
-          total += scores[dim];
-          count++;
-        }
+    function selectCard(group, card, dim) {
+      group.querySelectorAll(".mat-card").forEach(function(c) {
+        c.classList.remove("is-selected");
+        c.classList.add("is-dimmed");
       });
-      if (count < DIMENSIONS.length) return;
+      card.classList.add("is-selected");
+      card.classList.remove("is-dimmed");
+      scores[dim] = parseInt(card.getAttribute("data-score"), 10);
+      saveState();
+      var screen = card.closest(".maturity-screen");
+      if (screen) {
+        var nextBtn = screen.querySelector(".mat-next");
+        if (nextBtn) nextBtn.disabled = false;
+      }
+    }
 
-      var avg = total / count;
+    /* ── Back / Next navigation ── */
+    document.querySelectorAll(".mat-back").forEach(function(btn) {
+      btn.addEventListener("click", function() {
+        showScreen(btn.getAttribute("data-target"));
+      });
+    });
+
+    document.querySelectorAll(".mat-next").forEach(function(btn) {
+      btn.addEventListener("click", function() {
+        if (btn.disabled) return;
+        var target = btn.getAttribute("data-target");
+        if (target === "screen-results") { showResults(); } else { showScreen(target); }
+      });
+    });
+
+    /* ── Context note personalization ── */
+    function buildContextNote() {
+      var sentences = [];
+      var impl = context.recentImpl;
+      var role = context.dedicatedRole;
+      var size = context.teamSize;
+      if (impl === "yes" || impl === "in-progress") {
+        sentences.push("Organizations navigating or recently completing a major system implementation commonly experience a temporary plateau in audit maturity as methodology redesign catches up to new data environments.");
+      }
+      if (sentences.length < 2) {
+        if (role === "no") {
+          sentences.push("The absence of a dedicated analytics role is one of the most common structural barriers to maturity progression, regardless of team size.");
+        } else if (role === "yes") {
+          sentences.push("Having a dedicated analytics role provides a structural foundation that most audit functions at this maturity level have not yet established.");
+        }
+      }
+      if (sentences.length < 2 && size === "1-5") {
+        sentences.push("For a team of this size, maturity progression often depends more on tool access and workflow design than on headcount.");
+      }
+      return sentences.slice(0, 2);
+    }
+
+    /* ── Show results ── */
+    function showResults() {
+      var total = 0;
+      DIMS.forEach(function(dim) {
+        total += (scores[dim] || 0);
+      });
+      var avg = total / 6;
       var level = getLevel(avg);
 
-      levelEl.textContent = level.label + " (avg " + avg.toFixed(1) + " / 5.0)";
-      barEl.style.width = level.pct + "%";
-      interpEl.textContent = level.interpretation;
-
-      stepsEl.innerHTML = level.steps.map(function(s) {
+      document.getElementById("maturity-result-level").textContent =
+        level.label + " (avg " + avg.toFixed(1) + " / 5.0)";
+      document.getElementById("maturity-bar-fill").style.width = level.pct + "%";
+      document.getElementById("maturity-interpretation").textContent = level.interpretation;
+      document.getElementById("maturity-next-steps").innerHTML = level.steps.map(function(s) {
         return "<li>" + s + "</li>";
       }).join("");
 
-      resultEl.classList.add("is-visible");
-      resultEl.scrollIntoView({ behavior: "smooth", block: "start" });
-    });
+      var noteEl = document.getElementById("mat-context-note");
+      var sentences = buildContextNote();
+      if (sentences.length > 0) {
+        noteEl.innerHTML = sentences.map(function(s) { return "<p>" + s + "</p>"; }).join("");
+        noteEl.style.display = "";
+      } else {
+        noteEl.style.display = "none";
+      }
 
-    /* Reset */
-    resetBtn.addEventListener("click", function() {
-      scores = {};
-      clearState();
-      document.querySelectorAll(".maturity-btn").forEach(function(btn) {
-        btn.classList.remove("is-selected");
-      });
-      resultEl.classList.remove("is-visible");
-      barEl.style.width = "0%";
-      updateStatus();
-    });
-
-    /* Init: load saved state */
-    scores = loadState();
-    restoreSelections();
-    updateStatus();
-
-    /* If all dims answered from saved state, show submit prompt */
-    if (Object.keys(scores).length === DIMENSIONS.length) {
-      statusEl.textContent = "All dimensions answered. Click to see results.";
-      submitBtn.disabled = false;
+      showScreen("screen-results");
     }
+
+    /* ── Reset ── */
+    document.getElementById("maturity-reset").addEventListener("click", function() {
+      scores  = {};
+      context = {};
+      clearState();
+      currentScreen = "screen-context";
+      document.querySelectorAll(".ctx-card").forEach(function(c) { c.classList.remove("is-selected"); });
+      document.querySelectorAll(".mat-card").forEach(function(c) {
+        c.classList.remove("is-selected", "is-dimmed");
+      });
+      document.querySelectorAll(".mat-card-detail").forEach(function(d) { d.classList.remove("is-open"); });
+      document.querySelectorAll(".mat-see-examples").forEach(function(b) { b.textContent = "See examples"; });
+      document.querySelectorAll(".mat-next").forEach(function(b) { b.disabled = true; });
+      showScreen("screen-context");
+    });
+
+    /* ── Restore saved state on load ── */
+    function restoreState() {
+      Object.keys(context).forEach(function(field) {
+        var card = document.querySelector('.ctx-card[data-ctx="' + field + '"][data-value="' + context[field] + '"]');
+        if (card) card.classList.add("is-selected");
+      });
+      DIMS.forEach(function(dim) {
+        if (scores[dim] === undefined) return;
+        var group = document.querySelector('.mat-cards[data-dim="' + dim + '"]');
+        if (!group) return;
+        group.querySelectorAll(".mat-card").forEach(function(card) {
+          if (parseInt(card.getAttribute("data-score"), 10) === scores[dim]) {
+            card.classList.add("is-selected");
+          } else {
+            card.classList.add("is-dimmed");
+          }
+        });
+        var screen = group.closest(".maturity-screen");
+        if (screen) {
+          var nextBtn = screen.querySelector(".mat-next");
+          if (nextBtn) nextBtn.disabled = false;
+        }
+      });
+      if (currentScreen === "screen-results" && Object.keys(scores).length === DIMS.length) {
+        showResults();
+      } else {
+        showScreen(currentScreen || "screen-context");
+      }
+    }
+
+    /* ── Init ── */
+    loadState();
+    restoreState();
 
   })();
   </script>

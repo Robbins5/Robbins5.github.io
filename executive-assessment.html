@@ -1,0 +1,950 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Executive Partnership Assessment | Nicole Robbins-Heflin</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --gold: #8c6f3f;
+      --gold-light: #b8924f;
+      --gold-dim: rgba(140,111,63,0.15);
+      --gold-border: rgba(140,111,63,0.3);
+      --dark: #141416;
+      --dark-2: #1c1c1f;
+      --dark-3: #242428;
+      --text: #e8e4dc;
+      --text-muted: #9a9490;
+      --text-dim: #6b6760;
+      --white: #f5f2ec;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--dark);
+      color: var(--text);
+      line-height: 1.7;
+      min-height: 100vh;
+    }
+
+    /* NAV */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: rgba(20,20,22,0.95);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--gold-border);
+      padding: 0 2rem;
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-brand {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem;
+      font-weight: 500;
+      color: var(--gold-light);
+      text-decoration: none;
+      letter-spacing: 0.05em;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 0.8rem;
+      font-weight: 400;
+      color: var(--text-muted);
+      text-decoration: none;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--gold-light); }
+
+    /* HERO */
+    .hero {
+      padding: 140px 2rem 80px;
+      max-width: 860px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .hero-eyebrow {
+      display: inline-block;
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      border: 1px solid var(--gold-border);
+      padding: 0.35rem 1rem;
+      border-radius: 2px;
+      margin-bottom: 2rem;
+    }
+
+    .hero h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.4rem, 5vw, 3.8rem);
+      font-weight: 300;
+      line-height: 1.15;
+      color: var(--white);
+      margin-bottom: 1.5rem;
+      letter-spacing: -0.01em;
+    }
+
+    .hero h1 em {
+      font-style: italic;
+      color: var(--gold-light);
+    }
+
+    .hero-intro {
+      font-size: 1.05rem;
+      color: var(--text-muted);
+      max-width: 640px;
+      margin: 0 auto 1.5rem;
+      font-weight: 300;
+    }
+
+    .hero-framing {
+      background: var(--dark-2);
+      border: 1px solid var(--gold-border);
+      border-left: 3px solid var(--gold);
+      border-radius: 4px;
+      padding: 1.5rem 2rem;
+      max-width: 680px;
+      margin: 2rem auto 0;
+      text-align: left;
+    }
+
+    .hero-framing p {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      line-height: 1.75;
+      font-weight: 300;
+    }
+
+    .hero-framing p + p {
+      margin-top: 0.75rem;
+    }
+
+    /* QUIZ CONTAINER */
+    .quiz-section {
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 3rem 2rem 6rem;
+    }
+
+    /* PROGRESS */
+    .progress-bar-wrap {
+      margin-bottom: 2.5rem;
+    }
+
+    .progress-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.6rem;
+    }
+
+    .progress-label {
+      font-size: 0.72rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+    }
+
+    .progress-count {
+      font-size: 0.72rem;
+      color: var(--gold);
+      letter-spacing: 0.05em;
+    }
+
+    .progress-track {
+      height: 2px;
+      background: var(--dark-3);
+      border-radius: 2px;
+      overflow: hidden;
+    }
+
+    .progress-fill {
+      height: 100%;
+      background: linear-gradient(90deg, var(--gold), var(--gold-light));
+      border-radius: 2px;
+      transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    /* COMMITMENT BADGE */
+    .commitment-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.68rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1rem;
+      opacity: 0.85;
+    }
+
+    .commitment-badge::before {
+      content: '';
+      width: 18px;
+      height: 1px;
+      background: var(--gold);
+    }
+
+    /* QUESTION CARD */
+    .question-card {
+      background: var(--dark-2);
+      border: 1px solid rgba(140,111,63,0.2);
+      border-radius: 6px;
+      padding: 2.5rem;
+      margin-bottom: 1.5rem;
+      animation: fadeUp 0.4s ease forwards;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(16px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .question-text {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.35rem;
+      font-weight: 400;
+      color: var(--white);
+      line-height: 1.5;
+      margin-bottom: 1.75rem;
+    }
+
+    /* OPTIONS */
+    .options-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.65rem;
+    }
+
+    .option-btn {
+      background: var(--dark-3);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 4px;
+      padding: 1rem 1.25rem;
+      text-align: left;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      color: var(--text-muted);
+      font-size: 0.92rem;
+      line-height: 1.55;
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 300;
+      width: 100%;
+    }
+
+    .option-btn:hover {
+      background: rgba(140,111,63,0.1);
+      border-color: var(--gold-border);
+      color: var(--text);
+    }
+
+    .option-btn.selected {
+      background: rgba(140,111,63,0.15);
+      border-color: var(--gold);
+      color: var(--white);
+    }
+
+    .option-letter {
+      flex-shrink: 0;
+      width: 22px;
+      height: 22px;
+      border: 1px solid currentColor;
+      border-radius: 2px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.65rem;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      margin-top: 1px;
+      opacity: 0.6;
+      transition: opacity 0.2s;
+    }
+
+    .option-btn.selected .option-letter {
+      opacity: 1;
+      background: var(--gold);
+      border-color: var(--gold);
+      color: var(--dark);
+    }
+
+    /* NAV BUTTONS */
+    .quiz-nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 2rem;
+      gap: 1rem;
+    }
+
+    .btn-prev, .btn-next {
+      padding: 0.7rem 1.75rem;
+      border-radius: 3px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: all 0.2s;
+      font-family: 'DM Sans', sans-serif;
+    }
+
+    .btn-prev {
+      background: transparent;
+      border: 1px solid rgba(255,255,255,0.12);
+      color: var(--text-dim);
+    }
+
+    .btn-prev:hover {
+      border-color: var(--text-muted);
+      color: var(--text-muted);
+    }
+
+    .btn-next {
+      background: var(--gold);
+      border: 1px solid var(--gold);
+      color: var(--dark);
+    }
+
+    .btn-next:hover {
+      background: var(--gold-light);
+      border-color: var(--gold-light);
+    }
+
+    .btn-next:disabled {
+      opacity: 0.35;
+      cursor: not-allowed;
+    }
+
+    /* RESULTS */
+    #results-panel {
+      display: none;
+      animation: fadeUp 0.5s ease forwards;
+    }
+
+    .results-header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .results-header h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 300;
+      color: var(--white);
+      margin-bottom: 0.75rem;
+    }
+
+    .results-header .tier-label {
+      font-size: 0.75rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1.25rem;
+      display: block;
+    }
+
+    .results-header .tier-desc {
+      font-size: 0.98rem;
+      color: var(--text-muted);
+      max-width: 560px;
+      margin: 0 auto;
+      font-weight: 300;
+      line-height: 1.75;
+    }
+
+    /* COMMITMENT SCORES */
+    .commitment-scores {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .score-row {
+      background: var(--dark-2);
+      border: 1px solid rgba(140,111,63,0.15);
+      border-radius: 5px;
+      padding: 1.25rem 1.5rem;
+    }
+
+    .score-row-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.6rem;
+    }
+
+    .score-name {
+      font-size: 0.75rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+
+    .score-value {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem;
+      font-weight: 500;
+      color: var(--gold-light);
+    }
+
+    .score-track {
+      height: 3px;
+      background: var(--dark-3);
+      border-radius: 2px;
+      overflow: hidden;
+      margin-bottom: 0.65rem;
+    }
+
+    .score-fill {
+      height: 100%;
+      border-radius: 2px;
+      transition: width 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .score-fill.strong  { background: #7ab87a; }
+    .score-fill.developing { background: var(--gold); }
+    .score-fill.foundational { background: #c47b5a; }
+
+    .score-note {
+      font-size: 0.83rem;
+      color: var(--text-dim);
+      line-height: 1.55;
+      font-weight: 300;
+    }
+
+    /* PRIORITY RECOMMENDATION */
+    .priority-block {
+      background: var(--dark-2);
+      border: 1px solid var(--gold-border);
+      border-left: 3px solid var(--gold);
+      border-radius: 4px;
+      padding: 1.75rem 2rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .priority-block h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.2rem;
+      font-weight: 500;
+      color: var(--white);
+      margin-bottom: 0.75rem;
+    }
+
+    .priority-block p {
+      font-size: 0.92rem;
+      color: var(--text-muted);
+      line-height: 1.75;
+      font-weight: 300;
+    }
+
+    /* CTA LINKS */
+    .results-ctas {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .cta-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.6rem 1.25rem;
+      background: transparent;
+      border: 1px solid var(--gold-border);
+      border-radius: 3px;
+      color: var(--gold-light);
+      font-size: 0.8rem;
+      font-weight: 400;
+      letter-spacing: 0.06em;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+
+    .cta-link:hover {
+      background: var(--gold-dim);
+      border-color: var(--gold);
+      color: var(--white);
+    }
+
+    .cta-link-arrow {
+      font-size: 0.7rem;
+      transition: transform 0.2s;
+    }
+
+    .cta-link:hover .cta-link-arrow { transform: translateX(3px); }
+
+    /* RETAKE */
+    .btn-retake {
+      background: transparent;
+      border: 1px solid rgba(255,255,255,0.12);
+      color: var(--text-dim);
+      padding: 0.65rem 1.5rem;
+      border-radius: 3px;
+      font-size: 0.78rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      cursor: pointer;
+      font-family: 'DM Sans', sans-serif;
+      transition: all 0.2s;
+    }
+
+    .btn-retake:hover {
+      border-color: var(--text-muted);
+      color: var(--text-muted);
+    }
+
+    /* DIVIDER */
+    .section-divider {
+      border: none;
+      border-top: 1px solid rgba(140,111,63,0.15);
+      margin: 2rem 0;
+    }
+
+    /* FOOTER */
+    footer {
+      border-top: 1px solid rgba(140,111,63,0.15);
+      padding: 2rem;
+      text-align: center;
+    }
+
+    footer p {
+      font-size: 0.78rem;
+      color: var(--text-dim);
+      letter-spacing: 0.04em;
+    }
+
+    footer a {
+      color: var(--gold);
+      text-decoration: none;
+    }
+
+    @media (max-width: 600px) {
+      nav { padding: 0 1rem; }
+      .nav-links { display: none; }
+      .hero { padding: 110px 1.25rem 60px; }
+      .quiz-section { padding: 2rem 1.25rem 4rem; }
+      .question-card { padding: 1.75rem 1.25rem; }
+      .hero-framing { padding: 1.25rem 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="index.html" class="nav-brand">Nicole Robbins-Heflin</a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="executive-oversight.html">For Executives</a></li>
+      <li><a href="maturity-assessment.html">Self-Assessment</a></li>
+    </ul>
+  </nav>
+
+  <header class="hero">
+    <span class="hero-eyebrow">Executive Diagnostic</span>
+    <h1>How well is your organization <em>supporting</em> its audit function?</h1>
+    <p class="hero-intro">
+      Ten questions. A profile across five dimensions. A starting point for a conversation worth having.
+    </p>
+    <div class="hero-framing">
+      <p>
+        The relationship between executive leadership and internal audit is one of the most consequential — and least examined — partnerships in an organization. This assessment is not a scorecard. It is a starting point for reflection on where that partnership is working well and where a small shift might unlock significantly more value from your audit function.
+      </p>
+      <p>
+        There are no right or wrong answers. Respond based on how things actually work in your organization, not how they should work. The most useful result is an honest one.
+      </p>
+    </div>
+  </header>
+
+  <main class="quiz-section">
+
+    <div id="quiz-panel">
+      <div class="progress-bar-wrap">
+        <div class="progress-meta">
+          <span class="progress-label">Assessment Progress</span>
+          <span class="progress-count" id="progress-count">Question 1 of 10</span>
+        </div>
+        <div class="progress-track">
+          <div class="progress-fill" id="progress-fill" style="width:10%"></div>
+        </div>
+      </div>
+
+      <div id="question-area"></div>
+
+      <div class="quiz-nav">
+        <button class="btn-prev" id="btn-prev" onclick="navigate(-1)">← Back</button>
+        <button class="btn-next" id="btn-next" onclick="navigate(1)" disabled>Continue →</button>
+      </div>
+    </div>
+
+    <div id="results-panel"></div>
+
+  </main>
+
+  <footer>
+    <p>
+      Looking for the practitioner perspective?
+      <a href="maturity-assessment.html">Take the audit function self-assessment →</a>
+    </p>
+  </footer>
+
+  <script>
+    const COMMITMENTS = ['Alignment','Advocacy','Access','Time','Budget'];
+
+    const QUESTIONS = [
+      // ALIGNMENT (q0, q1)
+      {
+        commitment: 'Alignment',
+        text: 'Thinking about a significant initiative your organization launched in the past year — a new system, a strategic shift, a major process change — which best describes when internal audit became involved?',
+        options: [
+          { text: 'Audit was part of the planning conversation before key decisions were finalized.', score: 3 },
+          { text: 'Audit was brought in during implementation to assess controls as things were being built.', score: 2 },
+          { text: 'Audit reviewed the initiative after it was live and operational.', score: 1 },
+          { text: "I'm not certain when or whether audit was involved.", score: 0 }
+        ]
+      },
+      {
+        commitment: 'Alignment',
+        text: 'How would you describe the current flow of information between your organization\'s strategic priorities and your audit function\'s focus areas?',
+        options: [
+          { text: "Our audit plan reflects our most current organizational priorities and evolves when those priorities shift.", score: 3 },
+          { text: "There is reasonable alignment, but gaps sometimes appear between what leadership is focused on and what audit is examining.", score: 2 },
+          { text: "Audit and leadership operate somewhat independently in their planning cycles.", score: 1 },
+          { text: "I'm not certain how the audit plan is developed or what informs it.", score: 0 }
+        ]
+      },
+      // ADVOCACY (q2, q3)
+      {
+        commitment: 'Advocacy',
+        text: "When internal audit identifies a significant finding, how would you describe what typically happens next?",
+        options: [
+          { text: "Findings receive prompt management responses and are tracked actively through to resolution.", score: 3 },
+          { text: "Most findings are addressed, but follow-through can be inconsistent depending on the business area.", score: 2 },
+          { text: "Findings are acknowledged but resolution tends to be slow or incomplete.", score: 1 },
+          { text: "I don't have clear visibility into how findings are resolved after reports are issued.", score: 0 }
+        ]
+      },
+      {
+        commitment: 'Advocacy',
+        text: "In the past year, how visible has executive or board-level support for the audit function been to the broader organization?",
+        options: [
+          { text: "Leadership has visibly reinforced audit's role and the importance of its findings to operational leaders.", score: 3 },
+          { text: "Support exists but tends to operate quietly rather than publicly.", score: 2 },
+          { text: "Audit functions largely independently without much visible executive reinforcement.", score: 1 },
+          { text: "This isn't something I've given much direct attention to.", score: 0 }
+        ]
+      },
+      // ACCESS (q4, q5)
+      {
+        commitment: 'Access',
+        text: "How does your organization typically handle internal audit's access to systems and data as new platforms are deployed?",
+        options: [
+          { text: "Access for audit is established as part of the go-live process — it's built into how we deploy systems.", score: 3 },
+          { text: "Audit requests access after deployment and it is generally granted, though it takes some time.", score: 2 },
+          { text: "Access is handled case by case and can take meaningful effort to establish.", score: 1 },
+          { text: "This isn't something I have visibility into.", score: 0 }
+        ]
+      },
+      {
+        commitment: 'Access',
+        text: "How would you describe your audit function's current access to the financial, operational, and transactional data it needs to do its work?",
+        options: [
+          { text: "Audit has broad standing access and rarely needs to request data for individual engagements.", score: 3 },
+          { text: "Access is generally sufficient but requires periodic requests or coordination.", score: 2 },
+          { text: "Access is more limited than ideal and creates friction in audit work.", score: 1 },
+          { text: "I'm not certain what data access the audit function currently has.", score: 0 }
+        ]
+      },
+      // TIME (q6, q7)
+      {
+        commitment: 'Time',
+        text: "When your audit function faces competing demands between completing scheduled engagements and building new capabilities — better tools, new methodologies, skills development — how does that tension typically get resolved?",
+        options: [
+          { text: "We have protected capacity for development work that stays intact even when workload increases.", score: 3 },
+          { text: "Development is balanced against engagements but sometimes yields when capacity is tight.", score: 2 },
+          { text: "Engagements generally take priority and development work gets deferred.", score: 1 },
+          { text: "I'm not sure how that balance is managed in practice.", score: 0 }
+        ]
+      },
+      {
+        commitment: 'Time',
+        text: "Thinking about your audit function's modernization over the past two to three years — adoption of data analytics, continuous monitoring, new methodologies — how would you characterize the pace of progress?",
+        options: [
+          { text: "The function has made steady, meaningful progress and has the capacity to continue developing.", score: 3 },
+          { text: "Progress has been made but slower than we'd like, primarily due to workload constraints.", score: 2 },
+          { text: "Modernization has largely stalled — the team is consistently at capacity delivering traditional audit work.", score: 1 },
+          { text: "I don't have a clear picture of where the function stands on this.", score: 0 }
+        ]
+      },
+      // BUDGET (q8, q9)
+      {
+        commitment: 'Budget',
+        text: "How would you describe the primary basis for your organization's internal audit budget decisions?",
+        options: [
+          { text: "We have a multi-year investment roadmap for audit capability that guides annual budget decisions.", score: 3 },
+          { text: "Budget is primarily based on prior year spending with adjustments for known needs.", score: 2 },
+          { text: "Budget decisions are made reactively based on what audit requests each year.", score: 1 },
+          { text: "Audit budget decisions are made above my level and I have limited visibility.", score: 0 }
+        ]
+      },
+      {
+        commitment: 'Budget',
+        text: "When your organization makes significant technology investments — a new ERP, a warehouse management system, a major platform — how does internal audit's technology capability factor into those decisions?",
+        options: [
+          { text: "Audit's access and analytical capability for new systems is considered in parallel with the technology investment.", score: 3 },
+          { text: "Audit is considered eventually, but usually after the core technology decisions have been made.", score: 2 },
+          { text: "Audit's technology needs are generally addressed separately and after the fact.", score: 1 },
+          { text: "I haven't thought about these decisions in relation to audit capability before.", score: 0 }
+        ]
+      }
+    ];
+
+    // RESULT CONTENT BY COMMITMENT
+    const COMMITMENT_DETAIL = {
+      Alignment: {
+        strong:      "Your audit function appears well-connected to organizational strategy. Audit leaders who are in the room early tend to add substantially more value than those who arrive after decisions are made.",
+        developing:  "There is alignment, but gaps between organizational priorities and audit's focus suggest room to deepen the planning dialogue. A quarterly conversation outside of formal reporting can close this gap significantly.",
+        foundational:"Audit and leadership may be operating in parallel rather than in partnership. This is one of the most common patterns in organizations — and one of the highest-return areas to address."
+      },
+      Advocacy: {
+        strong:      "Findings are being treated as the organizational inputs they are meant to be. Visible leadership support for audit creates a culture where findings are taken seriously at every level.",
+        developing:  "The infrastructure for acting on findings is in place, but consistency is uneven. Targeted visibility from leadership on high-priority findings tends to accelerate resolution significantly.",
+        foundational:"When findings don't move through the organization with appropriate urgency, audit's investment in identifying them loses its return. Leadership reinforcement is the most direct lever here."
+      },
+      Access: {
+        strong:      "Audit has the access it needs to do high-quality work. This structural condition is often underestimated — it is the foundation on which everything else in modern audit practice is built.",
+        developing:  "Access is functional but creates friction. The move from reactive access requests to standing access for key systems is typically a one-time governance decision with lasting impact.",
+        foundational:"Limited or inconsistent access constrains audit quality in ways that are hard to see from the outside. The most analytically sophisticated audit team cannot compensate for data it cannot reach."
+      },
+      Time: {
+        strong:      "Protecting development capacity alongside delivery work is a meaningful organizational commitment. Functions that sustain this tend to compound their capability over time in ways that reactively staffed teams cannot match.",
+        developing:  "Development work is happening but is vulnerable to workload pressure. The risk is gradual capability stagnation — teams that are always at capacity delivering traditional work rarely find space to change how they work.",
+        foundational:"A function operating entirely at delivery capacity is maintaining the current baseline, not building toward what the organization will need from audit in three to five years. This is worth a direct conversation."
+      },
+      Budget: {
+        strong:      "Audit investment is being treated with the same forward-looking discipline as other organizational capabilities. Multi-year roadmaps for audit technology tend to produce meaningfully better outcomes than year-by-year decisions.",
+        developing:  "Prior-year-based budgeting is rational and common. The gap it creates is in capturing investment opportunities that don't fit neatly into incremental adjustments — particularly during periods of organizational technology change.",
+        foundational:"Reactive budget processes for audit tend to underinvest in capability at precisely the moments when capability is most needed. Connecting audit investment to the broader technology roadmap is a practical first step."
+      }
+    };
+
+    const TIER_CONTENT = {
+      strong: {
+        label: "Strong Partnership",
+        heading: "Your organization has built a genuinely high-functioning audit relationship.",
+        desc: "The conditions that allow internal audit to deliver its full value — strategic alignment, executive advocacy, data access, protected capacity, and forward-looking investment — are largely in place. The opportunity at this level is maintaining that foundation as the organization evolves and ensuring the partnership keeps pace with growing audit capability."
+      },
+      developing: {
+        label: "Developing Partnership",
+        heading: "The foundation is in place. A few targeted shifts could unlock significantly more.",
+        desc: "Your audit function has meaningful support in several areas, and the gaps that exist are largely addressable without structural change. The highest-return opportunities tend to be in the areas scoring lowest — often access, alignment, or protected development capacity. Small, deliberate changes here tend to compound quickly."
+      },
+      foundational: {
+        label: "Foundational Stage",
+        heading: "Your audit function may be delivering less than it's capable of.",
+        desc: "This is a common starting point, not a failure condition — many organizations have not had an explicit conversation about what the audit partnership should look like. The results here give you a starting point for that conversation. The gap between a foundational and a developing partnership is often narrower than it looks, and the return on closing it tends to be immediate."
+      }
+    };
+
+    const COMMITMENT_LINKS = {
+      Alignment:  { label: "Organizational Intelligence", href: "organizational-intelligence.html" },
+      Advocacy:   { label: "Executive Oversight",         href: "executive-oversight.html" },
+      Access:     { label: "Data Access",                 href: "data-access.html" },
+      Time:       { label: "Team Structure & Development",href: "team-structure.html" },
+      Budget:     { label: "Technology Strategy",         href: "technology-stack.html" }
+    };
+
+    // STATE
+    let current = 0;
+    let answers = new Array(QUESTIONS.length).fill(null);
+
+    function render() {
+      const q = QUESTIONS[current];
+      const letters = ['A','B','C','D'];
+
+      const area = document.getElementById('question-area');
+      area.innerHTML = `
+        <div class="commitment-badge">${q.commitment}</div>
+        <div class="question-card">
+          <p class="question-text">${q.text}</p>
+          <div class="options-list">
+            ${q.options.map((opt, i) => `
+              <button class="option-btn ${answers[current] === i ? 'selected' : ''}"
+                      onclick="select(${i})">
+                <span class="option-letter">${letters[i]}</span>
+                <span>${opt.text}</span>
+              </button>
+            `).join('')}
+          </div>
+        </div>
+      `;
+
+      const pct = ((current + 1) / QUESTIONS.length) * 100;
+      document.getElementById('progress-fill').style.width = pct + '%';
+      document.getElementById('progress-count').textContent =
+        `Question ${current + 1} of ${QUESTIONS.length}`;
+
+      document.getElementById('btn-prev').style.visibility = current === 0 ? 'hidden' : 'visible';
+      document.getElementById('btn-next').textContent =
+        current === QUESTIONS.length - 1 ? 'View Results →' : 'Continue →';
+      document.getElementById('btn-next').disabled = answers[current] === null;
+    }
+
+    function select(i) {
+      answers[current] = i;
+      document.getElementById('btn-next').disabled = false;
+      // re-render options to show selected state
+      const btns = document.querySelectorAll('.option-btn');
+      btns.forEach((b, idx) => {
+        b.classList.toggle('selected', idx === i);
+      });
+    }
+
+    function navigate(dir) {
+      if (dir === 1 && current === QUESTIONS.length - 1) {
+        showResults();
+        return;
+      }
+      current = Math.max(0, Math.min(QUESTIONS.length - 1, current + dir));
+      render();
+    }
+
+    function getCommitmentScore(name) {
+      const qs = QUESTIONS.map((q, i) => ({ q, i })).filter(({ q }) => q.commitment === name);
+      const total = qs.reduce((sum, { i }) => {
+        const ans = answers[i];
+        return sum + (ans !== null ? QUESTIONS[i].options[ans].score : 0);
+      }, 0);
+      const max = qs.length * 3;
+      return { score: total, max, pct: Math.round((total / max) * 100) };
+    }
+
+    function tier(pct) {
+      if (pct >= 67) return 'strong';
+      if (pct >= 34) return 'developing';
+      return 'foundational';
+    }
+
+    function tierLabel(t) {
+      return { strong: 'Strong', developing: 'Developing', foundational: 'Foundational' }[t];
+    }
+
+    function showResults() {
+      document.getElementById('quiz-panel').style.display = 'none';
+      const panel = document.getElementById('results-panel');
+      panel.style.display = 'block';
+
+      // Overall score
+      const totalScore = answers.reduce((sum, a, i) => sum + (a !== null ? QUESTIONS[i].options[a].score : 0), 0);
+      const totalMax = QUESTIONS.length * 3;
+      const overallPct = Math.round((totalScore / totalMax) * 100);
+      const overallTier = tier(overallPct);
+      const tc = TIER_CONTENT[overallTier];
+
+      // Per-commitment scores
+      const commitScores = COMMITMENTS.map(name => {
+        const s = getCommitmentScore(name);
+        return { name, ...s, tier: tier(s.pct) };
+      });
+
+      // Find priority (lowest scoring)
+      const lowest = [...commitScores].sort((a, b) => a.pct - b.pct)[0];
+
+      // Build scores HTML
+      const scoresHTML = commitScores.map(cs => {
+        const detail = COMMITMENT_DETAIL[cs.name][cs.tier];
+        return `
+          <div class="score-row">
+            <div class="score-row-header">
+              <span class="score-name">${cs.name}</span>
+              <span class="score-value">${tierLabel(cs.tier)}</span>
+            </div>
+            <div class="score-track">
+              <div class="score-fill ${cs.tier}" style="width:${cs.pct}%"></div>
+            </div>
+            <p class="score-note">${detail}</p>
+          </div>
+        `;
+      }).join('');
+
+      // Build CTA links
+      const ctaLinks = commitScores
+        .filter(cs => cs.tier !== 'strong')
+        .slice(0, 3)
+        .map(cs => {
+          const link = COMMITMENT_LINKS[cs.name];
+          return `<a href="${link.href}" class="cta-link">${link.label} <span class="cta-link-arrow">→</span></a>`;
+        }).join('');
+
+      panel.innerHTML = `
+        <div class="results-header">
+          <span class="tier-label">${tc.label}</span>
+          <h2>${tc.heading}</h2>
+          <p class="tier-desc">${tc.desc}</p>
+        </div>
+
+        <div class="commitment-scores">
+          ${scoresHTML}
+        </div>
+
+        <div class="priority-block">
+          <h3>Where to focus first: ${lowest.name}</h3>
+          <p>${COMMITMENT_DETAIL[lowest.name][lowest.tier]} A conversation with your audit leader about this area specifically is a practical next step — and one that tends to produce results quickly.</p>
+        </div>
+
+        ${ctaLinks ? `
+        <hr class="section-divider" />
+        <p style="font-size:0.78rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-dim);margin-bottom:1rem;">Explore the context behind your results</p>
+        <div class="results-ctas">${ctaLinks}</div>
+        ` : ''}
+
+        <hr class="section-divider" />
+        <button class="btn-retake" onclick="retake()">Retake Assessment</button>
+      `;
+
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function retake() {
+      current = 0;
+      answers = new Array(QUESTIONS.length).fill(null);
+      document.getElementById('results-panel').style.display = 'none';
+      document.getElementById('quiz-panel').style.display = 'block';
+      render();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // INIT
+    render();
+  </script>
+
+</body>
+</html>

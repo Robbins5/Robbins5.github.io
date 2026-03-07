@@ -717,8 +717,11 @@
       if (el) el.classList.add("is-active");
       currentScreen = id;
       saveState();
-      var anchor = document.getElementById("assessment");
-      if (anchor) window.scrollTo({ top: anchor.offsetTop - 80, behavior: "smooth" });
+      // Only scroll to assessment section if URL contains #assessment anchor
+      if (window.location.hash === '#assessment') {
+        var anchor = document.getElementById("assessment");
+        if (anchor) window.scrollTo({ top: anchor.offsetTop - 80, behavior: "smooth" });
+      }
     }
 
     /* ── Context screen ── */

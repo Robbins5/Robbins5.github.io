@@ -1,0 +1,1694 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Readiness Learning Module | The AI-Ready Audit</title>
+  <meta name="description" content="A structured AI readiness learning module for internal audit practitioners. Includes a skills assessment, personalized module sequence, knowledge checks, and a shareable completion summary." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+
+<style>
+/* ---- Reset and base ---- */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { font-size: 16px; }
+body {
+  font-family: ui-sans-serif, system-ui, -apple-system, sans-serif;
+  background: #141416;
+  color: #e8e5e0;
+  min-height: 100vh;
+  line-height: 1.6;
+}
+a { color: #8c6f3f; }
+p { margin-bottom: 1rem; }
+p:last-child { margin-bottom: 0; }
+ul, ol { padding-left: 1.4rem; }
+li { margin-bottom: 0.4rem; }
+strong { color: #f5f2ec; font-weight: 600; }
+
+/* ---- Header ---- */
+.l-header {
+  background: rgba(20,20,22,0.97);
+  border-bottom: 1px solid rgba(140,111,63,0.18);
+  padding: 0 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 60px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+.l-brand {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #f5f2ec;
+  text-decoration: none;
+  letter-spacing: -0.01em;
+}
+.l-back {
+  font-size: 0.8rem;
+  color: rgba(140,111,63,0.7);
+  text-decoration: none;
+  transition: color 180ms;
+}
+.l-back:hover { color: #8c6f3f; }
+
+/* ---- Main layout ---- */
+.l-main {
+  min-height: calc(100vh - 60px);
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 3rem 1.5rem;
+}
+
+/* ---- Screen containers ---- */
+.screen {
+  display: none;
+  width: 100%;
+  max-width: 720px;
+}
+.screen.active { display: block; }
+
+/* ---- Cards ---- */
+.card {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 16px;
+  padding: 2.5rem;
+}
+@media (max-width: 600px) {
+  .card { padding: 1.75rem 1.25rem; }
+}
+
+/* ---- Typography ---- */
+.serif { font-family: 'Cormorant Garamond', serif; }
+.kicker {
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(140,111,63,0.8);
+  margin-bottom: 0.75rem;
+  display: block;
+}
+.screen-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(1.75rem, 4vw, 2.4rem);
+  font-weight: 400;
+  color: #f5f2ec;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  margin-bottom: 1rem;
+}
+.screen-body {
+  color: rgba(255,255,255,0.55);
+  font-size: 0.92rem;
+  line-height: 1.75;
+  margin-bottom: 2rem;
+}
+.section-label {
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(140,111,63,0.6);
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+/* ---- Buttons ---- */
+.btn-primary {
+  display: inline-block;
+  padding: 12px 24px;
+  background: #8c6f3f;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-family: ui-sans-serif, system-ui, sans-serif;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 180ms;
+  text-decoration: none;
+}
+.btn-primary:hover { background: #7a6137; }
+.btn-secondary {
+  display: inline-block;
+  padding: 11px 22px;
+  background: transparent;
+  color: rgba(255,255,255,0.55);
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 8px;
+  font-family: ui-sans-serif, system-ui, sans-serif;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: border-color 180ms, color 180ms;
+  text-decoration: none;
+}
+.btn-secondary:hover { border-color: rgba(255,255,255,0.35); color: #e8e5e0; }
+.btn-ghost {
+  background: transparent;
+  border: none;
+  color: rgba(140,111,63,0.6);
+  font-family: ui-sans-serif, system-ui, sans-serif;
+  font-size: 0.82rem;
+  cursor: pointer;
+  padding: 4px 0;
+  transition: color 180ms;
+}
+.btn-ghost:hover { color: #8c6f3f; }
+.btn-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  align-items: center;
+  margin-top: 1.5rem;
+}
+
+/* ---- Role selector cards ---- */
+.role-grid {
+  display: grid;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+.role-card {
+  background: rgba(255,255,255,0.025);
+  border: 1px solid rgba(140,111,63,0.2);
+  border-radius: 12px;
+  padding: 1.25rem 1.5rem;
+  cursor: pointer;
+  transition: border-color 200ms, background 200ms;
+  text-align: left;
+  width: 100%;
+}
+.role-card:hover {
+  border-color: rgba(140,111,63,0.5);
+  background: rgba(140,111,63,0.06);
+}
+.role-card.selected {
+  border-color: #8c6f3f;
+  background: rgba(140,111,63,0.09);
+}
+.role-card-title {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #f5f2ec;
+  margin-bottom: 0.25rem;
+}
+.role-card-desc {
+  font-size: 0.83rem;
+  color: rgba(255,255,255,0.45);
+  line-height: 1.5;
+}
+.role-card-modules {
+  font-size: 0.75rem;
+  color: rgba(140,111,63,0.7);
+  margin-top: 0.5rem;
+}
+
+/* ---- Assessment ---- */
+.q-counter {
+  font-size: 0.78rem;
+  color: rgba(255,255,255,0.3);
+  margin-bottom: 1.5rem;
+}
+.q-progress {
+  height: 3px;
+  background: rgba(255,255,255,0.08);
+  border-radius: 2px;
+  margin-bottom: 2rem;
+  overflow: hidden;
+}
+.q-progress-bar {
+  height: 100%;
+  background: #8c6f3f;
+  border-radius: 2px;
+  transition: width 300ms ease;
+}
+.q-text {
+  font-size: 1.05rem;
+  color: #f5f2ec;
+  line-height: 1.55;
+  margin-bottom: 0.4rem;
+  font-weight: 500;
+}
+.q-dimension {
+  font-size: 0.75rem;
+  color: rgba(140,111,63,0.6);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+}
+.answer-grid {
+  display: grid;
+  gap: 0.6rem;
+  margin-bottom: 2rem;
+}
+.answer-btn {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 8px;
+  padding: 12px 16px;
+  font-family: ui-sans-serif, system-ui, sans-serif;
+  font-size: 0.88rem;
+  color: rgba(255,255,255,0.6);
+  cursor: pointer;
+  text-align: left;
+  transition: border-color 180ms, background 180ms, color 180ms;
+  line-height: 1.4;
+}
+.answer-btn:hover {
+  border-color: rgba(140,111,63,0.5);
+  background: rgba(140,111,63,0.06);
+  color: #f5f2ec;
+}
+.answer-btn.selected {
+  border-color: #8c6f3f;
+  background: rgba(140,111,63,0.1);
+  color: #f5f2ec;
+}
+
+/* ---- Radar chart ---- */
+.radar-wrap {
+  display: flex;
+  justify-content: center;
+  margin: 2rem 0;
+}
+.radar-legend {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5rem 1rem;
+  margin-bottom: 1.5rem;
+}
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.8rem;
+  color: rgba(255,255,255,0.55);
+}
+.legend-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #8c6f3f;
+  flex-shrink: 0;
+}
+
+/* ---- Module view ---- */
+.module-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+}
+.module-progress-text {
+  font-size: 0.78rem;
+  color: rgba(255,255,255,0.3);
+  white-space: nowrap;
+}
+.module-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.75rem;
+  font-weight: 400;
+  color: #f5f2ec;
+  line-height: 1.25;
+  margin-bottom: 1.25rem;
+}
+.module-content {
+  font-size: 0.9rem;
+  color: rgba(255,255,255,0.62);
+  line-height: 1.8;
+}
+.module-content h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #f5f2ec;
+  margin: 1.5rem 0 0.5rem;
+}
+.module-content h3:first-child { margin-top: 0; }
+.module-content ul { margin-bottom: 1rem; }
+.module-content p { margin-bottom: 1rem; }
+.module-content p:last-child { margin-bottom: 0; }
+.module-divider {
+  height: 1px;
+  background: rgba(255,255,255,0.07);
+  margin: 2rem 0;
+}
+
+/* ---- Knowledge check ---- */
+.kc-box {
+  background: rgba(140,111,63,0.05);
+  border: 1px solid rgba(140,111,63,0.2);
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin-top: 2rem;
+}
+.kc-label {
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(140,111,63,0.7);
+  margin-bottom: 0.75rem;
+  display: block;
+}
+.kc-question {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #f5f2ec;
+  margin-bottom: 1rem;
+  line-height: 1.5;
+}
+.kc-options { display: grid; gap: 0.5rem; margin-bottom: 1rem; }
+.kc-opt {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 6px;
+  padding: 10px 14px;
+  font-size: 0.86rem;
+  color: rgba(255,255,255,0.6);
+  cursor: pointer;
+  text-align: left;
+  transition: all 180ms;
+  font-family: ui-sans-serif, system-ui, sans-serif;
+  line-height: 1.4;
+}
+.kc-opt:hover { border-color: rgba(140,111,63,0.45); color: #e8e5e0; }
+.kc-opt.correct { border-color: #4caf82; background: rgba(76,175,130,0.08); color: #4caf82; }
+.kc-opt.incorrect { border-color: rgba(200,80,80,0.5); background: rgba(200,80,80,0.06); color: rgba(200,80,80,0.8); }
+.kc-feedback {
+  font-size: 0.84rem;
+  line-height: 1.6;
+  padding: 10px 14px;
+  border-radius: 6px;
+  display: none;
+}
+.kc-feedback.show { display: block; }
+.kc-feedback.correct { color: #4caf82; background: rgba(76,175,130,0.07); }
+.kc-feedback.incorrect { color: rgba(220,120,120,0.9); background: rgba(200,80,80,0.06); }
+
+/* ---- Completion ---- */
+.profile-badge {
+  text-align: center;
+  padding: 2.5rem 0 1.5rem;
+}
+.profile-level {
+  display: inline-block;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2.2rem;
+  font-weight: 400;
+  color: #8c6f3f;
+  margin-bottom: 0.5rem;
+}
+.profile-desc {
+  font-size: 0.88rem;
+  color: rgba(255,255,255,0.45);
+  max-width: 48ch;
+  margin: 0 auto;
+  line-height: 1.7;
+}
+.summary-box {
+  background: rgba(255,255,255,0.02);
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 10px;
+  padding: 1.25rem 1.5rem;
+  font-size: 0.82rem;
+  color: rgba(255,255,255,0.4);
+  font-family: ui-monospace, 'Courier New', monospace;
+  white-space: pre-wrap;
+  line-height: 1.8;
+  margin-bottom: 1.5rem;
+}
+.copy-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 8px 16px;
+  background: rgba(140,111,63,0.1);
+  border: 1px solid rgba(140,111,63,0.3);
+  border-radius: 6px;
+  font-size: 0.8rem;
+  color: #8c6f3f;
+  cursor: pointer;
+  font-family: ui-sans-serif, system-ui, sans-serif;
+  transition: background 180ms;
+}
+.copy-btn:hover { background: rgba(140,111,63,0.18); }
+
+/* ---- Score bars ---- */
+.score-bars { display: grid; gap: 0.75rem; margin: 1.5rem 0; }
+.score-row { display: flex; align-items: center; gap: 0.75rem; }
+.score-label { font-size: 0.8rem; color: rgba(255,255,255,0.5); min-width: 160px; flex-shrink: 0; }
+.score-track {
+  flex: 1;
+  height: 6px;
+  background: rgba(255,255,255,0.07);
+  border-radius: 3px;
+  overflow: hidden;
+}
+.score-fill {
+  height: 100%;
+  background: #8c6f3f;
+  border-radius: 3px;
+  transition: width 600ms ease;
+}
+.score-val { font-size: 0.78rem; color: rgba(140,111,63,0.7); min-width: 30px; text-align: right; }
+
+/* ---- Divider ---- */
+.divider { height: 1px; background: rgba(255,255,255,0.07); margin: 2rem 0; }
+</style>
+</head>
+
+<body>
+
+  <header class="l-header">
+    <a class="l-brand" href="index.html">The AI-Ready Audit</a>
+    <a class="l-back" href="auditing-ai.html">&larr; Auditing AI Reference</a>
+  </header>
+
+  <main class="l-main">
+
+    <!-- ====================================================
+         SCREEN 1: ROLE SELECTION
+    ==================================================== -->
+    <div class="screen active" id="screen-role">
+      <div class="card">
+        <span class="kicker">AI Readiness Learning Module</span>
+        <h1 class="screen-title">Who are you?</h1>
+        <p class="screen-body">
+          Select your role to get a personalized learning path. Each path covers the same core concepts
+          from a different angle -- governance and oversight for executives, program design for leaders,
+          and technical depth for practitioners.
+        </p>
+
+        <div class="role-grid" id="role-grid">
+
+          <button class="role-card" data-role="executive" onclick="selectRole('executive')">
+            <div class="role-card-title">Executive / Board Member</div>
+            <div class="role-card-desc">Governance expectations, regulatory direction, and the three questions you should be able to answer about your organization's AI posture.</div>
+            <div class="role-card-modules">6 modules &mdash; approximately 25 minutes</div>
+          </button>
+
+          <button class="role-card" data-role="leader" onclick="selectRole('leader')">
+            <div class="role-card-title">Audit Leader / CAE</div>
+            <div class="role-card-desc">AI governance program design, control environment assessment, evidence standards, and team capability development.</div>
+            <div class="role-card-modules">10 modules &mdash; approximately 50 minutes</div>
+          </button>
+
+          <button class="role-card" data-role="practitioner" onclick="selectRole('practitioner')">
+            <div class="role-card-title">Audit Practitioner / Manager</div>
+            <div class="role-card-desc">Starts with a 15-question skills assessment to personalize the sequence. Covers technical depth, evidence standards, and tool use for fieldwork.</div>
+            <div class="role-card-modules">Skills assessment + 8 modules &mdash; approximately 45 minutes</div>
+          </button>
+
+          <button class="role-card" data-role="full" onclick="selectRole('full')">
+            <div class="role-card-title">Full Sequence</div>
+            <div class="role-card-desc">All 10 modules in logical order. Suitable for training programs, team study, or building a complete picture of the AI audit landscape.</div>
+            <div class="role-card-modules">10 modules &mdash; approximately 55 minutes</div>
+          </button>
+
+        </div>
+
+        <p style="font-size:0.78rem;color:rgba(255,255,255,0.25);line-height:1.6;">
+          Progress is saved in your browser session. Closing the tab will reset the module.
+          The completion summary can be copied as text to share with your manager or team.
+        </p>
+      </div>
+    </div>
+
+    <!-- ====================================================
+         SCREEN 2: PRACTITIONER SKILLS ASSESSMENT
+    ==================================================== -->
+    <div class="screen" id="screen-assessment">
+      <div class="card">
+        <span class="kicker">Skills Assessment</span>
+        <h2 class="screen-title">Where are you starting from?</h2>
+        <p class="screen-body">
+          15 questions across five dimensions. Your responses shape the learning sequence --
+          the module path will prioritize the areas where your self-assessment indicates the most room to grow.
+          There are no wrong answers. Respond based on your actual experience.
+        </p>
+
+        <div class="q-counter" id="q-counter">Question 1 of 15</div>
+        <div class="q-progress">
+          <div class="q-progress-bar" id="q-progress-bar" style="width:0%"></div>
+        </div>
+
+        <div id="q-display">
+          <!-- Populated by JS -->
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ====================================================
+         SCREEN 3: MODULE VIEW
+    ==================================================== -->
+    <div class="screen" id="screen-module">
+      <div class="card">
+        <div class="module-header">
+          <div>
+            <span class="kicker" id="mod-kicker">Module</span>
+            <div class="module-progress-text" id="mod-progress-text"></div>
+          </div>
+          <button class="btn-ghost" onclick="exitModule()">Exit module</button>
+        </div>
+
+        <h2 class="module-title" id="mod-title"></h2>
+
+        <div class="module-content" id="mod-content"></div>
+
+        <div class="module-divider"></div>
+
+        <!-- Knowledge check -->
+        <div class="kc-box" id="kc-box">
+          <span class="kc-label">Knowledge Check</span>
+          <p class="kc-question" id="kc-question"></p>
+          <div class="kc-options" id="kc-options"></div>
+          <div class="kc-feedback" id="kc-feedback"></div>
+        </div>
+
+        <div class="btn-row" id="mod-btn-row">
+          <button class="btn-primary" id="mod-next-btn" onclick="nextModule()" style="display:none;">Next Module &rarr;</button>
+          <button class="btn-primary" id="mod-finish-btn" onclick="finishModule()" style="display:none;">Finish &rarr;</button>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ====================================================
+         SCREEN 4: COMPLETION
+    ==================================================== -->
+    <div class="screen" id="screen-complete">
+      <div class="card">
+        <span class="kicker">Module Complete</span>
+        <h2 class="screen-title">Your AI readiness profile</h2>
+
+        <div class="profile-badge">
+          <div class="profile-level" id="profile-level"></div>
+          <p class="profile-desc" id="profile-desc"></p>
+        </div>
+
+        <!-- Practitioner radar chart -->
+        <div id="radar-section" style="display:none;">
+          <div class="divider"></div>
+          <span class="section-label">Skills Assessment Results</span>
+          <div class="radar-wrap" id="radar-wrap">
+            <!-- SVG injected by JS -->
+          </div>
+          <div class="radar-legend" id="radar-legend"></div>
+          <div class="score-bars" id="score-bars"></div>
+        </div>
+
+        <div class="divider"></div>
+
+        <span class="section-label">Shareable Summary</span>
+        <p style="font-size:0.82rem;color:rgba(255,255,255,0.35);margin-bottom:0.75rem;line-height:1.6;">
+          Copy this summary to share with your manager or team as a development baseline.
+          It does not include personal data -- only your profile, dimension scores, and date.
+        </p>
+        <div class="summary-box" id="summary-box"></div>
+        <div class="btn-row">
+          <button class="copy-btn" onclick="copySummary()">
+            <span id="copy-label">Copy summary</span>
+          </button>
+          <a class="btn-secondary" href="auditing-ai.html">Back to reference page</a>
+        </div>
+
+        <div class="divider"></div>
+
+        <p style="font-size:0.82rem;color:rgba(255,255,255,0.3);line-height:1.6;">
+          Want to retake a different path?
+          <button class="btn-ghost" onclick="resetModule()" style="display:inline;margin-left:4px;">Start over</button>
+        </p>
+
+      </div>
+    </div>
+
+  </main>
+
+<script>
+/* ============================================================
+   STATE
+   ============================================================ */
+var STATE_KEY = 'ai-learning-state';
+var state = {
+  role: null,
+  assessmentAnswers: [],  // array of 0-4 per question
+  moduleSequence: [],     // array of module IDs
+  currentModuleIndex: 0,
+  kcAnswered: false,
+  kcCorrect: false,
+  dimensionScores: {},    // for practitioner radar
+  knowledgeCheckScore: 0,
+  totalKC: 0
+};
+
+/* ============================================================
+   ROLES AND PATHS
+   ============================================================ */
+var PATHS = {
+  executive:   ['ai-gov-landscape', 'what-ai-does', 'risk-classification', 'executive-questions', 'audit-coverage', 'regulatory-direction'],
+  leader:      ['what-ai-does', 'ai-gov-landscape', 'risk-classification', 'control-environment', 'evidence-standards', 'audit-program-build', 'vendor-ai', 'audit-tool-use', 'team-capability', 'regulatory-direction'],
+  practitioner:['what-ai-does', 'control-environment', 'evidence-standards', 'glossary-deep', 'audit-tool-use', 'vendor-ai', 'team-capability', 'regulatory-direction'],
+  full:        ['what-ai-does', 'ai-gov-landscape', 'risk-classification', 'control-environment', 'evidence-standards', 'glossary-deep', 'audit-program-build', 'vendor-ai', 'audit-tool-use', 'team-capability']
+};
+
+/* ============================================================
+   ASSESSMENT QUESTIONS (15 questions, 5 dimensions, 3 each)
+   ============================================================ */
+var DIMENSIONS = [
+  { id: 'foundations', label: 'AI Foundations' },
+  { id: 'governance',  label: 'Governance Literacy' },
+  { id: 'fieldwork',   label: 'Fieldwork Application' },
+  { id: 'tools',       label: 'Tools and Data' },
+  { id: 'currency',    label: 'Staying Current' }
+];
+
+var QUESTIONS = [
+  // AI Foundations (3)
+  {
+    dim: 'foundations',
+    text: 'When a colleague says "AI" in a meeting, how confident are you that you understand what type of system they mean?',
+    answers: [
+      'I treat it as a generic term and do not try to clarify',
+      'I have a rough idea but would not feel comfortable asking follow-up questions',
+      'I usually know whether they mean rule-based automation, ML, or generative AI',
+      'I can ask precise follow-up questions that surface the specific system type and its governance implications'
+    ]
+  },
+  {
+    dim: 'foundations',
+    text: 'How would you describe the difference between a rule-based system and a machine learning model to a business process owner?',
+    answers: [
+      'I would not be comfortable explaining this distinction',
+      'I can give a rough explanation but it would not be precise',
+      'I can explain the distinction clearly with a relevant example from their area',
+      'I can explain it, relate it to the specific control implications for their process, and identify what evidence each type requires'
+    ]
+  },
+  {
+    dim: 'foundations',
+    text: 'If a vendor claims their pricing tool uses "AI," what is your first substantive audit question?',
+    answers: [
+      'I would not know what to ask beyond "what does it do?"',
+      'I would ask what data it uses',
+      'I would ask how the model was trained, what it was validated against, and what monitoring is in place',
+      'I would ask for the model documentation, training data schema, validation report, and performance monitoring thresholds -- and note which ones do not exist'
+    ]
+  },
+  // Governance Literacy (3)
+  {
+    dim: 'governance',
+    text: 'How familiar are you with the NIST AI Risk Management Framework?',
+    answers: [
+      'I have not read it',
+      'I know it exists and have a rough sense of what it covers',
+      'I have read it and can describe the four functions (Govern, Map, Measure, Manage)',
+      'I can apply the NIST AI RMF as an audit framework and reference specific requirements in fieldwork'
+    ]
+  },
+  {
+    dim: 'governance',
+    text: 'How would you assess whether an organization\'s AI governance program is complete?',
+    answers: [
+      'I would not know where to start',
+      'I would look for a policy and ask who is responsible',
+      'I would assess inventory completeness, risk classification, governance structure, and monitoring',
+      'I would assess all core governance elements, test each against documented evidence, and identify which gaps are design versus operating deficiencies'
+    ]
+  },
+  {
+    dim: 'governance',
+    text: 'What is your understanding of how the EU AI Act categorizes risk?',
+    answers: [
+      'I am not familiar with the EU AI Act',
+      'I know it exists and applies to some AI systems but do not know the specifics',
+      'I understand the risk tiers (unacceptable, high, limited, minimal) and which categories apply to typical enterprise deployments',
+      'I can identify which tier applies to specific systems in scope and what the documentation and oversight requirements are for each tier'
+    ]
+  },
+  // Fieldwork Application (3)
+  {
+    dim: 'fieldwork',
+    text: 'Have you designed or executed an audit procedure that tested an AI or automated decision-making system?',
+    answers: [
+      'No -- this has not come up in my work',
+      'I have been involved in an engagement that touched this area but did not lead the AI-specific testing',
+      'I have designed and executed AI-related procedures on one or more engagements',
+      'I have led multiple AI-related engagements and can describe what worked and what I would do differently'
+    ]
+  },
+  {
+    dim: 'fieldwork',
+    text: 'When testing whether a "human-in-the-loop" control is effective, what evidence would you require?',
+    answers: [
+      'I would confirm a human reviews outputs before action is taken',
+      'I would look for an approval workflow in the system',
+      'I would test whether reviewers have the time, information, and authority to actually override the model, not just click through',
+      'I would test substantive review evidence, override rates and patterns, and whether low override rates indicate rubber-stamping versus genuine human judgment'
+    ]
+  },
+  {
+    dim: 'fieldwork',
+    text: 'How do you approach documenting a finding related to model drift in an audit workpaper?',
+    answers: [
+      'I have not encountered this scenario',
+      'I would describe that the model performance has degraded',
+      'I would document the condition, criteria (the monitoring standard that should exist), cause, and effect on control reliability',
+      'I would document all CCER elements, quantify the impact where possible, and include the specific performance metrics that demonstrate the drift and its business effect'
+    ]
+  },
+  // Tools and Data (3)
+  {
+    dim: 'tools',
+    text: 'How would you describe your ability to query structured data to test AI model inputs or outputs?',
+    answers: [
+      'I do not use data query tools in my work',
+      'I can run simple queries with guidance but am not independent in this area',
+      'I can write SQL or use BI tools to extract and analyze relevant data populations',
+      'I can design population-level analyses, handle data quality issues, and build repeatable query routines for ongoing monitoring'
+    ]
+  },
+  {
+    dim: 'tools',
+    text: 'If you wanted to assess whether a pricing algorithm was producing consistently different outcomes for similar customers, what would your approach be?',
+    answers: [
+      'I would not know where to start with this analysis',
+      'I would request a sample and compare outcomes manually',
+      'I would extract the full population with relevant attributes and use analytical tools to identify patterns',
+      'I would design a stratified analysis across relevant variables, test for statistical significance, and document the methodology clearly enough for management to replicate it'
+    ]
+  },
+  {
+    dim: 'tools',
+    text: 'Your organization is considering using an LLM to assist with document review in audit. What governance question do you raise first?',
+    answers: [
+      'I would not know what to ask about this',
+      'I would ask whether it is accurate',
+      'I would ask which audit data can be entered into the tool and whether confidential evidence is permitted under our data handling policy',
+      'I would raise data handling policy, verification requirements, disclosure standards for AI-assisted work, and tool approval status -- before any use begins'
+    ]
+  },
+  // Staying Current (3)
+  {
+    dim: 'currency',
+    text: 'How do you currently stay informed about AI governance developments relevant to internal audit?',
+    answers: [
+      'I do not have a practice for this -- I pick up what comes through general news',
+      'I read IIA or ISACA publications when AI topics come up',
+      'I follow primary sources (NIST, IIA Standards, SEC guidance) and relevant practitioner communities',
+      'I monitor primary regulatory sources, enforcement actions, and practitioner research as a regular practice'
+    ]
+  },
+  {
+    dim: 'currency',
+    text: 'How confident are you in your ability to explain the AI governance landscape to your audit committee?',
+    answers: [
+      'Not confident -- I would need significant preparation',
+      'I could give a general overview but would not go into specifics',
+      'I could present the major frameworks, key requirements, and how they apply to our organization',
+      'I could present a structured briefing including current regulatory status, enforcement signals, our organization\'s posture, and audit\'s coverage plan'
+    ]
+  },
+  {
+    dim: 'currency',
+    text: 'Have you completed any structured learning on AI governance, AI auditing, or related topics in the past 12 months?',
+    answers: [
+      'No structured learning in this area',
+      'I have attended a webinar or short session',
+      'I have completed a full course or certificate program',
+      'I have completed structured learning and applied it to actual audit work or team development'
+    ]
+  }
+];
+
+/* ============================================================
+   MODULES (10 total with full content and knowledge checks)
+   ============================================================ */
+var MODULES = {
+
+  'what-ai-does': {
+    title: 'How AI Systems Actually Work',
+    kicker: 'Foundations',
+    content: `
+      <p>Most internal audit practitioners encounter AI governance before they encounter AI itself. The result is governance frameworks applied to systems that are not fully understood -- which produces audit work that sounds authoritative but misses the controls that actually matter.</p>
+
+      <h3>The enterprise AI stack</h3>
+      <p>Enterprise AI deployments are almost never custom-built models. They are vendor-supplied systems, cloud-hosted APIs, or AI features embedded in platforms the organization already uses. The ERP pricing module, the demand forecasting tool, the credit decisioning system -- these are AI in practice.</p>
+      <p>The components relevant to audit:</p>
+      <ul>
+        <li><strong>Training data</strong> -- the historical records used to develop the model's behavior. What it learned, and from what.</li>
+        <li><strong>Feature engineering</strong> -- how raw data is transformed into model inputs. Most bias and instability enters here.</li>
+        <li><strong>Model</strong> -- the algorithm or neural network. Usually vendor-controlled; audit access is typically limited to outputs.</li>
+        <li><strong>Deployment infrastructure</strong> -- version control, environment separation, access controls.</li>
+        <li><strong>Monitoring layer</strong> -- what detects when performance degrades.</li>
+        <li><strong>Human decision interface</strong> -- how outputs reach people and what override mechanisms exist.</li>
+      </ul>
+
+      <h3>Model types in electrical distribution</h3>
+      <p>Demand forecasting, pricing optimization, credit decisioning, workflow automation, and predictive maintenance are the most common AI deployment types in this sector. Each has distinct audit implications -- pricing requires fairness analysis, credit may have regulatory exposure, automation requires override control testing.</p>
+
+      <h3>The lifecycle gap</h3>
+      <p>The most common governance failure is not deploying a bad model. It is failing to govern the model after deployment. Models drift as conditions change. Training data becomes unrepresentative. Audit programs that test deployment but not ongoing performance leave the highest-risk period uncovered. Credible AI coverage requires pre-deployment validation, post-deployment monitoring, and periodic revalidation.</p>
+    `,
+    kc: {
+      question: 'A vendor pricing tool is described as "AI-powered." Which component is most likely to be the source of bias or inconsistency in its outputs?',
+      options: [
+        'The deployment infrastructure',
+        'The feature engineering and training data',
+        'The version control system',
+        'The user access controls'
+      ],
+      correct: 1,
+      feedback: {
+        correct: 'Correct. Feature engineering and training data are where bias most commonly enters. The model learns from what it is fed -- if the training data reflects historical pricing patterns that disadvantaged certain customers, the model will reproduce that pattern.',
+        incorrect: 'The most common source of bias is feature engineering and training data. The model learns from what it is fed -- governance of what goes in is where the control risk lives.'
+      }
+    }
+  },
+
+  'ai-gov-landscape': {
+    title: 'The AI Governance Landscape',
+    kicker: 'Regulatory Context',
+    content: `
+      <p>AI governance is converging around a set of common principles even as specific requirements diverge by jurisdiction, industry, and system type. Practitioners need a working model of both layers -- the principles that appear consistently across frameworks, and the specific requirements that apply to the organization's actual exposure.</p>
+
+      <h3>Frameworks in force or development</h3>
+      <ul>
+        <li><strong>EU AI Act (2024)</strong> -- The most comprehensive binding regulation currently in force. Risk-tiered requirements. High-risk systems (including those making consequential decisions about people) require conformity assessments, transparency documentation, and human oversight mechanisms. Organizations with EU customer exposure should have confirmed their tier classification.</li>
+        <li><strong>NIST AI RMF (2023)</strong> -- Voluntary but widely adopted. Four functions: Govern, Map, Measure, Manage. Increasingly referenced in U.S. federal examinations and used as an audit framework basis. The most practically useful framework for audit program design.</li>
+        <li><strong>SEC AI disclosure guidance</strong> -- Material AI-related risks require disclosure. Enforcement is active on gaps between AI use and disclosed risks. Relevant for public companies and their audit functions.</li>
+        <li><strong>FTC guidance</strong> -- Focus on automated decision-making fairness and deceptive AI claims. Particularly relevant for pricing and credit systems.</li>
+        <li><strong>2024 IIA Standards</strong> -- Explicit expectations for audit to understand technology-enabled processes. Methodology standards require appropriate techniques for technology-dependent environments.</li>
+      </ul>
+
+      <h3>The convergence principles</h3>
+      <p>Eight requirements appear consistently across all major frameworks:</p>
+      <ul>
+        <li>Documented purpose and scope for each system</li>
+        <li>Risk classification or tiering at deployment</li>
+        <li>Training data documentation and quality standards</li>
+        <li>Human oversight with defined escalation paths</li>
+        <li>Performance monitoring and drift detection</li>
+        <li>Incident response for model failures</li>
+        <li>Bias and fairness assessment for consequential decisions</li>
+        <li>Vendor management for third-party AI systems</li>
+      </ul>
+      <p>An AI governance program that addresses these eight requirements will be substantially aligned with all current major frameworks, regardless of which specific regulation applies to the organization.</p>
+    `,
+    kc: {
+      question: 'Which of the following NIST AI RMF functions is responsible for establishing the organizational policies, processes, and accountability structures for AI governance?',
+      options: [
+        'Map',
+        'Measure',
+        'Govern',
+        'Manage'
+      ],
+      correct: 2,
+      feedback: {
+        correct: 'Correct. The Govern function establishes the organizational context -- policies, accountability structures, risk tolerance, and workforce preparation. Map identifies and categorizes risk. Measure assesses risk. Manage handles response and ongoing monitoring.',
+        incorrect: 'The Govern function establishes organizational context -- policies, accountability structures, and risk tolerance. Map identifies risk. Measure assesses it. Manage handles response and monitoring.'
+      }
+    }
+  },
+
+  'risk-classification': {
+    title: 'AI Risk Classification',
+    kicker: 'Governance Framework',
+    content: `
+      <p>Risk classification is the foundational governance control for AI programs. It determines what oversight requirements apply to each system, who must approve deployment, and what ongoing monitoring is required. An incomplete or inconsistently applied classification system means the governance program is built on an inaccurate map of the organization's actual AI risk exposure.</p>
+
+      <h3>Classification criteria</h3>
+      <p>A practical risk classification framework for enterprise AI uses two dimensions: consequence severity and decision autonomy.</p>
+      <p><strong>Consequence severity</strong> -- what happens if the system performs incorrectly? Low: informational outputs with no direct business decision. Medium: advisory outputs that influence decisions but are reviewed by humans. High: outputs that directly drive consequential decisions, affect regulated activities, or operate with minimal human review.</p>
+      <p><strong>Decision autonomy</strong> -- how much human review occurs before action is taken? Low: significant human review with real override capability. High: automated action with nominal or no human review.</p>
+
+      <h3>The classification gap</h3>
+      <p>The most common audit finding in this area is not an absent classification framework -- it is classification that was applied at one point and has not been maintained as systems evolved. A system that was classified as medium-risk two years ago may have expanded its scope, reduced human oversight, or been integrated with other systems in ways that changed its actual risk tier.</p>
+
+      <h3>What audit should test</h3>
+      <ul>
+        <li>Is there a classification framework with defined criteria?</li>
+        <li>Has it been applied to all systems in the AI inventory?</li>
+        <li>Are classification decisions documented and approved by an appropriate authority?</li>
+        <li>Is reclassification triggered when system scope changes?</li>
+        <li>Do the controls in place match the documented risk tier?</li>
+      </ul>
+    `,
+    kc: {
+      question: 'An automated pricing tool applies margin adjustments to customer quotes without human review before they are presented to the customer. Under a consequence-severity / decision-autonomy framework, how should this be classified?',
+      options: [
+        'Low risk -- pricing is a routine business function',
+        'Medium risk -- it affects customers but is not a regulated activity',
+        'High risk -- consequential decisions with no substantive human review',
+        'Classification depends only on whether the activity is regulated'
+      ],
+      correct: 2,
+      feedback: {
+        correct: 'Correct. High consequence (directly affects customer pricing outcomes) combined with high autonomy (no human review before action) places this in the high-risk tier regardless of whether a specific regulation applies. The combination of consequential output and minimal oversight is the risk driver.',
+        incorrect: 'This system has high consequence severity (directly affects customer pricing) and high decision autonomy (no human review). That combination places it in the high-risk tier. Classification is not limited to regulated activities.'
+      }
+    }
+  },
+
+  'control-environment': {
+    title: 'The AI Control Environment',
+    kicker: 'Control Design',
+    content: `
+      <p>AI systems require controls that layer on top of -- not replace -- existing IT general controls. Understanding the distinction prevents both scope duplication and coverage gaps.</p>
+
+      <h3>What ITGC covers (and what it does not)</h3>
+      <p>Standard ITGC testing covers access controls, change management, operations, and availability. These apply to AI systems the same way they apply to any software system. Confirm ITGC coverage extends to AI infrastructure. Do not re-perform ITGC testing under an AI audit label.</p>
+      <p>What ITGC does not cover: the AI-specific controls that govern what the system is doing, not just how it is operated.</p>
+
+      <h3>AI-specific controls</h3>
+      <ul>
+        <li><strong>Data lineage and training data controls</strong> -- Documentation of where training data originated, how it was cleaned, and whether it was reviewed for representativeness. Most organizations lack documentation here. Evidence: data dictionary, training data schema, quality review records.</li>
+        <li><strong>Model validation</strong> -- Independent validation before deployment. In higher-risk applications, validation should be performed by someone other than the model developer. Evidence: validation report, validator independence documentation.</li>
+        <li><strong>Performance monitoring</strong> -- Ongoing tracking of accuracy metrics, drift indicators, and output distributions. Monitoring without defined alert thresholds is surveillance, not control. Evidence: monitoring dashboard, threshold documentation, alert history.</li>
+        <li><strong>Human override controls</strong> -- Defined process for when and how humans override model outputs. Override activity should be logged and analyzed. Evidence: override logs, analysis cadence, reviewer accountability.</li>
+        <li><strong>Explainability requirements</strong> -- For consequential decisions, can an explanation be produced? Testing: request an explanation for a recent adverse output and assess whether it is credible and complete.</li>
+        <li><strong>Retraining controls</strong> -- Triggers, frequency, and approval for retraining. Ad hoc retraining without approval is a change management failure. Evidence: retraining policy, approval records.</li>
+      </ul>
+
+      <h3>The human-in-the-loop trap</h3>
+      <p>Many governance programs describe controls as "human-in-the-loop" when what exists is a human who receives a notification but lacks the time, information, or authority to actually evaluate it. Testing this control requires assessing substantive review -- not just the existence of an approval step.</p>
+    `,
+    kc: {
+      question: 'You are testing a "human-in-the-loop" approval control for an AI-generated credit recommendation. The approval log shows 98% of recommendations are approved within two minutes. What does this pattern most likely indicate?',
+      options: [
+        'The AI model is performing very accurately',
+        'The approval control may be a rubber stamp rather than substantive review',
+        'Human reviewers are highly efficient',
+        'The credit criteria are well-defined'
+      ],
+      correct: 1,
+      feedback: {
+        correct: 'Correct. A 98% approval rate with two-minute turnaround is a red flag for rubber-stamping. Substantive human review requires time to evaluate the recommendation against the criteria. The pattern does not prove the control is ineffective, but it warrants testing the quality of review -- do approvers have the information and time to actually evaluate?',
+        incorrect: 'A 98% approval rate in two minutes is a pattern consistent with rubber-stamping. A human-in-the-loop control is only effective if reviewers have the time, information, and authority to actually evaluate and override. High approval rates at high speed suggest the review may not be substantive.'
+      }
+    }
+  },
+
+  'evidence-standards': {
+    title: 'Evidence Standards for AI Audits',
+    kicker: 'Fieldwork Methodology',
+    content: `
+      <p>AI audit work fails at the evidence layer more often than the procedure layer. Practitioners know what to test but produce documentation that does not support the conclusions. Evidence standards for AI engagements are higher than many practitioners expect.</p>
+
+      <h3>What makes AI audit evidence different</h3>
+      <p>Traditional audit evidence supports conclusions about whether controls operated as designed. AI audit evidence must also support conclusions about whether the system is doing what it claims, which requires population-level analysis -- not sampling.</p>
+      <p>A sample of AI outputs does not demonstrate pattern-level accuracy, fairness, or drift. A population-level extract with relevant attributes does.</p>
+
+      <h3>Evidence for each control type</h3>
+      <ul>
+        <li><strong>Governance controls</strong> -- Policy documents with effective dates, governance committee meeting minutes, risk classification decision records. Document the version in effect during the audit period, not the current version.</li>
+        <li><strong>Training data controls</strong> -- Data dictionary, training data schema, data quality review records, approval of training dataset by appropriate authority.</li>
+        <li><strong>Validation controls</strong> -- Validation report, validator independence, validation methodology, comparison to benchmark or holdout dataset.</li>
+        <li><strong>Performance monitoring</strong> -- Monitoring methodology documentation, defined thresholds, alert history, management response to alerts. Evidence should demonstrate the monitoring is continuous, not periodic-only.</li>
+        <li><strong>Human override</strong> -- Override log extract, review process documentation, analysis of override patterns and management response.</li>
+        <li><strong>Explainability</strong> -- Request explanation for specific adverse outputs and document the response. Note whether the explanation is system-generated or human-constructed.</li>
+      </ul>
+
+      <h3>Documentation discipline</h3>
+      <p>AI audit workpapers should contain: the condition (what exists), the criteria (what should exist, cited to specific standard or policy), the cause (why the gap exists), and the effect (consequence to the organization if not corrected). Findings that stop at condition are not defensible and will not drive management action.</p>
+    `,
+    kc: {
+      question: 'You are testing whether an AI pricing model is performing consistently across customer segments. Which evidence approach is most appropriate?',
+      options: [
+        'Interview the pricing team about their oversight process',
+        'Sample 25 pricing recommendations and review them for reasonableness',
+        'Extract the full population with relevant customer and pricing attributes and conduct statistical analysis',
+        'Review the vendor\'s performance certification documentation'
+      ],
+      correct: 2,
+      feedback: {
+        correct: 'Correct. Pattern-level analysis of AI outputs requires population-level data. A sample of 25 cannot detect differential treatment across segments. Statistical analysis of the full population with relevant attributes is the appropriate approach. Interviews and vendor certifications are supplementary, not sufficient.',
+        incorrect: 'Testing for consistency across segments requires population-level analysis. A sample of 25 cannot detect differential patterns. The vendor\'s certification is not independent evidence of your organization\'s actual outputs. Population extraction with statistical analysis is the right approach.'
+      }
+    }
+  },
+
+  'glossary-deep': {
+    title: 'Technical Vocabulary for AI Auditors',
+    kicker: 'Practitioner Foundations',
+    content: `
+      <p>Shared vocabulary is the foundation of productive conversations with technical stakeholders. The terminology gap is one of the most consistent sources of scope misalignment in AI audit engagements.</p>
+
+      <h3>The core vocabulary</h3>
+      <p><strong>Algorithm vs. machine learning:</strong> All ML models are algorithms, but not all algorithms are ML. A rule-based system (if/then logic, decision trees with explicit rules) is an algorithm but not ML. The distinction determines whether training data governance is relevant and what evidence of model validation should exist.</p>
+      <p><strong>Supervised vs. unsupervised learning:</strong> Supervised models are trained on labeled data -- historical examples with known outcomes. Unsupervised models find patterns in unlabeled data. Most enterprise AI is supervised. Supervised models have clearer validation methods; unsupervised models are harder to validate and document.</p>
+      <p><strong>Model drift:</strong> Performance degradation as real-world conditions diverge from training data. Can be data drift (input distributions change) or concept drift (the relationship between inputs and outcomes changes). Monitoring should distinguish between these types because the remediation is different.</p>
+      <p><strong>Hallucination:</strong> LLM-specific. When a generative model produces plausible-sounding but factually incorrect output. Relevant audit risk: LLM outputs used in reports or decisions without verification. Not the same as model error in predictive models.</p>
+      <p><strong>Shadow AI:</strong> AI tools adopted by employees without IT or compliance review. A governance gap that most AI inventories undercount. Testing: cross-reference IT-approved tools against browser extension policies, expense reports, and departmental software requests.</p>
+      <p><strong>Explainability vs. interpretability:</strong> Interpretability means you can see inside the model (simple models like linear regression or decision trees). Explainability means the output can be explained post-hoc even when the model internals are opaque (SHAP values, LIME, or system-generated explanations). Most enterprise AI is explainable but not interpretable.</p>
+
+      <h3>In the field</h3>
+      <p>When interviewing technical stakeholders, listen for the terms they use and mirror them. Ask clarifying questions when terms are used loosely. "AI" from a product manager may mean a simple recommendation engine; from an ML engineer it may mean a complex neural network. Closing the vocabulary gap in planning prevents audit scope from being set against the wrong system.</p>
+    `,
+    kc: {
+      question: 'A vendor describes their inventory forecasting tool as using "machine learning." You ask how it was built and they say they "trained it on three years of historical order data." What is your most important follow-up question?',
+      options: [
+        'What programming language was used to build it?',
+        'How often is the model retrained, and what triggers a retrain?',
+        'How many records are in the training dataset?',
+        'What vendor certification does the model have?'
+      ],
+      correct: 1,
+      feedback: {
+        correct: 'Correct. For a model trained on historical data, the most important governance question is how it is maintained as conditions change -- retraining frequency and triggers. A model that was trained three years ago and has not been retrained is operating on increasingly stale assumptions about the business environment.',
+        incorrect: 'The critical governance question for a historically-trained model is how it is maintained as conditions change. Retraining frequency and triggers determine whether the model reflects current reality or is operating on three-year-old assumptions.'
+      }
+    }
+  },
+
+  'audit-program-build': {
+    title: 'Building an AI Audit Program',
+    kicker: 'Program Design',
+    content: `
+      <p>An AI audit program is not a single engagement -- it is a coverage structure that allocates assurance capacity across the organization's AI risk universe over a planning period. Most audit leaders who are building this for the first time start with individual engagements and never get to the program layer. That limits coverage and prevents the function from developing AI audit capability systematically.</p>
+
+      <h3>Program design sequence</h3>
+      <p><strong>Step 1: Inventory the risk universe.</strong> Obtain or build the AI system inventory. Classify each system by risk tier. Confirm the inventory is complete -- it almost never is on the first pass. Embedded vendor AI in ERP and CRM platforms is the most common gap.</p>
+      <p><strong>Step 2: Map coverage to risk.</strong> Determine which systems fall within the AI governance program scope, which require individual engagement coverage, and which are addressed through existing ITGC or operational audit coverage. Not all AI systems need separate audit engagements.</p>
+      <p><strong>Step 3: Define the governance audit.</strong> A governance-level audit covers the AI governance program itself -- policy completeness, risk classification application, governance structure accountability, and vendor management. This is typically annual for organizations with material AI exposure.</p>
+      <p><strong>Step 4: Scope system-level engagements.</strong> High-risk systems in scope for individual audit coverage. Scope should include all six AI-specific control categories: data, validation, monitoring, human override, explainability, and retraining.</p>
+      <p><strong>Step 5: Build the coverage calendar.</strong> Sequence engagements to build team capability progressively. First-year AI engagements should build on existing team strengths -- analytics-capable practitioners on data-intensive systems, governance-oriented practitioners on program-level reviews.</p>
+
+      <h3>Capability and co-sourcing</h3>
+      <p>Most audit functions do not have the full range of AI audit capability internally. A practical co-sourcing strategy: build internal capability for governance audits and evidence-based fieldwork; co-source for technical model validation and specialized system-level engagements. Do not co-source the entire program -- that prevents capability development and creates dependency.</p>
+    `,
+    kc: {
+      question: 'When building an AI audit program, which system should typically receive priority for individual audit coverage?',
+      options: [
+        'The system with the largest number of users',
+        'The system that IT has most recently deployed',
+        'High-risk systems with consequential outputs and limited human oversight',
+        'All AI systems should receive individual audit coverage simultaneously'
+      ],
+      correct: 2,
+      feedback: {
+        correct: 'Correct. Coverage priority follows risk tier. High-risk systems -- those with consequential outputs and limited substantive human review -- carry the greatest potential for harm if controls are deficient. User count and recency of deployment are not risk indicators by themselves.',
+        incorrect: 'Coverage priority should follow risk tier. High-risk systems (consequential outputs, limited human oversight) are the priority. User count and deployment date are not risk indicators. Individual coverage of all systems simultaneously is not a realistic or risk-based approach.'
+      }
+    }
+  },
+
+  'vendor-ai': {
+    title: 'Vendor AI and Third-Party Governance',
+    kicker: 'Vendor Management',
+    content: `
+      <p>The majority of enterprise AI is not built internally -- it is vendor-supplied, embedded in platforms, or delivered as a cloud service. The governance challenges for vendor AI are distinct from internal AI because the organization has limited visibility into and control over the underlying model. Audit must assess how the organization manages what it cannot fully see.</p>
+
+      <h3>Where vendor AI lives</h3>
+      <p>Vendor AI in electrical distribution enterprises appears in: ERP pricing and inventory modules, CRM analytics and lead scoring, HR screening and scheduling tools, demand forecasting platforms, fraud detection in financial systems, and embedded AI features in productivity software (now default-on in many enterprise platforms).</p>
+      <p>The governance gap: most organizations govern the systems they procured explicitly as AI. They do not govern the AI features that activated by default in systems they use for other purposes.</p>
+
+      <h3>What reliance management controls should exist</h3>
+      <ul>
+        <li><strong>Contract provisions</strong> -- AI-specific provisions in vendor contracts: performance standards, accuracy reporting obligations, incident notification requirements, and audit rights. Contracts signed before 2022 frequently contain none of these.</li>
+        <li><strong>Independent performance monitoring</strong> -- The organization should have means to detect when vendor AI is performing poorly independent of the vendor's own reporting. If the only source of performance information is the vendor, the monitoring is not independent.</li>
+        <li><strong>Incident response coordination</strong> -- When a vendor AI system fails or is compromised, what is the notification timeline and the organization's response plan?</li>
+        <li><strong>Exit strategy</strong> -- Can the organization operate the relevant business process if the vendor relationship ends? What transition period is contractually required?</li>
+      </ul>
+
+      <h3>SOC reports and vendor certifications</h3>
+      <p>SOC 2 reports are useful for assessing vendor operational controls but do not substitute for AI-specific governance assessment. Many AI vendors have not yet undergone AI-specific audits. A SOC 2 report does not address model validation, training data governance, drift monitoring, or explainability requirements. Reference it; do not rely on it alone.</p>
+    `,
+    kc: {
+      question: 'You are reviewing your organization\'s vendor AI governance. You find that all vendor AI contracts were negotiated before 2021 and include no AI-specific provisions. Which risk does this most directly create?',
+      options: [
+        'The vendor can change the model without notifying the organization or triggering a contract review',
+        'The vendor\'s SOC 2 report is no longer valid',
+        'The organization is automatically in violation of the EU AI Act',
+        'The vendor AI systems are no longer covered by ITGC'
+      ],
+      correct: 0,
+      feedback: {
+        correct: 'Correct. Without AI-specific contractual provisions, the vendor can retrain, update, or fundamentally change the model without the organization having notification rights, approval authority, or grounds for remedy. This means the organization is relying on AI systems it cannot effectively oversee or hold accountable.',
+        incorrect: 'The primary risk from absent AI contract provisions is that the vendor can change the model without notification obligations. The organization has no contractual right to be informed of retraining, performance degradation, or methodology changes that affect the systems it relies on.'
+      }
+    }
+  },
+
+  'audit-tool-use': {
+    title: 'Using AI in Audit Work',
+    kicker: 'AI as Audit Tool',
+    content: `
+      <p>Internal audit functions are beginning to use AI tools in their own work. The governance questions this raises are distinct from auditing AI systems -- but the principles are the same. A function that audits AI governance needs to govern its own AI use.</p>
+
+      <h3>Current practical applications</h3>
+      <ul>
+        <li><strong>LLM-assisted document review</strong> -- Summarizing policies, contracts, and large document sets. Reduces initial review time significantly. Key risk: hallucinated summaries used as evidence without verification. Everything produced by an LLM about a specific document must be verified against the source.</li>
+        <li><strong>Anomaly detection</strong> -- Pattern identification across large transaction populations. Most effective where structured data access exists and control objectives are defined in advance.</li>
+        <li><strong>Risk assessment assistance</strong> -- Using LLMs to generate initial risk factor lists or draft risk narratives. Effective as a starting point. Requires practitioner review for accuracy and relevance.</li>
+        <li><strong>Workpaper drafting</strong> -- Generating initial workpaper structures and observation narratives from field notes. Reduces documentation time. The practitioner remains accountable for accuracy.</li>
+      </ul>
+
+      <h3>Governance requirements for audit's own AI use</h3>
+      <p>Minimum governance structure for an audit function using AI tools:</p>
+      <ul>
+        <li><strong>Approved tool list</strong> -- Which AI tools are authorized for use in audit work, and which require case-by-case approval.</li>
+        <li><strong>Data handling policy</strong> -- What audit data can be entered into external AI systems. Most organizations should prohibit entering confidential audit evidence, personnel data, or unreleased financial information into consumer AI products.</li>
+        <li><strong>Verification requirement</strong> -- All AI-generated content used in workpapers or reports must be verified by the practitioner. Not reviewed -- verified. The standard is that the practitioner could defend every statement independently.</li>
+        <li><strong>Disclosure standard</strong> -- When and how AI assistance is noted in documentation. Some organizations require disclosure in all AI-assisted workpapers; others require it only for substantive content generation.</li>
+      </ul>
+
+      <h3>What AI does not change</h3>
+      <p>AI tools reduce time on information processing. They do not transfer accountability. The practitioner who signs a workpaper is accountable for its accuracy regardless of what tool was used to produce the first draft. Professional judgment about risk significance, finding severity, and the appropriateness of audit conclusions cannot be delegated to a model.</p>
+    `,
+    kc: {
+      question: 'A practitioner uses an LLM to summarize a 200-page vendor contract and includes the summary in a planning workpaper. What additional step is required before the workpaper is complete?',
+      options: [
+        'No additional steps -- LLMs are sufficiently accurate for contract summaries',
+        'The practitioner must verify the summary against the source contract',
+        'The LLM use must be disclosed to the audit committee',
+        'A second practitioner must independently summarize the contract'
+      ],
+      correct: 1,
+      feedback: {
+        correct: 'Correct. All AI-generated content used in audit work must be verified by the practitioner against the source. LLMs hallucinate -- they produce plausible-sounding errors. The practitioner is accountable for the accuracy of the workpaper regardless of what tool produced the draft.',
+        incorrect: 'Verification against the source is required. LLMs hallucinate -- they produce plausible-sounding errors at a non-trivial rate. The practitioner is accountable for the workpaper\'s accuracy, which means verifying LLM-generated content against the source document.'
+      }
+    }
+  },
+
+  'team-capability': {
+    title: 'Team Capability for AI Audit',
+    kicker: 'Capability Development',
+    content: `
+      <p>AI audit capability is not a single skill -- it is a cluster of capabilities that most audit teams need to build progressively. The teams that develop this capability effectively do it through structured learning combined with applied practice on real engagements. The teams that fail to develop it send practitioners to training and then continue assigning them non-AI work.</p>
+
+      <h3>The capability clusters</h3>
+      <p><strong>Governance literacy:</strong> Understanding of regulatory frameworks, policy requirements, and accountability structures. Buildable through reading and training. The highest-leverage starting point because it supports governance-level audit work immediately.</p>
+      <p><strong>Technical foundations:</strong> Working knowledge of ML concepts, common model types, lifecycle stages, and vocabulary. Does not require coding or statistics -- requires sufficient understanding to ask good questions and evaluate technical claims. Buildable through structured courses and applied interview practice.</p>
+      <p><strong>Data analysis:</strong> Ability to query and analyze structured data to test AI inputs and outputs. SQL, BI tools, or Excel at a population level. The most common gap in traditional audit teams and the one that most limits AI fieldwork scope.</p>
+      <p><strong>Evidence and documentation discipline:</strong> Writing findings that document condition, criteria, cause, and effect for AI-specific control deficiencies. This requires understanding what the relevant criteria actually are -- which comes from governance literacy.</p>
+
+      <h3>The development sequence that works</h3>
+      <p>Start with governance literacy and apply it to a governance-level audit of the AI program. This produces audit work that is useful, builds team confidence, and generates stakeholder relationships in the AI governance function. From there, layer in technical foundations through a system-level engagement where a more experienced practitioner leads the technical elements and develops junior practitioners in parallel. Data analysis capability is built through applied practice on specific analytical procedures, not in isolation.</p>
+
+      <h3>What co-sourcing is actually for</h3>
+      <p>Co-sourcing AI engagements is appropriate for specific technical elements -- model validation methodology, statistical bias testing -- that require deep technical expertise that is not cost-effective to build internally for an audit function of typical size. It is not appropriate as a substitute for building baseline AI audit literacy within the team. An audit leader who co-sources everything has a team that never develops the capability to oversee the co-sourcing relationship effectively.</p>
+    `,
+    kc: {
+      question: 'An audit leader wants to build AI audit capability in her team. She enrolls three practitioners in an online AI governance course. What additional step is most important for the learning to translate into actual capability?',
+      options: [
+        'Requiring practitioners to pass a certification exam after the course',
+        'Assigning practitioners to AI audit work immediately after training completion',
+        'Sharing course materials with management to demonstrate investment',
+        'Having practitioners present course summaries at a team meeting'
+      ],
+      correct: 1,
+      feedback: {
+        correct: 'Correct. Capability is built through applied practice, not training alone. The most important follow-on step is assigning practitioners to actual AI audit work where they can apply what they learned. Training without applied practice produces knowledge that does not translate to audit performance.',
+        incorrect: 'Training without applied practice produces knowledge that does not translate to audit performance. The critical next step is assigning practitioners to actual AI audit work immediately after training so the learning is reinforced through application.'
+      }
+    }
+  },
+
+  'regulatory-direction': {
+    title: 'Where AI Governance Is Heading',
+    kicker: 'Strategic Outlook',
+    content: `
+      <p>The current state of AI governance is regulatory frameworks maturing faster than most organizations' governance programs. The direction is clear: mandatory requirements are expanding, enforcement is beginning, and audit functions that build coverage now will be ahead of the examination curve.</p>
+
+      <h3>The enforcement trajectory</h3>
+      <p>Regulatory enforcement of AI-related requirements is active in three areas: financial services AI (OCC, Fed, CFPB guidance on automated decision-making), EU AI Act compliance readiness examinations beginning in 2025 and 2026, and SEC disclosure enforcement on material AI-related risk gaps. The organizations receiving enforcement attention share a common characteristic: they deployed AI systems faster than they built governance around them.</p>
+
+      <h3>What is coming</h3>
+      <ul>
+        <li><strong>Mandatory AI inventory requirements</strong> -- Multiple regulatory frameworks are moving toward requiring documented AI inventories as a minimum baseline. This will become a compliance obligation, not a best practice.</li>
+        <li><strong>Third-party AI audit rights</strong> -- Regulatory guidance is increasingly requiring organizations to have audit rights over vendor AI systems in high-risk applications. This will require contract renegotiation for many existing vendor relationships.</li>
+        <li><strong>Board-level AI governance accountability</strong> -- The trajectory is toward explicit board accountability for AI governance oversight, parallel to the accountability frameworks established for cybersecurity. Audit committees will be expected to demonstrate active oversight.</li>
+        <li><strong>AI-specific disclosure requirements</strong> -- Expanded requirements for disclosure of AI systems used in material business processes, including performance metrics and governance program status.</li>
+      </ul>
+
+      <h3>What this means for audit planning</h3>
+      <p>Audit functions that build AI governance coverage now are building toward a future where that coverage is required. The investment in capability development, program design, and stakeholder relationships in the AI governance function will compound as regulatory requirements mature. The functions that delay are building toward a catch-up position that will be more expensive and less credible when examinations begin.</p>
+    `,
+    kc: {
+      question: 'Based on the current regulatory trajectory, which of the following represents the most likely future requirement for organizations with material AI deployments?',
+      options: [
+        'All AI systems must be replaced with rule-based systems within five years',
+        'Documented AI inventories and board-level governance accountability will become mandatory',
+        'Internal audit functions will be required to obtain AI-specific certifications',
+        'All AI systems will require government approval before deployment'
+      ],
+      correct: 1,
+      feedback: {
+        correct: 'Correct. The convergent direction across frameworks is toward mandatory AI inventories and board-level accountability -- parallel to the trajectory cybersecurity governance followed over the past decade. Building toward these requirements now is the appropriate audit planning posture.',
+        incorrect: 'The regulatory trajectory points toward mandatory AI inventories and board-level governance accountability -- the same path cybersecurity governance followed. Building internal governance and audit coverage aligned to these emerging requirements is the appropriate planning posture.'
+      }
+    }
+  },
+
+  'executive-questions': {
+    title: 'The Executive Governance Questions',
+    kicker: 'Executive Perspective',
+    content: `
+      <p>Three questions define the minimum standard of AI governance literacy for executives and board members. The ability to ask -- and evaluate answers to -- these questions is the foundation of meaningful oversight.</p>
+
+      <h3>Question 1: What AI systems is this organization actually using?</h3>
+      <p>This is harder to answer than it appears. The answer most executives receive reflects the AI systems IT and procurement are aware of. The complete answer includes vendor-embedded AI in ERP, CRM, and HR platforms; AI tools adopted by business units without central approval; and the AI features now default-on in productivity software.</p>
+      <p>A governance program built on an incomplete inventory is built on an inaccurate map of the organization's actual risk exposure. The right follow-up: "Does this inventory include AI features embedded in our existing vendor platforms?"</p>
+
+      <h3>Question 2: Who is accountable for AI governance?</h3>
+      <p>AI governance accountability is frequently distributed across IT, legal, compliance, and business units -- which in practice means no one is definitively accountable. A functioning governance structure has a named owner with cross-functional authority and a defined escalation path for contested decisions.</p>
+      <p>The test: "Who makes the final call when a business unit wants to deploy an AI system and compliance has concerns?" If the answer is unclear or involves committee consensus, the governance structure lacks the decisiveness required for effective oversight.</p>
+
+      <h3>Question 3: What does audit cover?</h3>
+      <p>Internal audit should be assessing AI governance program completeness, control design, and compliance with applicable frameworks. If your audit function is not yet covering AI governance in the annual plan, the audit committee should understand whether that gap reflects capability constraints, prioritization decisions, or an assessment that the organization's AI exposure does not yet warrant coverage -- and should evaluate whether that assessment is current.</p>
+
+      <h3>The audit committee's role</h3>
+      <p>Audit committee oversight of AI governance does not require technical expertise in AI. It requires asking the same questions about AI that the committee asks about other material risk areas: Is the governance program complete? Are controls designed and operating effectively? Is management's self-assessment of the risk exposure credible? What does internal audit say?</p>
+    `,
+    kc: {
+      question: 'An executive asks the CTO "Are we using AI?" and receives the response "We use AI in our ERP pricing module and our demand forecasting tool." What important AI exposure is most likely missing from this answer?',
+      options: [
+        'The AI used by competitors',
+        'AI features embedded in other vendor platforms and tools adopted by business units without IT approval',
+        'Historical AI systems that were decommissioned',
+        'AI research conducted by academic partners'
+      ],
+      correct: 1,
+      feedback: {
+        correct: 'Correct. Explicit, IT-managed AI deployments are the most visible. The two most common gaps in executive AI inventories are: AI features embedded by default in platforms the organization uses for other purposes (ERP modules, CRM analytics, productivity tools) and shadow AI -- tools adopted by business units without IT review or compliance assessment.',
+        incorrect: 'The most common gaps in executive AI inventories are default-enabled AI features in existing vendor platforms and shadow AI adopted by business units. Explicit, IT-managed deployments are visible; embedded and shadow AI frequently are not.'
+      }
+    }
+  },
+
+  'audit-coverage': {
+    title: 'What AI Audit Coverage Looks Like',
+    kicker: 'Executive Perspective',
+    content: `
+      <p>Executives and audit committees often ask what AI audit coverage actually produces -- what they should expect to see in the annual plan, what findings should prompt escalation, and how to evaluate whether audit's coverage is adequate for the organization's actual AI risk exposure.</p>
+
+      <h3>What appears in the audit plan</h3>
+      <p>A mature AI audit program includes two types of coverage: governance-level and system-level. Governance-level coverage assesses the AI governance program itself -- policy completeness, risk classification, accountability structure, and vendor management. System-level coverage assesses specific high-risk AI systems against the control framework.</p>
+      <p>An audit plan that covers AI governance but has no system-level coverage may indicate the governance program is the priority (appropriate in early maturity) or that the function lacks the capability for system-level testing (a gap that warrants a development plan).</p>
+
+      <h3>Findings that warrant escalation</h3>
+      <p>The audit committee should be informed promptly of AI-related findings in three categories:</p>
+      <ul>
+        <li><strong>Inventory gaps</strong> -- High-risk AI systems operating without governance program coverage. This is a design deficiency in the governance program, not an operating deficiency in a control.</li>
+        <li><strong>Unmonitored high-risk systems</strong> -- Systems that are classified as high-risk but have no performance monitoring in place. The combination of high consequence and no detection capability is a significant risk concentration.</li>
+        <li><strong>Regulatory compliance gaps</strong> -- Specific requirements of applicable frameworks (EU AI Act, NIST AI RMF as referenced in regulatory guidance) that the organization's governance program does not address. These create regulatory risk that belongs at the committee level.</li>
+      </ul>
+
+      <h3>How to evaluate audit's coverage</h3>
+      <p>The question is not whether audit is "doing AI auditing." It is whether audit coverage matches the organization's AI risk profile. An organization with ten high-risk AI systems and one governance-level audit engagement per year is under-covered. An organization with two low-risk AI tools and two AI audit engagements per year may be appropriately covered or over-allocated depending on other risks.</p>
+    `,
+    kc: {
+      question: 'The audit committee receives a report showing the audit function completed one AI governance audit covering program-level controls. The organization operates six AI systems classified as high-risk. What should the committee ask about?',
+      options: [
+        'Why the audit was not conducted faster',
+        'Whether system-level audit coverage exists for the six high-risk systems',
+        'Whether the audit team has AI certifications',
+        'Whether the governance audit was co-sourced'
+      ],
+      correct: 1,
+      feedback: {
+        correct: 'Correct. Program-level governance coverage and system-level coverage serve different purposes. A governance audit addresses the program; system-level audits assess whether specific high-risk systems are controlled effectively. With six high-risk systems and only governance-level coverage, the committee should ask what system-level coverage is planned and on what timeline.',
+        incorrect: 'The critical question is whether system-level audit coverage exists for the high-risk systems. A governance audit covers the program; system-level audits assess specific high-risk systems. Six high-risk systems with only program-level coverage is an incomplete audit picture.'
+      }
+    }
+  }
+
+};
+
+/* ============================================================
+   FLOW LOGIC
+   ============================================================ */
+var currentRole = null;
+var assessmentIndex = 0;
+var assessmentAnswers = {};   // {dim: [scores]}
+var moduleSequence = [];
+var currentModuleIdx = 0;
+var kcAnswered = false;
+var knowledgeCorrect = 0;
+var knowledgeTotal = 0;
+var dimensionScores = {};
+
+function selectRole(role) {
+  currentRole = role;
+  document.querySelectorAll('.role-card').forEach(function(c) {
+    c.classList.toggle('selected', c.dataset.role === role);
+  });
+  setTimeout(function() {
+    if (role === 'practitioner') {
+      showScreen('screen-assessment');
+      renderQuestion(0);
+    } else {
+      moduleSequence = PATHS[role].slice();
+      currentModuleIdx = 0;
+      showModule(0);
+    }
+  }, 200);
+}
+
+/* ---- Assessment ---- */
+function renderQuestion(idx) {
+  var q = QUESTIONS[idx];
+  var counter = document.getElementById('q-counter');
+  var bar = document.getElementById('q-progress-bar');
+  var display = document.getElementById('q-display');
+
+  counter.textContent = 'Question ' + (idx + 1) + ' of ' + QUESTIONS.length;
+  bar.style.width = ((idx / QUESTIONS.length) * 100) + '%';
+
+  var html = '<div class="q-text">' + escHtml(q.text) + '</div>';
+  var dimDef = DIMENSIONS.find(function(d) { return d.id === q.dim; });
+  html += '<div class="q-dimension">' + (dimDef ? dimDef.label : '') + '</div>';
+  html += '<div class="answer-grid">';
+  q.answers.forEach(function(ans, i) {
+    html += '<button class="answer-btn" onclick="selectAnswer(' + idx + ',' + i + ')" data-idx="' + i + '">' + escHtml(ans) + '</button>';
+  });
+  html += '</div>';
+
+  display.innerHTML = html;
+}
+
+function selectAnswer(qIdx, ansIdx) {
+  var q = QUESTIONS[qIdx];
+  var dim = q.dim;
+
+  // Update answer storage
+  if (!assessmentAnswers[dim]) assessmentAnswers[dim] = [];
+  // Replace or add (3 questions per dim, store all)
+  var dimQIdx = QUESTIONS.slice(0, qIdx).filter(function(qq) { return qq.dim === dim; }).length;
+  assessmentAnswers[dim][dimQIdx] = ansIdx;
+
+  // Highlight selected
+  document.querySelectorAll('.answer-btn').forEach(function(b, i) {
+    b.classList.toggle('selected', i === ansIdx);
+  });
+
+  // Auto-advance after short delay
+  setTimeout(function() {
+    var next = qIdx + 1;
+    if (next < QUESTIONS.length) {
+      assessmentIndex = next;
+      renderQuestion(next);
+    } else {
+      // Assessment complete -- compute scores, determine module sequence, start modules
+      computeDimensionScores();
+      buildPractitionerSequence();
+      showModule(0);
+    }
+  }, 350);
+}
+
+function computeDimensionScores() {
+  DIMENSIONS.forEach(function(dim) {
+    var answers = assessmentAnswers[dim.id] || [];
+    var total = answers.reduce(function(sum, a) { return sum + a; }, 0);
+    var maxPossible = (answers.length) * 3;
+    dimensionScores[dim.id] = maxPossible > 0 ? Math.round((total / maxPossible) * 100) : 0;
+  });
+}
+
+function buildPractitionerSequence() {
+  // Sort by lowest score first to prioritize gaps
+  var basePath = PATHS.practitioner.slice();
+  // We use the base path for practitioners -- no reordering needed for MVP
+  moduleSequence = basePath;
+  currentModuleIdx = 0;
+}
+
+/* ---- Module view ---- */
+function showModule(idx) {
+  currentModuleIdx = idx;
+  kcAnswered = false;
+
+  var modId = moduleSequence[idx];
+  var mod = MODULES[modId];
+  if (!mod) { finishAllModules(); return; }
+
+  showScreen('screen-module');
+
+  document.getElementById('mod-kicker').textContent = mod.kicker || 'Module';
+  document.getElementById('mod-title').textContent = mod.title;
+  document.getElementById('mod-progress-text').textContent = 'Module ' + (idx + 1) + ' of ' + moduleSequence.length;
+  document.getElementById('mod-content').innerHTML = mod.content;
+
+  // Knowledge check
+  var kc = mod.kc;
+  document.getElementById('kc-question').textContent = kc.question;
+  var optHtml = '';
+  kc.options.forEach(function(opt, i) {
+    optHtml += '<button class="kc-opt" onclick="selectKC(' + i + ')">' + escHtml(opt) + '</button>';
+  });
+  document.getElementById('kc-options').innerHTML = optHtml;
+  document.getElementById('kc-feedback').className = 'kc-feedback';
+  document.getElementById('kc-feedback').textContent = '';
+
+  // Buttons
+  document.getElementById('mod-next-btn').style.display = 'none';
+  document.getElementById('mod-finish-btn').style.display = 'none';
+
+  // Scroll to top
+  window.scrollTo(0, 0);
+}
+
+function selectKC(idx) {
+  if (kcAnswered) return;
+  kcAnswered = true;
+
+  var modId = moduleSequence[currentModuleIdx];
+  var kc = MODULES[modId].kc;
+  var isCorrect = idx === kc.correct;
+
+  if (isCorrect) knowledgeCorrect++;
+  knowledgeTotal++;
+
+  document.querySelectorAll('.kc-opt').forEach(function(btn, i) {
+    btn.disabled = true;
+    if (i === kc.correct) btn.classList.add('correct');
+    else if (i === idx && !isCorrect) btn.classList.add('incorrect');
+  });
+
+  var feedback = document.getElementById('kc-feedback');
+  feedback.className = 'kc-feedback show ' + (isCorrect ? 'correct' : 'incorrect');
+  feedback.textContent = isCorrect ? kc.feedback.correct : kc.feedback.incorrect;
+
+  var isLast = currentModuleIdx >= moduleSequence.length - 1;
+  document.getElementById('mod-next-btn').style.display = isLast ? 'none' : 'inline-block';
+  document.getElementById('mod-finish-btn').style.display = isLast ? 'inline-block' : 'none';
+}
+
+function nextModule() {
+  showModule(currentModuleIdx + 1);
+}
+
+function finishModule() {
+  finishAllModules();
+}
+
+function exitModule() {
+  showScreen('screen-role');
+}
+
+function finishAllModules() {
+  showScreen('screen-complete');
+  renderCompletion();
+}
+
+/* ---- Completion ---- */
+var PROFILES = {
+  executive: { level: 'Governance-Oriented', desc: 'You have completed the executive learning path. You are equipped to ask the right questions about AI governance, evaluate the adequacy of management\'s responses, and engage meaningfully with audit\'s AI coverage in the annual plan.' },
+  leader:    { level: 'Program-Ready', desc: 'You have completed the audit leader learning path. You have the framework to design an AI audit program, scope system-level engagements, and develop your team\'s AI audit capability progressively.' },
+  practitioner: { level: 'Field-Ready', desc: 'You have completed the practitioner learning path. You have the vocabulary, control framework, and evidence standards to conduct AI-related fieldwork and produce defensible documentation.' },
+  full:      { level: 'Comprehensive', desc: 'You have completed the full 10-module sequence. You have a complete picture of the AI audit landscape from governance program design through practitioner fieldwork.' }
+};
+
+var LEVEL_THRESHOLDS = [
+  { min: 0,  max: 30, label: 'Aware',      desc: 'You have foundational awareness of AI governance concepts. Continued structured learning and applied practice will build toward the next level.' },
+  { min: 31, max: 55, label: 'Developing', desc: 'You have working knowledge of AI governance concepts and are building toward consistent fieldwork application. Prioritize applied practice on AI-adjacent engagements.' },
+  { min: 56, max: 78, label: 'Practicing', desc: 'You are applying AI governance knowledge in your work. Your skill profile shows consistent strength across most dimensions with targeted development opportunities remaining.' },
+  { min: 79, max: 100, label: 'Leading',   desc: 'Your AI audit readiness profile indicates advanced capability across assessed dimensions. You are positioned to lead AI audit engagements and contribute to team capability development.' }
+];
+
+function renderCompletion() {
+  var profile = PROFILES[currentRole] || PROFILES.full;
+  document.getElementById('profile-level').textContent = profile.level;
+  document.getElementById('profile-desc').textContent = profile.desc;
+
+  // Practitioner radar
+  if (currentRole === 'practitioner' && Object.keys(dimensionScores).length > 0) {
+    document.getElementById('radar-section').style.display = 'block';
+    renderRadar();
+    renderScoreBars();
+  }
+
+  // Summary text
+  renderSummary();
+}
+
+function renderRadar() {
+  var dims = DIMENSIONS;
+  var scores = dimensionScores;
+  var n = dims.length;
+  var cx = 140, cy = 140, r = 100;
+
+  // Polygon points
+  function getPoint(i, val) {
+    var angle = (Math.PI * 2 * i / n) - Math.PI / 2;
+    var radius = r * (val / 100);
+    return { x: cx + radius * Math.cos(angle), y: cy + radius * Math.sin(angle) };
+  }
+  function getOuter(i) {
+    var angle = (Math.PI * 2 * i / n) - Math.PI / 2;
+    return { x: cx + r * Math.cos(angle), y: cy + r * Math.sin(angle) };
+  }
+  function getLabel(i) {
+    var angle = (Math.PI * 2 * i / n) - Math.PI / 2;
+    var radius = r + 28;
+    return { x: cx + radius * Math.cos(angle), y: cy + radius * Math.sin(angle) };
+  }
+
+  // Grid rings
+  var rings = [0.25, 0.5, 0.75, 1.0];
+  var gridSvg = rings.map(function(pct) {
+    var pts = dims.map(function(_, i) {
+      var angle = (Math.PI * 2 * i / n) - Math.PI / 2;
+      return (cx + r * pct * Math.cos(angle)) + ',' + (cy + r * pct * Math.sin(angle));
+    }).join(' ');
+    return '<polygon points="' + pts + '" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>';
+  }).join('');
+
+  // Spokes
+  var spokesSvg = dims.map(function(_, i) {
+    var o = getOuter(i);
+    return '<line x1="' + cx + '" y1="' + cy + '" x2="' + o.x + '" y2="' + o.y + '" stroke="rgba(255,255,255,0.07)" stroke-width="1"/>';
+  }).join('');
+
+  // Score polygon
+  var scorePts = dims.map(function(dim, i) {
+    var p = getPoint(i, scores[dim.id] || 0);
+    return p.x + ',' + p.y;
+  }).join(' ');
+
+  // Labels
+  var labelsSvg = dims.map(function(dim, i) {
+    var lp = getLabel(i);
+    var anchor = lp.x < cx - 5 ? 'end' : lp.x > cx + 5 ? 'start' : 'middle';
+    return '<text x="' + lp.x + '" y="' + (lp.y + 4) + '" text-anchor="' + anchor + '" font-size="9" fill="rgba(255,255,255,0.4)" font-family="ui-sans-serif,sans-serif">' + escHtml(dim.label) + '</text>';
+  }).join('');
+
+  var svg = '<svg width="280" height="280" viewBox="0 0 280 280" xmlns="http://www.w3.org/2000/svg">'
+    + gridSvg + spokesSvg
+    + '<polygon points="' + scorePts + '" fill="rgba(140,111,63,0.18)" stroke="#8c6f3f" stroke-width="1.5"/>'
+    + labelsSvg
+    + '</svg>';
+
+  document.getElementById('radar-wrap').innerHTML = svg;
+}
+
+function renderScoreBars() {
+  var html = '';
+  DIMENSIONS.forEach(function(dim) {
+    var score = dimensionScores[dim.id] || 0;
+    html += '<div class="score-row">'
+      + '<div class="score-label">' + escHtml(dim.label) + '</div>'
+      + '<div class="score-track"><div class="score-fill" style="width:' + score + '%"></div></div>'
+      + '<div class="score-val">' + score + '%</div>'
+      + '</div>';
+  });
+  document.getElementById('score-bars').innerHTML = html;
+}
+
+function renderSummary() {
+  var date = new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+  var role = currentRole.charAt(0).toUpperCase() + currentRole.slice(1);
+  var profile = PROFILES[currentRole] || PROFILES.full;
+  var kpct = knowledgeTotal > 0 ? Math.round((knowledgeCorrect / knowledgeTotal) * 100) : 0;
+
+  var lines = [
+    'AI READINESS LEARNING MODULE -- COMPLETION SUMMARY',
+    'The AI-Ready Audit | robbins5.github.io',
+    '',
+    'Date:    ' + date,
+    'Path:    ' + role,
+    'Profile: ' + profile.level,
+    'Knowledge checks: ' + knowledgeCorrect + '/' + knowledgeTotal + ' correct (' + kpct + '%)',
+  ];
+
+  if (currentRole === 'practitioner' && Object.keys(dimensionScores).length > 0) {
+    lines.push('');
+    lines.push('DIMENSION SCORES');
+    DIMENSIONS.forEach(function(dim) {
+      var score = dimensionScores[dim.id] || 0;
+      var bar = '|' + '##'.repeat(Math.floor(score / 10)) + '  '.repeat(10 - Math.floor(score / 10)) + '|';
+      lines.push(dim.label + ': ' + bar + ' ' + score + '%');
+    });
+  }
+
+  lines.push('');
+  lines.push('Modules completed: ' + moduleSequence.length);
+  lines.push(moduleSequence.map(function(id) {
+    return '  - ' + (MODULES[id] ? MODULES[id].title : id);
+  }).join('\n'));
+
+  document.getElementById('summary-box').textContent = lines.join('\n');
+}
+
+function copySummary() {
+  var text = document.getElementById('summary-box').textContent;
+  if (navigator.clipboard) {
+    navigator.clipboard.writeText(text).then(function() {
+      var label = document.getElementById('copy-label');
+      label.textContent = 'Copied!';
+      setTimeout(function() { label.textContent = 'Copy summary'; }, 2000);
+    });
+  } else {
+    var ta = document.createElement('textarea');
+    ta.value = text;
+    ta.style.cssText = 'position:fixed;opacity:0;';
+    document.body.appendChild(ta);
+    ta.select();
+    document.execCommand('copy');
+    document.body.removeChild(ta);
+    var label = document.getElementById('copy-label');
+    label.textContent = 'Copied!';
+    setTimeout(function() { label.textContent = 'Copy summary'; }, 2000);
+  }
+}
+
+function resetModule() {
+  currentRole = null;
+  assessmentAnswers = {};
+  moduleSequence = [];
+  currentModuleIdx = 0;
+  kcAnswered = false;
+  knowledgeCorrect = 0;
+  knowledgeTotal = 0;
+  dimensionScores = {};
+  document.querySelectorAll('.role-card').forEach(function(c) { c.classList.remove('selected'); });
+  document.getElementById('radar-section').style.display = 'none';
+  showScreen('screen-role');
+}
+
+/* ---- Utilities ---- */
+function showScreen(id) {
+  document.querySelectorAll('.screen').forEach(function(s) {
+    s.classList.toggle('active', s.id === id);
+  });
+}
+
+function escHtml(str) {
+  return String(str)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;');
+}
+</script>
+
+</body>
+</html>

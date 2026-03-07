@@ -35,8 +35,8 @@ var JOURNEY_KEY = 'aiready_journey_v1'; // localStorage — persists role across
 
 var JOURNEY = {
   executive:   ['thesis', 'executive-oversight', 'executive-assessment', 'maturity-assessment', 'organizational-intelligence', 'resources'],
-  leader:      ['thesis', 'maturity-assessment', 'erp-transition', 'data-access', 'audit-leadership', 'continuous-monitoring', 'team-structure', 'technology-stack', 'organizational-intelligence'],
-  practitioner:['thesis', 'skills-evolution', 'data-access', 'continuous-monitoring', 'technology-stack', 'team-structure', 'maturity-assessment']
+  leader:      ['thesis', 'maturity-assessment', 'erp-transition', 'data-access', 'audit-leadership', 'continuous-monitoring', 'team-structure', 'technology-stack', 'auditing-ai', 'organizational-intelligence'],
+  practitioner:['thesis', 'skills-evolution', 'data-access', 'continuous-monitoring', 'technology-stack', 'auditing-ai', 'team-structure', 'maturity-assessment']
 };
 
 /* ============================================================
@@ -282,6 +282,36 @@ var ROLE_PAGE_CONFIG = {
     practitioner: {
       callout: 'The tools, standards, and people-side research sections anchor the technical frameworks referenced in the practitioner-focused pages. Particularly useful when building internal documentation for monitoring programs or development plans.',
       suggestedNext: { label: 'About', href: 'about.html' }
+    }
+  },
+
+  'auditing-ai': {
+    executive: {
+      callout: 'This page maps the AI governance landscape and what internal audit\'s role in it looks like. The executive section covers the three questions every executive should be able to answer about their organization\'s AI governance posture and what to expect from audit.',
+      suggestedNext: { label: 'Executive Oversight', href: 'executive-oversight.html' }
+    },
+    leader: {
+      callout: 'This is the reference layer for the AI audit program. The governance framework, evidence standards, and audit program build sections are the most directly actionable for audit leaders developing or expanding AI governance coverage.',
+      suggestedNext: { label: 'AI Readiness Learning Module', href: 'ai-learning.html' }
+    },
+    practitioner: {
+      callout: 'The glossary, evidence standards, and AI-as-audit-tool sections are the highest-priority read for practitioners. The learning module linked on this page includes a skills assessment and a personalized development path.',
+      suggestedNext: { label: 'AI Readiness Learning Module', href: 'ai-learning.html' }
+    }
+  },
+
+  'ai-learning': {
+    executive: {
+      callout: 'The AI Readiness Learning Module is designed for audit practitioners, but the executive path covers the governance expectations, regulatory direction, and the three questions every executive should be able to answer about their organization\'s AI posture.',
+      suggestedNext: { label: 'Auditing AI Reference', href: 'auditing-ai.html' }
+    },
+    leader: {
+      callout: 'The learning module includes a full treatment of the AI governance program build, control environment changes, and evidence standards -- with knowledge checks and a completion summary you can share with your team as a development baseline.',
+      suggestedNext: { label: 'Auditing AI Reference', href: 'auditing-ai.html' }
+    },
+    practitioner: {
+      callout: 'The practitioner path begins with a skills assessment that produces a radar chart of your AI readiness across five dimensions, then sequences the learning modules around your actual gaps. The completion summary is designed to share with your manager.',
+      suggestedNext: { label: 'Start the Module', href: 'ai-learning.html' }
     }
   }
 
@@ -648,19 +678,110 @@ function applyStyle(node, styles) {
 }
 
 /* ============================================================
-   SECTION I — INIT
+   SECTION I — HOMEPAGE PERSISTENT ROLE SELECTOR
+   On index.html only: renders a persistent 3-button role selector
+   in the page body (no overlay). Active role is highlighted.
+   ============================================================ */
+
+function injectHomepageRoleSelector(currentRole) {
+  // Find the insertion point — after .pillars-grid or after .page-hero
+  var target = document.querySelector('.role-selector-anchor');
+  if (!target) return;
+
+  // Remove any existing selector
+  var existing = document.querySelector('[data-home-role-selector]');
+  if (existing && existing.parentNode) existing.parentNode.removeChild(existing);
+
+  var wrap = document.createElement('div');
+  wrap.setAttribute('data-home-role-selector', 'true');
+  applyStyle(wrap, [
+    'margin:2rem 0', 'padding:1.5rem', 'box-sizing:border-box',
+    'background:rgba(140,111,63,0.04)',
+    'border:1px solid rgba(140,111,63,0.15)',
+    'border-radius:12px'
+  ]);
+
+  if (currentRole) {
+    var label = el('p', 'Your current view:', [
+      'font-family:ui-sans-serif,system-ui,sans-serif',
+      'font-size:0.75rem', 'letter-spacing:0.08em', 'text-transform:uppercase',
+      'color:rgba(255,255,255,0.35)', 'margin:0 0 0.75rem'
+    ]);
+    wrap.appendChild(label);
+  }
+
+  var btnRow = document.createElement('div');
+  applyStyle(btnRow, [
+    'display:flex', 'flex-wrap:wrap', 'gap:0.65rem'
+  ]);
+
+  ['executive', 'leader', 'practitioner'].forEach(function(roleKey) {
+    var isActive = roleKey === currentRole;
+    var btn = document.createElement('button');
+    btn.type = 'button';
+    btn.textContent = ROLES[roleKey].selectorText;
+    applyStyle(btn, [
+      'font-family:ui-sans-serif,system-ui,sans-serif',
+      'font-size:0.88rem', 'font-weight:400',
+      'padding:10px 18px',
+      'border:1px solid ' + (isActive ? '#8c6f3f' : 'rgba(140,111,63,0.25)'),
+      'border-radius:8px',
+      'background:' + (isActive ? 'rgba(140,111,63,0.10)' : 'transparent'),
+      'color:' + (isActive ? '#8c6f3f' : 'rgba(255,255,255,0.5)'),
+      'cursor:pointer',
+      'transition:border-color 180ms,background 180ms,color 180ms',
+      'text-align:left'
+    ]);
+    btn.addEventListener('mouseover', function() {
+      if (roleKey !== currentRole) {
+        this.style.borderColor = 'rgba(140,111,63,0.5)';
+        this.style.color = 'rgba(255,255,255,0.75)';
+      }
+    });
+    btn.addEventListener('mouseout', function() {
+      if (roleKey !== currentRole) {
+        this.style.borderColor = 'rgba(140,111,63,0.25)';
+        this.style.color = 'rgba(255,255,255,0.5)';
+      }
+    });
+    btn.addEventListener('click', function() {
+      localStorage.setItem(JOURNEY_KEY, roleKey);
+      sessionStorage.setItem(STORAGE_KEY, roleKey);
+      currentRole = roleKey;
+      injectHomepageRoleSelector(roleKey);
+      injectJourneyBar(roleKey);
+      adaptPageForRole(roleKey);
+    });
+    btnRow.appendChild(btn);
+  });
+
+  wrap.appendChild(btnRow);
+  target.parentNode.insertBefore(wrap, target.nextSibling);
+}
+
+/* ============================================================
+   SECTION J — INIT
    ============================================================ */
 
 document.addEventListener('DOMContentLoaded', function() {
+  var slug = getPageSlug();
   var role = detectRole();
+  var isHome = (slug === 'index' || slug === '');
 
-  if (role !== null) {
+  if (isHome) {
+    // Homepage: show persistent selector, no overlay
+    injectHomepageRoleSelector(role);
+    if (role) {
+      injectJourneyBar(role);
+      adaptPageForRole(role);
+    }
+  } else if (role !== null) {
     injectJourneyBar(role);
     adaptPageForRole(role);
   } else {
     var storedChoice = localStorage.getItem(JOURNEY_KEY);
     if (!storedChoice) {
-      // First-ever visit — show the role overlay
+      // First-ever visit on a non-home page — show the role overlay
       injectRoleOverlay();
     }
     // If storedChoice === 'skip', user dismissed the overlay; do nothing

@@ -52,6 +52,8 @@
           <a class="nav-link" href="team-structure.html">Team and Talent</a>
           <a class="nav-link" href="organizational-intelligence.html">Organizational Intelligence</a>
           <a class="nav-link" href="capacity-model.html">Dedicated Capacity</a>
+          <a class="nav-link" href="auditing-ai.html">Auditing AI</a>
+          <a class="nav-link" href="ai-learning.html">Learning Module</a>
           </div>
         </div>
 
@@ -62,6 +64,8 @@
           <a class="nav-link" href="continuous-monitoring.html">Continuous Monitoring</a>
           <a class="nav-link" href="technology-stack.html">Technology Stack</a>
           <a class="nav-link" href="skills-evolution.html">Skills and Development</a>
+          <a class="nav-link" href="auditing-ai.html">Auditing AI</a>
+          <a class="nav-link" href="ai-learning.html">Learning Module</a>
           </div>
         </div>
 
@@ -471,7 +475,7 @@
     </div>
     <div class="container footer-bottom">
       <p>&copy; 2026 Nicole Heflin</p>
-          <p style="font-size: 0.75rem; color: rgba(255,255,255,0.3); margin-top: 8px; line-height: 1.5; max-width: 80ch;">The frameworks, recommendations, and perspectives published on this platform represent independent professional views and analysis. This site is not affiliated with, endorsed by, or a publication of any employer or organization.</p>
+          <p style="font-size: 0.75rem; color: rgba(255,255,255,0.3); margin-top: 8px; line-height: 1.5; max-width: 80ch;">The frameworks, recommendations, and perspectives published on this platform represent independent professional views and analysis, supported by publicly available research and professional standards. This site is not affiliated with, endorsed by, or a publication of any employer or organization. The author is an internal audit practitioner and manager -- not a licensed CPA, CIA, attorney, or accredited researcher. Nothing on this platform constitutes professional advice. All external resources are linked for reference; availability and terms should be verified directly.</p>
     </div>
   </footer>
 
@@ -490,6 +494,13 @@
       if (groupBtn) {
         var group = groupBtn.closest(".nav-group");
         if (group) {
+          primaryNav.querySelectorAll(".nav-group.is-open").forEach(function(g) {
+            if (g !== group) {
+              g.classList.remove("is-open");
+              var b = g.querySelector(".nav-group-btn");
+              if (b) b.setAttribute("aria-expanded", "false");
+            }
+          });
           group.classList.toggle("is-open");
           groupBtn.setAttribute("aria-expanded", group.classList.contains("is-open") ? "true" : "false");
         }
@@ -498,6 +509,24 @@
       if (e.target.classList.contains("nav-link")) {
         primaryNav.classList.remove("is-open");
         navToggle.setAttribute("aria-expanded", "false");
+      }
+    });
+    document.addEventListener("click", function(e) {
+      if (!e.target.closest(".nav-group")) {
+        primaryNav.querySelectorAll(".nav-group.is-open").forEach(function(g) {
+          g.classList.remove("is-open");
+          var b = g.querySelector(".nav-group-btn");
+          if (b) b.setAttribute("aria-expanded", "false");
+        });
+      }
+    });
+    document.addEventListener("keydown", function(e) {
+      if (e.key === "Escape") {
+        primaryNav.querySelectorAll(".nav-group.is-open").forEach(function(g) {
+          g.classList.remove("is-open");
+          var b = g.querySelector(".nav-group-btn");
+          if (b) b.setAttribute("aria-expanded", "false");
+        });
       }
     });
   })();

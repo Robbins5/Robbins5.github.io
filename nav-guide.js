@@ -722,36 +722,36 @@ function applyStyle(node, styles) {
    ============================================================ */
 
 function injectHomepageRoleSelector(currentRole) {
-  // Find the insertion point — after .pillars-grid or after .page-hero
-  var target = document.querySelector('.role-selector-anchor');
-  if (!target) return;
+  var isHomepage = window.location.pathname === '/' ||
+    window.location.pathname === '/index.html' ||
+    window.location.pathname.endsWith('/index.html');
+  if (!isHomepage) return;
 
   // Remove any existing selector
   var existing = document.querySelector('[data-home-role-selector]');
   if (existing && existing.parentNode) existing.parentNode.removeChild(existing);
 
-  var wrap = document.createElement('div');
-  wrap.setAttribute('data-home-role-selector', 'true');
-  applyStyle(wrap, [
-    'margin:2rem 0', 'padding:1.5rem', 'box-sizing:border-box',
-    'background:rgba(140,111,63,0.04)',
-    'border:1px solid rgba(140,111,63,0.15)',
-    'border-radius:12px'
+  var bar = document.createElement('div');
+  bar.setAttribute('data-home-role-selector', 'true');
+  applyStyle(bar, [
+    'position:fixed', 'bottom:0', 'left:0', 'right:0', 'width:100%', 'z-index:150',
+    'background:rgba(20,20,22,0.97)',
+    'border-top:1px solid rgba(140,111,63,0.25)',
+    'backdrop-filter:blur(8px)', '-webkit-backdrop-filter:blur(8px)',
+    'padding:10px 24px', 'box-sizing:border-box',
+    'display:flex', 'align-items:center', 'justify-content:center', 'gap:12px',
+    'flex-wrap:wrap'
   ]);
 
-  if (currentRole) {
-    var label = el('p', 'Your current view:', [
-      'font-family:ui-sans-serif,system-ui,sans-serif',
-      'font-size:0.75rem', 'letter-spacing:0.08em', 'text-transform:uppercase',
-      'color:rgba(255,255,255,0.35)', 'margin:0 0 0.75rem'
-    ]);
-    wrap.appendChild(label);
-  }
+  var labelEl = el('span', currentRole ? 'Viewing as:' : 'Who are you reading this as?', [
+    'font-family:ui-sans-serif,system-ui,sans-serif',
+    'font-size:0.75rem', 'color:rgba(255,255,255,0.35)',
+    'white-space:nowrap', 'flex-shrink:0'
+  ]);
+  bar.appendChild(labelEl);
 
   var btnRow = document.createElement('div');
-  applyStyle(btnRow, [
-    'display:flex', 'flex-wrap:wrap', 'gap:0.65rem'
-  ]);
+  applyStyle(btnRow, ['display:flex', 'flex-wrap:wrap', 'gap:8px', 'align-items:center']);
 
   ['executive', 'leader', 'practitioner'].forEach(function(roleKey) {
     var isActive = roleKey === currentRole;
@@ -760,26 +760,26 @@ function injectHomepageRoleSelector(currentRole) {
     btn.textContent = ROLES[roleKey].selectorText;
     applyStyle(btn, [
       'font-family:ui-sans-serif,system-ui,sans-serif',
-      'font-size:0.88rem', 'font-weight:400',
-      'padding:10px 18px',
+      'font-size:0.78rem', 'font-weight:400',
+      'padding:6px 14px',
       'border:1px solid ' + (isActive ? '#8c6f3f' : 'rgba(140,111,63,0.25)'),
-      'border-radius:8px',
-      'background:' + (isActive ? 'rgba(140,111,63,0.10)' : 'transparent'),
-      'color:' + (isActive ? '#8c6f3f' : 'rgba(255,255,255,0.5)'),
+      'border-radius:6px',
+      'background:' + (isActive ? 'rgba(140,111,63,0.12)' : 'transparent'),
+      'color:' + (isActive ? '#c9a96e' : 'rgba(255,255,255,0.45)'),
       'cursor:pointer',
       'transition:border-color 180ms,background 180ms,color 180ms',
-      'text-align:left'
+      'white-space:nowrap'
     ]);
     btn.addEventListener('mouseover', function() {
       if (roleKey !== currentRole) {
         this.style.borderColor = 'rgba(140,111,63,0.5)';
-        this.style.color = 'rgba(255,255,255,0.75)';
+        this.style.color = 'rgba(255,255,255,0.7)';
       }
     });
     btn.addEventListener('mouseout', function() {
       if (roleKey !== currentRole) {
         this.style.borderColor = 'rgba(140,111,63,0.25)';
-        this.style.color = 'rgba(255,255,255,0.5)';
+        this.style.color = 'rgba(255,255,255,0.45)';
       }
     });
     btn.addEventListener('click', function() {
@@ -793,8 +793,9 @@ function injectHomepageRoleSelector(currentRole) {
     btnRow.appendChild(btn);
   });
 
-  wrap.appendChild(btnRow);
-  target.parentNode.insertBefore(wrap, target.nextSibling);
+  bar.appendChild(btnRow);
+  document.body.appendChild(bar);
+  document.body.style.paddingBottom = '72px';
 }
 
 /* ============================================================

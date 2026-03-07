@@ -6,7 +6,10 @@
       "Bash(grep:*)",
       "Bash(git add:*)",
       "Bash(git commit:*)",
-      "Bash(git push:*)"
+      "Bash(git push:*)",
+      "Bash(for f in index.html about.html maturity-assessment.html auditing-ai.html skills-evolution.html executive-assessment.html)",
+      "Read(//c/Users/nicol/Robbins5.github.io/**)",
+      "Bash(done)"
     ]
   }
 }

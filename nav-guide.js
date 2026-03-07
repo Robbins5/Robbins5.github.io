@@ -500,10 +500,10 @@ function injectJourneyBar(role) {
   var bar = document.createElement('div');
   bar.setAttribute('data-journey-bar', 'true');
   applyStyle(bar, [
-    'position:fixed', 'bottom:0', 'left:0', 'right:0', 'z-index:8000',
-    'background:rgba(16,16,18,0.97)',
-    'border-top:1px solid rgba(140,111,63,0.2)',
-    'backdrop-filter:blur(12px)',
+    'position:fixed', 'bottom:0', 'left:0', 'right:0', 'width:100%', 'z-index:150',
+    'background:rgba(20,20,22,0.97)',
+    'border-top:1px solid rgba(140,111,63,0.25)',
+    'backdrop-filter:blur(8px)', '-webkit-backdrop-filter:blur(8px)',
     'display:flex', 'align-items:center', 'justify-content:space-between',
     'padding:8px 24px', 'gap:12px', 'min-height:50px',
     'box-sizing:border-box'
@@ -600,7 +600,7 @@ function injectJourneyBar(role) {
   bar.appendChild(centerEl);
   bar.appendChild(rightEl);
   document.body.appendChild(bar);
-  document.body.style.paddingBottom = '54px';
+  document.body.style.paddingBottom = '72px';
 }
 
 /* ============================================================

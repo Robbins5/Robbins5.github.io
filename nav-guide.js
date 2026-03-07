@@ -733,21 +733,39 @@ function injectHomepageRoleSelector(currentRole) {
 
   var bar = document.createElement('div');
   bar.setAttribute('data-home-role-selector', 'true');
-  applyStyle(bar, [
-    'position:fixed', 'bottom:0', 'left:0', 'right:0', 'width:100%', 'z-index:150',
-    'background:rgba(20,20,22,0.97)',
-    'border-top:1px solid rgba(140,111,63,0.25)',
-    'backdrop-filter:blur(8px)', '-webkit-backdrop-filter:blur(8px)',
-    'padding:10px 24px', 'box-sizing:border-box',
-    'display:flex', 'align-items:center', 'justify-content:center', 'gap:12px',
-    'flex-wrap:wrap'
-  ]);
+  bar.style.cssText = [
+    'position:fixed',
+    'top:64px',
+    'left:0',
+    'right:0',
+    'width:100%',
+    'z-index:99',
+    'background:#1a1a1c',
+    'border-bottom:2px solid rgba(140,111,63,0.6)',
+    'padding:0.75rem 2rem',
+    'display:flex',
+    'align-items:center',
+    'justify-content:center',
+    'gap:1rem',
+    'box-shadow:0 4px 16px rgba(0,0,0,0.4)'
+  ].join(';');
 
-  var labelEl = el('span', currentRole ? 'Viewing as:' : 'Who are you reading this as?', [
-    'font-family:ui-sans-serif,system-ui,sans-serif',
-    'font-size:0.75rem', 'color:rgba(255,255,255,0.35)',
-    'white-space:nowrap', 'flex-shrink:0'
-  ]);
+  var isIndex = window.location.pathname === '/' ||
+    window.location.pathname === '/index.html' ||
+    window.location.pathname.endsWith('/index.html');
+  var labelText = isIndex ? 'Choose your path through this platform:' : (currentRole ? 'Viewing as:' : 'Who are you reading this as?');
+
+  var labelEl = document.createElement('span');
+  labelEl.textContent = labelText;
+  labelEl.style.cssText = [
+    'color:#c9a96e',
+    'font-size:0.8rem',
+    'font-weight:600',
+    'letter-spacing:0.1em',
+    'text-transform:uppercase',
+    'white-space:nowrap',
+    'margin-right:0.5rem'
+  ].join(';');
   bar.appendChild(labelEl);
 
   var btnRow = document.createElement('div');
@@ -758,34 +776,42 @@ function injectHomepageRoleSelector(currentRole) {
     var btn = document.createElement('button');
     btn.type = 'button';
     btn.textContent = ROLES[roleKey].selectorText;
-    applyStyle(btn, [
-      'font-family:ui-sans-serif,system-ui,sans-serif',
-      'font-size:0.78rem', 'font-weight:400',
-      'padding:6px 14px',
-      'border:1px solid ' + (isActive ? '#8c6f3f' : 'rgba(140,111,63,0.25)'),
-      'border-radius:6px',
-      'background:' + (isActive ? 'rgba(140,111,63,0.12)' : 'transparent'),
-      'color:' + (isActive ? '#c9a96e' : 'rgba(255,255,255,0.45)'),
+    btn.style.cssText = [
+      'background:' + (isActive ? 'rgba(140,111,63,0.2)' : 'transparent'),
+      'border:1px solid ' + (isActive ? '#c9a96e' : 'rgba(140,111,63,0.4)'),
+      'color:' + (isActive ? '#c9a96e' : 'rgba(255,255,255,0.85)'),
+      'font-size:0.78rem',
+      'font-family:inherit',
+      'letter-spacing:0.04em',
+      'padding:0.45rem 1.1rem',
+      'border-radius:3px',
       'cursor:pointer',
-      'transition:border-color 180ms,background 180ms,color 180ms',
+      'transition:all 0.2s',
       'white-space:nowrap'
-    ]);
-    btn.addEventListener('mouseover', function() {
-      if (roleKey !== currentRole) {
-        this.style.borderColor = 'rgba(140,111,63,0.5)';
-        this.style.color = 'rgba(255,255,255,0.7)';
-      }
+    ].join(';');
+    if (isActive) btn.classList.add('active-role');
+
+    btn.addEventListener('mouseenter', function() {
+      this.style.background = 'rgba(140,111,63,0.15)';
+      this.style.borderColor = '#c9a96e';
+      this.style.color = '#c9a96e';
     });
-    btn.addEventListener('mouseout', function() {
-      if (roleKey !== currentRole) {
-        this.style.borderColor = 'rgba(140,111,63,0.25)';
-        this.style.color = 'rgba(255,255,255,0.45)';
+    btn.addEventListener('mouseleave', function() {
+      if (!this.classList.contains('active-role')) {
+        this.style.background = 'transparent';
+        this.style.borderColor = 'rgba(140,111,63,0.4)';
+        this.style.color = 'rgba(255,255,255,0.85)';
       }
     });
     btn.addEventListener('click', function() {
       localStorage.setItem(JOURNEY_KEY, roleKey);
       sessionStorage.setItem(STORAGE_KEY, roleKey);
       currentRole = roleKey;
+      // Apply active style to this button immediately
+      btn.style.background = 'rgba(140,111,63,0.2)';
+      btn.style.borderColor = '#c9a96e';
+      btn.style.color = '#c9a96e';
+      btn.classList.add('active-role');
       injectHomepageRoleSelector(roleKey);
       injectJourneyBar(roleKey);
       adaptPageForRole(roleKey);
@@ -795,7 +821,7 @@ function injectHomepageRoleSelector(currentRole) {
 
   bar.appendChild(btnRow);
   document.body.appendChild(bar);
-  document.body.style.paddingBottom = '72px';
+  document.body.style.paddingTop = '112px';
 }
 
 /* ============================================================

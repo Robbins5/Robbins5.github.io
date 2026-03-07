@@ -371,32 +371,6 @@ a:hover{ color: var(--accent); }
   flex-wrap:wrap;
 }
 
-.hero-metrics{
-  margin-top:22px;
-  display:grid;
-  grid-template-columns: repeat(3, minmax(0,1fr));
-  gap:10px;
-}
-.metric{
-  background: rgba(255,255,255,0.90);
-  border: 1px solid var(--border-soft);
-  border-radius: var(--radius-sm);
-  padding:12px;
-  box-shadow: var(--shadow-sm);
-}
-.metric-label{
-  font-size:0.80rem;
-  color: var(--muted-2);
-  letter-spacing:0.10em;
-  text-transform:uppercase;
-  font-weight:900;
-}
-.metric-value{
-  margin-top:4px;
-  color: var(--text);
-  font-weight:950;
-  letter-spacing:-0.2px;
-}
 
 /* =========================
    CTA Panel
@@ -1332,7 +1306,7 @@ body.page-thesis.audit-mode .exec-only { display: none; }
 @media (max-width: 980px){
   .hero-grid{ grid-template-columns: 1fr; }
   .path-grid, .module-grid{ grid-template-columns: 1fr; }
-  .hero-metrics{ grid-template-columns: 1fr; }
+
   .banner{ height: 260px; }
   .hero-title{ font-size: 2.25rem; }
 
@@ -3682,13 +3656,6 @@ h1, h2, h3,
   color: var(--gold);
 }
 .banner { border-color: var(--border-soft); }
-.metric {
-  background: var(--surface);
-  border-color: var(--border-soft);
-  box-shadow: none;
-}
-.metric-label { color: var(--muted-2); }
-.metric-value { color: var(--white); }
 
 /* ---- Timeline ---- */
 .timeline-dot {

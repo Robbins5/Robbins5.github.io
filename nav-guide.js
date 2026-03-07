@@ -328,6 +328,21 @@ var ROLE_PAGE_CONFIG = {
       callout: 'The practitioner path begins with a skills assessment that produces a radar chart of your AI readiness across five dimensions, then sequences the learning modules around your actual gaps. The completion summary is designed to share with your manager.',
       suggestedNext: { label: 'Start the Module', href: 'ai-learning.html' }
     }
+  },
+
+  'about': {
+    executive: {
+      callout: 'The platform origin, the research foundation, and the practitioner behind it.',
+      suggestedNext: { label: 'Executive Summary', href: 'executive-summary.html' }
+    },
+    leader: {
+      callout: 'The platform origin, the research foundation, and the practitioner behind it.',
+      suggestedNext: { label: 'Why It\'s Changing', href: 'thesis.html' }
+    },
+    practitioner: {
+      callout: 'The platform origin, the research foundation, and the practitioner behind it.',
+      suggestedNext: { label: 'Why It\'s Changing', href: 'thesis.html' }
+    }
   }
 
 };

@@ -4721,3 +4721,18 @@ body.page-about .about-prose p {
   color: rgba(255,255,255,0.82);
 }
 
+body.page-about .about-prose {
+  max-width: 72ch;
+  margin: 0 auto;
+}
+
+body.page-about .hero .container {
+  max-width: 72ch;
+  margin: 0 auto;
+}
+
+body.page-about .closing-band .container {
+  max-width: 72ch;
+  margin: 0 auto;
+}
+

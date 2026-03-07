@@ -684,39 +684,6 @@ body.page-ia .ia-subtitle{
   color: var(--muted);
   max-width:84ch;
 }
-body.page-ia .ia-actions{
-  margin-top:16px;
-  display:flex;
-  gap:12px;
-  flex-wrap:wrap;
-}
-body.page-ia .ia-strip{
-  margin-top:18px;
-  display:grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap:12px;
-}
-body.page-ia .ia-strip-item{
-  background: rgba(255,255,255,0.92);
-  border: 1px solid var(--border-soft);
-  border-radius: var(--radius);
-  padding:14px;
-  box-shadow: var(--shadow-sm);
-  border-left: 3px solid var(--accent);
-}
-body.page-ia .ia-strip-label{
-  font-size:0.78rem;
-  color: var(--muted-2);
-  letter-spacing:0.12em;
-  text-transform:uppercase;
-  font-weight:900;
-}
-body.page-ia .ia-strip-value{
-  margin-top:6px;
-  color: var(--text);
-  font-weight:950;
-  letter-spacing:-0.2px;
-}
 
 /* ============================================================
    IA Quiz + Modernization Scale (scoped)
@@ -1313,8 +1280,6 @@ body.page-thesis.audit-mode .exec-only { display: none; }
   body.page-exec .exec-strip{ grid-template-columns: 1fr; }
   body.page-exec .timeline-chart{ grid-template-columns: 1fr; }
   body.page-exec .timeline-track{ display:none; }
-
-  body.page-ia .ia-strip{ grid-template-columns: 1fr; }
 
   body.page-exec .exec-title,
   body.page-ia .ia-title,
@@ -3818,7 +3783,6 @@ body.page-exec .timeline-dot { background: var(--gold); border-color: var(--gold
 .guide-note { color: var(--muted-2); }
 
 /* ---- IA quiz shell (audit-leadership) ---- */
-body.page-ia .ia-strip-item { background: var(--surface); border-color: var(--border-soft); }
 body.page-ia .quiz-shell { background: var(--surface); border-color: var(--border-soft); box-shadow: none; }
 body.page-ia .quiz-question { background: var(--surface); border-color: var(--border-soft); box-shadow: none; }
 body.page-ia .quiz-option {

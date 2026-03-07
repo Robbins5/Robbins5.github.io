@@ -150,10 +150,25 @@ var ROLE_PAGE_CONFIG = {
     }
   },
 
+  'executive-summary': {
+    executive: {
+      callout: 'Start here -- a 2-minute orientation to what is changing and what to ask your audit leadership.',
+      suggestedNext: { label: 'Executive Oversight', href: 'executive-oversight.html' }
+    },
+    leader: {
+      callout: 'The executive summary frames the transformation in terms your leadership team will recognize. Useful context before presenting the case for modernization investment.',
+      suggestedNext: { label: 'Methodology Playbook', href: 'audit-leadership.html' }
+    },
+    practitioner: {
+      callout: 'The executive summary explains how the transformation is framed for leadership audiences -- useful context for understanding what your function is being asked to deliver.',
+      suggestedNext: { label: 'Continuous Monitoring', href: 'continuous-monitoring.html' }
+    }
+  },
+
   'executive-oversight': {
     executive: {
-      callout: 'This page is written specifically for your perspective. The timeline defines what to expect at each modernization stage; the measures section defines how to evaluate progress; the "what to ask" section provides the right questions for your next audit committee conversation.',
-      suggestedNext: { label: 'Executive Assessment', href: 'executive-assessment.html' }
+      callout: 'The full operational reference -- timeline, metrics, and the inputs that accelerate modernization.',
+      suggestedNext: { label: 'Maturity Assessment', href: 'maturity-assessment.html' }
     },
     leader: {
       callout: 'The "build" and "interim" sections define what modernizing audit leadership needs to communicate to executives -- and what interim deliverables to produce during the transition period before full monitoring is operational.',

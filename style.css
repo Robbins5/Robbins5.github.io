@@ -4299,3 +4299,244 @@ a, button,
   .section-with-aside .callout-card { margin-top: 0; }
 }
 
+/* ============================================================
+   Maturity Assessment — executive-assessment visual treatment
+   ============================================================ */
+
+/* Standalone exec-hero (dark centered hero, no body-class dependency) */
+.exec-hero {
+  background: #141416;
+  color: #f0ede8;
+  padding: 80px 0 64px;
+  text-align: center;
+}
+
+.hero-eyebrow {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #c9a96e;
+  border: 1px solid rgba(140,111,63,0.4);
+  padding: 0.35rem 1rem;
+  border-radius: 2px;
+  margin-bottom: 2rem;
+}
+
+.hero-intro {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2.2rem, 5vw, 3.4rem);
+  font-weight: 300;
+  line-height: 1.15;
+  color: #ffffff;
+  margin-bottom: 1.5rem;
+  letter-spacing: -0.01em;
+  max-width: 760px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.hero-intro em {
+  font-style: italic;
+  color: #c9a96e;
+}
+
+.hero-framing {
+  font-size: 1.0rem;
+  color: rgba(240,237,232,0.72);
+  max-width: 620px;
+  margin: 0 auto;
+  font-weight: 300;
+  line-height: 1.75;
+}
+
+/* Context card (framing box below hero) */
+.hero-context-card {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(140,111,63,0.25);
+  border-left: 3px solid rgba(140,111,63,0.7);
+  border-radius: 4px;
+  padding: 1.5rem 2rem;
+  max-width: 760px;
+  margin: 0 auto;
+}
+.hero-context-card p {
+  font-size: 0.95rem;
+  color: rgba(255,255,255,0.65);
+  line-height: 1.75;
+  font-weight: 300;
+}
+
+/* ---- mat-card: dark card style (overrides light-mode rules above) ---- */
+.mat-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  width: 100%;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 6px;
+  padding: 1rem 1.25rem;
+  cursor: pointer;
+  transition: background 0.15s, border-color 0.15s, transform 0.15s;
+  text-align: left;
+  margin-bottom: 0.6rem;
+  position: relative;
+}
+
+.mat-card:hover,
+.mat-card:hover:not(.is-selected) {
+  background: rgba(255,255,255,0.06);
+  border-color: rgba(140,111,63,0.4);
+  transform: translateX(3px);
+}
+
+.mat-card.is-selected,
+.mat-card[aria-pressed="true"] {
+  background: rgba(140,111,63,0.12);
+  border-color: rgba(140,111,63,0.7);
+  color: inherit;
+  transform: none;
+}
+
+.mat-card.is-dimmed { opacity: 0.45; }
+
+/* Badge: always visible as a flex item */
+.mat-card-check {
+  position: static;
+  display: flex;
+  width: 28px;
+  height: 28px;
+  min-width: 28px;
+  border-radius: 4px;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.15);
+  align-items: center;
+  justify-content: center;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: rgba(255,255,255,0.5);
+  font-family: 'DM Sans', sans-serif;
+  flex-shrink: 0;
+}
+
+.mat-card.is-selected .mat-card-check,
+.mat-card[aria-pressed="true"] .mat-card-check {
+  background: rgba(140,111,63,0.3);
+  border-color: #c9a96e;
+  color: #c9a96e;
+}
+
+.mat-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  max-width: 720px;
+}
+
+.mat-card-label {
+  font-size: 0.92rem;
+  color: rgba(255,255,255,0.82);
+  line-height: 1.5;
+  font-weight: 500;
+  margin-bottom: 0;
+}
+
+.mat-card.is-selected .mat-card-label { color: rgba(255,255,255,0.95); }
+
+.mat-card-desc {
+  font-size: 0.82rem;
+  color: rgba(255,255,255,0.5);
+  margin-top: 0.2rem;
+  line-height: 1.5;
+}
+
+.mat-card.is-selected .mat-card-desc { color: rgba(255,255,255,0.65); }
+
+/* Progress bar */
+.mat-progress {
+  max-width: 720px;
+  margin: 0 auto 1.5rem;
+}
+
+.mat-progress-track {
+  height: 3px;
+  background: rgba(255,255,255,0.08);
+  border-radius: 2px;
+  overflow: hidden;
+  margin-bottom: 0.5rem;
+}
+
+.mat-progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #8c6f3f, #c9a96e);
+  border-radius: 2px;
+  transition: width 0.4s ease;
+}
+
+.mat-progress-step {
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.4);
+  text-align: right;
+  margin-bottom: 0.5rem;
+}
+
+/* Assessment container */
+.maturity-v2 {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 2.5rem 0 4rem;
+}
+
+.mat-q-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.35rem;
+  font-weight: 600;
+  color: #ffffff;
+  line-height: 1.5;
+  margin-bottom: 1.25rem;
+  max-width: 680px;
+}
+
+/* Navigation */
+.mat-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 2rem;
+  max-width: 720px;
+}
+
+.mat-next {
+  background: linear-gradient(135deg, #8c6f3f, #c9a96e);
+  color: #0e0e10;
+  border: none;
+  padding: 0.75rem 2rem;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: opacity 0.2s, transform 0.2s;
+}
+
+.mat-next:hover { opacity: 0.88; transform: translateX(2px); }
+.mat-next:disabled { opacity: 0.4; cursor: not-allowed; transform: none; }
+
+.mat-back {
+  background: none;
+  border: none;
+  color: rgba(255,255,255,0.4);
+  font-size: 0.82rem;
+  cursor: pointer;
+  padding: 0;
+  transition: color 0.2s;
+}
+
+.mat-back:hover { color: rgba(255,255,255,0.7); }
+

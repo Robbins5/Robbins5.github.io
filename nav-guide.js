@@ -465,9 +465,29 @@ function injectRoleOverlay() {
    Shows Previous / Page X of Y / Next based on role sequence.
    ============================================================ */
 
+function injectJourneyBarCSS() {
+  if (document.getElementById('journey-bar-css')) return;
+  var s = document.createElement('style');
+  s.id = 'journey-bar-css';
+  s.textContent = [
+    '@media (max-width: 500px) {',
+    '  [data-journey-bar] { flex-wrap: wrap; padding: 6px 12px; min-height: auto; }',
+    '  [data-journey-bar] > div { min-width: 0 !important; }',
+    '  [data-journey-bar] [data-journey-left] { flex: 1; text-align: left; }',
+    '  [data-journey-bar] [data-journey-right] { flex: 1; text-align: right; }',
+    '  [data-journey-bar] [data-journey-center] { width: 100%; text-align: center; order: 1; }',
+    '}',
+    '@media (max-width: 400px) {',
+    '  [data-journey-bar] [data-journey-center] { display: none; }',
+    '}'
+  ].join('\n');
+  document.head.appendChild(s);
+}
+
 function injectJourneyBar(role) {
   var existing = document.querySelector('[data-journey-bar]');
   if (existing && existing.parentNode) existing.parentNode.removeChild(existing);
+  injectJourneyBarCSS();
 
   var roleDef = ROLES[role];
   if (!roleDef) return;
@@ -498,6 +518,7 @@ function injectJourneyBar(role) {
 
   /* LEFT: Previous */
   var leftEl = document.createElement('div');
+  leftEl.setAttribute('data-journey-left', 'true');
   leftEl.style.cssText = 'min-width:110px;';
   if (inJourney && pos > 0) {
     var prevLink = document.createElement('a');
@@ -511,6 +532,7 @@ function injectJourneyBar(role) {
 
   /* CENTER: page indicator, role label, change-role link */
   var centerEl = document.createElement('div');
+  centerEl.setAttribute('data-journey-center', 'true');
   centerEl.style.cssText = 'flex:1;text-align:center;line-height:1.3;';
 
   if (inJourney) {
@@ -556,6 +578,7 @@ function injectJourneyBar(role) {
 
   /* RIGHT: Next */
   var rightEl = document.createElement('div');
+  rightEl.setAttribute('data-journey-right', 'true');
   rightEl.style.cssText = 'min-width:110px;text-align:right;';
   if (inJourney && pos < seq.length - 1) {
     var nextLink = document.createElement('a');

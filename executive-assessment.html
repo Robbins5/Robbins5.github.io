@@ -651,6 +651,8 @@
           <a href="team-structure.html">Team and Talent</a>
           <a href="organizational-intelligence.html">Organizational Intelligence</a>
           <a href="capacity-model.html">Dedicated Capacity</a>
+          <a href="auditing-ai.html">Auditing AI</a>
+          <a href="ai-learning.html">Learning Module</a>
         </div>
       </div>
 
@@ -661,6 +663,8 @@
           <a href="continuous-monitoring.html">Continuous Monitoring</a>
           <a href="technology-stack.html">Technology Stack</a>
           <a href="skills-evolution.html">Skills and Development</a>
+          <a href="auditing-ai.html">Auditing AI</a>
+          <a href="ai-learning.html">Learning Module</a>
         </div>
       </div>
 
@@ -1062,6 +1066,13 @@
       if (groupBtn) {
         var group = groupBtn.closest('.nav-group');
         if (group) {
+          inner.querySelectorAll('.nav-group.is-open').forEach(function(g) {
+            if (g !== group) {
+              g.classList.remove('is-open');
+              var b = g.querySelector('.nav-group-btn');
+              if (b) b.setAttribute('aria-expanded', 'false');
+            }
+          });
           group.classList.toggle('is-open');
           groupBtn.setAttribute('aria-expanded', group.classList.contains('is-open') ? 'true' : 'false');
         }
@@ -1070,6 +1081,24 @@
       if (e.target.tagName === 'A') {
         inner.classList.remove('is-open');
         toggle.setAttribute('aria-expanded', 'false');
+      }
+    });
+    document.addEventListener('click', function(e) {
+      if (!e.target.closest('.nav-group')) {
+        inner.querySelectorAll('.nav-group.is-open').forEach(function(g) {
+          g.classList.remove('is-open');
+          var b = g.querySelector('.nav-group-btn');
+          if (b) b.setAttribute('aria-expanded', 'false');
+        });
+      }
+    });
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') {
+        inner.querySelectorAll('.nav-group.is-open').forEach(function(g) {
+          g.classList.remove('is-open');
+          var b = g.querySelector('.nav-group-btn');
+          if (b) b.setAttribute('aria-expanded', 'false');
+        });
       }
     });
   })();

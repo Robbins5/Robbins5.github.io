@@ -4094,6 +4094,105 @@ a, button,
 }
 
 /* ============================================================
+   About — prose width, author grid, closing band
+   ============================================================ */
+
+.hero-kicker {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 900;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 10px;
+}
+
+.about-prose p {
+  max-width: 72ch;
+  line-height: 1.85;
+  color: rgba(255,255,255,0.82);
+  font-size: 0.97rem;
+  margin-bottom: 1.25rem;
+}
+.about-prose p:last-child { margin-bottom: 0; }
+
+.section.about-section { padding: 64px 0; }
+@media (max-width: 768px) {
+  .section.about-section { padding: 40px 0; }
+}
+
+.closing-band {
+  background: #0e0e10;
+  border-top: 1px solid rgba(140,111,63,0.3);
+}
+.closing-band .about-prose p {
+  font-size: 1.05rem;
+  color: rgba(255,255,255,0.88);
+  max-width: 64ch;
+}
+
+/* Author grid */
+.author-grid {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 3rem;
+  align-items: start;
+}
+.author-photo-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+.author-photo {
+  width: 220px;
+  height: 280px;
+  object-fit: cover;
+  object-position: top;
+  border-radius: 4px;
+  border: 1px solid rgba(140,111,63,0.3);
+  display: block;
+  margin-bottom: 1rem;
+}
+.author-name-label {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: #ffffff;
+  margin-bottom: 0.2rem;
+  letter-spacing: 0.01em;
+}
+.author-title-label {
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #c9a96e;
+  line-height: 1.5;
+}
+.author-linkedin {
+  display: inline-block;
+  margin-top: 1.5rem;
+  color: #c9a96e;
+  font-size: 0.9rem;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(140,111,63,0.4);
+  padding-bottom: 2px;
+  transition: border-color 0.2s, color 0.2s;
+}
+.author-linkedin:hover {
+  color: #e8c97e;
+  border-color: rgba(140,111,63,0.8);
+}
+@media (max-width: 768px) {
+  .author-grid { grid-template-columns: 1fr; }
+  .author-photo {
+    width: 160px;
+    height: 200px;
+    margin: 0 auto 1rem;
+  }
+}
+
+/* ============================================================
    Auditing AI — glossary, lists, subheads, callout cards
    ============================================================ */
 

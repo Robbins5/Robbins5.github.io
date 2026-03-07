@@ -4093,3 +4093,143 @@ a, button,
   .footer-right { max-width: 100%; width: 100%; }
 }
 
+/* ============================================================
+   Auditing AI — glossary, lists, subheads, callout cards
+   ============================================================ */
+
+/* Anchor nav */
+.anchor-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.5rem;
+  padding: 1rem 2rem;
+  background: rgba(255,255,255,0.03);
+  border-top: 1px solid rgba(255,255,255,0.06);
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  margin-bottom: 0;
+}
+.anchor-nav a {
+  font-size: 0.78rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.55);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.anchor-nav a:hover { color: #c9a96e; }
+
+/* Glossary */
+.glossary-entry { margin-bottom: 1.25rem; }
+.glossary-term {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: #ffffff;
+  margin-top: 1.5rem;
+  margin-bottom: 0.25rem;
+  border-left: 3px solid rgba(140,111,63,0.6);
+  padding-left: 0.75rem;
+}
+.glossary-def {
+  font-size: 0.92rem;
+  color: rgba(255,255,255,0.72);
+  line-height: 1.7;
+  padding-left: 1rem;
+  margin-bottom: 0;
+}
+
+/* Two-column bullet list */
+.two-col-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5rem 2rem;
+  margin: 1rem 0 1.5rem;
+  padding-left: 0;
+  list-style: none;
+}
+.two-col-list li {
+  font-size: 0.9rem;
+  color: rgba(255,255,255,0.78);
+  line-height: 1.6;
+  padding-left: 1rem;
+  position: relative;
+}
+.two-col-list li::before {
+  content: '\2192';
+  position: absolute;
+  left: 0;
+  color: rgba(140,111,63,0.7);
+  font-size: 0.75rem;
+}
+@media (max-width: 768px) {
+  .two-col-list { grid-template-columns: 1fr; }
+}
+
+/* Single-column indicator list */
+.indicator-list {
+  margin: 1rem 0 1.5rem;
+  padding-left: 0;
+  list-style: none;
+}
+.indicator-list li {
+  font-size: 0.9rem;
+  color: rgba(255,255,255,0.78);
+  line-height: 1.6;
+  padding-left: 1rem;
+  position: relative;
+  margin-bottom: 0.4rem;
+}
+.indicator-list li::before {
+  content: '\2192';
+  position: absolute;
+  left: 0;
+  color: rgba(140,111,63,0.7);
+  font-size: 0.75rem;
+}
+
+/* Section subheading (h4 within content-main) */
+.section-subhead {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #c9a96e;
+  letter-spacing: 0.02em;
+  margin-top: 2rem;
+  margin-bottom: 0.5rem;
+  padding-bottom: 0.3rem;
+  border-bottom: 1px solid rgba(140,111,63,0.2);
+}
+
+/* Callout card */
+.callout-card {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(140,111,63,0.25);
+  border-radius: 6px;
+  padding: 1.25rem 1.5rem;
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+.callout-card-label {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #c9a96e;
+  margin-bottom: 0.6rem;
+}
+.callout-card p,
+.callout-card li {
+  font-size: 0.88rem;
+  color: rgba(255,255,255,0.72);
+  line-height: 1.65;
+}
+
+/* Section with aside: wider main content column */
+.section-with-aside {
+  grid-template-columns: 1fr 280px;
+}
+@media (max-width: 900px) {
+  .section-with-aside { grid-template-columns: 1fr; }
+  .section-with-aside .callout-card { margin-top: 0; }
+}
+

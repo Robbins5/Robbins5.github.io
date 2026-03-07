@@ -101,6 +101,18 @@
       </div>
     </section>
 
+    <!-- ANCHOR NAV -->
+    <nav class="anchor-nav" aria-label="Page sections">
+      <a href="#how-ai-works">How AI Works</a>
+      <a href="#ai-landscape">Governance Landscape</a>
+      <a href="#glossary">Glossary</a>
+      <a href="#policy">Policy Framework</a>
+      <a href="#control-environment">Control Environment</a>
+      <a href="#audit-tool">AI as Audit Tool</a>
+      <a href="#executive-view">Executive View</a>
+      <a href="#training">Learning and Development</a>
+    </nav>
+
     <!-- HOW AI WORKS -->
     <section class="section" id="how-ai-works">
       <div class="container">
@@ -114,11 +126,11 @@
           </p>
         </div>
 
-        <div class="content-cols">
+        <div class="content-cols section-with-aside">
 
           <div class="content-main">
 
-            <h3>The enterprise AI stack</h3>
+            <h4 class="section-subhead">The enterprise AI stack</h4>
             <p>
               Most enterprise AI deployments are not custom-built models. They are vendor-supplied systems,
               cloud-hosted APIs, or embedded tools within existing platforms -- ERP add-ons, scheduling
@@ -128,7 +140,7 @@
             <p>
               The relevant components for audit purposes:
             </p>
-            <ul>
+            <ul class="two-col-list">
               <li><strong>Training data:</strong> The historical records used to develop the model's predictive behavior. Quality, representativeness, and documentation of training data are core governance questions.</li>
               <li><strong>Model:</strong> The algorithm or neural network architecture. For most enterprise deployments this is vendor-controlled. Audit's access is typically limited to outputs, not model internals.</li>
               <li><strong>Feature engineering:</strong> How raw data is transformed into the inputs the model uses. This is often where bias and instability enter -- and where audit can usually get traction.</li>
@@ -137,11 +149,11 @@
               <li><strong>Human decision interface:</strong> How model outputs reach human decision-makers and what override or escalation mechanisms exist.</li>
             </ul>
 
-            <h3>Model types relevant to electrical distribution</h3>
+            <h4 class="section-subhead">Model types relevant to electrical distribution</h4>
             <p>
               Electrical distribution enterprises encounter AI in several recurring forms:
             </p>
-            <ul>
+            <ul class="two-col-list">
               <li><strong>Demand forecasting:</strong> Predicting inventory requirements and delivery timing. Bias or calibration errors affect purchasing decisions at scale.</li>
               <li><strong>Pricing optimization:</strong> Dynamic or contract pricing recommendations. Audit implications include fair pricing consistency and margin governance.</li>
               <li><strong>Credit decisioning:</strong> Trade credit extension, credit limit management. Regulatory fair lending considerations may apply depending on customer type.</li>
@@ -149,7 +161,7 @@
               <li><strong>Predictive maintenance:</strong> Failure prediction for fleet or facility assets. Relevant where equipment failure has safety or continuity implications.</li>
             </ul>
 
-            <h3>The lifecycle audit gap</h3>
+            <h4 class="section-subhead">The lifecycle audit gap</h4>
             <p>
               The most common governance failure is not deploying a bad model -- it is failing to govern the model
               after deployment. Models drift as operating conditions change. Training data becomes unrepresentative.
@@ -164,17 +176,17 @@
           </div>
 
           <div class="content-aside">
-            <div class="callout">
-              <p class="callout-label">Key concept</p>
+            <div class="callout-card">
+              <p class="callout-card-label">Key concept</p>
               <p>
                 Most enterprise AI systems are black boxes from the audit perspective -- the model internals
                 are vendor-controlled. The audit scope is the governance and decision layer around the model,
                 not the model itself. That is where control deficiencies actually live.
               </p>
             </div>
-            <div class="callout" style="margin-top:1.5rem;">
-              <p class="callout-label">Lifecycle stages</p>
-              <ul style="margin:0.5rem 0 0;padding-left:1.2rem;line-height:1.8;font-size:0.88rem;">
+            <div class="callout-card" style="margin-top:1.5rem;">
+              <p class="callout-card-label">Lifecycle stages</p>
+              <ul style="margin:0.5rem 0 0;padding-left:1.2rem;line-height:1.8;">
                 <li>Pre-deployment validation</li>
                 <li>Post-deployment monitoring</li>
                 <li>Periodic revalidation</li>
@@ -198,16 +210,16 @@
           </p>
         </div>
 
-        <div class="content-cols">
+        <div class="content-cols section-with-aside">
 
           <div class="content-main">
 
-            <h3>Regulatory frameworks in force or development</h3>
+            <h4 class="section-subhead">Regulatory frameworks in force or development</h4>
             <p>
               The governance landscape includes both binding requirements and voluntary frameworks that
               are increasingly referenced in regulatory examinations and third-party assessments:
             </p>
-            <ul>
+            <ul class="two-col-list">
               <li><strong>EU AI Act (2024):</strong> The most comprehensive binding AI regulation currently in force. Risk-tiered requirements; high-risk systems require conformity assessments, transparency documentation, human oversight, and technical documentation. Relevant for organizations with EU exposure.</li>
               <li><strong>NIST AI RMF (2023):</strong> Voluntary but widely adopted. Provides a risk-based framework organized around four functions: Govern, Map, Measure, Manage. Increasingly referenced by U.S. federal agencies and used as an audit framework basis.</li>
               <li><strong>SEC AI-related disclosures:</strong> Guidance on disclosure obligations when AI-related risks are material. Relevant for public companies; enforcement is active on AI-related disclosure gaps.</li>
@@ -215,11 +227,11 @@
               <li><strong>IIA Standards (2024):</strong> The 2024 IIA Standards introduce explicit expectations for audit to understand and assess technology-enabled processes, including AI. Methodology standards require auditors to apply appropriate techniques for technology-dependent environments.</li>
             </ul>
 
-            <h3>The convergence principles</h3>
+            <h4 class="section-subhead">The convergence principles</h4>
             <p>
               Across frameworks, the governance requirements that appear consistently are:
             </p>
-            <ul>
+            <ul class="two-col-list">
               <li>Documented purpose and scope for each system</li>
               <li>Risk classification or tiering at deployment</li>
               <li>Training data documentation and quality standards</li>
@@ -237,8 +249,8 @@
           </div>
 
           <div class="content-aside">
-            <div class="callout">
-              <p class="callout-label">Governance gap pattern</p>
+            <div class="callout-card">
+              <p class="callout-card-label">Governance gap pattern</p>
               <p>
                 Most organizations have AI systems deployed before governance frameworks were established.
                 The common audit finding is not "no governance" -- it is governance that exists on paper
@@ -263,57 +275,55 @@
           </p>
         </div>
 
-        <div class="content-cols">
+        <div class="content-cols section-with-aside">
           <div class="content-main">
 
-            <dl style="display:grid;gap:1.25rem;">
-              <div>
-                <dt style="font-weight:600;color:#f5f2ec;">Algorithm</dt>
-                <dd style="margin:0.25rem 0 0;color:rgba(255,255,255,0.65);font-size:0.9rem;line-height:1.7;">A defined set of rules or procedures that a system follows to produce an output. Not all algorithms are AI -- rule-based systems (if/then logic) are algorithms but not machine learning. The distinction matters for audit scope.</dd>
-              </div>
-              <div>
-                <dt style="font-weight:600;color:#f5f2ec;">Machine learning (ML)</dt>
-                <dd style="margin:0.25rem 0 0;color:rgba(255,255,255,0.65);font-size:0.9rem;line-height:1.7;">A category of AI where systems learn patterns from data rather than following explicitly programmed rules. The model's behavior is shaped by training data, which is why data quality governance is foundational.</dd>
-              </div>
-              <div>
-                <dt style="font-weight:600;color:#f5f2ec;">Large language model (LLM)</dt>
-                <dd style="margin:0.25rem 0 0;color:rgba(255,255,255,0.65);font-size:0.9rem;line-height:1.7;">A type of ML model trained on large volumes of text. Powers tools like ChatGPT, Copilot, and embedded AI assistants. Audit-relevant concerns include hallucination, data leakage in user prompts, and output reliability for consequential tasks.</dd>
-              </div>
-              <div>
-                <dt style="font-weight:600;color:#f5f2ec;">Model drift</dt>
-                <dd style="margin:0.25rem 0 0;color:rgba(255,255,255,0.65);font-size:0.9rem;line-height:1.7;">Degradation in model accuracy over time as real-world conditions diverge from training data. A model trained on pre-pandemic distribution patterns, for example, may produce increasingly unreliable outputs as supply chain conditions change. Monitoring for drift is a core control.</dd>
-              </div>
-              <div>
-                <dt style="font-weight:600;color:#f5f2ec;">Hallucination</dt>
-                <dd style="margin:0.25rem 0 0;color:rgba(255,255,255,0.65);font-size:0.9rem;line-height:1.7;">When an LLM generates plausible-sounding but factually incorrect output. The term is specific to generative AI. Relevant audit risk: LLM outputs used in reports, customer communications, or decision support without human verification.</dd>
-              </div>
-              <div>
-                <dt style="font-weight:600;color:#f5f2ec;">Training data</dt>
-                <dd style="margin:0.25rem 0 0;color:rgba(255,255,255,0.65);font-size:0.9rem;line-height:1.7;">The historical dataset used to develop a model. Quality, completeness, representativeness, and governance of training data determine much of what the model can and cannot do reliably. Audit should assess whether training data was curated, documented, and reviewed for bias.</dd>
-              </div>
-              <div>
-                <dt style="font-weight:600;color:#f5f2ec;">Explainability</dt>
-                <dd style="margin:0.25rem 0 0;color:rgba(255,255,255,0.65);font-size:0.9rem;line-height:1.7;">The degree to which a model's output can be explained in terms a human can evaluate. High explainability means a decision-maker can understand why the model produced a result. Low explainability is a risk factor where consequential decisions are involved.</dd>
-              </div>
-              <div>
-                <dt style="font-weight:600;color:#f5f2ec;">Human-in-the-loop</dt>
-                <dd style="margin:0.25rem 0 0;color:rgba(255,255,255,0.65);font-size:0.9rem;line-height:1.7;">A design pattern where humans review or approve AI outputs before they take effect. The critical audit question is not whether a human is "in the loop" in name but whether the human intervention is substantive -- whether the reviewer has the time, information, and authority to actually override the model.</dd>
-              </div>
-              <div>
-                <dt style="font-weight:600;color:#f5f2ec;">Bias (algorithmic)</dt>
-                <dd style="margin:0.25rem 0 0;color:rgba(255,255,255,0.65);font-size:0.9rem;line-height:1.7;">Systematic errors in model outputs that disadvantage specific groups or produce consistently skewed results. Originates in training data, feature selection, or model design. Most relevant for credit, pricing, and employee-related AI systems.</dd>
-              </div>
-              <div>
-                <dt style="font-weight:600;color:#f5f2ec;">Shadow AI</dt>
-                <dd style="margin:0.25rem 0 0;color:rgba(255,255,255,0.65);font-size:0.9rem;line-height:1.7;">AI tools adopted by employees without IT or compliance review -- typically consumer AI products used for work tasks. A significant and often invisible governance gap. Audit should assess whether the organization has a policy, detection mechanisms, and enforcement.</dd>
-              </div>
-            </dl>
+            <div class="glossary-entry">
+              <div class="glossary-term">Algorithm</div>
+              <p class="glossary-def">A defined set of rules or procedures that a system follows to produce an output. Not all algorithms are AI -- rule-based systems (if/then logic) are algorithms but not machine learning. The distinction matters for audit scope.</p>
+            </div>
+            <div class="glossary-entry">
+              <div class="glossary-term">Machine learning (ML)</div>
+              <p class="glossary-def">A category of AI where systems learn patterns from data rather than following explicitly programmed rules. The model's behavior is shaped by training data, which is why data quality governance is foundational.</p>
+            </div>
+            <div class="glossary-entry">
+              <div class="glossary-term">Large language model (LLM)</div>
+              <p class="glossary-def">A type of ML model trained on large volumes of text. Powers tools like ChatGPT, Copilot, and embedded AI assistants. Audit-relevant concerns include hallucination, data leakage in user prompts, and output reliability for consequential tasks.</p>
+            </div>
+            <div class="glossary-entry">
+              <div class="glossary-term">Model drift</div>
+              <p class="glossary-def">Degradation in model accuracy over time as real-world conditions diverge from training data. A model trained on pre-pandemic distribution patterns, for example, may produce increasingly unreliable outputs as supply chain conditions change. Monitoring for drift is a core control.</p>
+            </div>
+            <div class="glossary-entry">
+              <div class="glossary-term">Hallucination</div>
+              <p class="glossary-def">When an LLM generates plausible-sounding but factually incorrect output. The term is specific to generative AI. Relevant audit risk: LLM outputs used in reports, customer communications, or decision support without human verification.</p>
+            </div>
+            <div class="glossary-entry">
+              <div class="glossary-term">Training data</div>
+              <p class="glossary-def">The historical dataset used to develop a model. Quality, completeness, representativeness, and governance of training data determine much of what the model can and cannot do reliably. Audit should assess whether training data was curated, documented, and reviewed for bias.</p>
+            </div>
+            <div class="glossary-entry">
+              <div class="glossary-term">Explainability</div>
+              <p class="glossary-def">The degree to which a model's output can be explained in terms a human can evaluate. High explainability means a decision-maker can understand why the model produced a result. Low explainability is a risk factor where consequential decisions are involved.</p>
+            </div>
+            <div class="glossary-entry">
+              <div class="glossary-term">Human-in-the-loop</div>
+              <p class="glossary-def">A design pattern where humans review or approve AI outputs before they take effect. The critical audit question is not whether a human is "in the loop" in name but whether the human intervention is substantive -- whether the reviewer has the time, information, and authority to actually override the model.</p>
+            </div>
+            <div class="glossary-entry">
+              <div class="glossary-term">Bias (algorithmic)</div>
+              <p class="glossary-def">Systematic errors in model outputs that disadvantage specific groups or produce consistently skewed results. Originates in training data, feature selection, or model design. Most relevant for credit, pricing, and employee-related AI systems.</p>
+            </div>
+            <div class="glossary-entry">
+              <div class="glossary-term">Shadow AI</div>
+              <p class="glossary-def">AI tools adopted by employees without IT or compliance review -- typically consumer AI products used for work tasks. A significant and often invisible governance gap. Audit should assess whether the organization has a policy, detection mechanisms, and enforcement.</p>
+            </div>
 
           </div>
 
           <div class="content-aside">
-            <div class="callout">
-              <p class="callout-label">Practitioner note</p>
+            <div class="callout-card">
+              <p class="callout-card-label">Practitioner note</p>
               <p>
                 When interviewing technical stakeholders, surface which terms they use for their systems.
                 "AI" in management vocabulary often means something more specific in the engineering team's
@@ -338,14 +348,14 @@
           </p>
         </div>
 
-        <div class="content-cols">
+        <div class="content-cols section-with-aside">
           <div class="content-main">
 
-            <h3>Policy elements that should exist</h3>
+            <h4 class="section-subhead">Policy elements that should exist</h4>
             <p>
               A complete AI governance policy structure includes:
             </p>
-            <ul>
+            <ul class="two-col-list">
               <li><strong>AI use policy:</strong> Defines permitted and prohibited uses of AI, including employee-use guidelines for external AI tools. Should distinguish between internal development, vendor-supplied systems, and consumer AI.</li>
               <li><strong>Risk classification framework:</strong> A tiered structure for categorizing AI systems by consequence severity. At minimum: low-risk (informational), medium-risk (advisory), high-risk (consequential or regulated).</li>
               <li><strong>AI inventory:</strong> A documented register of all AI systems in production, including vendor-supplied systems embedded in other platforms. The most common governance gap is an incomplete inventory -- systems the governance team does not know exist.</li>
@@ -353,19 +363,19 @@
               <li><strong>Acceptable use by function:</strong> Function-specific guidance for high-risk business areas such as credit, pricing, HR, and customer-facing communications.</li>
             </ul>
 
-            <h3>Governance structure</h3>
+            <h4 class="section-subhead">Governance structure</h4>
             <p>
               Effective AI governance requires a defined accountability structure. Audit should assess:
             </p>
-            <ul>
+            <ul class="indicator-list">
               <li>Is there a designated AI governance owner (CISO, CTO, CDO, or dedicated role)?</li>
               <li>Is there a cross-functional AI review or approval body for new system deployments?</li>
               <li>Are business process owners accountable for the AI systems they use, even when those systems are vendor-supplied?</li>
               <li>Does the governance structure have teeth -- approval authority that can actually block deployment?</li>
             </ul>
 
-            <h3>Common audit findings in this area</h3>
-            <ul>
+            <h4 class="section-subhead">Common audit findings in this area</h4>
+            <ul class="two-col-list">
               <li>AI inventory exists but is materially incomplete -- excludes embedded vendor AI in ERP or CRM platforms</li>
               <li>Risk classification framework exists but new systems are not routinely classified before deployment</li>
               <li>Employee AI use policy prohibits unapproved tools but no detection or enforcement mechanism exists</li>
@@ -376,9 +386,9 @@
           </div>
 
           <div class="content-aside">
-            <div class="callout">
-              <p class="callout-label">Evidence to request</p>
-              <ul style="margin:0.5rem 0 0;padding-left:1.2rem;line-height:1.9;font-size:0.88rem;">
+            <div class="callout-card">
+              <p class="callout-card-label">Evidence to request</p>
+              <ul style="margin:0.5rem 0 0;padding-left:1.2rem;line-height:1.8;">
                 <li>AI inventory / system register</li>
                 <li>Risk classification decisions</li>
                 <li>Governance committee meeting records</li>
@@ -405,10 +415,10 @@
           </p>
         </div>
 
-        <div class="content-cols">
+        <div class="content-cols section-with-aside">
           <div class="content-main">
 
-            <h3>Controls that traditional ITGC frameworks cover</h3>
+            <h4 class="section-subhead">Controls that traditional ITGC frameworks cover</h4>
             <p>
               Standard ITGC testing covers access controls, change management, operations controls, and
               availability. These apply to AI systems the same way they apply to any software system.
@@ -416,8 +426,8 @@
               re-perform ITGC testing under an AI audit label.
             </p>
 
-            <h3>Controls that are AI-specific</h3>
-            <ul>
+            <h4 class="section-subhead">Controls that are AI-specific</h4>
+            <ul class="two-col-list">
               <li><strong>Data lineage and training data controls:</strong> Documentation of where training data originated, how it was cleaned and labeled, and whether it was reviewed for quality and representativeness before use. Most organizations lack adequate documentation here.</li>
               <li><strong>Model validation:</strong> Independent validation of model performance before deployment. In higher-risk applications (credit, fraud detection, pricing at scale), validation should be performed by someone other than the model developer.</li>
               <li><strong>Performance monitoring:</strong> Ongoing tracking of model accuracy metrics, drift indicators, and output distributions. Monitoring without defined alert thresholds is surveillance, not control.</li>
@@ -426,11 +436,11 @@
               <li><strong>Retraining controls:</strong> Triggers, frequency, and approval process for model retraining. Ad hoc retraining without approval is a change management control failure.</li>
             </ul>
 
-            <h3>Vendor AI controls</h3>
+            <h4 class="section-subhead">Vendor AI controls</h4>
             <p>
               For vendor-supplied AI systems, audit should assess the organization's reliance management controls:
             </p>
-            <ul>
+            <ul class="indicator-list">
               <li>Does the organization understand what the vendor's system is doing?</li>
               <li>Does the contract include performance standards and incident notification requirements?</li>
               <li>Does the organization have independent means to detect when the vendor system is performing poorly?</li>
@@ -440,8 +450,8 @@
           </div>
 
           <div class="content-aside">
-            <div class="callout">
-              <p class="callout-label">Scoping principle</p>
+            <div class="callout-card">
+              <p class="callout-card-label">Scoping principle</p>
               <p>
                 AI audit scope should be layered, not duplicated. If ITGC testing is in scope separately,
                 the AI audit covers the AI-specific controls -- data, validation, monitoring, human oversight,
@@ -468,14 +478,14 @@
           </p>
         </div>
 
-        <div class="content-cols">
+        <div class="content-cols section-with-aside">
           <div class="content-main">
 
-            <h3>Current practical applications</h3>
+            <h4 class="section-subhead">Current practical applications</h4>
             <p>
               The AI tools audit functions are actually using in practice, ranked approximately by adoption:
             </p>
-            <ul>
+            <ul class="two-col-list">
               <li><strong>LLM-assisted document review:</strong> Summarizing policies, contracts, and large document sets. Reduces time spent on initial review. Key risk: hallucination in output summaries used as evidence without verification.</li>
               <li><strong>Anomaly detection in transaction data:</strong> Pattern identification across large populations. Most effective where audit already has structured data access and defined control objectives.</li>
               <li><strong>Risk assessment assistance:</strong> Using LLMs to generate initial risk factor lists, identify precedents, or draft risk narratives. Effective as a starting point; requires practitioner review and editing.</li>
@@ -483,23 +493,23 @@
               <li><strong>Issue and recommendation benchmarking:</strong> Searching precedent findings across prior workpapers or industry databases. Useful for consistency review.</li>
             </ul>
 
-            <h3>Governance requirements for audit's AI use</h3>
+            <h4 class="section-subhead">Governance requirements for audit's AI use</h4>
             <p>
               Audit functions using AI tools in their own work need the same governance structure they audit
               in others. At minimum:
             </p>
-            <ul>
+            <ul class="indicator-list">
               <li>Approved tool list: which AI tools are authorized for use in audit work</li>
               <li>Data handling policy: what audit data can be entered into external AI systems (most organizations should prohibit entering confidential audit evidence into consumer LLMs)</li>
               <li>Verification requirement: all AI-generated content used in workpapers or reports must be verified by the practitioner producing it</li>
               <li>Disclosure standard: when and how AI assistance is noted in audit documentation</li>
             </ul>
 
-            <h3>What AI does not replace</h3>
+            <h4 class="section-subhead">What AI does not replace</h4>
             <p>
               AI tools reduce time on information processing tasks. They do not replace:
             </p>
-            <ul>
+            <ul class="indicator-list">
               <li>Professional judgment about risk significance and finding severity</li>
               <li>Relationship-based intelligence about organizational context</li>
               <li>The credibility that comes from practitioner expertise in presenting findings to management</li>
@@ -513,8 +523,8 @@
           </div>
 
           <div class="content-aside">
-            <div class="callout">
-              <p class="callout-label">Data handling rule</p>
+            <div class="callout-card">
+              <p class="callout-card-label">Data handling rule</p>
               <p>
                 The default rule for most organizations should be: do not enter confidential audit evidence,
                 personnel data, or client information into consumer-facing AI products. Verify your organization
@@ -539,10 +549,10 @@
           </p>
         </div>
 
-        <div class="content-cols">
+        <div class="content-cols section-with-aside">
           <div class="content-main">
 
-            <h3>Question 1: What AI systems is the organization actually using?</h3>
+            <h4 class="section-subhead">Question 1: What AI systems is the organization actually using?</h4>
             <p>
               This is harder to answer than it sounds. The answer most executives give reflects the AI systems
               IT and procurement are aware of. The more complete answer includes vendor-embedded AI in ERP,
@@ -554,7 +564,7 @@
               the governance program is built on an incomplete foundation.
             </p>
 
-            <h3>Question 2: Who is accountable for AI governance?</h3>
+            <h4 class="section-subhead">Question 2: Who is accountable for AI governance?</h4>
             <p>
               AI governance accountability is frequently diffused across IT, legal, compliance, and business
               units -- which in practice means no one is accountable. A functioning governance structure has
@@ -565,7 +575,7 @@
               AI system and compliance has concerns?" If the answer is unclear, the governance structure is not functional.
             </p>
 
-            <h3>Question 3: What does audit cover?</h3>
+            <h4 class="section-subhead">Question 3: What does audit cover?</h4>
             <p>
               Internal audit should be assessing AI governance program completeness, control design adequacy,
               and compliance with applicable frameworks. If your audit function is not yet covering AI governance
@@ -607,15 +617,15 @@
           </p>
         </div>
 
-        <div class="content-cols">
+        <div class="content-cols section-with-aside">
           <div class="content-main">
 
-            <h3>Structured learning and certifications</h3>
+            <h4 class="section-subhead">Structured learning and certifications</h4>
             <p>
               Several professional bodies have introduced AI-focused credentials and learning programs
               relevant to internal audit practitioners:
             </p>
-            <ul>
+            <ul class="two-col-list">
               <li><strong>IIA AI Auditing Certificate:</strong> Developed specifically for internal auditors. Covers AI governance, audit program design, evidence standards, and reporting. The most audit-specific structured credential currently available.</li>
               <li><strong>ISACA CDPSE / CRISC:</strong> Broader data privacy and risk credentials that include AI governance components. Relevant for practitioners whose scope includes IT governance and technology risk.</li>
               <li><strong>NIST AI RMF training:</strong> NIST publishes free training materials and workshops on applying the AI Risk Management Framework. Practical and directly applicable to governance audit work.</li>
@@ -629,12 +639,12 @@
               fieldwork methodology. No single credential covers all three.
             </p>
 
-            <h3>Staying informed</h3>
+            <h4 class="section-subhead">Staying informed</h4>
             <p>
               AI governance is evolving faster than any credential can track. A sustainable practice for
               staying current:
             </p>
-            <ul>
+            <ul class="two-col-list">
               <li><strong>Primary sources:</strong> Read NIST, SEC, FTC, and IIA publications directly. Regulatory guidance and professional standards are the authoritative layer; commentary and interpretation come after.</li>
               <li><strong>Enforcement actions:</strong> SEC and FTC AI-related enforcement actions are publicly available and often more instructive than guidance documents about what actually triggers examination scrutiny.</li>
               <li><strong>Practitioner communities:</strong> IIA chapter AI working groups, ISACA SIGs, and similar communities provide practitioner-level intelligence about what audit functions are encountering in fieldwork.</li>
@@ -645,8 +655,8 @@
           </div>
 
           <div class="content-aside">
-            <div class="callout">
-              <p class="callout-label">Learning Module</p>
+            <div class="callout-card">
+              <p class="callout-card-label">Learning Module</p>
               <p>
                 The AI Readiness Learning Module on this platform structures the concepts on this page into
                 a guided learning path with knowledge checks. Practitioner path includes a skills assessment
@@ -675,7 +685,7 @@
           <div class="pillar-card">
             <div class="pillar-card-accent"></div>
             <div class="pillar-card-content">
-              <h3 class="pillar-card-title">Technology Stack</h3>
+              <h4 class="pillar-card-title">Technology Stack</h4>
               <p class="pillar-card-body">
                 The tool pathway that supports AI audit work: from foundational data access through
                 analytics platforms to AI-augmented audit techniques.
@@ -687,7 +697,7 @@
           <div class="pillar-card">
             <div class="pillar-card-accent"></div>
             <div class="pillar-card-content">
-              <h3 class="pillar-card-title">Continuous Monitoring</h3>
+              <h4 class="pillar-card-title">Continuous Monitoring</h4>
               <p class="pillar-card-body">
                 Ongoing monitoring programs that provide the coverage AI governance controls require --
                 not point-in-time testing alone.
@@ -699,7 +709,7 @@
           <div class="pillar-card">
             <div class="pillar-card-accent"></div>
             <div class="pillar-card-content">
-              <h3 class="pillar-card-title">Skills and Development</h3>
+              <h4 class="pillar-card-title">Skills and Development</h4>
               <p class="pillar-card-body">
                 The practitioner skill profile for AI governance audit: what to build, what to access
                 through co-sourcing, and the development sequence that works.
@@ -711,7 +721,7 @@
           <div class="pillar-card">
             <div class="pillar-card-accent"></div>
             <div class="pillar-card-content">
-              <h3 class="pillar-card-title">AI Readiness Learning Module</h3>
+              <h4 class="pillar-card-title">AI Readiness Learning Module</h4>
               <p class="pillar-card-body">
                 A structured learning path with knowledge checks across the concepts on this page.
                 Practitioner path begins with a skills assessment and a personalized radar chart.

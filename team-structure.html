@@ -8,6 +8,16 @@
   <link rel="stylesheet" href="style.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    details.role-accordion { margin-top: 12px; border-top: 1px solid var(--border); }
+    details.role-accordion summary { font-size: 0.8rem; font-weight: 700; letter-spacing: 0.04em; color: var(--accent); cursor: pointer; padding: 10px 0; list-style: none; }
+    details.role-accordion summary::-webkit-details-marker { display: none; }
+    details.role-accordion summary::after { content: ' +'; }
+    details[open].role-accordion summary::after { content: ' -'; }
+    details.role-accordion .accordion-body { padding: 4px 0 12px; }
+    details.role-accordion .accordion-body ul { padding-left: 1.2em; line-height: 1.8; font-size: 0.88rem; color: var(--muted); }
+    details.role-accordion .accordion-body li { margin-bottom: 4px; }
+  </style>
 </head>
 
 <body>
@@ -149,7 +159,7 @@
             <div class="module-kicker">Scale</div>
             <div class="module-title">Most audit functions are small by design</div>
             <div class="module-desc">
-              IIA research finds that 51 percent of internal audit functions have five or fewer staff. Small teams are not a temporary condition on the way to something larger. They are the normal operating state for most functions. The frameworks that work for large enterprise audit teams -- deep specialization, dedicated methodology units, separate quality assurance functions -- do not translate directly to teams of six to ten people.
+              <a href="https://www.theiia.org/en/content/communications/press-releases/2025/march/new-report-reveals-the-value-of-strategy-plus-increasing-responsibility-for-internal-audit-leaders/" target="_blank" rel="noopener noreferrer">IIA research</a> consistently finds that the majority of internal audit functions operate with small teams -- a reality that shapes every structural and capacity decision a modernizing function must make. Small teams are not a temporary condition on the way to something larger. They are the normal operating state for most functions. The frameworks that work for large enterprise audit teams -- deep specialization, dedicated methodology units, separate quality assurance functions -- do not translate directly to teams of six to ten people.
             </div>
           </div>
 
@@ -187,10 +197,23 @@
 
           <div class="module" style="cursor: default;">
             <div class="module-kicker">Leadership</div>
-            <div class="module-title">Director of Internal Audit</div>
+            <div class="module-title">Chief Audit Executive (CAE)</div>
             <div class="module-desc">
               Responsible for audit strategy, audit committee relationships, executive stakeholder management, and organizational representation. This role should not carry a fieldwork assignment and should not be managing day-to-day engagement operations. Its value is external -- relationships, visibility, and organizational influence. When a director spends most of their time on fieldwork, the function loses its most important external asset.
             </div>
+            <details class="role-accordion">
+              <summary>What success looks like in this role</summary>
+              <div class="accordion-body">
+                <ul>
+                  <li>Meet monthly with each department head to collect operational intelligence -- emerging risks, process changes, system updates, and personnel shifts -- and brief the team on what was learned.</li>
+                  <li>Maintain the audit committee relationship through regular pre-meeting preparation, clear written updates, and candid disclosure of any scope limitations or resource constraints.</li>
+                  <li>Own the annual risk assessment and audit plan, updating it dynamically as organizational conditions change rather than treating it as a static document.</li>
+                  <li>Represent the audit function in executive leadership discussions, technology governance committees, and ERP steering conversations.</li>
+                  <li>Remove organizational blockers for the team -- data access delays, escalation stalls, stakeholder resistance -- so execution is not dependent on individual auditor relationships.</li>
+                  <li>Monitor the function's overall performance: detection lead time, finding significance, exception closure rates, and stakeholder satisfaction.</li>
+                </ul>
+              </div>
+            </details>
           </div>
 
           <div class="module" style="cursor: default;">
@@ -199,6 +222,19 @@
             <div class="module-desc">
               Responsible for all branch or region engagement leadership, staff development, fieldwork quality, and consistency of the audit experience across territories. One voice on how fieldwork is conducted. Having two senior leaders in this space with different styles and standards is a primary structural cause of methodology inconsistency in small audit teams.
             </div>
+            <details class="role-accordion">
+              <summary>What success looks like in this role</summary>
+              <div class="accordion-body">
+                <ul>
+                  <li>Design and own the fieldwork methodology -- how engagements are scoped, how branch visits are structured, how evidence is captured, and how findings are documented and communicated.</li>
+                  <li>Manage the engagement calendar across all active audits, ensuring resource allocation is balanced and deadlines are realistic.</li>
+                  <li>Conduct fieldwork quality reviews on completed working papers before findings are communicated, maintaining consistent standards across all team members.</li>
+                  <li>Coach staff auditors and managers through fieldwork execution, providing real-time feedback rather than post-engagement critiques.</li>
+                  <li>Serve as the single voice on how fieldwork is conducted -- eliminating the methodology inconsistency that dual-leadership structures create.</li>
+                  <li>Track repeat findings across engagements and escalate patterns to the CAE when methodology realignment is needed.</li>
+                </ul>
+              </div>
+            </details>
           </div>
 
           <div class="module" style="cursor: default;">
@@ -207,30 +243,82 @@
             <div class="module-desc">
               Responsible for audit methodology design, technology selection, data strategy, continuous monitoring development, and analytics capability building. This role does not carry standard fieldwork assignments. Its output is the infrastructure that makes everyone else more effective. In a modernizing function this role is effectively a full-time transformation lead -- and treating it as a part-time responsibility of someone who also carries a full audit load is one of the most common reasons modernization stalls.
             </div>
+            <details class="role-accordion">
+              <summary>What success looks like in this role</summary>
+              <div class="accordion-body">
+                <ul>
+                  <li>Own the continuous monitoring infrastructure -- design, maintenance, threshold setting, exception routing, and closure tracking.</li>
+                  <li>Lead the tool selection and data access strategy, including vendor evaluation, IT partnership, and the formal data access request process under IIA 2024 standards.</li>
+                  <li>Rebuild legacy audit procedures for the new ERP environment, making deliberate decisions about what to rebuild, redesign with analytics, or replace with monitoring routines.</li>
+                  <li>Build and document repeatable analytics workflows that any team member can run -- reducing single-point-of-failure risk on the analytics capability.</li>
+                  <li>Train the broader team on analytics tools and techniques, progressively distributing capability rather than concentrating it.</li>
+                  <li>Serve as the function's subject matter expert on AI governance, data quality standards, and emerging audit technology.</li>
+                </ul>
+              </div>
+            </details>
           </div>
 
           <div class="module" style="cursor: default;">
             <div class="module-kicker">Technology</div>
-            <div class="module-title">IT Audit and External Assurance Manager</div>
+            <div class="module-title">Senior Manager of IT Audit and External Assurance</div>
             <div class="module-desc">
               Responsible for IT audit coverage, SOX program oversight where applicable, external auditor coordination, and technology risk assessments. This role is the bridge between internal audit and the external audit relationship and the natural owner of controls work that surfaces during ERP implementation and post-implementation review.
             </div>
+            <details class="role-accordion">
+              <summary>What success looks like in this role</summary>
+              <div class="accordion-body">
+                <ul>
+                  <li>Plan and execute IT audit coverage across the enterprise system landscape -- ERP, WMS, HCM, pricing engines, and logistics platforms.</li>
+                  <li>Own the external auditor relationship: coordinate requests, manage the evidence-sharing workflow, and ensure audit's deliverables meet external auditor timelines.</li>
+                  <li>Lead controls testing for SOX-relevant processes where applicable, maintaining documentation that satisfies both internal and external standards.</li>
+                  <li>Serve as the audit function's primary point of contact for IT governance, cybersecurity risk assessments, and technology change management reviews.</li>
+                  <li>Assess automated controls in the new ERP environment and identify where manual compensating controls are still required.</li>
+                  <li>Brief the CAE on emerging technology risks that should be reflected in the risk assessment or audit plan.</li>
+                </ul>
+              </div>
+            </details>
           </div>
 
           <div class="module" style="cursor: default;">
             <div class="module-kicker">Execution</div>
-            <div class="module-title">Managers of Internal Audit (two roles)</div>
+            <div class="module-title">Managers of Internal Audit</div>
             <div class="module-desc">
               Responsible for engagement execution, analytics application within engagements, and emerging specialist functions. In a modernizing team these roles should have differentiated development paths -- one developing depth in a specific operational domain, the other developing depth in data analytics and beginning to absorb repeatable analytics execution to reduce single-point-of-failure risk.
             </div>
+            <details class="role-accordion">
+              <summary>What success looks like in this role</summary>
+              <div class="accordion-body">
+                <ul>
+                  <li>Execute engagement fieldwork end-to-end: planning, testing, finding development, and working paper documentation.</li>
+                  <li>Apply analytics within engagements -- running population tests, interpreting exception reports, and translating data signals into audit findings.</li>
+                  <li>Develop depth in an assigned domain (operational or analytics) as a deliberate career development path, not an informal expectation.</li>
+                  <li>Lead branch or region visits, conducting opening and closing meetings and managing local stakeholder relationships during fieldwork.</li>
+                  <li>Mentor staff auditors during engagements, providing real-time coaching on fieldwork technique, documentation standards, and professional judgment.</li>
+                  <li>Contribute to methodology improvement by flagging procedures that no longer work in the new system environment and suggesting redesigns.</li>
+                </ul>
+              </div>
+            </details>
           </div>
 
           <div class="module" style="cursor: default;">
             <div class="module-kicker">Development</div>
-            <div class="module-title">Staff Auditors (two roles)</div>
+            <div class="module-title">Staff Auditors</div>
             <div class="module-desc">
               Responsible for engagement fieldwork, branch visits, testing execution, and documentation. In the modernized model, staff auditors are expected to develop foundational analytics skills as part of their professional development -- not as an optional add-on but as a baseline expectation of the role.
             </div>
+            <details class="role-accordion">
+              <summary>What success looks like in this role</summary>
+              <div class="accordion-body">
+                <ul>
+                  <li>Execute fieldwork tasks assigned by engagement managers: testing, sampling, documentation, and evidence gathering.</li>
+                  <li>Build foundational analytics skills progressively -- starting with Excel and Power BI, advancing to the team's primary analytics platform.</li>
+                  <li>Document working papers to a standard that would allow someone unfamiliar with the engagement to reconstruct the evidence and conclusions independently.</li>
+                  <li>Conduct branch visits with a manager, taking increasing ownership of fieldwork tasks as experience grows.</li>
+                  <li>Flag unexpected findings, data anomalies, or process surprises to the engagement manager immediately rather than waiting for the wrap-up meeting.</li>
+                  <li>Take ownership of at least one repeatable analytics workflow per year, building toward the team's distributed analytics capability goal.</li>
+                </ul>
+              </div>
+            </details>
           </div>
 
         </div>
@@ -423,7 +511,7 @@
         <div class="callout" style="max-width: 780px;">
           <div class="callout-title">The retention research is consistent</div>
           <div class="callout-text">
-            SHRM research finds that employees who have access to skill-building opportunities are twice as likely to stay four or more years compared to those who do not. Visible investment in development is one of the strongest retention signals an organization can send -- and in a small audit team, it costs far less than replacing an experienced auditor who leaves for a function that will invest in them. For more on retention levers, see the <a href="talent-retention.html" style="color: var(--accent); font-weight: 700;">Talent and Retention page</a>.
+            <a href="https://www.shrm.org/topics-tools/news/hr-trends/real-time-upskilling" target="_blank" rel="noopener noreferrer">SHRM research</a> finds that employees who have access to skill-building opportunities are twice as likely to stay four or more years compared to those who do not. Visible investment in development is one of the strongest retention signals an organization can send -- and in a small audit team, it costs far less than replacing an experienced auditor who leaves for a function that will invest in them. For more on retention levers, see the <a href="talent-retention.html" style="color: var(--accent); font-weight: 700;">Talent and Retention page</a>.
           </div>
         </div>
       </div>

@@ -284,6 +284,16 @@
             <div class="timeline-desc">
               Organizations going through ERP transitions need time to stabilize. Audit should use this window productively, not passively. Map the new system's data structures. Document which legacy analytics apply and which need to be rebuilt or retired. Submit the formal data access request with professional standards language. Catalog access gaps specifically so the request is precise, not general.
             </div>
+            <div class="timeline-tasks">
+              <div class="timeline-tasks-label">Key tasks</div>
+              <ul class="timeline-task-list">
+                <li>Pull the full list of analytics workflows and procedures from pre-ERP audit files. Document each one: what it tested, what data it used, and whether that data source still exists in the new system.</li>
+                <li>Map the new ERP's data structures for the top five audit risk areas. Document table names, field names, and where legacy data fields now live.</li>
+                <li>Submit a formal data access request using IIA 2024 Standards language. Reference Standard 6.2 and the charter authorization requirement explicitly.</li>
+                <li>Catalog every access gap precisely: which tables, which transactions, which process areas are inaccessible and why.</li>
+                <li>Identify one high-visibility audit area where a rebuilt or new analytics approach could produce a credible finding -- and prioritize that for Phase 2.</li>
+              </ul>
+            </div>
             <div class="timeline-tag">Expected outputs: Data gap assessment, formal access request submitted, preliminary engagement plan for the first post-stabilization audit</div>
           </div>
 
@@ -294,6 +304,15 @@
             <div class="timeline-desc">
               This is where engagements resume under constrained access conditions. The interim workflow should be negotiated explicitly: audit submits field-level data specifications, the delivery team produces extracts, and audit retains the right to validate against source transactions using whatever direct access exists. Audit documents this validation as part of the working paper file. Simultaneously, the business case for expanded direct access -- including native SAP reporting tools and read-only access to validated data models -- moves through approval. In companies that move deliberately, expect this to take longer than you want.
             </div>
+            <div class="timeline-tasks">
+              <div class="timeline-tasks-label">Key tasks</div>
+              <ul class="timeline-task-list">
+                <li>Negotiate the interim data access workflow explicitly with IT: audit submits field-level data specifications, IT delivers extracts, audit validates against source transactions and documents that validation in the working paper file.</li>
+                <li>Complete two to three post-ERP engagements. For each, document what the data access constraints were, how they were worked around, and what the finding quality impact was. This documentation builds the business case for expanded access.</li>
+                <li>Draft the continuous monitoring business case with specific ROI framing: detection lead time reduction, coverage expansion, and findings identified between cycles that a traditional approach would have missed.</li>
+                <li>Begin the tool fit assessment: compare current tools against the new ERP architecture and identify which tools need to be rebuilt, replaced, or supplemented.</li>
+              </ul>
+            </div>
             <div class="timeline-tag">Expected outputs: Two to three post-ERP engagements completed, access expanded beyond initial limitations, continuous monitoring business case drafted</div>
           </div>
 
@@ -303,6 +322,15 @@
             <div class="timeline-title">Continuous Monitoring Infrastructure</div>
             <div class="timeline-desc">
               By this stage, the goal is a functioning continuous monitoring capability for the highest-risk process areas, data access that no longer requires ticketing through an intermediary, and audit analytics workflows that can be operated across the team. Native SAP tools such as Business Integrity Screening -- which provides out-of-the-box automated controls for procure-to-pay, order-to-cash, and record-to-report processes with anomaly detection and machine learning -- represent the leading-edge option for organizations operating on S/4HANA. These tools draw from the system's own validated data model, eliminating the extraction and validation problem entirely while producing output compatible with Microsoft Power BI for reporting.
+            </div>
+            <div class="timeline-tasks">
+              <div class="timeline-tasks-label">Key tasks</div>
+              <ul class="timeline-task-list">
+                <li>Establish direct data access that does not require ticketing -- document the access pathway, the data owner, and the refresh cadence for each primary data source.</li>
+                <li>Build and operationalize two to three continuous monitoring routines. Each routine should have a defined threshold, an exception owner, an escalation path, and a closure standard documented before the routine goes live.</li>
+                <li>Distribute analytics execution: at least two team members should be able to run each monitoring routine independently. Document this in the working paper framework.</li>
+                <li>Conduct a structured retrospective at month 30: compare findings volume, detection lead time, and coverage breadth against the pre-ERP baseline. Use this as the evidence base for the next resource and investment conversation.</li>
+              </ul>
             </div>
             <div class="timeline-tag">Expected outputs: Continuous monitoring active for one to two high-risk process areas, direct data access established, analytics capability distributed beyond a single team member</div>
           </div>

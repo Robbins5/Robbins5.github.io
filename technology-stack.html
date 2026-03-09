@@ -142,6 +142,67 @@
       </div>
     </section>
 
+    <!-- SECTION: BEFORE YOU INVEST -->
+    <section class="section" id="before-you-invest" data-audience="leader">
+      <div class="container">
+        <div class="section-head">
+          <h2 class="section-title">Before You Invest: Assess What You Have</h2>
+          <p class="section-subtitle">
+            Organizations that skip this step often buy tools they already have or replace tools that still work. A structured diagnostic before any purchase decision saves both money and implementation time.
+          </p>
+        </div>
+
+        <div class="timeline-track">
+
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-stage">Step 1</div>
+            <div class="timeline-title">Inventory what you had and why it worked</div>
+            <div class="timeline-desc">
+              Pull the full list of analytics workflows and audit procedures from pre-ERP files. For each one, document what it tested, what data source it used, and whether that data source still exists in the new environment. This is not nostalgia -- it is the baseline against which every gap and every investment is measured.
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-stage">Step 2</div>
+            <div class="timeline-title">Identify what broke and why</div>
+            <div class="timeline-desc">
+              For each tool or workflow that no longer functions, document the specific reason: data structure changes, access loss, system incompatibility, or licensing gaps. Precision matters here. "It doesn't work anymore" is not a diagnosis. The gap analysis that follows needs to be specific enough to evaluate whether a fix, rebuild, or replacement is warranted.
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-stage">Step 3</div>
+            <div class="timeline-title">Audit what the new ERP offers natively</div>
+            <div class="timeline-desc">
+              Before evaluating third-party tools, catalog what is available in the new ERP environment that audit has not yet used. In SAP S/4HANA environments, this includes SAP Fiori analytics apps, Business Integrity Screening, and native reporting modules in the areas most relevant to audit risk. Equivalent native capabilities exist in Oracle and Microsoft Dynamics environments. In most post-ERP transitions, meaningful audit-relevant functionality exists natively and goes unused because no one inventoried it.
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-stage">Step 4</div>
+            <div class="timeline-title">Meet with IT and software owners about what you already license</div>
+            <div class="timeline-desc">
+              Schedule a working session with IT and relevant software owners to identify licenses the organization already owns that are underutilized for audit purposes. Power BI seats included in Microsoft 365 agreements, SharePoint storage available within existing licensing, existing Alteryx licenses provisioned for other functions -- these are common examples. The audit function often has access to more than it has claimed.
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-dot is-accent"></div>
+            <div class="timeline-stage">Step 5</div>
+            <div class="timeline-title">Only now identify genuine gaps requiring new investment</div>
+            <div class="timeline-desc">
+              After completing steps 1 through 4, the gaps that remain are the ones that genuinely require new investment. Use the four-stage framework below to sequence those investments against actual maturity rather than aspiration. A gap identified before completing the prior steps is a hypothesis. A gap identified after is a justified business case.
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
     <!-- SECTION 2: THE FOUR-STAGE TECHNOLOGY PATHWAY -->
     <section class="section section-alt" id="technology-pathway" data-audience="practitioner">
       <div class="container">
@@ -370,6 +431,53 @@
           <div class="callout-text">
             The professional standards case for unrestricted audit data access -- and how to frame the request in a governed SAP environment -- is covered in detail on the <a href="data-access.html" style="color: var(--accent); font-weight: 700;">Data Access page</a>.
           </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ROI FRAMING -->
+    <section class="section" id="roi-framing" data-audience="all">
+      <div class="container">
+        <div class="section-head">
+          <h2 class="section-title">What the investment returns</h2>
+          <p class="section-subtitle">
+            Technology investment in audit capability is not a cost center decision. It is a risk reduction decision -- with outcomes a CFO can recognize.
+          </p>
+        </div>
+        <div class="module-grid" style="grid-template-columns: repeat(2, minmax(0, 1fr));">
+
+          <div class="module" style="cursor: default;">
+            <div class="module-kicker">Detection speed</div>
+            <div class="module-title">Earlier identification of pricing anomalies and margin compression</div>
+            <div class="module-desc">
+              Continuous monitoring of pricing overrides, discount patterns, and margin exceptions identifies issues within the transaction cycle rather than months after the fact in a periodic audit. The financial exposure that accumulates between detection and closure is a measurable cost of slower methods.
+            </div>
+          </div>
+
+          <div class="module" style="cursor: default;">
+            <div class="module-kicker">Payment integrity</div>
+            <div class="module-title">Reduction in undetected duplicate payments and vendor fraud exposure</div>
+            <div class="module-desc">
+              Population-level testing of the full accounts payable population -- rather than a statistical sample -- identifies duplicate payments, split invoices, and vendor master anomalies that sampling-based methods miss by design. In high-transaction-volume environments, the expected value of missed duplicates over an annual cycle is a quantifiable number.
+            </div>
+          </div>
+
+          <div class="module" style="cursor: default;">
+            <div class="module-kicker">Coverage breadth</div>
+            <div class="module-title">Broader branch network coverage without headcount growth</div>
+            <div class="module-desc">
+              Monitoring routines that run on schedule across all locations extend coverage to branches that would not be reached by the annual fieldwork plan. A lean audit team with effective continuous monitoring covers meaningfully more risk surface than the same team relying on periodic fieldwork alone.
+            </div>
+          </div>
+
+          <div class="module" style="cursor: default;">
+            <div class="module-kicker">Cycle time</div>
+            <div class="module-title">Measurable reduction in time from data request to audit-ready output</div>
+            <div class="module-desc">
+              In a mature analytics environment, the time between identifying an audit question and having usable data to answer it moves from weeks to hours. That compression is not an efficiency metric -- it is a risk metric. The faster audit can respond to an emerging signal, the smaller the exposure window.
+            </div>
+          </div>
+
         </div>
       </div>
     </section>

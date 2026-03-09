@@ -4736,3 +4736,24 @@ body.page-about .closing-band .container {
   margin: 0 auto;
 }
 
+/* ============================================================
+   Timeline task lists (erp-transition, technology-stack)
+   ============================================================ */
+.timeline-tasks { margin-top: 16px; }
+.timeline-tasks-label {
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 8px;
+}
+.timeline-task-list {
+  margin: 0;
+  padding-left: 1.2em;
+  color: var(--muted);
+  font-size: 0.95rem;
+  line-height: 1.7;
+}
+.timeline-task-list li { margin-bottom: 6px; }
+

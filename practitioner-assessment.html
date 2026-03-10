@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Executive Partnership Assessment | Nicole Robbins</title>
+  <title>Practitioner Skills Assessment | The AI-Ready Audit</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
   <style>
@@ -187,7 +187,7 @@
       transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
-    /* COMMITMENT BADGE */
+    /* DIMENSION BADGE */
     .commitment-badge {
       display: inline-flex;
       align-items: center;
@@ -378,7 +378,7 @@
       line-height: 1.75;
     }
 
-    /* COMMITMENT SCORES */
+    /* DIMENSION SCORES */
     .commitment-scores {
       display: flex;
       flex-direction: column;
@@ -415,6 +415,11 @@
       color: var(--gold-light);
     }
 
+    .score-value.advanced   { color: #7ab87a; font-weight: 700; }
+    .score-value.proficient { color: var(--gold-light); }
+    .score-value.skill-developing { color: #c8934a; }
+    .score-value.early-stage { color: var(--text-dim); }
+
     .score-track {
       height: 3px;
       background: var(--dark-3);
@@ -429,9 +434,10 @@
       transition: width 0.8s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
-    .score-fill.strong  { background: #7ab87a; }
-    .score-fill.developing { background: var(--gold); }
-    .score-fill.foundational { background: #c47b5a; }
+    .score-fill.advanced        { background: #7ab87a; }
+    .score-fill.proficient      { background: var(--gold); }
+    .score-fill.skill-developing { background: #c8934a; }
+    .score-fill.early-stage     { background: #a86c4a; }
 
     .score-note {
       font-size: 0.83rem;
@@ -440,7 +446,7 @@
       font-weight: 300;
     }
 
-    /* PRIORITY RECOMMENDATION */
+    /* PROFILE BLOCK */
     .priority-block {
       background: var(--dark-2);
       border: 1px solid var(--gold-border);
@@ -465,42 +471,49 @@
       font-weight: 300;
     }
 
-    /* CTA LINKS */
-    .results-ctas {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.75rem;
+    /* WHERE TO GO NEXT CARDS */
+    .next-cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
       margin-bottom: 2.5rem;
     }
 
-    .cta-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.4rem;
-      padding: 0.6rem 1.25rem;
-      background: transparent;
-      border: 1px solid var(--gold-border);
-      border-radius: 3px;
-      color: var(--gold-light);
-      font-size: 0.8rem;
-      font-weight: 400;
-      letter-spacing: 0.06em;
+    .next-card {
+      background: var(--dark-2);
+      border: 1px solid rgba(140,111,63,0.15);
+      border-radius: 5px;
+      padding: 1.5rem;
       text-decoration: none;
-      transition: all 0.2s;
+      display: block;
+      transition: border-color 0.2s;
     }
 
-    .cta-link:hover {
-      background: var(--gold-dim);
-      border-color: var(--gold);
+    .next-card:hover { border-color: var(--gold-border); }
+
+    .next-card-tag {
+      font-size: 0.68rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.5rem;
+      display: block;
+    }
+
+    .next-card-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem;
       color: var(--white);
+      margin-bottom: 0.5rem;
+      display: block;
     }
 
-    .cta-link-arrow {
-      font-size: 0.7rem;
-      transition: transform 0.2s;
+    .next-card-desc {
+      font-size: 0.83rem;
+      color: var(--text-dim);
+      line-height: 1.55;
+      font-weight: 300;
     }
-
-    .cta-link:hover .cta-link-arrow { transform: translateX(3px); }
 
     /* RETAKE */
     .btn-retake {
@@ -615,6 +628,7 @@
       .quiz-section { padding: 2rem 1.25rem 4rem; }
       .question-card { padding: 1.75rem 1.25rem; }
       .hero-framing { padding: 1.25rem 1.25rem; }
+      .next-cards { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -622,8 +636,8 @@
 
   <nav>
     <a href="index.html" class="nav-brand">The AI-Ready Audit</a>
-    <button class="nav-toggle-btn" id="ea-nav-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false">&#9776;</button>
-    <div class="nav-inner" id="ea-nav-inner">
+    <button class="nav-toggle-btn" id="pa-nav-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false">&#9776;</button>
+    <div class="nav-inner" id="pa-nav-inner">
       <a class="nav-top-link" href="index.html">Home</a>
 
       <div class="nav-group">
@@ -636,12 +650,14 @@
         </div>
       </div>
 
-      <div class="nav-group has-active">
+      <div class="nav-group">
         <button class="nav-group-btn" type="button" aria-expanded="false">For Executives</button>
         <div class="nav-dropdown">
           <a href="executive-summary.html">Executive Summary</a>
-          <a class="nav-cta" href="executive-assessment.html">Executive Assessment</a>
+          <a href="executive-assessment.html">Executive Assessment</a>
           <a href="executive-oversight.html">Executive Oversight</a>
+          <a href="team-structure.html">Team and Talent</a>
+          <a href="charter.html">IA Charter</a>
         </div>
       </div>
 
@@ -650,20 +666,19 @@
         <div class="nav-dropdown">
           <a href="audit-leadership.html">Methodology</a>
           <a href="erp-transition.html">ERP Transition</a>
-          <a href="team-structure.html">Team and Talent</a>
           <a href="organizational-intelligence.html">Organizational Intelligence</a>
           <a href="capacity-model.html">Dedicated Capacity</a>
           <a href="technology-stack.html">Technology Stack</a>
         </div>
       </div>
 
-      <div class="nav-group">
+      <div class="nav-group has-active">
         <button class="nav-group-btn" type="button" aria-expanded="false">For Practitioners</button>
         <div class="nav-dropdown">
           <a href="data-access.html">Data Access</a>
           <a href="continuous-monitoring.html">Continuous Monitoring</a>
           <a href="skills-evolution.html">Skills and Development</a>
-          <a href="practitioner-assessment.html">Practitioner Assessment</a>
+          <a class="nav-cta" href="practitioner-assessment.html">Practitioner Assessment</a>
         </div>
       </div>
 
@@ -673,17 +688,17 @@
   </nav>
 
   <header class="hero">
-    <span class="hero-eyebrow">Executive Diagnostic</span>
-    <h1>How well is your organization <em>supporting</em> its audit function?</h1>
+    <span class="hero-eyebrow">Practitioner Skills Assessment</span>
+    <h1>Where does your skill profile <em>stand today?</em></h1>
     <p class="hero-intro">
-      Ten questions. A profile across five dimensions. A starting point for a conversation worth having.
+      Ten questions. A profile across five dimensions. A starting point for an honest development conversation.
     </p>
     <div class="hero-framing">
       <p>
-        The relationship between executive leadership and internal audit is one of the most consequential — and least examined — partnerships in an organization. This assessment is not a scorecard. It is a starting point for reflection on where that partnership is working well and where a small shift might unlock significantly more value from your audit function.
+        This assessment is not a performance review. It is a structured self-reflection on where your skills currently sit across the five dimensions that define the modern audit practitioner. Answer based on where you actually are -- not where you are working toward.
       </p>
       <p>
-        There are no right or wrong answers. Respond based on how things actually work in your organization, not how they should work. The most useful result is an honest one.
+        The most useful result is an honest one. Your profile will identify which dimensions are strongest, which represent the biggest opportunity, and which pages in this framework are most relevant to your development right now.
       </p>
     </div>
   </header>
@@ -715,176 +730,155 @@
 
   <footer>
     <p>
-      Looking for the practitioner perspective?
-      <a href="maturity-assessment.html">Take the audit function self-assessment →</a>
+      Assessing the function rather than the individual?
+      <a href="maturity-assessment.html">Take the audit function maturity assessment →</a>
     </p>
     <p style="font-size: 0.75rem; color: rgba(255,255,255,0.3); margin-top: 8px; line-height: 1.5;">The frameworks, recommendations, and perspectives published on this platform represent independent professional views and analysis, supported by publicly available research and professional standards. This site is not affiliated with, endorsed by, or a publication of any employer or organization. The author is an internal audit practitioner and manager -- not a licensed CPA, CIA, attorney, or accredited researcher. Nothing on this platform constitutes professional advice. All external resources are linked for reference; availability and terms should be verified directly.</p>
   </footer>
 
   <script>
-    const COMMITMENTS = ['Alignment','Advocacy','Access','Time','Budget'];
+    const DIMENSIONS = [
+      { name: 'Data Access and Systems Fluency', qs: [0, 1] },
+      { name: 'Analytics Capability',            qs: [2, 3] },
+      { name: 'Technology and AI Fluency',       qs: [4, 5] },
+      { name: 'Methodology and Evidence Standards', qs: [6, 7] },
+      { name: 'Domain and Operational Knowledge', qs: [8, 9] }
+    ];
 
     const QUESTIONS = [
-      // ALIGNMENT (q0, q1)
+      // Dimension 1 -- Data Access and Systems Fluency
       {
-        commitment: 'Alignment',
-        text: 'Thinking about a significant initiative your organization launched in the past year — a new system, a strategic shift, a major process change — which best describes when internal audit became involved?',
+        dim: 'Data Access and Systems Fluency',
+        text: 'When you need data for an audit or analysis, which best describes how you typically get it?',
         options: [
-          { text: 'Audit was part of the planning conversation before key decisions were finalized.', score: 3 },
-          { text: 'Audit was brought in during implementation to assess controls as things were being built.', score: 2 },
-          { text: 'Audit reviewed the initiative after it was live and operational.', score: 1 },
-          { text: "I'm not certain when or whether audit was involved.", score: 0 }
+          { letter: 'A', text: 'I submit a request to IT or a business contact and work with what they provide.' },
+          { letter: 'B', text: 'I can pull standard reports from key systems but rely on others for database extracts or less familiar platforms.' },
+          { letter: 'C', text: 'I can independently access most systems I need and retrieve data without help in most cases.' },
+          { letter: 'D', text: 'I have documented, repeatable pathways into primary systems and can design data pulls from scratch across multiple platforms.' }
         ]
       },
       {
-        commitment: 'Alignment',
-        text: 'How would you describe the current flow of information between your organization\'s strategic priorities and your audit function\'s focus areas?',
+        dim: 'Data Access and Systems Fluency',
+        text: 'How would you describe your understanding of how enterprise systems in your organization connect and where data originates?',
         options: [
-          { text: "Our audit plan reflects our most current organizational priorities and evolves when those priorities shift.", score: 3 },
-          { text: "There is reasonable alignment, but gaps sometimes appear between what leadership is focused on and what audit is examining.", score: 2 },
-          { text: "Audit and leadership operate somewhat independently in their planning cycles.", score: 1 },
-          { text: "I'm not certain how the audit plan is developed or what informs it.", score: 0 }
+          { letter: 'A', text: 'I have a general understanding of what each system does but limited knowledge of how they connect.' },
+          { letter: 'B', text: 'I understand the primary systems in my area of focus and can navigate them, but I rely on others for architecture questions.' },
+          { letter: 'C', text: 'I understand how major systems connect, where transactions originate, and how data flows between platforms.' },
+          { letter: 'D', text: 'I can map data lineage across systems, identify where controls exist in the data flow, and explain integration points to non-technical stakeholders.' }
         ]
       },
-      // ADVOCACY (q2, q3)
+      // Dimension 2 -- Analytics Capability
       {
-        commitment: 'Advocacy',
-        text: "When internal audit identifies a significant finding, how would you describe what typically happens next?",
+        dim: 'Analytics Capability',
+        text: 'Which best describes the analytics tools you use regularly in your audit work?',
         options: [
-          { text: "Findings receive prompt management responses and are tracked actively through to resolution.", score: 3 },
-          { text: "Most findings are addressed, but follow-through can be inconsistent depending on the business area.", score: 2 },
-          { text: "Findings are acknowledged but resolution tends to be slow or incomplete.", score: 1 },
-          { text: "I don't have clear visibility into how findings are resolved after reports are issued.", score: 0 }
-        ]
-      },
-      {
-        commitment: 'Advocacy',
-        text: "In the past year, how visible has executive or board-level support for the audit function been to the broader organization?",
-        options: [
-          { text: "Leadership has visibly reinforced audit's role and the importance of its findings to operational leaders.", score: 3 },
-          { text: "Support exists but tends to operate quietly rather than publicly.", score: 2 },
-          { text: "Audit functions largely independently without much visible executive reinforcement.", score: 1 },
-          { text: "This isn't something I've given much direct attention to.", score: 0 }
-        ]
-      },
-      // ACCESS (q4, q5)
-      {
-        commitment: 'Access',
-        text: "How does your organization typically handle internal audit's access to systems and data as new platforms are deployed?",
-        options: [
-          { text: "Access for audit is established as part of the go-live process — it's built into how we deploy systems.", score: 3 },
-          { text: "Audit requests access after deployment and it is generally granted, though it takes some time.", score: 2 },
-          { text: "Access is handled case by case and can take meaningful effort to establish.", score: 1 },
-          { text: "This isn't something I have visibility into.", score: 0 }
+          { letter: 'A', text: 'Primarily Excel -- filters, pivot tables, and manual formulas.' },
+          { letter: 'B', text: 'Excel with occasional use of other tools like Power BI, ACL, or basic SQL queries.' },
+          { letter: 'C', text: 'I regularly use SQL, Python, Alteryx, or equivalent tools to analyze data and build structured procedures.' },
+          { letter: 'D', text: 'I design and maintain repeatable, documented analytics workflows that others on my team can follow and reuse.' }
         ]
       },
       {
-        commitment: 'Access',
-        text: "How would you describe your audit function's current access to the financial, operational, and transactional data it needs to do its work?",
+        dim: 'Analytics Capability',
+        text: 'When you build an analytical procedure for an audit, what typically happens to it after the engagement closes?',
         options: [
-          { text: "Audit has broad standing access and rarely needs to request data for individual engagements.", score: 3 },
-          { text: "Access is generally sufficient but requires periodic requests or coordination.", score: 2 },
-          { text: "Access is more limited than ideal and creates friction in audit work.", score: 1 },
-          { text: "I'm not certain what data access the audit function currently has.", score: 0 }
+          { letter: 'A', text: 'It stays in the workpapers and we largely rebuild from scratch next time.' },
+          { letter: 'B', text: 'I save templates that help me start faster next time, but the approach still requires significant manual rework.' },
+          { letter: 'C', text: 'I document my procedures so they can be reused and adapted by others with minimal rework.' },
+          { letter: 'D', text: 'My procedures run as repeatable or scheduled routines -- parameterized for reuse and maintained across cycles.' }
         ]
       },
-      // TIME (q6, q7)
+      // Dimension 3 -- Technology and AI Fluency
       {
-        commitment: 'Time',
-        text: "When your audit function faces competing demands between completing scheduled engagements and building new capabilities — better tools, new methodologies, skills development — how does that tension typically get resolved?",
+        dim: 'Technology and AI Fluency',
+        text: 'How would you describe your current use of AI tools in your audit work?',
         options: [
-          { text: "We have protected capacity for development work that stays intact even when workload increases.", score: 3 },
-          { text: "Development is balanced against engagements but sometimes yields when capacity is tight.", score: 2 },
-          { text: "Engagements generally take priority and development work gets deferred.", score: 1 },
-          { text: "I'm not sure how that balance is managed in practice.", score: 0 }
-        ]
-      },
-      {
-        commitment: 'Time',
-        text: "Thinking about your audit function's modernization over the past two to three years — adoption of data analytics, continuous monitoring, new methodologies — how would you characterize the pace of progress?",
-        options: [
-          { text: "The function has made steady, meaningful progress and has the capacity to continue developing.", score: 3 },
-          { text: "Progress has been made but slower than we'd like, primarily due to workload constraints.", score: 2 },
-          { text: "Modernization has largely stalled — the team is consistently at capacity delivering traditional audit work.", score: 1 },
-          { text: "I don't have a clear picture of where the function stands on this.", score: 0 }
-        ]
-      },
-      // BUDGET (q8, q9)
-      {
-        commitment: 'Budget',
-        text: "How would you describe the primary basis for your organization's internal audit budget decisions?",
-        options: [
-          { text: "We have a multi-year investment roadmap for audit capability that guides annual budget decisions.", score: 3 },
-          { text: "Budget is primarily based on prior year spending with adjustments for known needs.", score: 2 },
-          { text: "Budget decisions are made reactively based on what audit requests each year.", score: 1 },
-          { text: "Audit budget decisions are made above my level and I have limited visibility.", score: 0 }
+          { letter: 'A', text: 'I have not yet incorporated AI tools into my regular workflow.' },
+          { letter: 'B', text: 'I use AI tools occasionally for productivity tasks like drafting, summarizing, or researching -- but not in audit procedures.' },
+          { letter: 'C', text: 'I use AI to help build queries, structure analysis, or design audit procedures, and I understand the limitations of what it produces.' },
+          { letter: 'D', text: 'I use AI as an integrated part of my workflow and can evaluate AI-enabled controls, assess model outputs, and contribute to AI governance conversations.' }
         ]
       },
       {
-        commitment: 'Budget',
-        text: "When your organization makes significant technology investments — a new ERP, a warehouse management system, a major platform — how does internal audit's technology capability factor into those decisions?",
+        dim: 'Technology and AI Fluency',
+        text: 'When your organization adopts a new technology -- a new ERP module, an automation tool, an AI application -- how do you typically engage with it from an audit perspective?',
         options: [
-          { text: "Audit's access and analytical capability for new systems is considered in parallel with the technology investment.", score: 3 },
-          { text: "Audit is considered eventually, but usually after the core technology decisions have been made.", score: 2 },
-          { text: "Audit's technology needs are generally addressed separately and after the fact.", score: 1 },
-          { text: "I haven't thought about these decisions in relation to audit capability before.", score: 0 }
+          { letter: 'A', text: 'I wait for guidance on how to audit it before engaging directly.' },
+          { letter: 'B', text: 'I learn enough to understand what it does and look for relevant controls based on established frameworks.' },
+          { letter: 'C', text: 'I proactively explore how it works, where the risks are, and what evidence would be needed to provide assurance.' },
+          { letter: 'D', text: 'I help define the audit approach for new technologies and contribute to governance conversations before the tool goes live.' }
+        ]
+      },
+      // Dimension 4 -- Methodology and Evidence Standards
+      {
+        dim: 'Methodology and Evidence Standards',
+        text: 'How would you describe the quality and reproducibility of the evidence you produce in audit work?',
+        options: [
+          { letter: 'A', text: 'I document findings and conclusions, but the trail from raw data to result requires explanation to follow.' },
+          { letter: 'B', text: 'My workpapers are organized and followable, but some steps rely on manual processes that are hard to fully replicate.' },
+          { letter: 'C', text: 'My evidence trails are structured, traceable, and documented clearly enough for someone else to independently verify the work.' },
+          { letter: 'D', text: 'My procedures produce reproducible, defensible evidence trails with documented extraction logic, version control, and clear lineage from source to conclusion.' }
+        ]
+      },
+      {
+        dim: 'Methodology and Evidence Standards',
+        text: 'When you identify an issue during an audit, how do you typically determine whether it is an isolated exception or a systemic problem?',
+        options: [
+          { letter: 'A', text: 'I document what I found and note it as an exception -- broader pattern analysis is limited by time and data access.' },
+          { letter: 'B', text: 'I look for additional examples manually or through available reports to see if the issue recurs.' },
+          { letter: 'C', text: 'I design a population-level test to determine the full scope of the issue before drawing conclusions.' },
+          { letter: 'D', text: 'Population-level testing is my default starting point -- I treat any finding as potentially systemic until the data shows otherwise.' }
+        ]
+      },
+      // Dimension 5 -- Domain and Operational Knowledge
+      {
+        dim: 'Domain and Operational Knowledge',
+        text: 'How well do you understand the operational processes most relevant to your audit work -- inventory, pricing, procurement, logistics, or equivalent areas in your organization?',
+        options: [
+          { letter: 'A', text: 'I understand the process at a general level and rely on subject matter experts to fill gaps during fieldwork.' },
+          { letter: 'B', text: 'I understand the key workflows and can identify control points, though I still depend on business partners for nuanced operational questions.' },
+          { letter: 'C', text: 'I can navigate the process independently, identify where risks concentrate, and interpret data signals without needing operational translation.' },
+          { letter: 'D', text: 'I have deep enough domain knowledge to design audit approaches, challenge operational explanations, and identify risks that are not visible in documentation alone.' }
+        ]
+      },
+      {
+        dim: 'Domain and Operational Knowledge',
+        text: 'When you read data outputs from operational systems -- inventory counts, pricing exceptions, procurement transactions -- how confidently can you interpret what you are seeing?',
+        options: [
+          { letter: 'A', text: 'I can identify obvious anomalies but often need business context to interpret what the data means operationally.' },
+          { letter: 'B', text: 'I understand the standard patterns and can identify exceptions, but unusual outputs still require operational input to interpret.' },
+          { letter: 'C', text: 'I can interpret outputs independently, distinguish meaningful signals from system noise, and form an audit hypothesis without external input.' },
+          { letter: 'D', text: 'I can interpret data outputs, identify the upstream root cause of anomalies, and translate what I see into audit conclusions with minimal operational reliance.' }
         ]
       }
     ];
 
-    // RESULT CONTENT BY COMMITMENT
-    const COMMITMENT_DETAIL = {
-      Alignment: {
-        strong:      "Your audit function appears well-connected to organizational strategy. Audit leaders who are in the room early tend to add substantially more value than those who arrive after decisions are made.",
-        developing:  "There is alignment, but gaps between organizational priorities and audit's focus suggest room to deepen the planning dialogue. A quarterly conversation outside of formal reporting can close this gap significantly.",
-        foundational:"Audit and leadership may be operating in parallel rather than in partnership. This is one of the most common patterns in organizations — and one of the highest-return areas to address."
+    const PROFILE_CONTENT = {
+      'traditional': {
+        label: 'Traditional Practitioner',
+        heading: 'Your profile reflects strong grounding in traditional audit methodology.',
+        desc: 'The highest-leverage development investments are data access, analytics tools, and technology fluency -- the skills that extend the reach of the core audit competencies you already have.'
       },
-      Advocacy: {
-        strong:      "Findings are being treated as the organizational inputs they are meant to be. Visible leadership support for audit creates a culture where findings are taken seriously at every level.",
-        developing:  "The infrastructure for acting on findings is in place, but consistency is uneven. Targeted visibility from leadership on high-priority findings tends to accelerate resolution significantly.",
-        foundational:"When findings don't move through the organization with appropriate urgency, audit's investment in identifying them loses its return. Leadership reinforcement is the most direct lever here."
+      'developing-analyst': {
+        label: 'Developing Analyst',
+        heading: 'You are building the analytical capabilities that modern audit work requires.',
+        desc: 'The next step is moving from occasional tool use to repeatable, documented procedures -- and closing any gaps in systems fluency and domain depth.'
       },
-      Access: {
-        strong:      "Audit has the access it needs to do high-quality work. This structural condition is often underestimated — it is the foundation on which everything else in modern audit practice is built.",
-        developing:  "Access is functional but creates friction. The move from reactive access requests to standing access for key systems is typically a one-time governance decision with lasting impact.",
-        foundational:"Limited or inconsistent access constrains audit quality in ways that are hard to see from the outside. The most analytically sophisticated audit team cannot compensate for data it cannot reach."
+      'emerging': {
+        label: 'Emerging Modern Practitioner',
+        heading: 'Your skill profile is solid across multiple dimensions.',
+        desc: 'Focus development energy on the dimensions that scored lowest -- and on building the kind of reproducible, evidence-quality analytics that hold up under governance scrutiny.'
       },
-      Time: {
-        strong:      "Protecting development capacity alongside delivery work is a meaningful organizational commitment. Functions that sustain this tend to compound their capability over time in ways that reactively staffed teams cannot match.",
-        developing:  "Development work is happening but is vulnerable to workload pressure. The risk is gradual capability stagnation — teams that are always at capacity delivering traditional work rarely find space to change how they work.",
-        foundational:"A function operating entirely at delivery capacity is maintaining the current baseline, not building toward what the organization will need from audit in three to five years. This is worth a direct conversation."
+      'modern': {
+        label: 'Modern Practitioner',
+        heading: 'You are operating at the level the modern audit environment requires.',
+        desc: 'The development opportunity at this stage is depth -- in AI fluency, methodology design, and operational domain knowledge -- and in building the kind of documented, repeatable work that raises the capability of the team around you.'
       },
-      Budget: {
-        strong:      "Audit investment is being treated with the same forward-looking discipline as other organizational capabilities. Multi-year roadmaps for audit technology tend to produce meaningfully better outcomes than year-by-year decisions.",
-        developing:  "Prior-year-based budgeting is rational and common. The gap it creates is in capturing investment opportunities that don't fit neatly into incremental adjustments — particularly during periods of organizational technology change.",
-        foundational:"Reactive budget processes for audit tend to underinvest in capability at precisely the moments when capability is most needed. Connecting audit investment to the broader technology roadmap is a practical first step."
+      'advanced': {
+        label: 'Advanced Practitioner',
+        heading: 'Your skill profile reflects the full range of capabilities the modern audit function depends on.',
+        desc: 'The contribution at this level shifts from personal development to team design: building repeatable procedures, mentoring analytical fluency in others, and engaging in governance conversations that require this depth.'
       }
-    };
-
-    const TIER_CONTENT = {
-      strong: {
-        label: "Strong Partnership",
-        heading: "Your organization has built a genuinely high-functioning audit relationship.",
-        desc: "The conditions that allow internal audit to deliver its full value — strategic alignment, executive advocacy, data access, protected capacity, and forward-looking investment — are largely in place. The opportunity at this level is maintaining that foundation as the organization evolves and ensuring the partnership keeps pace with growing audit capability."
-      },
-      developing: {
-        label: "Developing Partnership",
-        heading: "The foundation is in place. A few targeted shifts could unlock significantly more.",
-        desc: "Your audit function has meaningful support in several areas, and the gaps that exist are largely addressable without structural change. The highest-return opportunities tend to be in the areas scoring lowest — often access, alignment, or protected development capacity. Small, deliberate changes here tend to compound quickly."
-      },
-      foundational: {
-        label: "Foundational Stage",
-        heading: "Your audit function may be delivering less than it's capable of.",
-        desc: "This is a common starting point, not a failure condition — many organizations have not had an explicit conversation about what the audit partnership should look like. The results here give you a starting point for that conversation. The gap between a foundational and a developing partnership is often narrower than it looks, and the return on closing it tends to be immediate."
-      }
-    };
-
-    const COMMITMENT_LINKS = {
-      Alignment:  { label: "Organizational Intelligence", href: "organizational-intelligence.html" },
-      Advocacy:   { label: "Executive Oversight",         href: "executive-oversight.html" },
-      Access:     { label: "Data Access",                 href: "data-access.html" },
-      Time:       { label: "Team Structure & Development",href: "team-structure.html" },
-      Budget:     { label: "Technology Strategy",         href: "technology-stack.html" }
     };
 
     // STATE
@@ -893,18 +887,16 @@
 
     function render() {
       const q = QUESTIONS[current];
-      const letters = ['A','B','C','D'];
-
       const area = document.getElementById('question-area');
       area.innerHTML = `
-        <div class="commitment-badge">${q.commitment}</div>
+        <div class="commitment-badge">${q.dim}</div>
         <div class="question-card">
           <p class="question-text">${q.text}</p>
           <div class="options-list">
             ${q.options.map((opt, i) => `
               <button class="option-btn ${answers[current] === i ? 'selected' : ''}"
                       onclick="select(${i})">
-                <span class="option-letter">${letters[i]}</span>
+                <span class="option-letter">${opt.letter}</span>
                 <span>${opt.text}</span>
               </button>
             `).join('')}
@@ -915,7 +907,7 @@
       const pct = ((current + 1) / QUESTIONS.length) * 100;
       document.getElementById('progress-fill').style.width = pct + '%';
       document.getElementById('progress-count').textContent =
-        `Question ${current + 1} of ${QUESTIONS.length}`;
+        'Question ' + (current + 1) + ' of ' + QUESTIONS.length;
 
       document.getElementById('btn-prev').style.visibility = current === 0 ? 'hidden' : 'visible';
       document.getElementById('btn-next').textContent =
@@ -926,9 +918,8 @@
     function select(i) {
       answers[current] = i;
       document.getElementById('btn-next').disabled = false;
-      // re-render options to show selected state
       const btns = document.querySelectorAll('.option-btn');
-      btns.forEach((b, idx) => {
+      btns.forEach(function(b, idx) {
         b.classList.toggle('selected', idx === i);
       });
     }
@@ -942,24 +933,26 @@
       render();
     }
 
-    function getCommitmentScore(name) {
-      const qs = QUESTIONS.map((q, i) => ({ q, i })).filter(({ q }) => q.commitment === name);
-      const total = qs.reduce((sum, { i }) => {
-        const ans = answers[i];
-        return sum + (ans !== null ? QUESTIONS[i].options[ans].score : 0);
-      }, 0);
-      const max = qs.length * 3;
-      return { score: total, max, pct: Math.round((total / max) * 100) };
+    function scoreToClass(score) {
+      if (score >= 3.5) return 'advanced';
+      if (score >= 3.0) return 'proficient';
+      if (score >= 2.0) return 'skill-developing';
+      return 'early-stage';
     }
 
-    function tier(pct) {
-      if (pct >= 67) return 'strong';
-      if (pct >= 34) return 'developing';
-      return 'foundational';
+    function scoreToLabel(score) {
+      if (score >= 3.5) return 'Advanced';
+      if (score >= 3.0) return 'Proficient';
+      if (score >= 2.0) return 'Developing';
+      return 'Early Stage';
     }
 
-    function tierLabel(t) {
-      return { strong: 'Strong', developing: 'Developing', foundational: 'Foundational' }[t];
+    function overallProfileKey(avg) {
+      if (avg >= 3.5) return 'advanced';
+      if (avg >= 3.0) return 'modern';
+      if (avg >= 2.5) return 'emerging';
+      if (avg >= 2.0) return 'developing-analyst';
+      return 'traditional';
     }
 
     function showResults() {
@@ -967,53 +960,48 @@
       const panel = document.getElementById('results-panel');
       panel.style.display = 'block';
 
-      // Overall score
-      const totalScore = answers.reduce((sum, a, i) => sum + (a !== null ? QUESTIONS[i].options[a].score : 0), 0);
-      const totalMax = QUESTIONS.length * 3;
-      const overallPct = Math.round((totalScore / totalMax) * 100);
-      const overallTier = tier(overallPct);
-      const tc = TIER_CONTENT[overallTier];
-
-      // Per-commitment scores
-      const commitScores = COMMITMENTS.map(name => {
-        const s = getCommitmentScore(name);
-        return { name, ...s, tier: tier(s.pct) };
+      // Calculate dimension scores
+      const dimScores = DIMENSIONS.map(function(dim) {
+        var total = dim.qs.reduce(function(sum, qi) {
+          return sum + (answers[qi] !== null ? answers[qi] + 1 : 1);
+        }, 0);
+        var avg = Math.round((total / dim.qs.length) * 10) / 10;
+        return { name: dim.name, score: avg };
       });
 
-      // Find priority (lowest scoring)
-      const lowest = [...commitScores].sort((a, b) => a.pct - b.pct)[0];
+      // Overall score = average of dimension averages
+      var overallSum = dimScores.reduce(function(s, d) { return s + d.score; }, 0);
+      var overallAvg = Math.round((overallSum / dimScores.length) * 10) / 10;
 
-      // Build scores HTML
-      const scoresHTML = commitScores.map(cs => {
-        const detail = COMMITMENT_DETAIL[cs.name][cs.tier];
+      var profileKey = overallProfileKey(overallAvg);
+      var profile = PROFILE_CONTENT[profileKey];
+
+      // Build dimension score rows
+      var scoresHTML = dimScores.map(function(d) {
+        var cls = scoreToClass(d.score);
+        var lbl = scoreToLabel(d.score);
+        var barPct = Math.round((d.score / 4) * 100);
         return `
           <div class="score-row">
             <div class="score-row-header">
-              <span class="score-name">${cs.name}</span>
-              <span class="score-value">${tierLabel(cs.tier)}</span>
+              <span class="score-name">${d.name}</span>
+              <span class="score-value ${cls}">${d.score.toFixed(1)} &mdash; ${lbl}</span>
             </div>
             <div class="score-track">
-              <div class="score-fill ${cs.tier}" style="width:${cs.pct}%"></div>
+              <div class="score-fill ${cls}" style="width:${barPct}%"></div>
             </div>
-            <p class="score-note">${detail}</p>
           </div>
         `;
       }).join('');
 
-      // Build CTA links
-      const ctaLinks = commitScores
-        .filter(cs => cs.tier !== 'strong')
-        .slice(0, 3)
-        .map(cs => {
-          const link = COMMITMENT_LINKS[cs.name];
-          return `<a href="${link.href}" class="cta-link">${link.label} <span class="cta-link-arrow">→</span></a>`;
-        }).join('');
+      // Find lowest dimension for the focus callout
+      var lowest = dimScores.slice().sort(function(a, b) { return a.score - b.score; })[0];
 
       panel.innerHTML = `
         <div class="results-header">
-          <span class="tier-label">${tc.label}</span>
-          <h2>${tc.heading}</h2>
-          <p class="tier-desc">${tc.desc}</p>
+          <span class="tier-label">${profile.label}</span>
+          <h2>${profile.heading}</h2>
+          <p class="tier-desc">${profile.desc}</p>
         </div>
 
         <div class="commitment-scores">
@@ -1021,15 +1009,30 @@
         </div>
 
         <div class="priority-block">
-          <h3>Where to focus first: ${lowest.name}</h3>
-          <p>${COMMITMENT_DETAIL[lowest.name][lowest.tier]} A conversation with your audit leader about this area specifically is a practical next step — and one that tends to produce results quickly.</p>
+          <h3>Highest-leverage development area: ${lowest.name}</h3>
+          <p>This dimension scored lowest in your profile (${lowest.score.toFixed(1)}). It represents the most direct path to expanding your effectiveness in modern audit work. The skills-evolution page and the dimension-specific resources below are the clearest starting points.</p>
         </div>
 
-        ${ctaLinks ? `
         <hr class="section-divider" />
-        <p style="font-size:0.78rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-dim);margin-bottom:1rem;">Explore the context behind your results</p>
-        <div class="results-ctas">${ctaLinks}</div>
-        ` : ''}
+        <p style="font-size:0.78rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-dim);margin-bottom:1rem;">Where to go next</p>
+
+        <div class="next-cards">
+          <a class="next-card" href="skills-evolution.html">
+            <span class="next-card-tag">Full capability matrix</span>
+            <span class="next-card-title">Skills Evolution</span>
+            <p class="next-card-desc">Review the traditional vs. modern skill profile matrix and team archetype descriptions that anchor this assessment.</p>
+          </a>
+          <a class="next-card" href="auditing-ai.html">
+            <span class="next-card-tag">For practitioners</span>
+            <span class="next-card-title">Auditing AI</span>
+            <p class="next-card-desc">How to build AI governance competency and apply it in audit procedures.</p>
+          </a>
+          <a class="next-card" href="maturity-assessment.html">
+            <span class="next-card-tag">Function-level view</span>
+            <span class="next-card-title">Maturity Assessment</span>
+            <p class="next-card-desc">Assess where the audit function as a whole stands -- separate from your individual profile.</p>
+          </a>
+        </div>
 
         <hr class="section-divider" />
         <button class="btn-retake" onclick="retake()">Retake Assessment</button>
@@ -1053,8 +1056,8 @@
 
   <script>
   (function () {
-    var toggle = document.getElementById('ea-nav-toggle');
-    var inner = document.getElementById('ea-nav-inner');
+    var toggle = document.getElementById('pa-nav-toggle');
+    var inner = document.getElementById('pa-nav-inner');
     if (!toggle || !inner) return;
     toggle.addEventListener('click', function () {
       var isOpen = inner.classList.toggle('is-open');

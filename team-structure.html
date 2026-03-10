@@ -113,6 +113,18 @@
             <a class="btn btn-secondary" href="#advancement">Design principles</a>
           </div>
         </div>
+        <details class="key-takeaways">
+          <summary>Key takeaways — read this first</summary>
+          <div class="takeaways-body">
+            <ul>
+              <li>The IIA 2024 Standards define the CAE as a governance role -- not a management title. The accountabilities are non-delegable and cannot be shared with an operational workload.</li>
+              <li>A modern audit function requires one reporting line for execution staff, one voice on methodology, and a CAE with dedicated capacity for strategy and stakeholder relationships.</li>
+              <li>The Senior Auditor tier is a formal progression step -- skipping it creates a capability cliff that drives experienced staff to leave for advancement.</li>
+              <li>Distributed analytics capability -- not individual expertise -- is the design goal. The function should not depend on any single person's skills.</li>
+              <li>Salary ranges for St. Louis / Missouri market are included for each role based on 2024--2025 benchmarking data.</li>
+            </ul>
+          </div>
+        </details>
       </div>
     </section>
 
@@ -627,7 +639,7 @@
         <div class="callout" style="max-width: 780px;">
           <div class="callout-title">The retention research is consistent</div>
           <div class="callout-text">
-            <a href="https://www.shrm.org/topics-tools/news/hr-trends/real-time-upskilling" target="_blank" rel="noopener noreferrer">SHRM research</a> finds that employees who have access to skill-building opportunities are twice as likely to stay four or more years compared to those who do not. Visible investment in development is one of the strongest retention signals an organization can send -- and in a small audit team, it costs far less than replacing an experienced auditor who leaves for a function that will invest in them. For more on retention levers, see the <a href="talent-retention.html" style="color: var(--accent); font-weight: 700;">Talent and Retention page</a>.
+            <a href="https://www.shrm.org/topics-tools/news/hr-trends/real-time-upskilling" target="_blank" rel="noopener noreferrer">SHRM research</a> finds that employees who have access to skill-building opportunities are twice as likely to stay four or more years compared to those who do not. Visible investment in development is one of the strongest retention signals an organization can send -- and in a small audit team, it costs far less than replacing an experienced auditor who leaves for a function that will invest in them. For more on retention levers, see the <a href="skills-evolution.html" style="color: var(--accent); font-weight: 700;">skills evolution section</a>.
           </div>
         </div>
       </div>
@@ -643,27 +655,6 @@
           </p>
         </div>
 
-        <div class="path-grid" style="grid-template-columns: repeat(2, minmax(0, 1fr));">
-          <a class="path-card" href="continuous-monitoring.html" style="background: rgba(255,255,255,0.05); border-color: rgba(255,255,255,0.12);">
-            <div class="path-top">
-              <div class="path-title" style="color: #ffffff;">See the technology framework</div>
-            </div>
-            <p class="path-text" style="color: rgba(255,255,255,0.60);">
-              How lean audit teams design sustainable monitoring infrastructure -- from priority process areas to the three-year technology pathway.
-            </p>
-            <span class="path-cta" style="color: var(--accent);">Go to Continuous Monitoring &rarr;</span>
-          </a>
-
-          <a class="path-card" href="audit-leadership.html" style="background: rgba(255,255,255,0.05); border-color: rgba(255,255,255,0.12);">
-            <div class="path-top">
-              <div class="path-title" style="color: #ffffff;">Read the methodology playbook</div>
-            </div>
-            <p class="path-text" style="color: rgba(255,255,255,0.60);">
-              The four-pillar leadership playbook for redesigning assurance during enterprise transition -- from stabilization through execution discipline.
-            </p>
-            <span class="path-cta" style="color: var(--accent);">Go to Methodology &rarr;</span>
-          </a>
-        </div>
       </div>
     </section>
 
@@ -805,5 +796,21 @@
   </script>
 
   <script src="nav-guide.js"></script>
+  <script>
+  (function() {
+    const main = document.querySelector('main');
+    if (!main) return;
+    const words = main.innerText.trim().split(/\s+/).length;
+    const minutes = Math.ceil(words / 200);
+    const label = minutes <= 1 ? '1 min read' : minutes + ' min read';
+    const header = document.querySelector('.page-header, .hero, header, main h1');
+    if (header) {
+      const rt = document.createElement('div');
+      rt.className = 'reading-time';
+      rt.textContent = label;
+      header.parentNode.insertBefore(rt, header.nextSibling);
+    }
+  })();
+  </script>
 </body>
 </html>

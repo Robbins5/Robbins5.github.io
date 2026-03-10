@@ -4789,3 +4789,64 @@ body.page-about .closing-band .container {
   text-decoration: underline;
 }
 
+/* Reading time indicator */
+.reading-time {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.78rem;
+  color: var(--muted);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  margin-top: 8px;
+  margin-bottom: 4px;
+}
+.reading-time::before {
+  content: '';
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%239a9490' stroke-width='2'%3E%3Ccircle cx='12' cy='12' r='10'/%3E%3Cpolyline points='12 6 12 12 16 14'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+/* Key takeaways accordion */
+details.key-takeaways {
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--surface);
+  margin-top: 24px;
+  max-width: 860px;
+}
+details.key-takeaways summary {
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--accent);
+  cursor: pointer;
+  padding: 14px 18px;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+details.key-takeaways summary::-webkit-details-marker { display: none; }
+details.key-takeaways summary::after { content: '+'; font-size: 1.1rem; flex-shrink: 0; }
+details[open].key-takeaways summary::after { content: '-'; }
+details.key-takeaways .takeaways-body {
+  padding: 6px 18px 16px;
+  border-top: 1px solid var(--border);
+}
+details.key-takeaways .takeaways-body ul {
+  padding-left: 1.4em;
+  line-height: 1.85;
+  font-size: 0.88rem;
+  color: var(--muted);
+  margin-top: 10px;
+}
+details.key-takeaways .takeaways-body li {
+  margin-bottom: 8px;
+}
+

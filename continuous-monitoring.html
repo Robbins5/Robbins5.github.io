@@ -91,6 +91,18 @@
             <a class="btn btn-secondary" href="#technology-pathway">Technology pathway</a>
           </div>
         </div>
+        <details class="key-takeaways">
+          <summary>Key takeaways — read this first</summary>
+          <div class="takeaways-body">
+            <ul>
+              <li>Continuous monitoring shifts audit from discovery to validation -- the data picture is built before fieldwork begins, not during it.</li>
+              <li>The failure mode is sustainability, not technology. Three routines that run consistently are worth more than ten that run sporadically.</li>
+              <li>Priority process areas for distribution: procurement and vendor management, inventory integrity, pricing and margin, accounts receivable, and data integrity including AI input quality.</li>
+              <li>The technology pathway runs one to three years -- foundations in Year 1, automation in Year 2, native ERP integration in Year 3.</li>
+              <li>Monitoring does not replace fieldwork. It focuses it.</li>
+            </ul>
+          </div>
+        </details>
       </div>
     </section>
 
@@ -373,10 +385,6 @@
           <div class="exec-callout-text">
             The engagement model that works alongside a functioning monitoring capability compresses on-site time significantly because the data picture is already built before the auditor gets on a plane. Branch visits shift from discovery to physical verification -- confirming what the data suggests rather than starting from scratch. Travel time decreases. Finding significance increases. The audit function becomes less reactive and more consultative, because it is bringing insight to the opening meeting rather than questions.
           </div>
-          <div class="exec-callout-actions">
-            <a class="btn btn-primary" href="data-access.html">Data access prerequisites</a>
-            <a class="btn" href="maturity-assessment.html">Assess your monitoring maturity</a>
-          </div>
         </div>
       </div>
     </section>
@@ -500,5 +508,21 @@
   </script>
 
   <script src="nav-guide.js"></script>
+  <script>
+  (function() {
+    const main = document.querySelector('main');
+    if (!main) return;
+    const words = main.innerText.trim().split(/\s+/).length;
+    const minutes = Math.ceil(words / 200);
+    const label = minutes <= 1 ? '1 min read' : minutes + ' min read';
+    const header = document.querySelector('.page-header, .hero, header, main h1');
+    if (header) {
+      const rt = document.createElement('div');
+      rt.className = 'reading-time';
+      rt.textContent = label;
+      header.parentNode.insertBefore(rt, header.nextSibling);
+    }
+  })();
+  </script>
 </body>
 </html>

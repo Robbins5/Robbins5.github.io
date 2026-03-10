@@ -105,6 +105,18 @@
             <a class="btn btn-secondary" href="#keeping-current">Keeping it current</a>
           </div>
         </div>
+        <details class="key-takeaways">
+          <summary>Key takeaways — read this first</summary>
+          <div class="takeaways-body">
+            <ul>
+              <li>The charter establishes every authority the CAE needs to operate -- unrestricted data access, independence, AI and automated process scope, and direct audit committee access. Authorities not named in the charter are not protected.</li>
+              <li>In an employee-owned company, ESOP plan administration, valuation input controls, and fiduciary oversight belong explicitly in audit scope.</li>
+              <li>CAE administrative reporting to the CFO is workable -- but requires three explicit charter safeguards: audit committee authority over CAE appointment and removal, unrestricted direct committee access, and equal coverage of finance and accounting.</li>
+              <li>The charter must be reviewed and approved by the audit committee annually. A charter last updated before 2024 is already out of alignment with current IIA Standards.</li>
+              <li>The annotated framework on this page provides ready-to-use language for each charter section with governance reasoning.</li>
+            </ul>
+          </div>
+        </details>
       </div>
     </section>
 
@@ -649,5 +661,21 @@
   </script>
 
   <script src="nav-guide.js"></script>
+  <script>
+  (function() {
+    const main = document.querySelector('main');
+    if (!main) return;
+    const words = main.innerText.trim().split(/\s+/).length;
+    const minutes = Math.ceil(words / 200);
+    const label = minutes <= 1 ? '1 min read' : minutes + ' min read';
+    const header = document.querySelector('.page-header, .hero, header, main h1');
+    if (header) {
+      const rt = document.createElement('div');
+      rt.className = 'reading-time';
+      rt.textContent = label;
+      header.parentNode.insertBefore(rt, header.nextSibling);
+    }
+  })();
+  </script>
 </body>
 </html>

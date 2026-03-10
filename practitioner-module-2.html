@@ -242,5 +242,21 @@
   </div>
 </footer>
 
+  <script>
+  (function() {
+    const main = document.querySelector('main');
+    if (!main) return;
+    const words = main.innerText.trim().split(/\s+/).length;
+    const minutes = Math.ceil(words / 200);
+    const label = minutes <= 1 ? '1 min read' : minutes + ' min read';
+    const header = document.querySelector('.page-header, .hero, header, main h1');
+    if (header) {
+      const rt = document.createElement('div');
+      rt.className = 'reading-time';
+      rt.textContent = label;
+      header.parentNode.insertBefore(rt, header.nextSibling);
+    }
+  })();
+  </script>
 </body>
 </html>

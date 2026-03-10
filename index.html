@@ -181,7 +181,6 @@
             </div>
             <p class="path-text">Team structure, organizational intelligence, and skills evolution define whether the strategy holds. These pages complete the playbook.</p>
             <div style="display: flex; gap: 12px; flex-wrap: wrap; margin-top: 8px;">
-              <a class="path-cta" href="team-structure.html">Team Structure &rarr;</a>
               <a class="path-cta" href="organizational-intelligence.html">Org Intelligence &rarr;</a>
               <a class="path-cta" href="skills-evolution.html">Skills &rarr;</a>
             </div>
@@ -200,6 +199,65 @@
           </div>
         </div>
 
+      </div>
+    </section>
+
+    <!-- ===========================
+         AUDIENCE PATHS
+    =========================== -->
+    <section class="section section-alt" id="audience-paths" data-audience="all">
+      <div class="container">
+        <div class="section-head">
+          <h2 class="section-title">Choose Your Starting Point</h2>
+          <p class="section-subtitle">
+            The framework covers a lot of ground. These three paths cut directly to what matters most for your situation.
+          </p>
+        </div>
+
+        <div class="path-grid" style="grid-template-columns: repeat(3, minmax(0, 1fr));">
+
+          <div class="path-card">
+            <div class="path-top">
+              <div class="path-title">For Executive Leadership</div>
+              <div class="path-tag">~15 min</div>
+            </div>
+            <p class="path-text">The governance and structural case for a modern internal audit function -- what it requires, how it should be led, and how the charter protects the organization's investment.</p>
+            <div style="margin-top: 12px; display: flex; flex-direction: column; gap: 6px;">
+              <a class="path-cta" href="executive-summary.html">Executive Summary &rarr;</a>
+              <a class="path-cta" href="team-structure.html">Team and Talent &rarr;</a>
+              <a class="path-cta" href="charter.html">IA Charter &rarr;</a>
+            </div>
+          </div>
+
+          <div class="path-card">
+            <div class="path-top">
+              <div class="path-title">For Audit Leaders</div>
+              <div class="path-tag">~25 min</div>
+            </div>
+            <p class="path-text">The operational playbook for modernizing an audit function through enterprise transition -- methodology, data access, monitoring infrastructure, and organizational positioning.</p>
+            <div style="margin-top: 12px; display: flex; flex-direction: column; gap: 6px;">
+              <a class="path-cta" href="audit-leadership.html">Methodology &rarr;</a>
+              <a class="path-cta" href="erp-transition.html">ERP Transition &rarr;</a>
+              <a class="path-cta" href="continuous-monitoring.html">Continuous Monitoring &rarr;</a>
+              <a class="path-cta" href="organizational-intelligence.html">Organizational Intelligence &rarr;</a>
+            </div>
+          </div>
+
+          <div class="path-card">
+            <div class="path-top">
+              <div class="path-title">For Practitioners</div>
+              <div class="path-tag">~20 min</div>
+            </div>
+            <p class="path-text">The skills, tools, and development framework for auditors building toward a modern competency profile.</p>
+            <div style="margin-top: 12px; display: flex; flex-direction: column; gap: 6px;">
+              <a class="path-cta" href="maturity-assessment.html">Self-Assessment &rarr;</a>
+              <a class="path-cta" href="skills-evolution.html">Skills Evolution &rarr;</a>
+              <a class="path-cta" href="auditing-ai.html">Auditing AI &rarr;</a>
+              <a class="path-cta" href="practitioner-assessment.html">Practitioner Assessment &rarr;</a>
+            </div>
+          </div>
+
+        </div>
       </div>
     </section>
 
@@ -576,5 +634,21 @@
   </script>
 
   <script src="nav-guide.js"></script>
+  <script>
+  (function() {
+    const main = document.querySelector('main');
+    if (!main) return;
+    const words = main.innerText.trim().split(/\s+/).length;
+    const minutes = Math.ceil(words / 200);
+    const label = minutes <= 1 ? '1 min read' : minutes + ' min read';
+    const header = document.querySelector('.page-header, .hero, header, main h1');
+    if (header) {
+      const rt = document.createElement('div');
+      rt.className = 'reading-time';
+      rt.textContent = label;
+      header.parentNode.insertBefore(rt, header.nextSibling);
+    }
+  })();
+  </script>
 </body>
 </html>

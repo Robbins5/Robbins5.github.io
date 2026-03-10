@@ -92,6 +92,18 @@
             <a class="btn btn-secondary" href="data-access.html">Data access standards</a>
           </div>
         </div>
+        <details class="key-takeaways">
+          <summary>Key takeaways — read this first</summary>
+          <div class="takeaways-body">
+            <ul>
+              <li>Most audit functions did not get a seat at the ERP implementation table. The recovery window starts at stabilization -- not at go-live.</li>
+              <li>Data access is the first problem to solve. Intermediary data delivery is a structural constraint on audit quality, not a temporary inconvenience.</li>
+              <li>Data completeness assurance -- migration integrity, master data governance, automated control reliability, and AI input quality -- is audit scope, not IT scope.</li>
+              <li>The rebuild takes one to three years when managed deliberately. Each phase has distinct objectives. Skipping phases does not accelerate the timeline.</li>
+              <li>The IIA 2024 Standards require disclosure to the audit committee when scope limitations materially constrain the function's ability to fulfill its mandate.</li>
+            </ul>
+          </div>
+        </details>
       </div>
     </section>
 
@@ -426,10 +438,6 @@
           <div class="exec-callout-text">
             The 2024 IIA Standards require the chief audit executive to disclose to the audit committee any interference in determining the scope of internal auditing or performing audit work. Unresolved data access limitations that materially constrain audit's ability to fulfill its mandate qualify as scope limitations under this standard. That is not a threat. It is a procedural requirement that leadership should understand before the disclosure becomes necessary.
           </div>
-          <div class="exec-callout-actions">
-            <a class="btn btn-primary" href="data-access.html">Read the data access standards</a>
-            <a class="btn" href="maturity-assessment.html">Assess your access maturity</a>
-          </div>
         </div>
       </div>
     </section>
@@ -580,5 +588,21 @@
   </script>
 
   <script src="nav-guide.js"></script>
+  <script>
+  (function() {
+    const main = document.querySelector('main');
+    if (!main) return;
+    const words = main.innerText.trim().split(/\s+/).length;
+    const minutes = Math.ceil(words / 200);
+    const label = minutes <= 1 ? '1 min read' : minutes + ' min read';
+    const header = document.querySelector('.page-header, .hero, header, main h1');
+    if (header) {
+      const rt = document.createElement('div');
+      rt.className = 'reading-time';
+      rt.textContent = label;
+      header.parentNode.insertBefore(rt, header.nextSibling);
+    }
+  })();
+  </script>
 </body>
 </html>

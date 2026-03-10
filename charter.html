@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>IA Charter Design | The AI-Ready Audit</title>
+  <meta name="description" content="The governance document that defines everything else -- and why most charters are not doing that job. Charter design for employee-owned companies aligned to IIA 2024 Standards." />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    details.charter-accordion { margin-top: 0; border: 1px solid var(--border); border-radius: var(--radius-sm); margin-bottom: 12px; }
+    details.charter-accordion summary { font-size: 0.88rem; font-weight: 700; color: var(--text); cursor: pointer; padding: 14px 18px; list-style: none; display: flex; justify-content: space-between; align-items: center; }
+    details.charter-accordion summary::-webkit-details-marker { display: none; }
+    details.charter-accordion summary::after { content: '+'; font-size: 1.1rem; color: var(--accent); flex-shrink: 0; }
+    details[open].charter-accordion summary::after { content: '-'; }
+    details.charter-accordion .accordion-body { display: block !important; padding: 0 18px 16px; border-top: 1px solid var(--border); }
+    details.charter-accordion .accordion-body p { font-size: 0.88rem; color: var(--muted); line-height: 1.75; margin-top: 14px; }
+    details.charter-accordion .accordion-body p + p { margin-top: 10px; }
+  </style>
+</head>
+
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="brand">
+        <a class="brand-link" href="index.html">
+          <div class="brand-title">The AI-Ready Audit</div>
+          <div class="brand-tagline">Internal Audit for Electrical Distribution Enterprises</div>
+        </a>
+      </div>
+
+      <button class="nav-toggle" id="nav-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false">
+        &#9776;
+      </button>
+
+            <nav class="nav" id="primary-nav" aria-label="Primary">
+        <a class="nav-link" href="index.html">Home</a>
+
+        <div class="nav-group">
+          <button class="nav-group-btn" type="button" aria-expanded="false">Framework</button>
+          <div class="nav-dropdown">
+          <a class="nav-link" href="thesis.html">Why It's Changing</a>
+          <a class="nav-link" href="maturity-assessment.html">Self-Assessment</a>
+          </div>
+        </div>
+
+        <div class="nav-group">
+          <button class="nav-group-btn" type="button" aria-expanded="false">For Executives</button>
+          <div class="nav-dropdown">
+          <a class="nav-link" href="executive-summary.html">Executive Summary</a>
+          <a class="nav-link" href="executive-assessment.html">Executive Assessment</a>
+          <a class="nav-link" href="executive-oversight.html">Executive Oversight</a>
+          </div>
+        </div>
+
+        <div class="nav-group has-active">
+          <button class="nav-group-btn" type="button" aria-expanded="false">For Audit Leaders</button>
+          <div class="nav-dropdown">
+          <a class="nav-link" href="audit-leadership.html">Methodology</a>
+          <a class="nav-link" href="erp-transition.html">ERP Transition</a>
+          <a class="nav-link" href="team-structure.html">Team and Talent</a>
+          <a class="nav-link nav-cta" href="charter.html">IA Charter</a>
+          <a class="nav-link" href="organizational-intelligence.html">Organizational Intelligence</a>
+          <a class="nav-link" href="capacity-model.html">Dedicated Capacity</a>
+          <a class="nav-link" href="technology-stack.html">Technology Stack</a>
+          </div>
+        </div>
+
+        <div class="nav-group">
+          <button class="nav-group-btn" type="button" aria-expanded="false">For Practitioners</button>
+          <div class="nav-dropdown">
+          <a class="nav-link" href="auditing-ai.html">Auditing AI</a>
+          <a class="nav-link" href="ai-learning.html">Learning Module</a>
+          <a class="nav-link nav-cta" href="practitioner-assessment.html">Skills Assessment</a>
+          <a class="nav-link" href="data-access.html">Data Access</a>
+          <a class="nav-link" href="continuous-monitoring.html">Continuous Monitoring</a>
+          <a class="nav-link" href="skills-evolution.html">Skills and Development</a>
+          </div>
+        </div>
+
+        <a class="nav-link" href="resources.html">Resources</a>
+        <a class="nav-link" href="about.html">About</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- HERO -->
+    <section class="page-hero" data-audience="all">
+      <div class="container">
+        <div class="page-hero-inner">
+          <p class="page-kicker">Governance Design</p>
+          <h1 class="page-title">The Internal Audit Charter</h1>
+          <p class="page-subtitle">
+            The governance document that defines everything else -- and why most charters are not doing that job.
+          </p>
+          <div class="page-actions">
+            <a class="btn btn-primary" href="#why-charter-matters">Why the charter matters</a>
+            <a class="btn btn-secondary" href="#employee-ownership">What employee ownership changes</a>
+            <a class="btn btn-secondary" href="#what-modern-charter-includes">What a modern charter must include</a>
+            <a class="btn btn-secondary" href="#annotated-framework">The annotated framework</a>
+            <a class="btn btn-secondary" href="#reporting-line">Reporting line and independence</a>
+            <a class="btn btn-secondary" href="#keeping-current">Keeping it current</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 1: WHY THE CHARTER MATTERS -->
+    <section class="section" id="why-charter-matters" data-audience="leader">
+      <div class="container">
+        <div class="section-head">
+          <h2 class="section-title">Why the Charter Matters More Than Most Functions Treat It</h2>
+        </div>
+
+        <div class="cta-panel">
+          <div class="cta-copy">
+            <p class="cta-text">
+              Most internal audit charters are a one-page document that has not been touched since the function was established or last externally reviewed. They reference outdated standards, describe scope in vague terms, and say nothing about data access, technology oversight, or AI governance. They exist because an external auditor or regulator asked for one -- not because the function's leadership treats them as a living governance tool.
+            </p>
+            <p class="cta-text" style="margin-top: 10px;">
+              That is a problem, and it is getting more expensive.
+            </p>
+            <p class="cta-text" style="margin-top: 10px;">
+              The 2024 IIA Global Internal Audit Standards formalized what high-performing functions have understood for years: the charter is not administrative paperwork. It is the document that establishes the CAE's authority to do everything the modern role requires. Unrestricted access to data and systems. Independence from management in scope decisions. The right to audit automated and AI-driven processes. Direct access to the audit committee. The authority to engage external experts when the team's capabilities require it.
+            </p>
+            <p class="cta-text" style="margin-top: 10px;">
+              A charter that does not explicitly establish those authorities does not protect them. And in a modernizing function navigating enterprise transition, digital transformation, and growing advisory responsibilities, an unprotected authority is an authority that management or IT or finance can informally walk back -- one access denial, one scope conversation, one "that's not really an audit issue" at a time.
+            </p>
+            <p class="cta-text" style="margin-top: 10px;">
+              The charter is the CAE's governance tool. Treating it that way means reviewing it annually, updating it when standards change, and presenting it to the audit committee as a living document rather than a historical artifact.
+            </p>
+          </div>
+        </div>
+
+        <div class="callout" style="max-width: 780px; margin-top: 32px;">
+          <div class="callout-title">IIA 2024 Standards requirement</div>
+          <div class="callout-text">
+            The 2024 Global Internal Audit Standards require the internal audit charter to be reviewed and approved by the board or audit committee at least annually. If your charter has not been reviewed since the last standards update, it is already out of alignment.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 2: EMPLOYEE OWNERSHIP -->
+    <section class="section section-alt" id="employee-ownership" data-audience="leader">
+      <div class="container">
+        <div class="section-head">
+          <h2 class="section-title">What Employee Ownership Changes</h2>
+        </div>
+
+        <div class="cta-panel">
+          <div class="cta-copy">
+            <p class="cta-text">
+              Most charter guidance is written for publicly traded companies, where the audit committee's primary accountability runs to external shareholders. Employee-owned companies -- and ESOP structures in particular -- have a different accountability picture, and it changes what the charter needs to say.
+            </p>
+            <p class="cta-text" style="margin-top: 10px;">
+              In an employee-owned company, the employees are the shareholders. Their retirement security is directly tied to the company's financial integrity, operational performance, and the accuracy of the annual ESOP valuation. That raises the stakes on audit independence and the quality of financial oversight considerably -- not as an abstract governance principle, but as a direct fiduciary obligation to the people who own the business.
+            </p>
+            <p class="cta-text" style="margin-top: 10px;">
+              The ESOP structure introduces three specific considerations that most boilerplate charters do not address:
+            </p>
+          </div>
+        </div>
+
+        <div class="module-grid" style="margin-top: 8px;">
+
+          <div class="module" style="cursor: default;">
+            <div class="module-kicker">Consideration 1</div>
+            <div class="module-title">ESOP plan administration belongs in audit scope</div>
+            <div class="module-desc">
+              The charter should explicitly include ESOP plan administration, trustee process integrity, and the controls around annual valuation inputs. These are not incidental -- they are among the highest-consequence processes the audit function can touch. The employees whose wealth depends on those processes deserve the same rigorous coverage as any other high-risk area.
+            </div>
+          </div>
+
+          <div class="module" style="cursor: default;">
+            <div class="module-kicker">Consideration 2</div>
+            <div class="module-title">The CAE's governance positioning matters more, not less</div>
+            <div class="module-desc">
+              In a public company, the audit committee's independence is reinforced by SEC requirements and stock exchange listing rules. In an employee-owned company, those external reinforcements are absent or reduced. The charter is often the primary governance document that establishes the CAE's independence, the audit committee's authority, and the function's organizational positioning. It has to do more work than in a publicly traded structure.
+            </div>
+          </div>
+
+          <div class="module" style="cursor: default;">
+            <div class="module-kicker">Consideration 3</div>
+            <div class="module-title">The CFO reporting line requires explicit independence safeguards</div>
+            <div class="module-desc">
+              CAE administrative reporting to the CFO is common in employee-owned companies and is a workable structure -- but the charter must be explicit about what that reporting line does and does not authorize. The CFO's organization is within audit scope. The audit committee, not the CFO, holds authority over the CAE's appointment, performance evaluation, and removal. The CAE has direct, unrestricted access to the audit committee independent of the administrative reporting line. All three of those points should be named in the charter, not implied.
+            </div>
+          </div>
+
+        </div>
+
+        <div class="callout" style="max-width: 780px; margin-top: 32px;">
+          <div class="callout-title">ERISA fiduciary context</div>
+          <div class="callout-text">
+            ESOP trustees and plan administrators carry ERISA fiduciary duties. An internal audit function that provides credible assurance over ESOP plan administration and valuation process integrity is directly supporting those obligations -- and the charter should reflect that scope.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 3: WHAT A MODERN CHARTER MUST INCLUDE -->
+    <section class="section" id="what-modern-charter-includes" data-audience="leader">
+      <div class="container">
+        <div class="section-head">
+          <h2 class="section-title">What a Modern Charter Must Include</h2>
+          <p class="section-subtitle">
+            The following elements represent the minimum scope for a charter aligned to IIA 2024 Standards in an employee-owned company with a modernizing audit function. Each one addresses a gap that commonly appears in inherited or outdated charters.
+          </p>
+        </div>
+
+        <div class="module-grid" style="grid-template-columns: repeat(2, minmax(0, 1fr));">
+
+          <div class="module" style="cursor: default;">
+            <div class="module-kicker">Element 1</div>
+            <div class="module-title">Purpose and Authority</div>
+            <div class="module-desc">
+              A clear statement of the function's purpose: to provide independent, objective assurance and advisory services that add value and improve the organization's operations. The charter should establish the CAE's authority to access all records, personnel, and systems necessary to perform audit work -- without qualification, exception, or the requirement to route requests through management. "Access as needed" is not sufficient. The authority must be stated as unrestricted.
+            </div>
+          </div>
+
+          <div class="module" style="cursor: default;">
+            <div class="module-kicker">Element 2</div>
+            <div class="module-title">Organizational Independence</div>
+            <div class="module-desc">
+              The charter must establish two distinct reporting lines and name them explicitly. The CAE reports administratively to the CFO for day-to-day operational purposes. The CAE reports functionally to the audit committee -- meaning the committee holds authority over the CAE's appointment, compensation, performance evaluation, and removal. The CAE has direct, unrestricted access to the audit committee and board at any time, without CFO involvement or approval. This is not a courtesy. It is an independence safeguard, and it must be documented.
+            </div>
+          </div>
+
+          <div class="module" style="cursor: default;">
+            <div class="module-kicker">Element 3</div>
+            <div class="module-title">Scope of Services</div>
+            <div class="module-desc">
+              The charter should define both assurance and advisory services within scope, with explicit language that advisory engagements do not impair independence when appropriate safeguards are in place. Scope should name the categories of risk and process the function is authorized to cover -- financial, operational, compliance, technology, and strategic. In an employee-owned company, ESOP plan administration and fiduciary process oversight should be named explicitly as within scope.
+            </div>
+          </div>
+
+          <div class="module" style="cursor: default;">
+            <div class="module-kicker">Element 4</div>
+            <div class="module-title">Technology and Data Access</div>
+            <div class="module-desc">
+              A modern charter explicitly addresses technology scope. The function is authorized to audit automated controls, IT general controls, ERP system configurations, data governance practices, and AI-driven or algorithmic decision processes. Access to enterprise systems, data warehouses, and operational data is unrestricted and does not require individual approval from IT or management for each engagement. This language is increasingly important as organizations deploy more automated and AI-driven processes -- and as the audit function's value depends on its ability to provide assurance over those systems.
+            </div>
+          </div>
+
+          <div class="module" style="cursor: default;">
+            <div class="module-kicker">Element 5</div>
+            <div class="module-title">ESOP and Fiduciary Scope</div>
+            <div class="module-desc">
+              In an employee-owned company, the charter should explicitly include ESOP plan administration, trustee process oversight, valuation input controls, and related fiduciary processes within audit scope. The rationale is simple: the employees are the shareholders, and the processes that determine the value and integrity of their ownership stake deserve the same rigorous coverage as any other high-risk area. This is not standard language in most boilerplate charters -- which is exactly why it needs to be added deliberately.
+            </div>
+          </div>
+
+          <div class="module" style="cursor: default;">
+            <div class="module-kicker">Element 6</div>
+            <div class="module-title">Quality Assurance and Improvement Program</div>
+            <div class="module-desc">
+              IIA 2024 Standards require a quality assurance and improvement program (QAIP) that covers ongoing monitoring, periodic internal assessments, and external quality assessments on a defined cycle. The charter should authorize the QAIP and establish the CAE's responsibility to report its results to the audit committee. External quality assessments -- conducted by a qualified independent reviewer at least once every five years per IIA Standards -- should be named explicitly.
+            </div>
+          </div>
+
+          <div class="module" style="cursor: default;">
+            <div class="module-kicker">Element 7</div>
+            <div class="module-title">Independence Impairment Disclosure</div>
+            <div class="module-desc">
+              When the CAE's independence or objectivity is impaired -- by scope limitations, resource constraints, management interference, or conflicts of interest -- the charter should require disclosure to the audit committee. This is a Standards requirement and a governance safeguard. The disclosure mechanism should be named in the charter, not left to informal judgment.
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 4: THE ANNOTATED FRAMEWORK -->
+    <section class="section section-alt" id="annotated-framework" data-audience="leader">
+      <div class="container">
+        <div class="section-head">
+          <h2 class="section-title">The Annotated Charter Framework</h2>
+          <p class="section-subtitle">
+            The framework below shows each major section of a modern internal audit charter, the language that belongs in it, and the governance reasoning behind it. It is designed for CAEs who need to draft, update, or present a charter aligned to IIA 2024 Standards in an employee-owned company context. Adapt the specifics to your organization -- the structure and the reasoning should hold across most small-to-mid-size functions.
+          </p>
+        </div>
+
+        <details class="charter-accordion">
+          <summary>Section 1: Purpose and Mission</summary>
+          <div class="accordion-body">
+            <p><strong>Charter language:</strong> "The Internal Audit function exists to provide independent, objective assurance and advisory services designed to add value and improve [Organization]'s operations. The function assists the organization in accomplishing its objectives by bringing a systematic, disciplined approach to evaluating and improving the effectiveness of governance, risk management, and internal controls."</p>
+            <p><strong>Why this language matters:</strong> This is a direct adaptation of the IIA definition of internal auditing. It establishes both assurance and advisory as within scope from the outset -- which matters later when the function is asked to provide consulting services on a process redesign or a new system implementation. If the charter only authorizes assurance work, advisory services create an ambiguity that management can use to limit the function's involvement.</p>
+          </div>
+        </details>
+
+        <details class="charter-accordion">
+          <summary>Section 2: Authority and Access</summary>
+          <div class="accordion-body">
+            <p><strong>Charter language:</strong> "The Chief Audit Executive and members of the internal audit function are authorized unrestricted access to all functions, records, systems, property, and personnel of [Organization] necessary to accomplish audit objectives. This access includes but is not limited to financial systems, operational systems, enterprise resource planning platforms, data warehouses, human capital management systems, and any AI-driven or automated decision systems. Access is not subject to management approval on an engagement-by-engagement basis."</p>
+            <p><strong>Why this language matters:</strong> "Access as needed" or "access subject to management approval" creates a process through which access can be delayed, narrowed, or denied without formal objection. Unrestricted access language, by contrast, makes any access limitation a charter deviation that must be disclosed to the audit committee. This distinction matters most during ERP transitions, when data structures change and IT teams may informally restrict access during stabilization periods.</p>
+          </div>
+        </details>
+
+        <details class="charter-accordion">
+          <summary>Section 3: Independence and Organizational Positioning</summary>
+          <div class="accordion-body">
+            <p><strong>Charter language:</strong> "The Chief Audit Executive reports administratively to the Chief Financial Officer. The Chief Audit Executive reports functionally to the Audit Committee of the Board of Directors. The Audit Committee holds authority over the appointment, compensation, performance evaluation, and removal of the Chief Audit Executive. The Chief Audit Executive has direct, unrestricted access to the Audit Committee and the full Board of Directors at any time and without CFO involvement or approval. Any scope limitations, resource constraints, or organizational impediments to audit independence shall be disclosed to the Audit Committee directly by the Chief Audit Executive."</p>
+            <p><strong>Why this language matters:</strong> In an employee-owned company, the independence safeguards that public companies receive from external regulatory requirements must be built explicitly into the charter. Each sentence above addresses a specific failure mode: CFO control over the CAE appointment process, CFO as a gatekeeper to the audit committee, and undisclosed scope limitations. None of these protections can be implied -- they must be stated.</p>
+          </div>
+        </details>
+
+        <details class="charter-accordion">
+          <summary>Section 4: Scope of Services</summary>
+          <div class="accordion-body">
+            <p><strong>Charter language:</strong> "The internal audit function is authorized to perform assurance and advisory services across all organizational processes, functions, and entities, including but not limited to: financial reporting and controls, operational processes, compliance with laws and regulations, information technology and cybersecurity, enterprise systems and automated controls, AI-driven and algorithmic decision processes, ESOP plan administration and fiduciary processes, and strategic and emerging risk areas. Advisory services may be performed where they do not impair the function's independence or objectivity."</p>
+            <p><strong>Why this language matters:</strong> Naming ESOP plan administration and AI-driven processes explicitly closes two gaps that most inherited charters have. ESOP scope language ensures the function has clear authority to review valuation inputs, trustee process integrity, and plan administration controls -- processes directly tied to employee retirement security. AI and automated process language ensures the function is not limited to auditing manual controls in a world where most consequential decisions are increasingly automated.</p>
+          </div>
+        </details>
+
+        <details class="charter-accordion">
+          <summary>Section 5: Reporting and Communication</summary>
+          <div class="accordion-body">
+            <p><strong>Charter language:</strong> "The Chief Audit Executive shall report audit results, findings, and recommendations to the Audit Committee at each regularly scheduled committee meeting. The Chief Audit Executive shall report to executive management on operational matters as appropriate. The Chief Audit Executive shall immediately report to the Audit Committee any significant risk exposures, control failures, governance concerns, fraud indicators, or instances where management has not accepted audit findings in a manner the CAE believes is prudent."</p>
+            <p><strong>Why this language matters:</strong> The immediate escalation clause is the most important sentence in this section. Without it, the CAE has no chartered obligation to surface unresolved governance concerns until the next scheduled committee meeting -- which may be months away. The clause establishes a direct escalation path that exists independent of the administrative reporting relationship.</p>
+          </div>
+        </details>
+
+        <details class="charter-accordion">
+          <summary>Section 6: Quality Assurance and Improvement Program</summary>
+          <div class="accordion-body">
+            <p><strong>Charter language:</strong> "The Chief Audit Executive shall establish and maintain a quality assurance and improvement program that covers all aspects of internal audit activity. The program shall include ongoing performance monitoring, periodic internal assessments, and external quality assessments conducted by a qualified independent reviewer at least once every five years. Results of quality assessments shall be reported to the Audit Committee."</p>
+            <p><strong>Why this language matters:</strong> The QAIP requirement is explicit in IIA 2024 Standards. Including it in the charter elevates it from a best practice to a chartered obligation -- and creates accountability to the audit committee for maintaining it. External quality assessments are particularly important in employee-owned companies where there is no public market scrutiny or external regulatory review of the audit function's effectiveness.</p>
+          </div>
+        </details>
+
+        <details class="charter-accordion">
+          <summary>Section 7: Charter Review and Amendment</summary>
+          <div class="accordion-body">
+            <p><strong>Charter language:</strong> "This charter shall be reviewed by the Chief Audit Executive and approved by the Audit Committee at least annually. Amendments require Audit Committee approval. The Chief Audit Executive shall present the charter to the Audit Committee at the first meeting of each fiscal year, noting any proposed changes and the basis for them."</p>
+            <p><strong>Why this language matters:</strong> Annual review language transforms the charter from a static document into a living governance tool. It also creates a natural cadence for the CAE to demonstrate current knowledge of IIA Standards, emerging risk areas, and the organization's evolving needs -- which is itself a governance signal about the quality of audit leadership.</p>
+          </div>
+        </details>
+
+      </div>
+    </section>
+
+    <!-- SECTION 5: REPORTING LINE AND INDEPENDENCE -->
+    <section class="section" id="reporting-line" data-audience="leader">
+      <div class="container">
+        <div class="section-head">
+          <h2 class="section-title">Reporting Line Structures and Independence</h2>
+        </div>
+
+        <div class="cta-panel">
+          <div class="cta-copy">
+            <p class="cta-text">
+              The IIA's preferred model for CAE independence is functional reporting to the audit committee and administrative reporting to the CEO. That structure maximizes independence by ensuring the CAE's organizational positioning is not subject to influence from any function within audit scope.
+            </p>
+            <p class="cta-text" style="margin-top: 10px;">
+              In employee-owned companies, CAE administrative reporting to the CFO is common and reflects the organizational reality of most mid-size private structures. It is a workable model. But it requires the charter to do more work than the IIA ideal structure demands.
+            </p>
+            <p class="cta-text" style="margin-top: 10px;">
+              The CFO's organization -- finance, accounting, financial reporting, and in many cases treasury and investor relations -- is within audit scope. When the CAE reports to the CFO, the independence of that coverage depends entirely on the charter language, the audit committee relationship, and the CAE's professional judgment. There is no external regulatory backstop.
+            </p>
+            <p class="cta-text" style="margin-top: 10px;">
+              Three things must be true for the CFO-reporting model to function with integrity:
+            </p>
+          </div>
+        </div>
+
+        <div class="module-grid" style="margin-top: 8px;">
+
+          <div class="module" style="cursor: default;">
+            <div class="module-kicker">Safeguard 1</div>
+            <div class="module-title">The audit committee holds the authority that matters</div>
+            <div class="module-desc">
+              Appointment, compensation, performance evaluation, and removal of the CAE must be audit committee decisions, not CFO decisions. This is not a formality -- it is the primary structural protection against a CAE whose independence is compromised by administrative dependence on someone within audit scope.
+            </div>
+          </div>
+
+          <div class="module" style="cursor: default;">
+            <div class="module-kicker">Safeguard 2</div>
+            <div class="module-title">The CAE has unrestricted direct access to the audit committee</div>
+            <div class="module-desc">
+              Not "access with CFO awareness." Not "access upon request." Unrestricted, documented, and protected in the charter. The CAE should be able to communicate directly with the audit committee chair between scheduled meetings without notification to or approval from the CFO.
+            </div>
+          </div>
+
+          <div class="module" style="cursor: default;">
+            <div class="module-kicker">Safeguard 3</div>
+            <div class="module-title">Finance and accounting receive the same audit coverage as any other function</div>
+            <div class="module-desc">
+              The CFO reporting line cannot, formally or informally, result in reduced scrutiny of financial processes, deferred findings, or softened recommendations in the finance function. The charter should address this explicitly -- and the CAE should hold the line in practice.
+            </div>
+          </div>
+
+        </div>
+
+        <div class="callout" style="max-width: 780px; margin-top: 32px;">
+          <div class="callout-title">A note on audit committee composition in employee-owned companies</div>
+          <div class="callout-text">
+            In publicly traded companies, audit committee independence requirements are mandated by SEC rules and exchange listing standards. In employee-owned companies, those external requirements may not apply. The quality of the audit committee relationship -- and the independence protections it provides -- depends more on deliberate governance design and less on regulatory mandate. That makes the charter language more important, not less.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 6: KEEPING IT CURRENT -->
+    <section class="section section-alt" id="keeping-current" data-audience="leader">
+      <div class="container">
+        <div class="section-head">
+          <h2 class="section-title">Keeping the Charter Current</h2>
+        </div>
+
+        <div class="cta-panel">
+          <div class="cta-copy">
+            <p class="cta-text">
+              A charter that accurately reflected best practice five years ago may be meaningfully out of alignment today. The 2024 IIA Global Internal Audit Standards introduced new requirements, new language, and new expectations around technology, AI governance, and quality assurance that most charters written before 2024 do not address.
+            </p>
+            <p class="cta-text" style="margin-top: 10px;">
+              The annual review process is not a compliance exercise. It is the mechanism by which the CAE demonstrates to the audit committee that the function's governing document is current, that its authorities are adequate for the work the function is being asked to do, and that the CAE understands the standards well enough to apply them.
+            </p>
+            <p class="cta-text" style="margin-top: 10px;">
+              A practical annual review checklist:
+            </p>
+          </div>
+        </div>
+
+        <div class="module-grid" style="margin-top: 8px;">
+
+          <div class="module" style="cursor: default;">
+            <div class="module-kicker">Check 1</div>
+            <div class="module-desc">Does the charter reference the 2024 IIA Global Internal Audit Standards by name and effective date?</div>
+          </div>
+
+          <div class="module" style="cursor: default;">
+            <div class="module-kicker">Check 2</div>
+            <div class="module-desc">Does the access authority language cover AI-driven systems and automated decision processes, not just traditional financial and operational systems?</div>
+          </div>
+
+          <div class="module" style="cursor: default;">
+            <div class="module-kicker">Check 3</div>
+            <div class="module-desc">Does the scope section explicitly include ESOP plan administration and fiduciary process oversight?</div>
+          </div>
+
+          <div class="module" style="cursor: default;">
+            <div class="module-kicker">Check 4</div>
+            <div class="module-desc">Does the independence section name both reporting lines explicitly and establish the audit committee's authority over CAE appointment and removal?</div>
+          </div>
+
+          <div class="module" style="cursor: default;">
+            <div class="module-kicker">Check 5</div>
+            <div class="module-desc">Does the charter include the quality assurance and improvement program requirement with external quality assessment language?</div>
+          </div>
+
+          <div class="module" style="cursor: default;">
+            <div class="module-kicker">Check 6</div>
+            <div class="module-desc">Has the charter been presented to the audit committee for formal approval in the current fiscal year?</div>
+          </div>
+
+        </div>
+
+        <div class="callout" style="max-width: 780px; margin-top: 32px;">
+          <div class="callout-title">First charter or full rewrite?</div>
+          <div class="callout-text">
+            If the function does not have a current charter -- or if the existing charter is more than three years old and has not been updated -- a full rewrite aligned to IIA 2024 Standards is more efficient than attempting to patch outdated language. The annotated framework above is designed to support that process.
+          </div>
+        </div>
+
+        <div class="callout" style="max-width: 780px; margin-top: 16px;">
+          <div class="callout-title">If the answer to any of the checklist items is no</div>
+          <div class="callout-text">
+            The charter needs to be updated before the next committee meeting -- not at the next annual review cycle.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CLOSING CTA DARK BAND -->
+    <section style="background: #141416; padding: 72px 0;" data-audience="all">
+      <div class="container">
+        <div style="text-align: center; margin-bottom: 48px;">
+          <h2 style="font-size: 2rem; font-weight: 980; color: #ffffff; letter-spacing: -0.5px; margin: 0 0 14px;">The charter is the governance foundation.</h2>
+          <p style="color: rgba(255,255,255,0.60); font-size: 1.05rem; max-width: 56ch; margin: 0 auto; line-height: 1.65;">
+            Everything the modern audit function is asked to do -- assurance over AI systems, advisory during ERP transition, ESOP fiduciary oversight -- requires the authority to do it. The charter is where that authority lives.
+          </p>
+        </div>
+
+        <div class="path-grid" style="grid-template-columns: repeat(2, minmax(0, 1fr));">
+          <a class="path-card" href="team-structure.html" style="background: rgba(255,255,255,0.05); border-color: rgba(255,255,255,0.12);">
+            <div class="path-top">
+              <div class="path-title" style="color: #ffffff;">Build the function around the right structure</div>
+            </div>
+            <p class="path-text" style="color: rgba(255,255,255,0.60);">
+              Build the function around the right structure -- roles, reporting lines, and the governance case for a CAE.
+            </p>
+            <span class="path-cta" style="color: var(--accent);">Go to Team Structure &rarr;</span>
+          </a>
+
+          <a class="path-card" href="audit-leadership.html" style="background: rgba(255,255,255,0.05); border-color: rgba(255,255,255,0.12);">
+            <div class="path-top">
+              <div class="path-title" style="color: #ffffff;">Read the methodology playbook</div>
+            </div>
+            <p class="path-text" style="color: rgba(255,255,255,0.60);">
+              The four-pillar leadership playbook for redesigning assurance during enterprise transition -- from stabilization through execution discipline.
+            </p>
+            <span class="path-cta" style="color: var(--accent);">Go to Methodology &rarr;</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- RELATED TOPICS -->
+    <section class="section" id="related" data-audience="all">
+      <div class="container">
+        <div class="next-step-bar">
+          <span class="next-step-label">Next in the playbook</span>
+          <a class="next-step-link" href="team-structure.html">Team Structure &rarr;</a>
+        </div>
+        <div class="section-head">
+          <h2 class="section-title">Related topics</h2>
+          <p class="section-subtitle">
+            Continue building the picture with these connected areas of the framework.
+          </p>
+        </div>
+
+        <div class="path-grid">
+
+          <a class="path-card" href="audit-leadership.html">
+            <div class="path-top">
+              <div class="path-title">Audit Leadership</div>
+              <div class="path-tag">Methodology</div>
+            </div>
+            <p class="path-text">
+              The four-pillar leadership playbook for redesigning assurance during enterprise transition.
+            </p>
+            <span class="path-cta">Go to Audit Leadership &rarr;</span>
+          </a>
+
+          <a class="path-card" href="organizational-intelligence.html">
+            <div class="path-top">
+              <div class="path-title">Organizational Intelligence</div>
+              <div class="path-tag">Strategy</div>
+            </div>
+            <p class="path-text">
+              How audit functions build the stakeholder presence and early visibility the CAE role requires.
+            </p>
+            <span class="path-cta">Go to Organizational Intelligence &rarr;</span>
+          </a>
+
+          <a class="path-card" href="executive-oversight.html">
+            <div class="path-top">
+              <div class="path-title">Executive Oversight</div>
+              <div class="path-tag">For Executives</div>
+            </div>
+            <p class="path-text">
+              Business-first visibility into the risks that matter most to executive stakeholders.
+            </p>
+            <span class="path-cta">Go to Executive Oversight &rarr;</span>
+          </a>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-left">
+        <div class="footer-brand">The AI-Ready Audit</div>
+        <div class="footer-note">
+          A framework for how internal audit must evolve in large electrical distribution enterprises
+          as organizations adopt modern enterprise systems, analytics, and artificial intelligence.
+        </div>
+      </div>
+      <div class="footer-right">
+        <a class="footer-link" href="executive-summary.html">Executive Summary</a>
+        <a class="footer-link" href="thesis.html">Why It's Changing</a>
+        <a class="footer-link" href="maturity-assessment.html">Self-Assessment</a>
+        <a class="footer-link" href="audit-leadership.html">Methodology</a>
+        <a class="footer-link" href="erp-transition.html">ERP Transition</a>
+        <a class="footer-link" href="charter.html">IA Charter</a>
+        <a class="footer-link" href="data-access.html">Data Access</a>
+        <a class="footer-link" href="continuous-monitoring.html">Monitoring</a>
+        <a class="footer-link" href="team-structure.html">Team Structure</a>
+        <a class="footer-link" href="executive-oversight.html">Executive Oversight</a>
+        <a class="footer-link" href="skills-evolution.html">Skills</a>
+        <a class="footer-link" href="resources.html">Resources</a>
+        <a class="footer-link" href="about.html">About</a>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <p>&copy; 2026 Nicole Robbins</p>
+      <p style="font-size: 0.75rem; color: rgba(255,255,255,0.3); margin-top: 8px; line-height: 1.5; max-width: 80ch;">The frameworks, recommendations, and perspectives published on this platform represent independent professional views and analysis, supported by publicly available research and professional standards. This site is not affiliated with, endorsed by, or a publication of any employer or organization. The author is an internal audit practitioner and manager -- not a licensed CPA, CIA, attorney, or accredited researcher. Nothing on this platform constitutes professional advice. All external resources are linked for reference; availability and terms should be verified directly.</p>
+    </div>
+  </footer>
+
+  <script>
+  (function () {
+    var navToggle = document.getElementById("nav-toggle");
+    var primaryNav = document.getElementById("primary-nav");
+    if (!navToggle || !primaryNav) return;
+    navToggle.addEventListener("click", function () {
+      var isOpen = primaryNav.classList.toggle("is-open");
+      navToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+    });
+    primaryNav.addEventListener("click", function (e) {
+      var groupBtn = e.target.closest(".nav-group-btn");
+      if (groupBtn) {
+        var group = groupBtn.closest(".nav-group");
+        if (group) {
+          primaryNav.querySelectorAll(".nav-group.is-open").forEach(function(g) {
+            if (g !== group) {
+              g.classList.remove("is-open");
+              var b = g.querySelector(".nav-group-btn");
+              if (b) b.setAttribute("aria-expanded", "false");
+            }
+          });
+          group.classList.toggle("is-open");
+          groupBtn.setAttribute("aria-expanded", group.classList.contains("is-open") ? "true" : "false");
+        }
+        return;
+      }
+      if (e.target.classList.contains("nav-link")) {
+        primaryNav.classList.remove("is-open");
+        navToggle.setAttribute("aria-expanded", "false");
+      }
+    });
+    document.addEventListener("click", function(e) {
+      if (!e.target.closest(".nav-group")) {
+        primaryNav.querySelectorAll(".nav-group.is-open").forEach(function(g) {
+          g.classList.remove("is-open");
+          var b = g.querySelector(".nav-group-btn");
+          if (b) b.setAttribute("aria-expanded", "false");
+        });
+      }
+    });
+    document.addEventListener("keydown", function(e) {
+      if (e.key === "Escape") {
+        primaryNav.querySelectorAll(".nav-group.is-open").forEach(function(g) {
+          g.classList.remove("is-open");
+          var b = g.querySelector(".nav-group-btn");
+          if (b) b.setAttribute("aria-expanded", "false");
+        });
+      }
+    });
+  })();
+  </script>
+
+  <script src="nav-guide.js"></script>
+</body>
+</html>

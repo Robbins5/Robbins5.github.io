@@ -11,7 +11,8 @@
       "Read(//c/Users/nicol/Robbins5.github.io/**)",
       "Bash(done)",
       "Bash(python3:*)",
-      "Bash(rm:*)"
+      "Bash(rm:*)",
+      "Bash(python:*)"
     ]
   }
 }

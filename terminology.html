@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Key Terminology | The AI-Ready Audit</title>
+  <meta name="description" content="The vocabulary shared across audit methodology, ERP systems, AI governance, and electrical distribution operations -- defined for practitioners, leaders, and executives." />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    .term-categories { display: flex; flex-direction: column; gap: 24px; }
+    .term-category { border: 1px solid var(--border); border-radius: var(--radius-sm); overflow: hidden; }
+    .term-category-header {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 18px 24px; background: var(--surface); cursor: pointer;
+      font-size: 1rem; font-weight: 700; color: var(--text);
+      border: none; width: 100%; text-align: left;
+    }
+    .term-category-header:hover { background: var(--surface-2); }
+    .term-category-indicator { font-size: 1.1rem; color: var(--accent); transition: transform 0.2s; }
+    .term-category.is-open .term-category-indicator { transform: rotate(45deg); }
+    .term-list { display: none; padding: 0 24px 20px; }
+    .term-category.is-open .term-list { display: block; }
+    .term-entry { padding: 16px 0; border-bottom: 1px solid var(--border-soft); }
+    .term-entry:last-child { border-bottom: none; }
+    .term-name { font-weight: 700; font-size: 0.97rem; color: var(--text); margin-bottom: 6px; }
+    .term-def { font-size: 0.92rem; color: var(--body); line-height: 1.75; }
+    .term-def a { color: var(--accent); font-weight: 600; }
+    .term-category-kicker { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); margin-bottom: 4px; }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="brand">
+        <a class="brand-link" href="index.html">
+          <div class="brand-title">The AI-Ready Audit</div>
+          <div class="brand-tagline">Internal Audit for Electrical Distribution Enterprises</div>
+        </a>
+      </div>
+
+      <button class="nav-toggle" id="nav-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false">
+        &#9776;
+      </button>
+
+      <nav class="nav" id="primary-nav" aria-label="Primary">
+        <a class="nav-link" href="index.html">Home</a>
+
+        <div class="nav-group has-active">
+          <button class="nav-group-btn" type="button" aria-expanded="false">Framework</button>
+          <div class="nav-dropdown">
+          <a class="nav-link" href="thesis.html">Why It's Changing</a>
+          <a class="nav-link" href="maturity-assessment.html">Self-Assessment</a>
+          <a class="nav-link nav-cta" href="terminology.html">Key Terminology</a>
+          </div>
+        </div>
+
+        <div class="nav-group">
+          <button class="nav-group-btn" type="button" aria-expanded="false">For Executives</button>
+          <div class="nav-dropdown">
+          <a class="nav-link" href="executive-summary.html">Executive Summary</a>
+          <a class="nav-link" href="executive-assessment.html">Executive Assessment</a>
+          <a class="nav-link" href="executive-oversight.html">Executive Oversight</a>
+          <a class="nav-link" href="charter.html">IA Charter</a>
+          <a class="nav-link" href="team-structure.html">Team and Talent</a>
+          </div>
+        </div>
+
+        <div class="nav-group">
+          <button class="nav-group-btn" type="button" aria-expanded="false">The Methodology</button>
+          <div class="nav-dropdown">
+          <a class="nav-link" href="audit-leadership.html">Methodology</a>
+          <a class="nav-link" href="erp-transition.html">ERP Transition</a>
+          <a class="nav-link" href="data-access.html">Data Access</a>
+          <a class="nav-link" href="capacity-model.html">Dedicated Capacity</a>
+          <a class="nav-link" href="organizational-intelligence.html">Organizational Intelligence</a>
+          <a class="nav-link" href="technology-stack.html">Technology Stack</a>
+          <a class="nav-link" href="continuous-monitoring.html">Continuous Monitoring</a>
+          </div>
+        </div>
+
+        <div class="nav-group">
+          <button class="nav-group-btn" type="button" aria-expanded="false">The Playbook</button>
+          <div class="nav-dropdown">
+          <a class="nav-link" href="execution-playbook.html">Playbook Overview</a>
+          <a class="nav-link" href="sap-tool-ecosystem.html">SAP Tool Ecosystem</a>
+          <a class="nav-link" href="audit-universe.html">ERP Audit Universe</a>
+          <a class="nav-link" href="sap-s4hana-audit-modernization.html">SAP S/4HANA Monitoring</a>
+          </div>
+        </div>
+
+        <div class="nav-group">
+          <button class="nav-group-btn" type="button" aria-expanded="false">For Practitioners</button>
+          <div class="nav-dropdown">
+          <a class="nav-link" href="skills-evolution.html">Skills and Development</a>
+          <a class="nav-link" href="practitioner-assessment.html">Practitioner Assessment</a>
+          <a class="nav-link" href="ai-toolkit.html">AI Toolkit</a>
+          <a class="nav-link" href="auditing-ai.html">Auditing AI</a>
+          <a class="nav-link" href="ai-learning.html">Learning Module</a>
+          </div>
+        </div>
+
+        <a class="nav-link" href="resources.html">Resources</a>
+        <a class="nav-link" href="about.html">About</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- HERO -->
+    <section class="page-hero" data-audience="all">
+      <div class="container">
+        <div class="page-hero-inner">
+          <p class="page-kicker">FRAMEWORK</p>
+          <h1 class="page-title">Key Terminology</h1>
+          <p class="page-subtitle">
+            The vocabulary shared across audit methodology, ERP systems, AI governance, and electrical distribution operations -- defined for practitioners, leaders, and executives alike.
+          </p>
+          <div class="page-actions">
+            <a class="btn btn-primary" href="#methodology-terms">Audit methodology</a>
+            <a class="btn btn-secondary" href="#technology-terms">Technology</a>
+            <a class="btn btn-secondary" href="#ai-terms">AI governance</a>
+          </div>
+        </div>
+        <details class="key-takeaways">
+          <summary>Key takeaways -- read this first</summary>
+          <div class="takeaways-body">
+            <ul>
+              <li>This site sits at the intersection of audit methodology, enterprise technology, AI governance, and electrical distribution operations. The terminology reflects all four domains.</li>
+              <li>Definitions here are calibrated for clarity, not academic precision. Where industry usage varies, the most common enterprise audit interpretation is used.</li>
+              <li>Readers from a traditional audit background will find the technology and AI terms most useful. Readers from a technology background will find the methodology terms most grounding.</li>
+              <li>These definitions are reference material. Reading the full glossary is not required -- use it as a lookup when a term on another page needs context.</li>
+            </ul>
+          </div>
+        </details>
+      </div>
+    </section>
+
+    <!-- STAT BAND -->
+    <section class="section" style="padding-top: 0; padding-bottom: 0;">
+      <div class="container">
+        <div class="stat-band">
+          <div class="stat-band-item">
+            <div class="stat-band-label">Categories</div>
+            <div class="stat-band-value">4</div>
+            <div class="stat-band-sub">Methodology &middot; Technology &middot; AI &middot; Operations</div>
+          </div>
+          <div class="stat-band-item">
+            <div class="stat-band-label">Scope</div>
+            <div class="stat-band-value">Site-wide reference</div>
+            <div class="stat-band-sub">Linked from every section</div>
+          </div>
+          <div class="stat-band-item">
+            <div class="stat-band-label">Language level</div>
+            <div class="stat-band-value">Plain language</div>
+            <div class="stat-band-sub">Defined for any background</div>
+          </div>
+          <div class="stat-band-item">
+            <div class="stat-band-label">Reading time</div>
+            <div class="stat-band-value">10 min</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TERM CATEGORIES -->
+    <section class="section" id="methodology-terms">
+      <div class="container">
+        <div class="term-categories" id="term-categories">
+
+          <!-- CATEGORY 1: Audit Methodology and Standards -->
+          <div class="term-category is-open">
+            <button class="term-category-header" type="button">
+              <div>
+                <div class="term-category-kicker">Category 1</div>
+                Audit Methodology and Standards
+              </div>
+              <span class="term-category-indicator">+</span>
+            </button>
+            <div class="term-list">
+
+              <div class="term-entry">
+                <div class="term-name">Population-level testing</div>
+                <div class="term-def">Testing the full universe of transactions or records rather than a statistical sample. Population-level testing identifies every instance of an exception rather than estimating its frequency -- producing findings that are counts, not projections. The shift from sampling to population-level testing is one of the defining methodological changes driven by modern analytics capability. <a href="audit-leadership.html">&rarr; See Methodology</a></div>
+              </div>
+
+              <div class="term-entry">
+                <div class="term-name">Statistical sampling</div>
+                <div class="term-def">A structured method for selecting a subset of a population and drawing conclusions about the whole based on that subset. Statistical sampling uses probability theory to estimate the rate of exception in a population given the rate observed in the sample. Traditional audit practice relied heavily on sampling because full-population testing was not feasible at scale. In analytics-enabled environments, sampling is increasingly reserved for situations where full populations are inaccessible or prohibitively large even with automation.</div>
+              </div>
+
+              <div class="term-entry">
+                <div class="term-name">Continuous monitoring</div>
+                <div class="term-def">An ongoing audit or control oversight process that reviews transactions or signals on a regular cadence rather than through periodic point-in-time engagements. Continuous monitoring differs from continuous auditing in that it is typically designed to identify exceptions in near-real time and route them to owners for response, rather than producing a formal audit opinion. Effective continuous monitoring requires defined thresholds, escalation paths, and closure tracking. <a href="continuous-monitoring.html">&rarr; See Continuous Monitoring</a></div>
+              </div>
+
+              <div class="term-entry">
+                <div class="term-name">IIA 2024 Global Internal Audit Standards</div>
+                <div class="term-def">The current governing standard for internal audit practice, released by the Institute of Internal Auditors and effective January 2025. The 2024 standards introduced significant changes to how audit functions are expected to demonstrate competency, manage quality, and engage with technology and data. The standards explicitly require that audit functions possess or access skills appropriate to the complexity of their operating environment -- a requirement that has direct implications for analytics and technology capability. <a href="data-access.html">&rarr; See Data Access</a></div>
+              </div>
+
+              <div class="term-entry">
+                <div class="term-name">Working paper</div>
+                <div class="term-def">The documentation produced during an audit engagement that records the work performed, the evidence obtained, and the conclusions reached. Working papers are the primary mechanism by which an audit is made reviewable by others. Modern audit practice extends the working paper concept to include data extractions, query logic, analytical procedures, and AI-assisted drafts -- each of which requires the same documentation discipline as traditional paper-based evidence.</div>
+              </div>
+
+              <div class="term-entry">
+                <div class="term-name">Finding (condition / criteria / cause / effect)</div>
+                <div class="term-def">The standard four-part framework for documenting an audit observation that rises to the level of a reportable issue. Condition is what was observed. Criteria is the standard the process should have met -- a policy, control design, or regulatory requirement. Cause is the root reason the condition exists. Effect is the business consequence of the gap between condition and criteria. A finding that does not address all four components is incomplete and difficult to defend or remediate.</div>
+              </div>
+
+              <div class="term-entry">
+                <div class="term-name">Scope limitation</div>
+                <div class="term-def">A constraint on audit work that prevents the function from fully testing a population or process. Scope limitations may arise from data access restrictions, system configurations that prevent extraction, time constraints, or management decisions. When a scope limitation exists, it must be disclosed in audit reporting -- because an opinion formed from limited evidence has a different weight than one formed from complete evidence. <a href="erp-transition.html">&rarr; See ERP Transition</a></div>
+              </div>
+
+              <div class="term-entry">
+                <div class="term-name">Evidence standard</div>
+                <div class="term-def">The threshold of quality and sufficiency that audit evidence must meet to support a finding or conclusion. Evidence must be sufficient (enough of it), reliable (from a credible source), relevant (tied to the specific question being tested), and useful (meaningful to the conclusion drawn). The evidence standard applies equally to AI-assisted output -- the fact that AI generated a draft does not alter the requirement that the underlying evidence be independently verifiable.</div>
+              </div>
+
+              <div class="term-entry">
+                <div class="term-name">Data lineage</div>
+                <div class="term-def">The documented path that data follows from its origin in a source system through any transformations, calculations, or aggregations to its final form in a report, dashboard, or audit workpaper. Data lineage documentation is an audit evidence requirement -- without it, a reviewer cannot confirm that the data used in testing is what the auditor claims it is. In complex ERP environments, data lineage spans multiple systems and may require IT support to trace fully. <a href="data-access.html">&rarr; See Data Access</a></div>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- CATEGORY 2: Technology and ERP Systems -->
+          <div class="term-category is-open" id="technology-terms">
+            <button class="term-category-header" type="button">
+              <div>
+                <div class="term-category-kicker">Category 2</div>
+                Technology and ERP Systems
+              </div>
+              <span class="term-category-indicator">+</span>
+            </button>
+            <div class="term-list">
+
+              <div class="term-entry">
+                <div class="term-name">ERP (Enterprise Resource Planning)</div>
+                <div class="term-def">An integrated software platform that manages core business processes -- finance, procurement, inventory, sales, HR, and others -- within a single system with a shared data model. ERP systems are significant for internal audit because they are the primary source of transaction data, they embed automated controls within process workflows, and they create a complex access governance environment. In electrical distribution, the dominant ERP platforms are SAP S/4HANA and Oracle.</div>
+              </div>
+
+              <div class="term-entry">
+                <div class="term-name">SAP S/4HANA</div>
+                <div class="term-def">SAP's current-generation ERP platform, built on an in-memory database (HANA) that enables real-time analytics at the data layer. S/4HANA differs from earlier SAP versions in its data model simplification, the elimination of aggregate tables, and the shift toward Fiori-based user interfaces. For audit, S/4HANA's real-time data access and CDS (Core Data Services) layer create new possibilities for direct data extraction without depending on pre-built reports. <a href="sap-tool-ecosystem.html">&rarr; See SAP Tool Ecosystem</a></div>
+              </div>
+
+              <div class="term-entry">
+                <div class="term-name">SAP Fiori</div>
+                <div class="term-def">The modern user interface layer for SAP applications. Fiori replaces legacy SAP transaction codes with role-based, browser-accessible applications optimized for specific job functions. From an audit perspective, Fiori's role-based access model is both a control mechanism and a scope of review -- understanding which roles have access to which Fiori apps is part of segregation of duties analysis in S/4HANA environments. <a href="sap-tool-ecosystem.html">&rarr; See SAP Tool Ecosystem</a></div>
+              </div>
+
+              <div class="term-entry">
+                <div class="term-name">Business Integrity Screening (BIS)</div>
+                <div class="term-def">An SAP tool that screens business partner records -- vendors, customers, and others -- against external watchlists and sanctions databases. BIS is relevant to audit in regulatory compliance engagements and vendor due diligence reviews. Its presence in a SAP environment creates both a control mechanism (automated screening) and an audit scope (are screenings running, are hits reviewed, are overrides documented). <a href="sap-s4hana-audit-modernization.html">&rarr; See SAP S/4HANA Monitoring</a></div>
+              </div>
+
+              <div class="term-entry">
+                <div class="term-name">GRC (Governance, Risk, and Compliance)</div>
+                <div class="term-def">A category of software tools -- and the broader practice discipline -- that manages policy documentation, risk registers, control frameworks, audit issue tracking, and access risk analysis within a structured platform. SAP GRC is the dominant platform in SAP environments. For audit, GRC tools support continuous control monitoring, SoD conflict detection, and audit finding lifecycle management. GRC data is often a primary source for access governance reviews. <a href="sap-tool-ecosystem.html">&rarr; See SAP Tool Ecosystem</a></div>
+              </div>
+
+              <div class="term-entry">
+                <div class="term-name">Segregation of Duties (SoD)</div>
+                <div class="term-def">A control principle that prevents a single individual from controlling two or more steps in a sensitive business process -- preventing them from initiating and approving the same transaction, or creating a vendor record and authorizing payment. SoD controls are embedded in ERP access models through role and authorization design. In SAP S/4HANA, SoD analysis requires understanding which authorization objects are associated with which sensitive functions and whether any user's role combination creates a conflict. <a href="audit-universe.html">&rarr; See ERP Audit Universe</a></div>
+              </div>
+
+              <div class="term-entry">
+                <div class="term-name">Data access (audit context)</div>
+                <div class="term-def">In audit, data access refers to the function's established pathways for independently retrieving transactional and master data from enterprise systems. Direct data access -- as opposed to requesting data extracts from IT or business teams -- is a capability that dramatically changes the speed, depth, and independence of audit work. Establishing and maintaining direct data access is one of the highest-return infrastructure investments an audit function can make. <a href="data-access.html">&rarr; See Data Access</a></div>
+              </div>
+
+              <div class="term-entry">
+                <div class="term-name">CDS (Core Data Services) layer</div>
+                <div class="term-def">In SAP S/4HANA, Core Data Services are semantic views defined on top of the underlying database tables. CDS views present data in a business-context-meaningful way -- combining tables, applying filters, and exposing calculated fields -- without requiring direct table-level knowledge. For audit teams building data extractions, CDS views provide a more stable and semantically clear entry point than raw table queries, and they are the foundation of SAP's analytical frameworks and reporting tools.</div>
+              </div>
+
+              <div class="term-entry">
+                <div class="term-name">SQL (Structured Query Language)</div>
+                <div class="term-def">The standard language for querying relational databases. SQL allows users to retrieve, filter, join, aggregate, and transform data from database tables using a structured syntax. For audit practitioners, SQL is the most foundational data skill because it works across virtually every enterprise database environment -- SAP, Oracle, SQL Server, PostgreSQL, and others. Even a working-level SQL capability enables an auditor to independently extract and analyze data that previously required IT support. <a href="skills-evolution.html">&rarr; See Skills and Development</a></div>
+              </div>
+
+              <div class="term-entry">
+                <div class="term-name">Process mining</div>
+                <div class="term-def">An analytics technique that reconstructs the actual flow of business processes from event log data in enterprise systems, then compares actual flows against expected process models to identify deviations, bottlenecks, and control exceptions. In SAP environments, process mining tools (including SAP's own Signavio Process Intelligence) use transaction and timestamp data to visualize how processes actually executed -- making it possible to identify exceptions like retroactive approvals, skipped steps, or unusual user behavior at scale. <a href="sap-tool-ecosystem.html">&rarr; See SAP Tool Ecosystem</a></div>
+              </div>
+
+              <div class="term-entry">
+                <div class="term-name">API (Application Programming Interface)</div>
+                <div class="term-def">A defined interface that allows one software system to request data or functionality from another in a structured, automated way. APIs are relevant to audit in multiple contexts: they are a method for extracting data from enterprise systems without direct database access, they are a component of system integration architecture that requires IT general controls oversight, and they are increasingly a mechanism through which AI and automation tools interact with core business systems -- creating new audit scope in AI governance engagements.</div>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- CATEGORY 3: AI and Emerging Governance -->
+          <div class="term-category is-open" id="ai-terms">
+            <button class="term-category-header" type="button">
+              <div>
+                <div class="term-category-kicker">Category 3</div>
+                AI and Emerging Governance
+              </div>
+              <span class="term-category-indicator">+</span>
+            </button>
+            <div class="term-list">
+
+              <div class="term-entry">
+                <div class="term-name">Large language model (LLM)</div>
+                <div class="term-def">A type of AI system trained on large volumes of text data to generate, summarize, translate, and analyze language. LLMs are the technology behind tools like ChatGPT, Claude, Gemini, and Microsoft Copilot. In audit contexts, LLMs are both tools for practitioner productivity (drafting, summarizing, designing procedures) and emerging subjects of audit scope (when organizations deploy LLM-based applications in business processes). <a href="auditing-ai.html">&rarr; See Auditing AI</a></div>
+              </div>
+
+              <div class="term-entry">
+                <div class="term-name">Hallucination</div>
+                <div class="term-def">The phenomenon in which an AI language model generates plausible-sounding but factually incorrect output. Hallucinations occur because LLMs predict the most statistically likely continuation of a prompt based on training data -- they do not verify claims against a live database of facts. For audit practitioners using AI tools, hallucination is the primary reason that all AI-generated output used in workpapers must be independently verified against primary sources. <a href="ai-toolkit.html">&rarr; See AI Toolkit</a></div>
+              </div>
+
+              <div class="term-entry">
+                <div class="term-name">Model drift</div>
+                <div class="term-def">The degradation of an AI model's predictive accuracy over time as the real-world distribution of data it was trained on diverges from current conditions. A fraud detection model trained on pre-pandemic transaction patterns will perform differently as purchasing behaviors change. Model drift is a governance risk because it may not be immediately visible in system outputs -- the model continues to produce predictions, but their reliability has degraded. Monitoring for model drift is a control design requirement for any AI system used in consequential business decisions. <a href="auditing-ai.html">&rarr; See Auditing AI</a></div>
+              </div>
+
+              <div class="term-entry">
+                <div class="term-name">Training data</div>
+                <div class="term-def">The dataset used to develop an AI model's predictive behavior. The quality, representativeness, and documentation of training data are foundational governance questions for any AI system. Biased, incomplete, or undocumented training data produces models whose behavior cannot be fully explained or defended. For audit, training data documentation is a primary evidence request in AI governance engagements -- particularly when model outputs influence consequential decisions like credit approvals, pricing, or resource allocation.</div>
+              </div>
+
+              <div class="term-entry">
+                <div class="term-name">Shadow AI</div>
+                <div class="term-def">The use of AI tools by employees outside of organizational policy, governance, or IT visibility -- analogous to shadow IT. Shadow AI typically emerges when employees discover productivity benefits from consumer AI tools faster than organizational policy can respond. The audit risk of shadow AI is that sensitive organizational data -- including audit evidence, personnel records, or customer information -- may be entered into external AI systems without appropriate controls. <a href="auditing-ai.html">&rarr; See Auditing AI</a></div>
+              </div>
+
+              <div class="term-entry">
+                <div class="term-name">Human-in-the-loop</div>
+                <div class="term-def">A design principle in AI systems that requires a human reviewer to approve, modify, or override AI-generated outputs before they take effect. Human-in-the-loop requirements are a common governance control for high-stakes AI applications -- ensuring that automated recommendations are subject to human judgment before consequential action. From an audit perspective, the question is not just whether a human-in-the-loop requirement exists in policy, but whether it is actually operating as designed in practice.</div>
+              </div>
+
+              <div class="term-entry">
+                <div class="term-name">Agentic workflow</div>
+                <div class="term-def">An AI system architecture in which the model is given a goal and autonomously executes a sequence of actions -- including using tools, querying data, writing code, and making intermediate decisions -- to achieve it, with limited or no human intervention at each step. Agentic workflows represent a significant governance challenge because the audit trail for actions taken by an autonomous agent is less straightforward than for actions taken by a human user. <a href="auditing-ai.html">&rarr; See Auditing AI</a></div>
+              </div>
+
+              <div class="term-entry">
+                <div class="term-name">NIST AI RMF (AI Risk Management Framework)</div>
+                <div class="term-def">A voluntary framework published by the National Institute of Standards and Technology that provides organizations with a structured approach to identifying, measuring, and managing AI-related risks. The NIST AI RMF organizes risk management activities across four functions: Govern, Map, Measure, and Manage. It is increasingly referenced as a baseline in AI governance program design and audit scoping in U.S.-based organizations. <a href="auditing-ai.html">&rarr; See Auditing AI</a></div>
+              </div>
+
+              <div class="term-entry">
+                <div class="term-name">EU AI Act</div>
+                <div class="term-def">The European Union's comprehensive regulation of artificial intelligence, adopted in 2024. The EU AI Act establishes a risk-based framework that classifies AI systems by risk level and imposes corresponding obligations on developers and deployers. High-risk AI systems -- including those used in employment decisions, credit scoring, and critical infrastructure -- face the most stringent requirements for transparency, human oversight, and documentation. Organizations with EU operations or EU-exposed AI systems must assess applicability and maintain compliance documentation. <a href="auditing-ai.html">&rarr; See Auditing AI</a></div>
+              </div>
+
+              <div class="term-entry">
+                <div class="term-name">Prompt engineering</div>
+                <div class="term-def">The practice of designing and refining the text inputs (prompts) given to AI language models to produce more useful, accurate, or specifically structured outputs. Effective prompt engineering for audit work involves providing sufficient context about the audit objective, system environment, evidence standard, and audience -- rather than asking generic questions. Practitioners who develop a personal library of well-engineered prompts produce more consistent and defensible AI-assisted output than those who rely on improvised inputs. <a href="ai-toolkit.html">&rarr; See AI Toolkit</a></div>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- CATEGORY 4: Electrical Distribution Operations -->
+          <div class="term-category is-open">
+            <button class="term-category-header" type="button">
+              <div>
+                <div class="term-category-kicker">Category 4</div>
+                Electrical Distribution Operations
+              </div>
+              <span class="term-category-indicator">+</span>
+            </button>
+            <div class="term-list">
+
+              <div class="term-entry">
+                <div class="term-name">Order-to-cash (OTC)</div>
+                <div class="term-def">The end-to-end business process that begins with a customer order and concludes with payment receipt. In electrical distribution, the OTC process includes order entry, pricing determination (including application of special pricing agreements and condition records), order fulfillment, shipping, invoicing, and cash application. OTC is one of the highest-volume and highest-risk process areas in distribution -- pricing errors, billing exceptions, and revenue recognition issues concentrate here. <a href="audit-universe.html">&rarr; See ERP Audit Universe</a></div>
+              </div>
+
+              <div class="term-entry">
+                <div class="term-name">Procure-to-pay (PTP)</div>
+                <div class="term-def">The end-to-end business process that begins with a purchase requisition and concludes with vendor payment. In electrical distribution, PTP includes requisitioning, purchase order creation, goods receipt, invoice receipt, three-way match, and payment execution. PTP is a primary focus area for audit because it contains controls over vendor management, purchasing authority, and disbursement -- including the three-way match control that is one of the most commonly tested in the industry. <a href="audit-universe.html">&rarr; See ERP Audit Universe</a></div>
+              </div>
+
+              <div class="term-entry">
+                <div class="term-name">Condition record</div>
+                <div class="term-def">In SAP, a condition record is the master data object that stores a pricing rule for a specific combination of customer, product, sales organization, or other attributes. When a sales order is created, SAP's pricing procedure reads applicable condition records and determines the price. Audit significance: unauthorized changes to condition records, inactive records applied in error, or missing records for products that should have controlled pricing are common sources of billing exceptions in distribution. <a href="audit-universe.html">&rarr; See ERP Audit Universe</a></div>
+              </div>
+
+              <div class="term-entry">
+                <div class="term-name">Special Pricing Agreement (SPA)</div>
+                <div class="term-def">A commercial arrangement between a distributor and a manufacturer in which the manufacturer agrees to reimburse the distributor for selling a product below standard cost to a specific customer or project. SPAs are significant in electrical distribution because the reimbursement amounts are large, the authorization and documentation requirements are complex, and the audit trail -- from sales order to claim submission to manufacturer reimbursement -- spans multiple systems and business functions. SPA reconciliation is a material audit area. <a href="audit-universe.html">&rarr; See ERP Audit Universe</a></div>
+              </div>
+
+              <div class="term-entry">
+                <div class="term-name">Generic material number</div>
+                <div class="term-def">In SAP, a placeholder material record used when a specific product does not have its own master data at the time of order entry. Generic material numbers allow orders to be processed for products that are not yet in the item master, but they bypass the pricing and product controls that apply to properly configured materials. In audit contexts, high volumes of transactions processed through generic material numbers are a signal of potential pricing, inventory, or reporting control weaknesses. <a href="sap-s4hana-audit-modernization.html">&rarr; See SAP S/4HANA Monitoring</a></div>
+              </div>
+
+              <div class="term-entry">
+                <div class="term-name">Rebate accrual</div>
+                <div class="term-def">The accounting process of recording an estimated rebate obligation or receivable as revenue is recognized, before the rebate is actually paid or received. In electrical distribution, rebate programs with suppliers are common -- and the accuracy of rebate accruals is both a financial reporting risk and an audit area. Errors in accrual rates, missing accruals for active programs, or accruals that do not tie to actual contract terms are frequent findings. <a href="audit-universe.html">&rarr; See ERP Audit Universe</a></div>
+              </div>
+
+              <div class="term-entry">
+                <div class="term-name">Branch operations</div>
+                <div class="term-def">In electrical distribution, the branch is the local operating unit -- a facility that holds inventory, processes orders, and serves customers in a geographic area. Branch operations include receiving, warehousing, order fulfillment, will-call sales, returns processing, and local pricing decisions. Branches are significant audit scope because they operate with varying levels of local control effectiveness, they hold physical inventory, and they are where system controls interact with human behavior at the transaction level. <a href="audit-universe.html">&rarr; See ERP Audit Universe</a></div>
+              </div>
+
+              <div class="term-entry">
+                <div class="term-name">Three-way match</div>
+                <div class="term-def">A fundamental accounts payable control in which the purchase order, the goods receipt confirmation, and the vendor invoice are compared before payment is authorized. All three documents must agree on vendor, quantity, and price within defined tolerances. When the three-way match fails, the transaction is held for manual review. In SAP S/4HANA, the three-way match is an automated system control -- audit scope includes confirming the control is configured correctly, that exceptions are being reviewed, and that workarounds or manual overrides are documented and authorized. <a href="audit-universe.html">&rarr; See ERP Audit Universe</a></div>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- NEXT STEP BAR -->
+    <section class="section" style="padding-top: 0; padding-bottom: 0;">
+      <div class="container">
+        <div class="next-step-bar">
+          <span class="next-step-label">Start the framework</span>
+          <a class="next-step-link" href="thesis.html">Why It's Changing &rarr;</a>
+        </div>
+        <p style="font-size: 0.88rem; color: var(--muted); margin-top: 6px; padding-left: 2px;">The operating environment that makes this vocabulary necessary</p>
+      </div>
+    </section>
+
+    <!-- RELATED TOPICS -->
+    <section class="section" id="related">
+      <div class="container">
+        <div class="section-head">
+          <h2 class="section-title">Related topics</h2>
+        </div>
+        <div class="path-grid">
+          <a class="path-card" href="thesis.html">
+            <div class="path-top"><div class="path-title">Why It's Changing</div><div class="path-tag">The context</div></div>
+            <p class="path-text">The operating environment that makes modern audit vocabulary different from what most functions grew up with.</p>
+            <span class="path-cta">Read the thesis &rarr;</span>
+          </a>
+          <a class="path-card" href="skills-evolution.html">
+            <div class="path-top"><div class="path-title">Skills and Development</div><div class="path-tag">Practitioner path</div></div>
+            <p class="path-text">Where these terms appear in practice -- the skill profile and development path for modern audit practitioners.</p>
+            <span class="path-cta">Go to Skills &rarr;</span>
+          </a>
+          <a class="path-card" href="audit-leadership.html">
+            <div class="path-top"><div class="path-title">Methodology</div><div class="path-tag">Audit leaders</div></div>
+            <p class="path-text">The methodology framework where most of these terms are put to work.</p>
+            <span class="path-cta">Go to Methodology &rarr;</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-left">
+        <div class="footer-brand">The AI-Ready Audit</div>
+        <div class="footer-note">A framework for how internal audit must evolve in large electrical distribution enterprises as organizations adopt modern enterprise systems, analytics, and artificial intelligence.</div>
+      </div>
+      <div class="footer-right">
+        <a class="footer-link" href="executive-summary.html">Executive Summary</a>
+        <a class="footer-link" href="thesis.html">Why It's Changing</a>
+        <a class="footer-link" href="audit-leadership.html">Methodology</a>
+        <a class="footer-link" href="skills-evolution.html">Skills</a>
+        <a class="footer-link" href="maturity-assessment.html">Assessment</a>
+        <a class="footer-link" href="resources.html">Resources</a>
+        <a class="footer-link" href="about.html">About</a>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <p>&copy; 2026 Nicole Robbins</p>
+      <p style="font-size: 0.75rem; color: rgba(255,255,255,0.3); margin-top: 8px; line-height: 1.5; max-width: 80ch;">The frameworks, recommendations, and perspectives published on this platform represent independent professional views and analysis, supported by publicly available research and professional standards. This site is not affiliated with, endorsed by, or a publication of any employer or organization. The author is an internal audit practitioner and manager -- not a licensed CPA, CIA, attorney, or accredited researcher. Nothing on this platform constitutes professional advice. All external resources are linked for reference; availability and terms should be verified directly.</p>
+    </div>
+  </footer>
+
+  <script>
+  (function () {
+    var navToggle = document.getElementById("nav-toggle");
+    var primaryNav = document.getElementById("primary-nav");
+    if (!navToggle || !primaryNav) return;
+    navToggle.addEventListener("click", function () {
+      var isOpen = primaryNav.classList.toggle("is-open");
+      navToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+    });
+    primaryNav.addEventListener("click", function (e) {
+      var groupBtn = e.target.closest(".nav-group-btn");
+      if (groupBtn) {
+        var group = groupBtn.closest(".nav-group");
+        if (group) {
+          primaryNav.querySelectorAll(".nav-group.is-open").forEach(function(g) {
+            if (g !== group) { g.classList.remove("is-open"); var b = g.querySelector(".nav-group-btn"); if (b) b.setAttribute("aria-expanded", "false"); }
+          });
+          group.classList.toggle("is-open");
+          groupBtn.setAttribute("aria-expanded", group.classList.contains("is-open") ? "true" : "false");
+        }
+        return;
+      }
+      if (e.target.classList.contains("nav-link")) { primaryNav.classList.remove("is-open"); navToggle.setAttribute("aria-expanded", "false"); }
+    });
+    document.addEventListener("click", function(e) {
+      if (!e.target.closest(".nav-group")) {
+        primaryNav.querySelectorAll(".nav-group.is-open").forEach(function(g) { g.classList.remove("is-open"); var b = g.querySelector(".nav-group-btn"); if (b) b.setAttribute("aria-expanded", "false"); });
+      }
+    });
+    document.addEventListener("keydown", function(e) {
+      if (e.key === "Escape") { primaryNav.querySelectorAll(".nav-group.is-open").forEach(function(g) { g.classList.remove("is-open"); var b = g.querySelector(".nav-group-btn"); if (b) b.setAttribute("aria-expanded", "false"); }); }
+    });
+  })();
+  </script>
+
+  <script>
+  document.getElementById('term-categories').addEventListener('click', function(e) {
+    var btn = e.target.closest('.term-category-header');
+    if (!btn) return;
+    var cat = btn.closest('.term-category');
+    if (!cat) return;
+    cat.classList.toggle('is-open');
+  });
+  </script>
+
+  <script src="nav-guide.js"></script>
+</body>
+</html>

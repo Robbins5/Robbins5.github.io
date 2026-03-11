@@ -1,0 +1,813 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Toolkit for Audit Practitioners | The AI-Ready Audit</title>
+  <meta name="description" content="A practical AI toolkit for internal audit practitioners -- 20 prompts organized by workflow stage, documentation standards for AI-assisted work, and judgment frameworks for when AI helps and when it doesn't." />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    /* Prompt library */
+    .prompt-filter-bar {
+      display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 28px;
+    }
+    .filter-btn {
+      padding: 6px 16px; border-radius: 999px; border: 1px solid var(--border);
+      background: var(--surface); color: var(--muted); font-size: 0.8rem;
+      font-weight: 600; cursor: pointer; transition: all 0.15s;
+      font-family: inherit;
+    }
+    .filter-btn:hover { border-color: var(--accent); color: var(--accent); }
+    .filter-btn.is-active {
+      background: var(--accent); border-color: var(--accent); color: #fff;
+    }
+    .prompt-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+    @media (max-width: 900px) { .prompt-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+    @media (max-width: 580px) { .prompt-grid { grid-template-columns: 1fr; } }
+    .prompt-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 18px;
+      display: flex; flex-direction: column; gap: 10px;
+    }
+    .prompt-card.is-hidden { display: none; }
+    .prompt-badge {
+      display: inline-flex; align-items: center; gap: 4px;
+      font-size: 0.68rem; font-weight: 700; letter-spacing: 0.08em;
+      text-transform: uppercase; padding: 2px 8px; border-radius: 3px;
+      width: fit-content;
+    }
+    .badge-planning { background: #dbeafe; color: #1e40af; }
+    .badge-fieldwork { background: #fef3c7; color: #92400e; }
+    .badge-documentation { background: #d1fae5; color: #065f46; }
+    .badge-communication { background: #ede9fe; color: #4c1d95; }
+    .badge-learning { background: #f1f5f9; color: #475569; }
+    .prompt-title { font-size: 0.92rem; font-weight: 700; color: var(--text); }
+    .prompt-context { font-size: 0.82rem; color: var(--muted); line-height: 1.6; }
+    .prompt-text {
+      background: var(--surface-2);
+      border: 1px solid var(--border-soft);
+      border-radius: 6px;
+      padding: 12px;
+      font-size: 0.8rem;
+      color: var(--body);
+      line-height: 1.65;
+      font-family: ui-monospace, 'Cascadia Code', 'Fira Code', monospace;
+      flex-grow: 1;
+      white-space: pre-wrap;
+      word-break: break-word;
+    }
+    .prompt-footer {
+      display: flex; justify-content: space-between; align-items: center; gap: 8px; flex-wrap: wrap;
+    }
+    .prompt-works-with {
+      font-size: 0.72rem; color: var(--muted-2);
+    }
+    .copy-btn {
+      font-size: 0.72rem; font-weight: 600; padding: 5px 12px;
+      border: 1px solid var(--border); border-radius: 4px; background: var(--surface);
+      color: var(--muted); cursor: pointer; transition: all 0.15s; font-family: inherit;
+      white-space: nowrap;
+    }
+    .copy-btn:hover { border-color: var(--accent); color: var(--accent); }
+    .copy-btn.copied { background: #d1fae5; border-color: #065f46; color: #065f46; }
+    /* Principle and situation cards */
+    .principle-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+    @media (max-width: 640px) { .principle-grid { grid-template-columns: 1fr; } }
+    .principle-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 20px;
+    }
+    .principle-card-title {
+      font-size: 0.9rem; font-weight: 700; color: var(--text); margin-bottom: 8px;
+    }
+    .principle-card-body {
+      font-size: 0.88rem; color: var(--body); line-height: 1.7;
+    }
+    .principle-card-body a { color: var(--accent); font-weight: 600; }
+    /* Personal toolkit subsections */
+    .toolkit-subsection { margin-bottom: 28px; }
+    .toolkit-sub-heading { font-size: 0.95rem; font-weight: 700; color: var(--text); margin-bottom: 8px; }
+    .toolkit-sub-body { font-size: 0.92rem; color: var(--body); line-height: 1.75; max-width: 72ch; }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="brand">
+        <a class="brand-link" href="index.html">
+          <div class="brand-title">The AI-Ready Audit</div>
+          <div class="brand-tagline">Internal Audit for Electrical Distribution Enterprises</div>
+        </a>
+      </div>
+
+      <button class="nav-toggle" id="nav-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false">
+        &#9776;
+      </button>
+
+      <nav class="nav" id="primary-nav" aria-label="Primary">
+        <a class="nav-link" href="index.html">Home</a>
+
+        <div class="nav-group">
+          <button class="nav-group-btn" type="button" aria-expanded="false">Framework</button>
+          <div class="nav-dropdown">
+          <a class="nav-link" href="thesis.html">Why It's Changing</a>
+          <a class="nav-link" href="maturity-assessment.html">Self-Assessment</a>
+          <a class="nav-link" href="terminology.html">Key Terminology</a>
+          </div>
+        </div>
+
+        <div class="nav-group">
+          <button class="nav-group-btn" type="button" aria-expanded="false">For Executives</button>
+          <div class="nav-dropdown">
+          <a class="nav-link" href="executive-summary.html">Executive Summary</a>
+          <a class="nav-link" href="executive-assessment.html">Executive Assessment</a>
+          <a class="nav-link" href="executive-oversight.html">Executive Oversight</a>
+          <a class="nav-link" href="charter.html">IA Charter</a>
+          <a class="nav-link" href="team-structure.html">Team and Talent</a>
+          </div>
+        </div>
+
+        <div class="nav-group">
+          <button class="nav-group-btn" type="button" aria-expanded="false">The Methodology</button>
+          <div class="nav-dropdown">
+          <a class="nav-link" href="audit-leadership.html">Methodology</a>
+          <a class="nav-link" href="erp-transition.html">ERP Transition</a>
+          <a class="nav-link" href="data-access.html">Data Access</a>
+          <a class="nav-link" href="capacity-model.html">Dedicated Capacity</a>
+          <a class="nav-link" href="organizational-intelligence.html">Organizational Intelligence</a>
+          <a class="nav-link" href="technology-stack.html">Technology Stack</a>
+          <a class="nav-link" href="continuous-monitoring.html">Continuous Monitoring</a>
+          </div>
+        </div>
+
+        <div class="nav-group">
+          <button class="nav-group-btn" type="button" aria-expanded="false">The Playbook</button>
+          <div class="nav-dropdown">
+          <a class="nav-link" href="execution-playbook.html">Playbook Overview</a>
+          <a class="nav-link" href="sap-tool-ecosystem.html">SAP Tool Ecosystem</a>
+          <a class="nav-link" href="audit-universe.html">ERP Audit Universe</a>
+          <a class="nav-link" href="sap-s4hana-audit-modernization.html">SAP S/4HANA Monitoring</a>
+          </div>
+        </div>
+
+        <div class="nav-group has-active">
+          <button class="nav-group-btn" type="button" aria-expanded="false">For Practitioners</button>
+          <div class="nav-dropdown">
+          <a class="nav-link" href="skills-evolution.html">Skills and Development</a>
+          <a class="nav-link" href="practitioner-assessment.html">Practitioner Assessment</a>
+          <a class="nav-link nav-cta" href="ai-toolkit.html">AI Toolkit</a>
+          <a class="nav-link" href="auditing-ai.html">Auditing AI</a>
+          <a class="nav-link" href="ai-learning.html">Learning Module</a>
+          </div>
+        </div>
+
+        <a class="nav-link" href="resources.html">Resources</a>
+        <a class="nav-link" href="about.html">About</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- HERO -->
+    <section class="page-hero" data-audience="all">
+      <div class="container">
+        <div class="page-hero-inner">
+          <p class="page-kicker">FOR PRACTITIONERS &middot; STEP 3 OF 5</p>
+          <h1 class="page-title">AI Toolkit for Audit Practitioners</h1>
+          <p class="page-subtitle">
+            Practical tools for using AI in real audit work -- prompts, patterns, and judgment frameworks you can use today.
+          </p>
+          <div class="page-actions">
+            <a class="btn btn-primary" href="#prompt-library">Prompt library</a>
+            <a class="btn btn-secondary" href="#evidence-standards">Documentation standards</a>
+            <a class="btn btn-secondary" href="#when-not-to-use">When not to use AI</a>
+          </div>
+        </div>
+        <details class="key-takeaways">
+          <summary>Key takeaways -- read this first</summary>
+          <div class="takeaways-body">
+            <ul>
+              <li>A prompt library is most useful when it is structured around audit workflow stages rather than abstract AI categories. These prompts are organized by when in an engagement you would use them.</li>
+              <li>The prompts here are starting points. The most valuable version of any prompt is the one you have modified to reflect your specific system environment, audit area, and evidence standard.</li>
+              <li>AI-assisted work requires the same evidence trail as any other audit work. The toolkit section on documentation standards covers the specific habits that keep AI-assisted output defensible.</li>
+              <li>The judgment calls -- significance, materiality, root cause, and finding severity -- remain yours. AI accelerates the work around those calls. It does not make them.</li>
+            </ul>
+          </div>
+        </details>
+      </div>
+    </section>
+
+    <!-- STAT BAND -->
+    <section class="section" style="padding-top: 0; padding-bottom: 0;">
+      <div class="container">
+        <div class="stat-band">
+          <div class="stat-band-item">
+            <div class="stat-band-label">Prompts</div>
+            <div class="stat-band-value">20</div>
+            <div class="stat-band-sub">Filterable by workflow stage</div>
+          </div>
+          <div class="stat-band-item">
+            <div class="stat-band-label">Copy to clipboard</div>
+            <div class="stat-band-value">One click</div>
+            <div class="stat-band-sub">Use directly in any AI tool</div>
+          </div>
+          <div class="stat-band-item">
+            <div class="stat-band-label">Workflow stages</div>
+            <div class="stat-band-value">4</div>
+            <div class="stat-band-sub">Planning &middot; Fieldwork &middot; Docs &middot; Comms</div>
+          </div>
+          <div class="stat-band-item">
+            <div class="stat-band-label">Reading time</div>
+            <div class="stat-band-value">15 min</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- COMPACT PHASE STRIP -->
+    <section class="section" style="padding-top: 0; padding-bottom: 0;">
+      <div class="container">
+        <div class="timeline-h" style="grid-template-columns: repeat(5, minmax(0, 1fr));">
+          <div class="timeline-h-item">
+            <a href="skills-evolution.html" style="text-decoration: none; display: flex; flex-direction: column; align-items: center; gap: 10px;">
+              <div class="timeline-h-dot"></div>
+              <div class="timeline-h-label"><strong>Step 1</strong>Skills Landscape</div>
+            </a>
+          </div>
+          <div class="timeline-h-item">
+            <a href="practitioner-assessment.html" style="text-decoration: none; display: flex; flex-direction: column; align-items: center; gap: 10px;">
+              <div class="timeline-h-dot"></div>
+              <div class="timeline-h-label"><strong>Step 2</strong>Self-Assessment</div>
+            </a>
+          </div>
+          <div class="timeline-h-item">
+            <div style="display: flex; flex-direction: column; align-items: center; gap: 10px;">
+              <div class="timeline-h-dot is-accent"></div>
+              <div class="timeline-h-label"><strong>Step 3</strong>AI Toolkit</div>
+            </div>
+          </div>
+          <div class="timeline-h-item">
+            <a href="auditing-ai.html" style="text-decoration: none; display: flex; flex-direction: column; align-items: center; gap: 10px;">
+              <div class="timeline-h-dot"></div>
+              <div class="timeline-h-label"><strong>Step 4</strong>Auditing AI</div>
+            </a>
+          </div>
+          <div class="timeline-h-item">
+            <a href="ai-learning.html" style="text-decoration: none; display: flex; flex-direction: column; align-items: center; gap: 10px;">
+              <div class="timeline-h-dot"></div>
+              <div class="timeline-h-label"><strong>Step 5</strong>Learning Module</div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROMPT LIBRARY -->
+    <section class="section" id="prompt-library">
+      <div class="container">
+        <div class="section-head">
+          <h2 class="section-title">The Prompt Library</h2>
+          <p class="section-subtitle">
+            Twenty prompts organized by audit workflow stage. Use the filter to find what you need. Modify each prompt to match your specific system environment and audit area.
+          </p>
+        </div>
+
+        <div class="prompt-filter-bar">
+          <button class="filter-btn is-active" data-filter="all">All</button>
+          <button class="filter-btn" data-filter="planning">Risk &amp; Planning</button>
+          <button class="filter-btn" data-filter="fieldwork">Fieldwork</button>
+          <button class="filter-btn" data-filter="documentation">Documentation</button>
+          <button class="filter-btn" data-filter="communication">Communication</button>
+          <button class="filter-btn" data-filter="learning">Learning</button>
+        </div>
+
+        <div class="prompt-grid" id="prompt-grid">
+
+          <!-- PLANNING PROMPTS (4) -->
+
+          <div class="prompt-card" data-category="planning">
+            <span class="prompt-badge badge-planning">Risk &amp; Planning</span>
+            <div class="prompt-title">Risk Identification</div>
+            <div class="prompt-context">Use when starting an engagement in an unfamiliar area or when you want a structured risk list to pressure-test your own thinking.</div>
+            <div class="prompt-text">I am planning an internal audit of [describe the business process or area]. The organization is a [describe industry/type, e.g., large electrical distribution company] using [describe the primary system, e.g., SAP S/4HANA]. Identify the top 8 audit risks for this area, organized by likelihood and potential impact. For each risk, briefly describe what a control failure looks like and what data or evidence would indicate the risk has materialized.</div>
+            <div class="prompt-footer">
+              <span class="prompt-works-with">Works best with: Any LLM</span>
+              <button class="copy-btn" onclick="copyPrompt(this)">Copy prompt</button>
+            </div>
+          </div>
+
+          <div class="prompt-card" data-category="planning">
+            <span class="prompt-badge badge-planning">Risk &amp; Planning</span>
+            <div class="prompt-title">Engagement Scope Design</div>
+            <div class="prompt-context">Use when you have a risk area identified and need to translate it into a structured engagement scope.</div>
+            <div class="prompt-text">I need to design the scope for an internal audit engagement covering [describe the risk area]. The audit team has [describe data access level, e.g., direct read access to SAP transaction tables]. Draft an engagement scope statement that includes: the objective, the population and time period, the primary test approaches, the data sources required, and the key deliverables. Keep it concise enough to fit in a planning memo.</div>
+            <div class="prompt-footer">
+              <span class="prompt-works-with">Works best with: Any LLM</span>
+              <button class="copy-btn" onclick="copyPrompt(this)">Copy prompt</button>
+            </div>
+          </div>
+
+          <div class="prompt-card" data-category="planning">
+            <span class="prompt-badge badge-planning">Risk &amp; Planning</span>
+            <div class="prompt-title">Prior Finding Pattern Analysis</div>
+            <div class="prompt-context">Use before planning a new engagement in an area with prior audit history to identify systemic themes rather than treating each finding as isolated.</div>
+            <div class="prompt-text">Here is a list of prior audit findings related to [describe the process area]: [paste finding titles or brief descriptions]. Analyze these findings for systemic patterns. Identify: (1) whether findings cluster around specific process steps, control types, or organizational units; (2) whether any findings suggest a root cause that was not fully addressed; and (3) what a new engagement in this area should prioritize to move beyond surface-level symptoms.</div>
+            <div class="prompt-footer">
+              <span class="prompt-works-with">Works best with: Any LLM</span>
+              <button class="copy-btn" onclick="copyPrompt(this)">Copy prompt</button>
+            </div>
+          </div>
+
+          <div class="prompt-card" data-category="planning">
+            <span class="prompt-badge badge-planning">Risk &amp; Planning</span>
+            <div class="prompt-title">Interview Question Generator</div>
+            <div class="prompt-context">Use when preparing for an audit interview -- especially in a new process area or with a technical stakeholder.</div>
+            <div class="prompt-text">I am preparing to interview [describe the role, e.g., the accounts payable manager] about [describe the process, e.g., the invoice approval and payment process]. The audit objective is to understand [describe what you are evaluating, e.g., whether three-way match exceptions are being reviewed and resolved appropriately]. Generate 10 targeted interview questions that: (1) build understanding of how the process actually works; (2) surface where exceptions occur and how they are handled; and (3) identify whether controls that exist on paper are operating in practice. Avoid yes/no questions.</div>
+            <div class="prompt-footer">
+              <span class="prompt-works-with">Works best with: Any LLM</span>
+              <button class="copy-btn" onclick="copyPrompt(this)">Copy prompt</button>
+            </div>
+          </div>
+
+          <!-- FIELDWORK PROMPTS (5) -->
+
+          <div class="prompt-card" data-category="fieldwork">
+            <span class="prompt-badge badge-fieldwork">Fieldwork</span>
+            <div class="prompt-title">Exception Investigation Framework</div>
+            <div class="prompt-context">Use when you have identified an anomaly in data and need a structured framework for investigating it before drawing conclusions.</div>
+            <div class="prompt-text">I have identified the following anomaly in [describe the data source and process area]: [describe the specific anomaly]. Before concluding this is a control issue, I want to consider all plausible explanations. Generate a structured list of: (1) benign explanations that would make this anomaly acceptable; (2) control failure explanations that would make it a finding; and (3) the specific evidence I would need to rule each explanation in or out.</div>
+            <div class="prompt-footer">
+              <span class="prompt-works-with">Works best with: Any LLM</span>
+              <button class="copy-btn" onclick="copyPrompt(this)">Copy prompt</button>
+            </div>
+          </div>
+
+          <div class="prompt-card" data-category="fieldwork">
+            <span class="prompt-badge badge-fieldwork">Fieldwork</span>
+            <div class="prompt-title">Population-Level Test Design</div>
+            <div class="prompt-context">Use when you want to convert a risk hypothesis into a data test design with specific data requirements.</div>
+            <div class="prompt-text">I want to design a population-level data test for the following audit risk: [describe the risk, e.g., sales orders billed at a price lower than the applicable condition record with no authorized exception on file]. The system is [describe the ERP, e.g., SAP S/4HANA]. Describe: (1) the specific data fields and tables I would need; (2) the logic for the test -- what comparison or filter would identify exceptions; (3) what a true positive looks like versus a false positive I should filter out; and (4) what the result set should contain to support a finding.</div>
+            <div class="prompt-footer">
+              <span class="prompt-works-with">Works best with: Any LLM</span>
+              <button class="copy-btn" onclick="copyPrompt(this)">Copy prompt</button>
+            </div>
+          </div>
+
+          <div class="prompt-card" data-category="fieldwork">
+            <span class="prompt-badge badge-fieldwork">Fieldwork</span>
+            <div class="prompt-title">SAP Table and Field Explainer</div>
+            <div class="prompt-context">Use when you encounter a SAP table or field name you do not recognize and need to understand what it represents before querying it.</div>
+            <div class="prompt-text">I am working in SAP S/4HANA and encountered the following table or field: [paste the table name, field name, or both -- e.g., VBRK-NETWR or table BSEG]. Explain in plain language: (1) what this table or field stores; (2) which business process it belongs to; (3) how it connects to other key tables in that process; and (4) what audit-relevant information it typically contains in an electrical distribution business context.</div>
+            <div class="prompt-footer">
+              <span class="prompt-works-with">Works best with: Any LLM</span>
+              <button class="copy-btn" onclick="copyPrompt(this)">Copy prompt</button>
+            </div>
+          </div>
+
+          <div class="prompt-card" data-category="fieldwork">
+            <span class="prompt-badge badge-fieldwork">Fieldwork</span>
+            <div class="prompt-title">Legacy Procedure Redesign</div>
+            <div class="prompt-context">Use when you have an existing sample-based audit procedure that you want to convert into a population-level analytics test.</div>
+            <div class="prompt-text">Here is an existing audit procedure from a prior workpaper: [paste the procedure description]. This procedure currently uses statistical sampling. Redesign it as a population-level analytics test. Describe: (1) the data source and fields required; (2) the extraction and filtering logic; (3) the threshold or criteria that defines an exception; (4) what the output dataset should look like; and (5) how results would be documented as evidence. Assume access to [describe the available tool, e.g., Alteryx and direct SAP data access].</div>
+            <div class="prompt-footer">
+              <span class="prompt-works-with">Works best with: Any LLM</span>
+              <button class="copy-btn" onclick="copyPrompt(this)">Copy prompt</button>
+            </div>
+          </div>
+
+          <div class="prompt-card" data-category="fieldwork">
+            <span class="prompt-badge badge-fieldwork">Fieldwork</span>
+            <div class="prompt-title">Root Cause Hypothesis Builder</div>
+            <div class="prompt-context">Use after identifying a finding condition to develop a structured root cause analysis before presenting to management.</div>
+            <div class="prompt-text">I have identified the following audit finding condition: [describe what was observed, e.g., 23% of purchase orders in the sample were approved after the goods receipt date, with the approval recorded retroactively]. Before concluding on root cause, I want to consider the full range of explanations. Generate a structured root cause analysis that considers: (1) process design failures -- was the control designed to prevent this?; (2) system configuration issues -- does the system allow or enforce the control?; (3) behavioral factors -- is this a training, incentive, or oversight issue?; (4) data integrity factors -- could the timing reflect a recording error rather than a control bypass? For each category, identify what evidence would confirm or rule it out.</div>
+            <div class="prompt-footer">
+              <span class="prompt-works-with">Works best with: Any LLM</span>
+              <button class="copy-btn" onclick="copyPrompt(this)">Copy prompt</button>
+            </div>
+          </div>
+
+          <!-- DOCUMENTATION PROMPTS (5) -->
+
+          <div class="prompt-card" data-category="documentation">
+            <span class="prompt-badge badge-documentation">Documentation</span>
+            <div class="prompt-title">Audit Finding Drafter</div>
+            <div class="prompt-context">Use after completing fieldwork when you need to document a finding in the standard four-part format.</div>
+            <div class="prompt-text">Draft an audit finding in the standard condition / criteria / cause / effect format based on the following: [describe what you observed, the standard it should have met, and the evidence you have]. The finding should be appropriate for inclusion in a formal audit report. Use specific, factual language. Avoid conclusions that go beyond the evidence described. The audience is [describe, e.g., process management and the CAE]. Keep the total length under 250 words.</div>
+            <div class="prompt-footer">
+              <span class="prompt-works-with">Works best with: Any LLM</span>
+              <button class="copy-btn" onclick="copyPrompt(this)">Copy prompt</button>
+            </div>
+          </div>
+
+          <div class="prompt-card" data-category="documentation">
+            <span class="prompt-badge badge-documentation">Documentation</span>
+            <div class="prompt-title">Workpaper Summary</div>
+            <div class="prompt-context">Use after completing a test to generate a structured workpaper summary from your notes.</div>
+            <div class="prompt-text">Draft a workpaper summary for the following audit test. Format it with these sections: Objective, Population and Period, Procedure, Results, and Conclusion. Source information: [describe the test you performed, the data you used, the exceptions you found, and your overall conclusion]. The summary should be written so that an independent reviewer could understand the work performed and the basis for the conclusion without asking follow-up questions.</div>
+            <div class="prompt-footer">
+              <span class="prompt-works-with">Works best with: Any LLM</span>
+              <button class="copy-btn" onclick="copyPrompt(this)">Copy prompt</button>
+            </div>
+          </div>
+
+          <div class="prompt-card" data-category="documentation">
+            <span class="prompt-badge badge-documentation">Documentation</span>
+            <div class="prompt-title">Control Narrative Drafter</div>
+            <div class="prompt-context">Use when documenting a business process for the first time or when updating documentation after a process change.</div>
+            <div class="prompt-text">Draft a control narrative for the following business process: [describe the process, including the key steps, the systems involved, and the people or roles responsible at each step]. The narrative should: (1) describe the process flow from initiation to completion; (2) identify the key controls at each significant step; (3) note where automated controls exist versus manual controls; and (4) identify where the primary risks of error or fraud are located in the process. Format it as a professional audit document.</div>
+            <div class="prompt-footer">
+              <span class="prompt-works-with">Works best with: Any LLM</span>
+              <button class="copy-btn" onclick="copyPrompt(this)">Copy prompt</button>
+            </div>
+          </div>
+
+          <div class="prompt-card" data-category="documentation">
+            <span class="prompt-badge badge-documentation">Documentation</span>
+            <div class="prompt-title">Field Notes to Observation</div>
+            <div class="prompt-context">Use after a fieldwork session to convert rough notes into a structured, professional observation record.</div>
+            <div class="prompt-text">Convert the following field notes into a clean, structured audit observation: [paste your raw notes]. The observation should: (1) describe what was observed factually and without editorial language; (2) note any open questions or items requiring follow-up; (3) identify what evidence was collected and what is still needed; and (4) flag any preliminary indicators of control issues without stating conclusions. Keep the tone professional and objective.</div>
+            <div class="prompt-footer">
+              <span class="prompt-works-with">Works best with: Any LLM</span>
+              <button class="copy-btn" onclick="copyPrompt(this)">Copy prompt</button>
+            </div>
+          </div>
+
+          <div class="prompt-card" data-category="documentation">
+            <span class="prompt-badge badge-documentation">Documentation</span>
+            <div class="prompt-title">Technical Finding Translation</div>
+            <div class="prompt-context">Use when you need to translate a technically detailed finding into language appropriate for an audit committee or senior executive audience.</div>
+            <div class="prompt-text">Here is an audit finding written for a technical audience: [paste the finding]. Rewrite it for an audit committee or senior executive audience. The rewritten version should: (1) explain the issue in plain business terms without losing accuracy; (2) state the business risk or exposure clearly -- what could happen as a result of this condition; (3) avoid technical jargon unless essential, and define it if used; and (4) end with a clear statement of what remediation would look like. Target length: 150 words or fewer.</div>
+            <div class="prompt-footer">
+              <span class="prompt-works-with">Works best with: Any LLM</span>
+              <button class="copy-btn" onclick="copyPrompt(this)">Copy prompt</button>
+            </div>
+          </div>
+
+          <!-- COMMUNICATION PROMPTS (4) -->
+
+          <div class="prompt-card" data-category="communication">
+            <span class="prompt-badge badge-communication">Communication</span>
+            <div class="prompt-title">Management Response Evaluator</div>
+            <div class="prompt-context">Use when reviewing a management response to an audit finding to assess whether it actually addresses the root cause.</div>
+            <div class="prompt-text">Here is an audit finding: [paste the finding]. Here is management's proposed response: [paste the response]. Evaluate whether this response: (1) addresses the root cause identified in the finding or only the symptom; (2) proposes a specific, verifiable remediation action or uses vague language that cannot be tested; (3) includes a realistic and committed completion date; and (4) assigns clear ownership. Identify any gaps in the response and suggest specific language that would make it more defensible and testable.</div>
+            <div class="prompt-footer">
+              <span class="prompt-works-with">Works best with: Any LLM</span>
+              <button class="copy-btn" onclick="copyPrompt(this)">Copy prompt</button>
+            </div>
+          </div>
+
+          <div class="prompt-card" data-category="communication">
+            <span class="prompt-badge badge-communication">Communication</span>
+            <div class="prompt-title">Audit Report Section Drafter</div>
+            <div class="prompt-context">Use when drafting the opening or summary section of an audit report, or when you need a consistent narrative across multiple findings.</div>
+            <div class="prompt-text">Draft the [describe the section -- e.g., executive summary or background] section of an audit report for the following engagement: [describe the audit area, the scope, the key findings, and the overall conclusion]. The section should: (1) describe the purpose and scope of the engagement; (2) summarize the key findings at a level appropriate for the described audience; (3) state the overall audit conclusion clearly; and (4) be written in a professional, direct tone without hedging language. Length: [specify, e.g., one page or 300 words].</div>
+            <div class="prompt-footer">
+              <span class="prompt-works-with">Works best with: Any LLM</span>
+              <button class="copy-btn" onclick="copyPrompt(this)">Copy prompt</button>
+            </div>
+          </div>
+
+          <div class="prompt-card" data-category="communication">
+            <span class="prompt-badge badge-communication">Communication</span>
+            <div class="prompt-title">Stakeholder Briefing Prep</div>
+            <div class="prompt-context">Use when preparing to present findings to a process owner or business leader who may be defensive or unfamiliar with audit methodology.</div>
+            <div class="prompt-text">I need to brief [describe the stakeholder -- role, level, and likely reaction] on the following audit finding: [describe the finding and evidence]. Help me prepare for this conversation by: (1) drafting the key points I should lead with; (2) anticipating the three most likely objections or pushback responses and suggesting how to address each; (3) identifying what I should NOT say to avoid escalating defensiveness; and (4) recommending how to frame the remediation discussion so it feels collaborative rather than punitive.</div>
+            <div class="prompt-footer">
+              <span class="prompt-works-with">Works best with: Any LLM</span>
+              <button class="copy-btn" onclick="copyPrompt(this)">Copy prompt</button>
+            </div>
+          </div>
+
+          <div class="prompt-card" data-category="communication">
+            <span class="prompt-badge badge-communication">Communication</span>
+            <div class="prompt-title">Follow-Up Inquiry Draft</div>
+            <div class="prompt-context">Use when you need to follow up on an open request for information or documentation from an auditee.</div>
+            <div class="prompt-text">Draft a professional follow-up email to [describe the recipient and their role] requesting [describe what is needed and why -- e.g., the original purchase order documentation for five transactions flagged in testing]. Context: [describe how long the request has been outstanding and any prior communication]. The email should: (1) be direct and professional without being accusatory; (2) state clearly what is needed, by when, and why it is necessary; and (3) note the impact on the audit timeline if the request is not fulfilled. Keep it under 150 words.</div>
+            <div class="prompt-footer">
+              <span class="prompt-works-with">Works best with: Any LLM</span>
+              <button class="copy-btn" onclick="copyPrompt(this)">Copy prompt</button>
+            </div>
+          </div>
+
+          <!-- LEARNING PROMPTS (2) -->
+
+          <div class="prompt-card" data-category="learning">
+            <span class="prompt-badge badge-learning">Learning</span>
+            <div class="prompt-title">Unfamiliar System Explainer</div>
+            <div class="prompt-context">Use when you are assigned to audit a system or platform you have not worked with before and need to build context quickly.</div>
+            <div class="prompt-text">I am an internal auditor preparing to audit [describe the system or platform -- e.g., a warehouse management system, a logistics platform, or a pricing engine]. I have limited familiarity with this system. Provide an overview that covers: (1) what the system does and what business process it supports; (2) the key data it generates and what audit-relevant information it contains; (3) the most common control risks associated with this type of system; (4) the questions I should ask IT or the system owner to understand the configuration; and (5) the data I should request access to at the start of fieldwork.</div>
+            <div class="prompt-footer">
+              <span class="prompt-works-with">Works best with: Any LLM</span>
+              <button class="copy-btn" onclick="copyPrompt(this)">Copy prompt</button>
+            </div>
+          </div>
+
+          <div class="prompt-card" data-category="learning">
+            <span class="prompt-badge badge-learning">Learning</span>
+            <div class="prompt-title">Distribution Business Context</div>
+            <div class="prompt-context">Use when you encounter a business process or term specific to electrical distribution that you need to understand before testing it.</div>
+            <div class="prompt-text">I am auditing [describe the process or area -- e.g., special pricing agreement reconciliation or branch inventory adjustment practices] at a large electrical distribution company. Explain: (1) how this process typically works in an electrical distribution business context; (2) what can go wrong -- the most common control failures or risk scenarios; (3) what data would typically be available to test this; and (4) what prior audit findings in this area typically look like. Assume I understand audit methodology but am newer to the distribution industry.</div>
+            <div class="prompt-footer">
+              <span class="prompt-works-with">Works best with: Any LLM</span>
+              <button class="copy-btn" onclick="copyPrompt(this)">Copy prompt</button>
+            </div>
+          </div>
+
+        </div><!-- end prompt-grid -->
+      </div>
+    </section>
+
+    <!-- EVIDENCE AND DOCUMENTATION STANDARDS -->
+    <section class="section section-alt" id="evidence-standards">
+      <div class="container">
+        <div class="section-head">
+          <h2 class="section-title">Keeping AI-Assisted Work Defensible</h2>
+          <p class="section-subtitle">
+            The evidence standard for AI-assisted audit work is identical to the evidence standard for any other audit work. What changes is the set of habits required to meet it.
+          </p>
+        </div>
+        <div class="principle-grid">
+          <div class="principle-card">
+            <div class="principle-card-title">Verify, don't just review</div>
+            <div class="principle-card-body">AI output used in a workpaper was verified against a primary source -- not just read and accepted. Verification means you checked the specific claim against the underlying data, document, or system record. "It looks right" is not verification.</div>
+          </div>
+          <div class="principle-card">
+            <div class="principle-card-title">Note AI assistance simply</div>
+            <div class="principle-card-body">One line in the workpaper is sufficient: "Initial draft generated with AI assistance; verified and edited by [name] on [date]." Consistent, brief, and defensible. The evidence trail is what holds the work up, not the disclosure note.</div>
+          </div>
+          <div class="principle-card">
+            <div class="principle-card-title">The judgment calls stay yours</div>
+            <div class="principle-card-body">AI can draft the finding. It cannot determine whether the condition is material, what the root cause priority is, or how to frame the recommendation given organizational context. Document your judgment separately from the AI-generated draft.</div>
+          </div>
+          <div class="principle-card">
+            <div class="principle-card-title">The evidence anchor still applies</div>
+            <div class="principle-card-body">AI-assisted findings require the same evidence trail as any other finding. The AI helped write it -- the evidence has to hold it up. No AI output substitutes for documented, traceable evidence tied to a specific transaction, record, or source document.</div>
+          </div>
+          <div class="principle-card">
+            <div class="principle-card-title">Confidentiality before convenience</div>
+            <div class="principle-card-body">Before pasting any data into an AI tool, ask: does this data identify a specific employee, customer, transaction, or organization? If yes, describe the pattern instead of pasting the record. <a href="auditing-ai.html">Your organization's AI use policy governs what can enter external AI systems &rarr;</a></div>
+          </div>
+          <div class="principle-card">
+            <div class="principle-card-title">The auditability test</div>
+            <div class="principle-card-body">Ask: if an independent reviewer examined this workpaper without knowing AI was involved, would the evidence trail still be complete, traceable, and sufficient to support the conclusion? If the answer is no, the documentation is not ready.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHEN NOT TO USE AI -->
+    <section class="section" id="when-not-to-use">
+      <div class="container">
+        <div class="section-head">
+          <h2 class="section-title">Where AI Assistance Degrades the Work</h2>
+          <p class="section-subtitle">
+            AI assistance improves audit work in well-defined, documented scenarios. It degrades it in others. Knowing the difference is a practitioner judgment, not a policy question.
+          </p>
+        </div>
+        <div class="principle-grid">
+          <div class="principle-card">
+            <div class="principle-card-title">When the question requires current data</div>
+            <div class="principle-card-body">LLMs have knowledge cutoffs -- they do not know what happened after their training data ends. Questions about current regulatory status, current organizational facts, or current market conditions require a live source. AI can help you frame the question; it cannot answer it reliably.</div>
+          </div>
+          <div class="principle-card">
+            <div class="principle-card-title">When you need to build your own hypothesis first</div>
+            <div class="principle-card-body">Using AI to interpret an anomaly before forming your own hypothesis creates a blind spot. You may anchor to the AI's framing rather than following the evidence. Build your own hypothesis first, then use AI to pressure-test it or identify what you missed.</div>
+          </div>
+          <div class="principle-card">
+            <div class="principle-card-title">When the finding involves organizational sensitivity</div>
+            <div class="principle-card-body">AI-drafted language on sensitive findings tends toward the generic. The tone, framing, and calibration of a finding that will create organizational tension requires judgment about context, relationships, and consequences that AI does not have. Draft sensitive findings yourself.</div>
+          </div>
+          <div class="principle-card">
+            <div class="principle-card-title">When confidential data would enter the prompt</div>
+            <div class="principle-card-body">Specific, non-anonymized audit evidence -- personnel records, customer data, transaction details identifying individuals -- should not be entered into consumer AI products. Describe the pattern. Do not paste the records. <a href="auditing-ai.html">See Auditing AI for your organization's policy obligations &rarr;</a></div>
+          </div>
+          <div class="principle-card">
+            <div class="principle-card-title">When you could not defend the output without citing the AI</div>
+            <div class="principle-card-body">If you could not explain how a conclusion was reached without referencing the AI tool, it is not ready for the workpaper. You should be able to defend every conclusion in your work independently of how you got there.</div>
+          </div>
+          <div class="principle-card">
+            <div class="principle-card-title">When the answer is genuinely uncertain</div>
+            <div class="principle-card-body">AI produces confident-sounding output even when the underlying question is uncertain. If you are not sure what you are looking for, AI will give you something that looks like an answer. That is the most dangerous moment to use it -- when the output substitutes for the clarity you have not yet achieved.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- BUILDING YOUR PERSONAL TOOLKIT -->
+    <section class="section section-alt" id="personal-toolkit">
+      <div class="container">
+        <div class="section-head">
+          <h2 class="section-title">Beyond the Prompt Library</h2>
+        </div>
+        <div class="toolkit-subsection">
+          <div class="toolkit-sub-heading">Custom instructions</div>
+          <div class="toolkit-sub-body">Most AI tools allow you to set persistent instructions that apply to every conversation. For audit work, a few lines of context -- your role, your industry, your ERP environment, and your evidence standard -- dramatically improve output quality without requiring you to repeat them in every prompt. Set these once and revisit them quarterly as your work context changes.</div>
+        </div>
+        <div class="toolkit-subsection">
+          <div class="toolkit-sub-heading">Your personal prompt log</div>
+          <div class="toolkit-sub-body">The most valuable prompt library is the one you build yourself. Keep a running note of the prompts you have modified from a starting template to something that works for your specific context. The delta between the starting prompt and your version is where your judgment and domain knowledge lives. That is not something a shared library can hold for you.</div>
+        </div>
+        <div class="toolkit-subsection">
+          <div class="toolkit-sub-heading">The 30-minute tool evaluation</div>
+          <div class="toolkit-sub-body">When a new AI tool appears in your field of view, do not read the coverage -- evaluate the tool directly. Spend 30 minutes asking: what does it do that existing tools do not, what is the failure mode, what data would it touch in audit work, and does your organization have a position on it. Those four questions produce a more useful answer than any review article.</div>
+        </div>
+        <div class="toolkit-subsection">
+          <div class="toolkit-sub-heading">Team sharing</div>
+          <div class="toolkit-sub-body">When you use a prompt that works unusually well, bring it back to the team. One useful prompt shared per engagement compounds across the whole function. A team that shares working patterns builds collective capability faster than any training program.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- STAYING CURRENT -->
+    <section class="section" id="staying-current">
+      <div class="container">
+        <div class="section-head">
+          <h2 class="section-title">A Sustainable Practice for Staying Current</h2>
+          <p class="section-subtitle">
+            The AI tools and governance landscape are moving faster than any credential or curriculum can track. Staying current requires a practice, not a reading list.
+          </p>
+        </div>
+        <div class="module-grid" style="grid-template-columns: repeat(2, minmax(0, 1fr));">
+          <div class="module" style="cursor: default;">
+            <div class="module-kicker">One primary source</div>
+            <div class="module-title">Follow IIA AI publications directly</div>
+            <div class="module-desc">Not commentary about them -- the publications themselves. The IIA's practitioner-level guidance on AI use in audit work is the most directly applicable layer for what you do day to day.</div>
+          </div>
+          <div class="module" style="cursor: default;">
+            <div class="module-kicker">One practitioner community</div>
+            <div class="module-title">ISACA and IIA chapter communities</div>
+            <div class="module-desc">AI-focused working groups and IIA chapter AI communities surface practical intelligence about what audit functions are encountering in fieldwork -- findings patterns, tool evaluations, methodology questions. That practitioner layer is more actionable than most published guidance.</div>
+          </div>
+          <div class="module" style="cursor: default;">
+            <div class="module-kicker">Apply the 30-minute rule</div>
+            <div class="module-title">Evaluate new tools directly</div>
+            <div class="module-desc">Every time a new AI tool gets attention in your professional network, spend 30 minutes evaluating it directly rather than reading about it. You will learn more and form a more calibrated opinion than any article provides.</div>
+          </div>
+          <div class="module" style="cursor: default;">
+            <div class="module-kicker">Bring one thing back</div>
+            <div class="module-title">Reading that changes behavior</div>
+            <div class="module-desc">Every time you read something about AI and audit, write down one specific thing you will do differently. Not a general takeaway. A specific change. Reading that does not produce a behavioral change is noise accumulation.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- NEXT STEP BAR -->
+    <section class="section" style="padding-top: 0; padding-bottom: 0;">
+      <div class="container">
+        <div class="next-step-bar">
+          <span class="next-step-label">Step 4 of 5 -- Practitioner Path</span>
+          <a class="next-step-link" href="auditing-ai.html">Auditing AI &rarr;</a>
+        </div>
+        <p style="font-size: 0.88rem; color: var(--muted); margin-top: 6px; padding-left: 2px;">The conceptual depth behind the tools -- how AI systems work, the governance landscape, and what practitioners need to produce credible assurance work</p>
+      </div>
+    </section>
+
+    <!-- RELATED TOPICS -->
+    <section class="section" id="related">
+      <div class="container">
+        <div class="section-head"><h2 class="section-title">Related topics</h2></div>
+        <div class="path-grid">
+          <a class="path-card" href="auditing-ai.html">
+            <div class="path-top"><div class="path-title">Auditing AI</div><div class="path-tag">Step 4</div></div>
+            <p class="path-text">The governance framework, regulatory landscape, and evidence standards for audit work in AI-adjacent environments.</p>
+            <span class="path-cta">Go to Auditing AI &rarr;</span>
+          </a>
+          <a class="path-card" href="practitioner-assessment.html">
+            <div class="path-top"><div class="path-title">Practitioner Assessment</div><div class="path-tag">Step 2</div></div>
+            <p class="path-text">Your skills self-assessment -- the five dimensions that shape which parts of this toolkit are highest priority for you.</p>
+            <span class="path-cta">Go to Assessment &rarr;</span>
+          </a>
+          <a class="path-card" href="terminology.html">
+            <div class="path-top"><div class="path-title">Key Terminology</div><div class="path-tag">Site reference</div></div>
+            <p class="path-text">Definitions for the AI, ERP, and audit methodology terms that appear throughout the site.</p>
+            <span class="path-cta">Go to Terminology &rarr;</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-left">
+        <div class="footer-brand">The AI-Ready Audit</div>
+        <div class="footer-note">A framework for how internal audit must evolve in large electrical distribution enterprises as organizations adopt modern enterprise systems, analytics, and artificial intelligence.</div>
+      </div>
+      <div class="footer-right">
+        <a class="footer-link" href="executive-summary.html">Executive Summary</a>
+        <a class="footer-link" href="thesis.html">Why It's Changing</a>
+        <a class="footer-link" href="audit-leadership.html">Methodology</a>
+        <a class="footer-link" href="skills-evolution.html">Skills</a>
+        <a class="footer-link" href="maturity-assessment.html">Assessment</a>
+        <a class="footer-link" href="resources.html">Resources</a>
+        <a class="footer-link" href="about.html">About</a>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <p>&copy; 2026 Nicole Robbins</p>
+      <p style="font-size: 0.75rem; color: rgba(255,255,255,0.3); margin-top: 8px; line-height: 1.5; max-width: 80ch;">The frameworks, recommendations, and perspectives published on this platform represent independent professional views and analysis, supported by publicly available research and professional standards. This site is not affiliated with, endorsed by, or a publication of any employer or organization. The author is an internal audit practitioner and manager -- not a licensed CPA, CIA, attorney, or accredited researcher. Nothing on this platform constitutes professional advice. All external resources are linked for reference; availability and terms should be verified directly.</p>
+    </div>
+  </footer>
+
+  <script>
+  // Filter functionality
+  document.querySelectorAll('.filter-btn').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      var filter = this.getAttribute('data-filter');
+      document.querySelectorAll('.filter-btn').forEach(function(b) { b.classList.remove('is-active'); });
+      this.classList.add('is-active');
+      document.querySelectorAll('.prompt-card').forEach(function(card) {
+        if (filter === 'all' || card.getAttribute('data-category') === filter) {
+          card.classList.remove('is-hidden');
+        } else {
+          card.classList.add('is-hidden');
+        }
+      });
+    });
+  });
+
+  // Copy prompt functionality
+  function copyPrompt(btn) {
+    var card = btn.closest('.prompt-card');
+    var promptText = card.querySelector('.prompt-text').textContent;
+    navigator.clipboard.writeText(promptText).then(function() {
+      btn.textContent = 'Copied \u2713';
+      btn.classList.add('copied');
+      setTimeout(function() {
+        btn.textContent = 'Copy prompt';
+        btn.classList.remove('copied');
+      }, 2000);
+    }).catch(function() {
+      var ta = document.createElement('textarea');
+      ta.value = promptText;
+      ta.style.position = 'fixed';
+      ta.style.opacity = '0';
+      document.body.appendChild(ta);
+      ta.select();
+      document.execCommand('copy');
+      document.body.removeChild(ta);
+      btn.textContent = 'Copied \u2713';
+      btn.classList.add('copied');
+      setTimeout(function() {
+        btn.textContent = 'Copy prompt';
+        btn.classList.remove('copied');
+      }, 2000);
+    });
+  }
+  </script>
+
+  <script>
+  (function () {
+    var navToggle = document.getElementById("nav-toggle");
+    var primaryNav = document.getElementById("primary-nav");
+    if (!navToggle || !primaryNav) return;
+    navToggle.addEventListener("click", function () {
+      var isOpen = primaryNav.classList.toggle("is-open");
+      navToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+    });
+    primaryNav.addEventListener("click", function (e) {
+      var groupBtn = e.target.closest(".nav-group-btn");
+      if (groupBtn) {
+        var group = groupBtn.closest(".nav-group");
+        if (group) {
+          primaryNav.querySelectorAll(".nav-group.is-open").forEach(function(g) {
+            if (g !== group) { g.classList.remove("is-open"); var b = g.querySelector(".nav-group-btn"); if (b) b.setAttribute("aria-expanded", "false"); }
+          });
+          group.classList.toggle("is-open");
+          groupBtn.setAttribute("aria-expanded", group.classList.contains("is-open") ? "true" : "false");
+        }
+        return;
+      }
+      if (e.target.classList.contains("nav-link")) { primaryNav.classList.remove("is-open"); navToggle.setAttribute("aria-expanded", "false"); }
+    });
+    document.addEventListener("click", function(e) {
+      if (!e.target.closest(".nav-group")) {
+        primaryNav.querySelectorAll(".nav-group.is-open").forEach(function(g) { g.classList.remove("is-open"); var b = g.querySelector(".nav-group-btn"); if (b) b.setAttribute("aria-expanded", "false"); });
+      }
+    });
+    document.addEventListener("keydown", function(e) {
+      if (e.key === "Escape") { primaryNav.querySelectorAll(".nav-group.is-open").forEach(function(g) { g.classList.remove("is-open"); var b = g.querySelector(".nav-group-btn"); if (b) b.setAttribute("aria-expanded", "false"); }); }
+    });
+  })();
+  </script>
+
+  <script src="nav-guide.js"></script>
+</body>
+</html>

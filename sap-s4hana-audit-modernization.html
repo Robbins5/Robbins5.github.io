@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SAP S/4HANA Audit Modernization | The AI-Ready Audit</title>
+  <meta name="description" content="Real-time detection, native SAP capability, and a staged adoption framework for internal audit in SAP S/4HANA environments -- Fiori configuration, BIS rules, and end-to-end monitoring program design." />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+</head>
+
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="brand">
+        <a class="brand-link" href="index.html">
+          <div class="brand-title">The AI-Ready Audit</div>
+          <div class="brand-tagline">Internal Audit for Electrical Distribution Enterprises</div>
+        </a>
+      </div>
+
+      <button class="nav-toggle" id="nav-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false">
+        &#9776;
+      </button>
+
+            <nav class="nav" id="primary-nav" aria-label="Primary">
+        <a class="nav-link" href="index.html">Home</a>
+
+        <div class="nav-group">
+          <button class="nav-group-btn" type="button" aria-expanded="false">Framework</button>
+          <div class="nav-dropdown">
+          <a class="nav-link" href="thesis.html">Why It's Changing</a>
+          <a class="nav-link" href="maturity-assessment.html">Self-Assessment</a>
+          </div>
+        </div>
+
+        <div class="nav-group">
+          <button class="nav-group-btn" type="button" aria-expanded="false">For Executives</button>
+          <div class="nav-dropdown">
+          <a class="nav-link" href="executive-summary.html">Executive Summary</a>
+          <a class="nav-link" href="executive-assessment.html">Executive Assessment</a>
+          <a class="nav-link" href="executive-oversight.html">Executive Oversight</a>
+          <a class="nav-link" href="charter.html">IA Charter</a>
+          <a class="nav-link" href="team-structure.html">Team and Talent</a>
+          </div>
+        </div>
+
+        <div class="nav-group">
+          <button class="nav-group-btn" type="button" aria-expanded="false">The Methodology</button>
+          <div class="nav-dropdown">
+          <a class="nav-link" href="audit-leadership.html">Methodology</a>
+          <a class="nav-link" href="erp-transition.html">ERP Transition</a>
+          <a class="nav-link" href="data-access.html">Data Access</a>
+          <a class="nav-link" href="capacity-model.html">Dedicated Capacity</a>
+          <a class="nav-link" href="organizational-intelligence.html">Organizational Intelligence</a>
+          <a class="nav-link" href="technology-stack.html">Technology Stack</a>
+          <a class="nav-link" href="continuous-monitoring.html">Continuous Monitoring</a>
+          </div>
+        </div>
+
+        <div class="nav-group has-active">
+          <button class="nav-group-btn" type="button" aria-expanded="false">The Playbook</button>
+          <div class="nav-dropdown">
+          <a class="nav-link" href="execution-playbook.html">Playbook Overview</a>
+          <a class="nav-link" href="sap-tool-ecosystem.html">SAP Tool Ecosystem</a>
+          <a class="nav-link" href="audit-universe.html">ERP Audit Universe</a>
+          <a class="nav-link nav-cta" href="sap-s4hana-audit-modernization.html">SAP S/4HANA Monitoring</a>
+          </div>
+        </div>
+
+        <div class="nav-group">
+          <button class="nav-group-btn" type="button" aria-expanded="false">For Practitioners</button>
+          <div class="nav-dropdown">
+          <a class="nav-link" href="skills-evolution.html">Skills and Development</a>
+          <a class="nav-link" href="practitioner-assessment.html">Practitioner Assessment</a>
+          <a class="nav-link" href="auditing-ai.html">Auditing AI</a>
+          <a class="nav-link" href="ai-learning.html">Learning Module</a>
+          </div>
+        </div>
+
+        <a class="nav-link" href="resources.html">Resources</a>
+        <a class="nav-link" href="about.html">About</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- HERO -->
+    <section class="page-hero" data-audience="all">
+      <div class="container">
+        <div class="page-hero-inner">
+          <p class="page-kicker">THE PLAYBOOK &middot; CHAPTER 1</p>
+          <h1 class="page-title">SAP S/4HANA Audit Modernization</h1>
+          <p class="page-subtitle">
+            Real-time detection using the capabilities your ERP already provides. Fiori configuration, BIS deployment, and a monitoring workflow designed to run without constant analyst intervention.
+          </p>
+          <div class="page-actions">
+            <a class="btn btn-primary" href="#what-changes">What changes with S/4HANA</a>
+            <a class="btn btn-secondary" href="#monitoring-workflow">The monitoring workflow</a>
+            <a class="btn btn-secondary" href="#bis-in-practice">BIS in practice</a>
+          </div>
+        </div>
+
+        <details class="key-takeaways">
+          <summary>Key takeaways -- read this first</summary>
+          <div class="takeaways-body">
+            <ul>
+              <li>S/4HANA's in-memory architecture enables real-time monitoring that was not technically feasible on older ERP platforms. The question is not whether the capability exists -- it is whether audit has activated it.</li>
+              <li>Fiori Custom Queries require no additional license and no IT development. They are the fastest path to population-level data for any audit team that has not yet established direct data access.</li>
+              <li>BIS is frequently licensed and dormant. Activating it requires IT configuration effort, not procurement. Starting with three to five rules in high-risk areas produces immediate return without the complexity of a full deployment.</li>
+              <li>The automation principle applies to all monitoring: automation changes what audit judgment is applied to, not whether it is applied. Every exception that surfaces from a monitoring routine requires human judgment to evaluate, prioritize, and resolve.</li>
+            </ul>
+          </div>
+        </details>
+      </div>
+    </section>
+
+    <!-- STAT BAND -->
+    <section class="section" style="padding-top: 0; padding-bottom: 0;" data-audience="all">
+      <div class="container">
+        <div class="stat-band">
+          <div class="stat-band-item">
+            <div class="stat-band-label">Detection speed</div>
+            <div class="stat-band-value">Real-time</div>
+            <div class="stat-band-sub">From periodic to continuous</div>
+          </div>
+          <div class="stat-band-item">
+            <div class="stat-band-label">Entry point</div>
+            <div class="stat-band-value">Native capability</div>
+            <div class="stat-band-sub">No new license required to start</div>
+          </div>
+          <div class="stat-band-item">
+            <div class="stat-band-label">BIS start</div>
+            <div class="stat-band-value">3 to 5 rules</div>
+            <div class="stat-band-sub">Before scaling the deployment</div>
+          </div>
+          <div class="stat-band-item">
+            <div class="stat-band-label">Reading time</div>
+            <div class="stat-band-value">30 min</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PLATFORM NOTE -->
+    <section class="section" style="padding-top: 0; padding-bottom: 0;" data-audience="all">
+      <div class="container">
+        <div class="callout" style="max-width: 780px;">
+          <div class="callout-title">SAP S/4HANA reference environment</div>
+          <div class="callout-text">
+            This page addresses S/4HANA-specific capabilities: Fiori, BIS, and the GRC suite. The monitoring workflow and the automation principle described here apply in any ERP environment. Specific tool names and configuration paths are SAP-specific. Oracle and Microsoft Dynamics environments have equivalent capabilities under different names.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHAT CHANGES WITH S/4HANA -->
+    <section class="section" id="what-changes" data-audience="leader">
+      <div class="container">
+        <div class="section-head">
+          <h2 class="section-title">What Changes With S/4HANA</h2>
+          <p class="section-subtitle">
+            Three dimensions of change that directly affect what audit can do and what it needs to do differently.
+          </p>
+        </div>
+
+        <div class="module-grid" style="grid-template-columns: repeat(3, minmax(0, 1fr));">
+
+          <div class="module" style="cursor: default;">
+            <div class="module-kicker">Data Architecture</div>
+            <div class="module-title">In-memory processing and the Universal Journal</div>
+            <div class="module-desc">
+              S/4HANA's HANA in-memory database processes transactions in real time rather than batch. The Universal Journal (ACDOCA) consolidates what were previously separate FI and CO tables into a single document-level record. This means audit can query the complete financial transaction record -- including cost object, profit center, and business area -- from a single table. Fiori provides the browser-based interface to that data without ABAP development. Embedded analytics deliver the analytical layer directly in the system.
+            </div>
+          </div>
+
+          <div class="module" style="cursor: default;">
+            <div class="module-kicker">Monitoring Possibilities</div>
+            <div class="module-title">Real-time GRC, native BIS, and direct data access</div>
+            <div class="module-desc">
+              The architecture change enables monitoring that ECC could not support at scale. GRC runs SoD and access monitoring in real time rather than in scheduled batch jobs. BIS applies machine learning to transaction data continuously rather than on an extraction cycle. Fiori provides direct access to validated data models without extraction, transformation, and load overhead. The latency between a transaction occurring and audit being able to see it compresses from weeks to hours or minutes.
+            </div>
+          </div>
+
+          <div class="module" style="cursor: default;">
+            <div class="module-kicker">Audit Requirements</div>
+            <div class="module-title">New skills, new access patterns, new scope areas</div>
+            <div class="module-desc">
+              The same architecture that enables continuous monitoring also requires audit to understand the new data structures. ACDOCA replaces BSEG and BSAK as the primary financial document table. MSEG and EKBE remain for logistics, but their relationship to ACDOCA creates new cross-module query patterns. Audit functions that learned SAP against ECC data structures need to re-map their query logic. Functions that had no direct data access before are learning both the tool and the data structure simultaneously.
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- THE MONITORING WORKFLOW -->
+    <section class="section section-alt" id="monitoring-workflow" data-audience="leader">
+      <div class="container">
+        <div class="section-head">
+          <h2 class="section-title">The Monitoring Workflow</h2>
+          <p class="section-subtitle">
+            Four steps that define how continuous monitoring operates -- from data access through exception closure.
+          </p>
+        </div>
+
+        <div class="timeline-track">
+
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-stage">Step 1</div>
+            <div class="timeline-title">Configure Data Access</div>
+            <div class="timeline-desc">
+              Establish read-only audit access to the relevant Fiori apps and underlying data models. Confirm which tables are accessible through which apps. Document the access pathway -- which role grants access, what data model it reads, and who the data owner is. Validate that the data model returns complete results by reconciling a sample query against a known transaction. Data access that has not been validated is not reliable evidence.
+            </div>
+            <div class="timeline-tasks">
+              <div class="timeline-tasks-label">Configuration decisions</div>
+              <ul class="timeline-task-list">
+                <li>Identify the Fiori apps relevant to the target process area -- AP monitoring starts with F0718 (Manage Journal Entries) and the Supplier Invoice List app.</li>
+                <li>Confirm read-only authorization: F-KO (display vendor documents), F-LF (display accounts payable), and BSEG/BKPF display access at minimum.</li>
+                <li>Validate completeness: run a population query for the last completed period and reconcile the count to the GL account balance. If counts do not reconcile, escalate before building monitoring logic on top of incomplete data.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-stage">Step 2</div>
+            <div class="timeline-title">Define Detection Rules and Thresholds</div>
+            <div class="timeline-desc">
+              Write the detection logic before building any query or rule. What condition is being detected? What data field identifies it? What threshold makes an exception actionable rather than noise? Who owns the exception when it fires? What does resolution look like? These questions must be answered on paper before the first BIS rule or Fiori query is configured. Detection logic written without threshold definition produces either too many exceptions to review or too few to be useful.
+            </div>
+            <div class="timeline-tasks">
+              <div class="timeline-tasks-label">Threshold design principles</div>
+              <ul class="timeline-task-list">
+                <li>Set thresholds based on the prior period distribution of the underlying metric -- not on an arbitrary dollar amount or percentage. A threshold that works for a $50M AP ledger will not work for a $500M one.</li>
+                <li>Test the threshold against historical data before going live. Count how many exceptions the rule would have generated in the last six months. If it is more than the team can review in a week, tighten the threshold or add a secondary filter.</li>
+                <li>Document the threshold and the rationale in the monitoring program file. Thresholds that are not documented will be forgotten and cannot be defended.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-dot is-accent"></div>
+            <div class="timeline-stage">Step 3</div>
+            <div class="timeline-title">Review Exceptions and Escalate</div>
+            <div class="timeline-desc">
+              Exception review is where audit judgment is applied. Each exception requires a human decision: is this a finding, a false positive, or a known condition that has been documented and accepted? The review workflow needs to be defined before monitoring goes live -- not improvised after the first exception list appears. A well-designed exception review workflow closes most items in the first review cycle. Items that cannot be closed require escalation with a documented reason.
+            </div>
+            <div class="timeline-tasks">
+              <div class="timeline-tasks-label">Review workflow design</div>
+              <ul class="timeline-task-list">
+                <li>Assign a primary reviewer and a backup for each monitoring routine. If only one person can review exceptions, the routine stops when that person is unavailable.</li>
+                <li>Define the escalation trigger explicitly: what makes an exception a finding rather than a false positive? Document this threshold in the monitoring program file so any reviewer can apply it consistently.</li>
+                <li>Set a maximum review cycle length -- typically one to two weeks for most routines. Exceptions that age beyond the review cycle without disposition are a workflow failure, not a finding volume problem.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-stage">Step 4</div>
+            <div class="timeline-title">Close and Document</div>
+            <div class="timeline-desc">
+              Every exception must have a documented disposition: false positive, finding escalated, finding closed by management, or accepted risk with documented rationale. This documentation serves two purposes. First, it demonstrates that the monitoring routine is being operated with discipline -- not generating lists that no one reviews. Second, it builds the evidence base for the next threshold adjustment cycle.
+            </div>
+            <div class="timeline-tasks">
+              <div class="timeline-tasks-label">Documentation standard</div>
+              <ul class="timeline-task-list">
+                <li>Use a consistent format for exception disposition: exception ID, detection date, reviewer, disposition category, disposition date, and notes. A spreadsheet works at early stages. A ticketing system is better as volume grows.</li>
+                <li>Review the false positive rate at the end of each quarter. A false positive rate above 40 percent means the threshold needs to be tightened. A rate below 5 percent may mean the threshold is too narrow to catch real exceptions.</li>
+                <li>Document findings separately from false positives and use the finding record to feed the annual audit risk assessment. Monitoring findings are evidence of where control gaps actually exist -- not just where they might exist.</li>
+              </ul>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- FIORI FOR AUDIT -->
+    <section class="section" id="fiori-for-audit" data-audience="practitioner">
+      <div class="container">
+        <div class="section-head">
+          <h2 class="section-title">Fiori for Audit</h2>
+          <p class="section-subtitle">
+            The Fiori apps relevant to audit work, what they access, and how to configure a monitoring workspace without IT development.
+          </p>
+        </div>
+
+        <p style="font-size: 1.05rem; color: var(--body); max-width: 72ch; margin-bottom: 1.25rem; line-height: 1.75;">
+          Fiori is the browser-based interface layer for S/4HANA. For audit, the relevant apps are the ones that provide read access to transaction data -- the AP, GL, purchasing, and inventory apps that surface the population-level data underlying each use case in the audit universe. The key distinction is between analytical apps (which display aggregated data) and factsheet and list apps (which display transaction-level records).
+        </p>
+        <p style="font-size: 1.05rem; color: var(--body); max-width: 72ch; margin-bottom: 2rem; line-height: 1.75;">
+          Audit-relevant Fiori apps do not require custom development. They require role configuration -- specifically, the addition of appropriate read-only business roles to the audit user's profile. This is an IT configuration task, not a development task. The conversation with IT is about role assignment, not about building anything new. Most of the apps described below are standard Fiori apps delivered with S/4HANA and activated as part of the standard implementation.
+        </p>
+
+        <div class="module-grid" style="grid-template-columns: repeat(2, minmax(0, 1fr));">
+
+          <div class="module" style="cursor: default;">
+            <div class="module-kicker">Financial Accounting</div>
+            <div class="module-title">Key Fiori Apps for FI Audit</div>
+            <div class="module-desc">
+              Manage Journal Entries (F0718): full journal entry population with filter by user, posting date, document type, and amount. Supplier Invoice List: AP invoice population with vendor, date, amount, and payment status. Customer Invoice List: AR invoice population. G/L Account Line Items: general ledger transaction detail by account. These four apps cover the primary FI use cases without any custom configuration.
+            </div>
+          </div>
+
+          <div class="module" style="cursor: default;">
+            <div class="module-kicker">Procurement</div>
+            <div class="module-title">Key Fiori Apps for MM Audit</div>
+            <div class="module-desc">
+              Manage Purchase Orders: full PO population with status, vendor, amount, and approval history. Manage Supplier Invoices: invoice population with three-way match status. Goods Receipt / Invoice Receipt Account: GR/IR clearing balances. Vendor Master: vendor record population with bank account details. These apps provide the data foundation for the MM use cases in the audit universe without extraction.
+            </div>
+          </div>
+
+          <div class="module" style="cursor: default;">
+            <div class="module-kicker">Sales</div>
+            <div class="module-title">Key Fiori Apps for SD Audit</div>
+            <div class="module-desc">
+              Sales Order Fulfillment: order-to-delivery pipeline with exception highlighting for blocked and delayed orders. Display Billing Documents: invoice population with pricing condition detail. Credit Management Overview: customer credit status, exposure, and override history. Manage Customer Returns: return authorization and credit memo population. These apps surface the pricing and credit risk use cases from the SD section of the audit universe.
+            </div>
+          </div>
+
+          <div class="module" style="cursor: default;">
+            <div class="module-kicker">Configuring the Workspace</div>
+            <div class="module-title">Building a Monitoring Launchpad</div>
+            <div class="module-desc">
+              Fiori allows creating a custom launchpad group -- a collection of tiles organized by monitoring area. For audit, a launchpad with AP, GL, Procurement, and SD tiles provides a single starting point for all routine monitoring work. The launchpad requires no development -- only the addition of the relevant tile catalog entries to the audit user's role. Once configured, any auditor with the appropriate role can access the full monitoring workspace from the same starting point.
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- BIS IN PRACTICE -->
+    <section class="section section-alt" id="bis-in-practice" data-audience="leader">
+      <div class="container">
+        <div class="section-head">
+          <h2 class="section-title">BIS in Practice</h2>
+          <p class="section-subtitle">
+            Business Integrity Screening -- what it does, how rules are configured, what the exception workflow looks like, and why starting with three to five rules is the right approach.
+          </p>
+        </div>
+
+        <p style="font-size: 1.05rem; color: var(--body); max-width: 72ch; margin-bottom: 1.25rem; line-height: 1.75;">
+          BIS is SAP's native anomaly detection module. It runs continuously against transaction data using configurable detection rules and machine learning models. Unlike Fiori, which requires an analyst to run a query, BIS runs on a schedule and delivers exceptions to a review queue automatically. The analyst reviews what BIS surfaces rather than running queries to surface it.
+        </p>
+        <p style="font-size: 1.05rem; color: var(--body); max-width: 72ch; margin-bottom: 1.25rem; line-height: 1.75;">
+          BIS is frequently licensed as part of S/4HANA and not activated. Activation requires IT to configure the BIS system connection, define the data scope (which company codes, which transaction types), and set up the alert queue. This is a configuration task measured in days, not a development project measured in months. The question to ask IT is whether BIS is licensed -- not whether it can be configured.
+        </p>
+
+        <div class="module-grid" style="grid-template-columns: repeat(2, minmax(0, 1fr));">
+
+          <div class="module" style="cursor: default;">
+            <div class="module-kicker">Rule Categories</div>
+            <div class="module-title">What BIS Detects Natively</div>
+            <div class="module-desc">
+              BIS ships with pre-built detection rules across the primary financial process areas: accounts payable (duplicate invoices, vendor with employee data matches, payments to inactive vendors), procurement (POs created after invoice, split PO sequences), general ledger (round-number entries, off-hours postings, entries by users without typical GL access), and accounts receivable (write-offs above threshold, credit memos without returns). Most audit-relevant use cases in FI and MM have a corresponding native BIS rule that requires configuration rather than development.
+            </div>
+          </div>
+
+          <div class="module" style="cursor: default;">
+            <div class="module-kicker">Starting Small</div>
+            <div class="module-title">Three to Five Rules Before Scaling</div>
+            <div class="module-desc">
+              The right BIS deployment starts with three to five rules in the highest-risk area -- typically AP or procurement -- and runs them for a full quarter before expanding. This approach establishes the exception review workflow, calibrates the threshold settings, trains the reviewer on BIS output format, and produces a documented track record of findings before the scope increases. Deploying twenty rules in the first quarter almost always produces an exception volume that overwhelms the review workflow and results in exceptions aging without disposition.
+            </div>
+          </div>
+
+          <div class="module" style="cursor: default;">
+            <div class="module-kicker">Machine Learning Layer</div>
+            <div class="module-title">How BIS Uses ML to Reduce Noise</div>
+            <div class="module-desc">
+              BIS includes a machine learning layer that learns the normal transaction pattern for each entity -- each vendor, each user, each cost center -- and scores deviations from that pattern. This produces entity-level anomaly scores rather than simple rule-based flags. An AP posting by a user who has never posted to a particular vendor before scores higher than the same posting by a user who posts to that vendor weekly. The ML layer reduces false positives as the model learns the organization's baseline -- which is why the first quarter of BIS operation typically produces more noise than subsequent quarters.
+            </div>
+          </div>
+
+          <div class="module" style="cursor: default;">
+            <div class="module-kicker">Exception Queue</div>
+            <div class="module-title">What the BIS Workflow Looks Like</div>
+            <div class="module-desc">
+              BIS delivers exceptions to a managed alert queue in the SAP system. The reviewer accesses the queue through a Fiori app, reviews each alert with a link to the underlying transaction, applies a disposition (finding, false positive, or accepted risk), and documents the rationale. The queue tracks aging, so exceptions that are not reviewed within the defined period are visible to the audit manager. The workflow runs entirely within the SAP system -- no external tracking spreadsheet is required if the Fiori exception management app is configured.
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- THE AUTOMATION PRINCIPLE -->
+    <section class="section" id="automation-principle" data-audience="all">
+      <div class="container">
+        <div class="section-head">
+          <h2 class="section-title">The Automation Principle</h2>
+        </div>
+
+        <p style="font-size: 1.05rem; color: var(--body); max-width: 72ch; margin-bottom: 1.25rem; line-height: 1.75;">
+          Continuous monitoring does not replace audit judgment. It changes what audit judgment is applied to. In a manual testing environment, audit judgment is applied at every step: which vendors to test, which invoices to pull, which transactions to examine. Most of that judgment is spent on selection rather than on evaluation.
+        </p>
+        <p style="font-size: 1.05rem; color: var(--body); max-width: 72ch; margin-bottom: 1.25rem; line-height: 1.75;">
+          In a monitoring environment, the selection problem is addressed by the detection rule. BIS identifies which transactions meet the anomaly criteria. The auditor applies judgment to the exception list: is this a finding? Is it a known condition that has been documented? Is it a false positive that suggests the rule threshold needs adjustment? The judgment is the same quality -- it is applied to a much better-curated set of transactions.
+        </p>
+        <p style="font-size: 1.05rem; color: var(--body); max-width: 72ch; margin-bottom: 1.25rem; line-height: 1.75;">
+          This distinction matters for two reasons. First, it addresses the concern that monitoring is auditing by algorithm -- that it removes professional judgment from the process. It does not. It compresses the time spent on selection and expands the time available for evaluation. Second, it defines what a monitoring program needs to produce: not a list of anomalies, but a list of anomalies that has been reviewed by a person who applied a documented judgment standard to each one.
+        </p>
+
+        <div class="callout" style="max-width: 780px;">
+          <div class="callout-text" style="font-style: italic;">
+            A monitoring program that generates exceptions no one reviews is not continuous monitoring. It is a scheduled query that generates unanswered questions. The workflow design -- who reviews, by when, using what standard -- is what makes the detection capability into a functioning audit program.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- NEXT STEP BAR -->
+    <section class="section" style="padding-top: 0; padding-bottom: 0;" data-audience="all">
+      <div class="container">
+        <div class="next-step-bar">
+          <span class="next-step-label">Return to the playbook</span>
+          <a class="next-step-link" href="execution-playbook.html">Playbook Overview &rarr;</a>
+        </div>
+        <p style="font-size: 0.88rem; color: var(--muted); margin-top: 6px; padding-left: 2px;">See where Chapter 1 fits in the full playbook arc and what chapters follow</p>
+      </div>
+    </section>
+
+    <!-- RELATED TOPICS -->
+    <section class="section" id="related" data-audience="all">
+      <div class="container">
+        <div class="section-head">
+          <h2 class="section-title">Related topics</h2>
+        </div>
+        <div class="path-grid">
+          <a class="path-card" href="sap-tool-ecosystem.html">
+            <div class="path-top">
+              <div class="path-title">SAP Tool Ecosystem</div>
+              <div class="path-tag">Tool inventory</div>
+            </div>
+            <p class="path-text">The full inventory of native SAP tools -- from no-license Fiori access through the advanced analytics layer.</p>
+            <span class="path-cta">Go to SAP Tool Ecosystem &rarr;</span>
+          </a>
+          <a class="path-card" href="audit-universe.html">
+            <div class="path-top">
+              <div class="path-title">ERP Audit Universe</div>
+              <div class="path-tag">Use case library</div>
+            </div>
+            <p class="path-text">The full use case library organized by SAP module -- what the monitoring workflow described here is detecting.</p>
+            <span class="path-cta">Go to ERP Audit Universe &rarr;</span>
+          </a>
+          <a class="path-card" href="continuous-monitoring.html">
+            <div class="path-top">
+              <div class="path-title">Continuous Monitoring</div>
+              <div class="path-tag">Methodology context</div>
+            </div>
+            <p class="path-text">The sustainability design, technology pathway, and engagement model that contextualizes this SAP-specific execution detail.</p>
+            <span class="path-cta">Go to Continuous Monitoring &rarr;</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-left">
+        <div class="footer-brand">The AI-Ready Audit</div>
+        <div class="footer-note">
+          A framework for how internal audit must evolve in large electrical distribution enterprises
+          as organizations adopt modern enterprise systems, analytics, and artificial intelligence.
+        </div>
+      </div>
+      <div class="footer-right">
+        <a class="footer-link" href="executive-summary.html">Executive Summary</a>
+        <a class="footer-link" href="thesis.html">Why It's Changing</a>
+        <a class="footer-link" href="audit-leadership.html">Methodology</a>
+        <a class="footer-link" href="skills-evolution.html">Skills</a>
+        <a class="footer-link" href="maturity-assessment.html">Assessment</a>
+        <a class="footer-link" href="resources.html">Resources</a>
+        <a class="footer-link" href="about.html">About</a>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <p>&copy; 2026 Nicole Robbins</p>
+      <p style="font-size: 0.75rem; color: rgba(255,255,255,0.3); margin-top: 8px; line-height: 1.5; max-width: 80ch;">The frameworks, recommendations, and perspectives published on this platform represent independent professional views and analysis, supported by publicly available research and professional standards. This site is not affiliated with, endorsed by, or a publication of any employer or organization. The author is an internal audit practitioner and manager -- not a licensed CPA, CIA, attorney, or accredited researcher. Nothing on this platform constitutes professional advice. All external resources are linked for reference; availability and terms should be verified directly.</p>
+    </div>
+  </footer>
+
+  <script>
+  (function () {
+    var navToggle = document.getElementById("nav-toggle");
+    var primaryNav = document.getElementById("primary-nav");
+    if (!navToggle || !primaryNav) return;
+    navToggle.addEventListener("click", function () {
+      var isOpen = primaryNav.classList.toggle("is-open");
+      navToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+    });
+    primaryNav.addEventListener("click", function (e) {
+      var groupBtn = e.target.closest(".nav-group-btn");
+      if (groupBtn) {
+        var group = groupBtn.closest(".nav-group");
+        if (group) {
+          primaryNav.querySelectorAll(".nav-group.is-open").forEach(function(g) {
+            if (g !== group) {
+              g.classList.remove("is-open");
+              var b = g.querySelector(".nav-group-btn");
+              if (b) b.setAttribute("aria-expanded", "false");
+            }
+          });
+          group.classList.toggle("is-open");
+          groupBtn.setAttribute("aria-expanded", group.classList.contains("is-open") ? "true" : "false");
+        }
+        return;
+      }
+      if (e.target.classList.contains("nav-link")) {
+        primaryNav.classList.remove("is-open");
+        navToggle.setAttribute("aria-expanded", "false");
+      }
+    });
+    document.addEventListener("click", function(e) {
+      if (!e.target.closest(".nav-group")) {
+        primaryNav.querySelectorAll(".nav-group.is-open").forEach(function(g) {
+          g.classList.remove("is-open");
+          var b = g.querySelector(".nav-group-btn");
+          if (b) b.setAttribute("aria-expanded", "false");
+        });
+      }
+    });
+    document.addEventListener("keydown", function(e) {
+      if (e.key === "Escape") {
+        primaryNav.querySelectorAll(".nav-group.is-open").forEach(function(g) {
+          g.classList.remove("is-open");
+          var b = g.querySelector(".nav-group-btn");
+          if (b) b.setAttribute("aria-expanded", "false");
+        });
+      }
+    });
+  })();
+  </script>
+
+  <script src="nav-guide.js"></script>
+</body>
+</html>

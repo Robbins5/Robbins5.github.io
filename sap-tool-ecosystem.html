@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SAP Tool Ecosystem for Internal Audit | The AI-Ready Audit</title>
+  <meta name="description" content="What SAP S/4HANA already provides for internal audit -- the six native tools, their use cases, and a staged adoption framework that starts with what you already have." />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+</head>
+
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="brand">
+        <a class="brand-link" href="index.html">
+          <div class="brand-title">The AI-Ready Audit</div>
+          <div class="brand-tagline">Internal Audit for Electrical Distribution Enterprises</div>
+        </a>
+      </div>
+
+      <button class="nav-toggle" id="nav-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false">
+        &#9776;
+      </button>
+
+            <nav class="nav" id="primary-nav" aria-label="Primary">
+        <a class="nav-link" href="index.html">Home</a>
+
+        <div class="nav-group">
+          <button class="nav-group-btn" type="button" aria-expanded="false">Framework</button>
+          <div class="nav-dropdown">
+          <a class="nav-link" href="thesis.html">Why It's Changing</a>
+          <a class="nav-link" href="maturity-assessment.html">Self-Assessment</a>
+          </div>
+        </div>
+
+        <div class="nav-group">
+          <button class="nav-group-btn" type="button" aria-expanded="false">For Executives</button>
+          <div class="nav-dropdown">
+          <a class="nav-link" href="executive-summary.html">Executive Summary</a>
+          <a class="nav-link" href="executive-assessment.html">Executive Assessment</a>
+          <a class="nav-link" href="executive-oversight.html">Executive Oversight</a>
+          <a class="nav-link" href="charter.html">IA Charter</a>
+          <a class="nav-link" href="team-structure.html">Team and Talent</a>
+          </div>
+        </div>
+
+        <div class="nav-group">
+          <button class="nav-group-btn" type="button" aria-expanded="false">The Methodology</button>
+          <div class="nav-dropdown">
+          <a class="nav-link" href="audit-leadership.html">Methodology</a>
+          <a class="nav-link" href="erp-transition.html">ERP Transition</a>
+          <a class="nav-link" href="data-access.html">Data Access</a>
+          <a class="nav-link" href="capacity-model.html">Dedicated Capacity</a>
+          <a class="nav-link" href="organizational-intelligence.html">Organizational Intelligence</a>
+          <a class="nav-link" href="technology-stack.html">Technology Stack</a>
+          <a class="nav-link" href="continuous-monitoring.html">Continuous Monitoring</a>
+          </div>
+        </div>
+
+        <div class="nav-group has-active">
+          <button class="nav-group-btn" type="button" aria-expanded="false">The Playbook</button>
+          <div class="nav-dropdown">
+          <a class="nav-link" href="execution-playbook.html">Playbook Overview</a>
+          <a class="nav-link nav-cta" href="sap-tool-ecosystem.html">SAP Tool Ecosystem</a>
+          <a class="nav-link" href="audit-universe.html">ERP Audit Universe</a>
+          <a class="nav-link" href="sap-s4hana-audit-modernization.html">SAP S/4HANA Monitoring</a>
+          </div>
+        </div>
+
+        <div class="nav-group">
+          <button class="nav-group-btn" type="button" aria-expanded="false">For Practitioners</button>
+          <div class="nav-dropdown">
+          <a class="nav-link" href="skills-evolution.html">Skills and Development</a>
+          <a class="nav-link" href="practitioner-assessment.html">Practitioner Assessment</a>
+          <a class="nav-link" href="auditing-ai.html">Auditing AI</a>
+          <a class="nav-link" href="ai-learning.html">Learning Module</a>
+          </div>
+        </div>
+
+        <a class="nav-link" href="resources.html">Resources</a>
+        <a class="nav-link" href="about.html">About</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- HERO -->
+    <section class="page-hero" data-audience="all">
+      <div class="container">
+        <div class="page-hero-inner">
+          <p class="page-kicker">THE PLAYBOOK &middot; CHAPTER 1</p>
+          <h1 class="page-title">SAP Tool Ecosystem for Internal Audit</h1>
+          <p class="page-subtitle">
+            What you already have. What you underutilize. What to build toward.
+          </p>
+          <div class="page-actions">
+            <a class="btn btn-primary" href="#inventory-framework">Inventory framework</a>
+            <a class="btn btn-secondary" href="#six-tools">The six tools</a>
+            <a class="btn btn-secondary" href="audit-universe.html">ERP Audit Universe</a>
+          </div>
+        </div>
+
+        <details class="key-takeaways">
+          <summary>Key takeaways -- read this first</summary>
+          <div class="takeaways-body">
+            <ul>
+              <li>Most audit functions in SAP S/4HANA environments have access to meaningful monitoring and governance capability they have never inventoried or activated.</li>
+              <li>The right first question is not "what should we buy" -- it is "what do we already have that we are not using."</li>
+              <li>The six tools here form a natural progression. Fiori Custom Queries require no additional license. BIS and GRC require activation. SAC and Signavio are the advanced layer.</li>
+              <li>Tool adoption without data access is the most common reason audit technology investments fail to produce a return. The data access conversation runs parallel to -- not after -- the tool conversation.</li>
+            </ul>
+          </div>
+        </details>
+      </div>
+    </section>
+
+    <!-- STAT BAND -->
+    <section class="section" style="padding-top: 0; padding-bottom: 0;" data-audience="all">
+      <div class="container">
+        <div class="stat-band">
+          <div class="stat-band-item">
+            <div class="stat-band-label">Native tools</div>
+            <div class="stat-band-value">6 in SAP</div>
+            <div class="stat-band-sub">In your environment</div>
+          </div>
+          <div class="stat-band-item">
+            <div class="stat-band-label">Approach</div>
+            <div class="stat-band-value">Inventory first</div>
+            <div class="stat-band-sub">Before any new investment</div>
+          </div>
+          <div class="stat-band-item">
+            <div class="stat-band-label">Adoption</div>
+            <div class="stat-band-value">Staged</div>
+            <div class="stat-band-sub">Each tool builds on the last</div>
+          </div>
+          <div class="stat-band-item">
+            <div class="stat-band-label">Reading time</div>
+            <div class="stat-band-value">20 min</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PLATFORM NOTE -->
+    <section class="section" style="padding-top: 0; padding-bottom: 0;" data-audience="all">
+      <div class="container">
+        <div class="callout" style="max-width: 780px;">
+          <div class="callout-title">SAP S/4HANA reference environment</div>
+          <div class="callout-text">
+            This chapter uses SAP S/4HANA as its primary reference environment. The inventory-first approach and the tool categories covered here apply across ERP platforms. Oracle and Microsoft Dynamics environments include equivalent native capabilities in each category -- the tool names are different, the logic is the same.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- INVENTORY FRAMEWORK -->
+    <section class="section" id="inventory-framework" data-audience="leader">
+      <div class="container">
+        <div class="section-head">
+          <h2 class="section-title">The Inventory-First Framework</h2>
+          <p class="section-subtitle">
+            Before any procurement decision, audit functions need to complete five diagnostic steps. Most skip to step five and pay for it.
+          </p>
+        </div>
+
+        <div class="module-grid" style="grid-template-columns: repeat(2, minmax(0, 1fr));">
+
+          <div class="module" style="cursor: default;">
+            <div class="module-kicker">Step 1</div>
+            <div class="module-title">What did you previously use, and why did it work?</div>
+            <div class="module-desc">
+              Document the tools and procedures that functioned before the ERP transition. Understand the data sources they relied on, the access patterns they required, and the outputs they produced. This establishes the capability baseline to restore or exceed.
+            </div>
+          </div>
+
+          <div class="module" style="cursor: default;">
+            <div class="module-kicker">Step 2</div>
+            <div class="module-title">What broke, and what specifically caused it?</div>
+            <div class="module-desc">
+              Map the specific failures: data sources that changed structure, access pathways that were not migrated, procedures that assumed legacy system behavior. Generic answers ("ERP changed everything") are not sufficient. Specific answers enable targeted recovery.
+            </div>
+          </div>
+
+          <div class="module" style="cursor: default;">
+            <div class="module-kicker">Step 3</div>
+            <div class="module-title">What does the current platform offer natively?</div>
+            <div class="module-desc">
+              Conduct a formal inventory of native audit capability in the current ERP. In SAP S/4HANA, this includes Fiori Custom Queries, Business Integrity Screening, the GRC suite, SAP Analytics Cloud, and process mining via Signavio. Most functions have never formally catalogued what they have access to.
+            </div>
+          </div>
+
+          <div class="module" style="cursor: default;">
+            <div class="module-kicker">Step 4</div>
+            <div class="module-title">What is licensed but dormant?</div>
+            <div class="module-desc">
+              Identify capabilities included in the current license that have not been activated or deployed. GRC modules and BIS are frequently licensed and unused. SAP Analytics Cloud is often part of an enterprise agreement that audit has not claimed access to. Dormant capabilities are free capability.
+            </div>
+          </div>
+
+          <div class="module" style="cursor: default; grid-column: span 2;">
+            <div class="module-kicker">Step 5</div>
+            <div class="module-title">What are the genuine gaps?</div>
+            <div class="module-desc">
+              Only after completing steps one through four does the fifth step produce a reliable answer. Genuine gaps are capabilities required to meet audit objectives that are not available natively and are not covered by existing tools. These are the only gaps that justify new procurement.
+            </div>
+          </div>
+
+        </div>
+
+        <div class="callout" style="max-width: 780px; margin-top: 28px;">
+          <div class="callout-text" style="font-style: italic;">
+            A gap identified before completing these steps is a hypothesis. A gap identified after is a justified business case.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- THE SIX NATIVE TOOLS -->
+    <section class="section section-alt" id="six-tools" data-audience="leader">
+      <div class="container">
+        <div class="section-head">
+          <h2 class="section-title">The Six Native SAP Tools</h2>
+          <p class="section-subtitle">
+            These tools form a natural progression from no-license access through licensed but dormant capabilities to the advanced analytics layer.
+          </p>
+        </div>
+
+        <div class="module-grid">
+
+          <div class="module" style="cursor: default;">
+            <div class="module-kicker" style="color: #2d7a3a; font-weight: 700;">Tool 1 -- No Additional License</div>
+            <div class="module-title">SAP Fiori Custom Queries</div>
+            <div class="module-desc">
+              Fiori Custom Queries provide direct, configured access to SAP transaction data through the browser interface. With appropriate read-only audit access, this is the fastest path to population-level data without any additional licensing or tool procurement. Use cases include accounts payable population pulls, general ledger transaction queries, purchase order analysis, and vendor master data review. The entry point for any audit function that does not yet have a dedicated analytics platform.
+            </div>
+          </div>
+
+          <div class="module" style="cursor: default;">
+            <div class="module-kicker" style="color: #2d7a3a; font-weight: 700;">Tool 2 -- No Additional License</div>
+            <div class="module-title">SAP Query and Report Writer</div>
+            <div class="module-desc">
+              The SAP Query and Report Writer tools allow building structured queries against SAP data without requiring technical ABAP development. Ad hoc reports, scheduled extraction jobs, and cross-module joins are achievable with user-level access and basic configuration. Particularly useful for building repeatable extraction procedures that the team can run on a cycle without IT involvement.
+            </div>
+          </div>
+
+          <div class="module" style="cursor: default;">
+            <div class="module-kicker" style="color: #b45309; font-weight: 700;">Tool 3 -- Requires Activation</div>
+            <div class="module-title">SAP Business Integrity Screening (BIS)</div>
+            <div class="module-desc">
+              Business Integrity Screening is SAP's native anomaly detection module. It runs continuously against transaction data and flags exceptions based on configured rules across process areas including accounts payable, vendor management, procurement, and general ledger. BIS is frequently licensed as part of S/4HANA but not activated. Activation requires IT coordination for configuration and rule setup, but once deployed it provides near-real-time exception detection without ongoing query development.
+            </div>
+          </div>
+
+          <div class="module" style="cursor: default;">
+            <div class="module-kicker" style="color: #b45309; font-weight: 700;">Tool 4 -- Requires Activation</div>
+            <div class="module-title">SAP GRC Suite (Access Control, Process Control, Risk Management)</div>
+            <div class="module-desc">
+              The GRC suite includes three components relevant to internal audit. Access Control automates SoD conflict detection and privileged access monitoring across SAP roles. Process Control provides continuous monitoring of financial and operational controls with workflow-based exception management. Risk Management enables risk assessment and treatment tracking integrated with the control environment. All three are commonly licensed and underutilized. Each requires configuration investment but provides sustainable automation that manual testing cannot replicate at scale.
+            </div>
+          </div>
+
+          <div class="module" style="cursor: default;">
+            <div class="module-kicker" style="color: var(--muted-2); font-weight: 700;">Tool 5 -- Advanced Layer</div>
+            <div class="module-title">SAP Analytics Cloud (SAC)</div>
+            <div class="module-desc">
+              SAP Analytics Cloud is the enterprise analytics and visualization platform that connects directly to S/4HANA data models. For internal audit, SAC enables dashboard-level oversight of monitoring results, trend analysis across exception categories, and executive reporting that connects audit activity to risk indicators. Requires analytics skill investment to deploy effectively. Most valuable after Fiori and BIS are operational and the function has a dataset of monitoring results to visualize and analyze.
+            </div>
+          </div>
+
+          <div class="module" style="cursor: default;">
+            <div class="module-kicker" style="color: var(--muted-2); font-weight: 700;">Tool 6 -- Advanced Layer</div>
+            <div class="module-title">SAP Signavio (Process Mining)</div>
+            <div class="module-desc">
+              Signavio provides process mining capability -- reconstructing actual process flows from SAP event logs and comparing them against designed control flows. For audit, this enables identification of process bypasses, unauthorized sequence deviations, and systematic control circumvention at a level of detail that exception-based monitoring cannot surface. This is the most analytically sophisticated capability in the native SAP ecosystem and should be deployed after foundational monitoring is operational.
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- TURNING INVENTORY INTO DECISION -->
+    <section class="section" id="decision" data-audience="leader">
+      <div class="container">
+        <div class="section-head">
+          <h2 class="section-title">Turning the Inventory Into a Decision</h2>
+        </div>
+
+        <div class="module-grid" style="grid-template-columns: repeat(3, minmax(0, 1fr));">
+
+          <div class="module" style="cursor: default;">
+            <div class="module-kicker">Start here</div>
+            <div class="module-title">No-license tools first</div>
+            <div class="module-desc">
+              Fiori Custom Queries and the Query and Report Writer require no additional licensing. They require only proper read-only access configuration. If the function cannot run a population-level AP query through Fiori today, that is the first problem to solve -- not a procurement decision.
+            </div>
+          </div>
+
+          <div class="module" style="cursor: default;">
+            <div class="module-kicker">Before buying</div>
+            <div class="module-title">Identify licensed-but-dormant</div>
+            <div class="module-desc">
+              BIS and the GRC modules are frequently included in existing S/4HANA licensing. Confirm with IT and procurement whether these are licensed before evaluating alternatives. Activating a licensed module typically requires IT configuration effort -- not budget approval. This is a resourcing conversation, not a procurement conversation.
+            </div>
+          </div>
+
+          <div class="module" style="cursor: default;">
+            <div class="module-kicker">Genuine gaps only</div>
+            <div class="module-title">Build the case for what is new</div>
+            <div class="module-desc">
+              After completing the no-license and dormant capability steps, identify what capability is genuinely absent. The gap that remains -- if any -- is the only justified basis for new procurement. A business case built after completing this sequence is credible. One built before it is a preference.
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- HOW THE TOOLS CONNECT -->
+    <section class="section section-alt" id="tool-connections" data-audience="leader">
+      <div class="container">
+        <div class="section-head">
+          <h2 class="section-title">How the Tools Connect</h2>
+          <p class="section-subtitle">
+            The six tools are not independent options -- they are a progression. Each stage builds the capability the next requires.
+          </p>
+        </div>
+
+        <p style="font-size: 1.05rem; color: var(--body); max-width: 72ch; margin-bottom: 2rem; line-height: 1.75;">
+          Fiori and Query tools establish data access fluency and population-level query capability. BIS leverages that data access to run automated anomaly detection. GRC modules extend monitoring into controls and access governance. SAC builds the analytics and visualization layer on top of monitoring output. Signavio reconstructs process flows from the transaction data the other tools rely on.
+        </p>
+
+        <div style="overflow-x: auto;">
+          <table class="skills-matrix">
+            <thead>
+              <tr>
+                <th>Tool</th>
+                <th>Primary Capability</th>
+                <th>License Requirement</th>
+                <th>Typical Entry Point</th>
+                <th>Audit Audience</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Fiori Custom Queries</td>
+                <td>Population data access and extraction</td>
+                <td>No additional license</td>
+                <td>Read-only access configuration</td>
+                <td>All audit staff</td>
+              </tr>
+              <tr>
+                <td>Query / Report Writer</td>
+                <td>Scheduled extraction and ad hoc queries</td>
+                <td>No additional license</td>
+                <td>User configuration, no IT dev required</td>
+                <td>Analytics-capable staff</td>
+              </tr>
+              <tr>
+                <td>Business Integrity Screening</td>
+                <td>Real-time anomaly detection</td>
+                <td>Frequently licensed, requires activation</td>
+                <td>IT configuration and rule setup</td>
+                <td>Methodology and data strategy lead</td>
+              </tr>
+              <tr>
+                <td>GRC Suite</td>
+                <td>SoD monitoring, controls testing, risk tracking</td>
+                <td>Frequently licensed, requires activation</td>
+                <td>IT/GRC team configuration</td>
+                <td>IT audit and methodology lead</td>
+              </tr>
+              <tr>
+                <td>SAP Analytics Cloud</td>
+                <td>Visualization and trend analysis</td>
+                <td>Separate license or enterprise agreement</td>
+                <td>Existing monitoring dataset required</td>
+                <td>Audit leadership and analytics staff</td>
+              </tr>
+              <tr>
+                <td>Signavio</td>
+                <td>Process mining and control deviation detection</td>
+                <td>Separate license</td>
+                <td>Requires mature data access and analytics baseline</td>
+                <td>Advanced analytics practitioners</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- NEXT STEP BAR -->
+    <section class="section" style="padding-top: 0; padding-bottom: 0;" data-audience="all">
+      <div class="container">
+        <div class="next-step-bar">
+          <span class="next-step-label">Next in Chapter 1</span>
+          <a class="next-step-link" href="audit-universe.html">ERP Audit Universe &rarr;</a>
+        </div>
+        <p style="font-size: 0.88rem; color: var(--muted); margin-top: 6px; padding-left: 2px;">The full use case library organized by SAP module -- what to monitor and how</p>
+      </div>
+    </section>
+
+    <!-- RELATED TOPICS -->
+    <section class="section" id="related" data-audience="all">
+      <div class="container">
+        <div class="section-head">
+          <h2 class="section-title">Related topics</h2>
+        </div>
+        <div class="path-grid">
+          <a class="path-card" href="audit-universe.html">
+            <div class="path-top">
+              <div class="path-title">ERP Audit Universe</div>
+              <div class="path-tag">Chapter 1 continues</div>
+            </div>
+            <p class="path-text">Detection logic organized by SAP module -- the what and how of every use case.</p>
+            <span class="path-cta">Go to ERP Audit Universe &rarr;</span>
+          </a>
+          <a class="path-card" href="sap-s4hana-audit-modernization.html">
+            <div class="path-top">
+              <div class="path-title">SAP S/4HANA Monitoring</div>
+              <div class="path-tag">Execution detail</div>
+            </div>
+            <p class="path-text">Fiori tiles, BIS rules, detection workflow, and the end-to-end monitoring program design.</p>
+            <span class="path-cta">Go to SAP S/4HANA Monitoring &rarr;</span>
+          </a>
+          <a class="path-card" href="execution-playbook.html">
+            <div class="path-top">
+              <div class="path-title">Playbook Overview</div>
+              <div class="path-tag">Full arc</div>
+            </div>
+            <p class="path-text">All five chapters of the playbook -- where Chapter 1 fits and what follows it.</p>
+            <span class="path-cta">Go to Playbook Overview &rarr;</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-left">
+        <div class="footer-brand">The AI-Ready Audit</div>
+        <div class="footer-note">
+          A framework for how internal audit must evolve in large electrical distribution enterprises
+          as organizations adopt modern enterprise systems, analytics, and artificial intelligence.
+        </div>
+      </div>
+      <div class="footer-right">
+        <a class="footer-link" href="executive-summary.html">Executive Summary</a>
+        <a class="footer-link" href="thesis.html">Why It's Changing</a>
+        <a class="footer-link" href="audit-leadership.html">Methodology</a>
+        <a class="footer-link" href="skills-evolution.html">Skills</a>
+        <a class="footer-link" href="maturity-assessment.html">Assessment</a>
+        <a class="footer-link" href="resources.html">Resources</a>
+        <a class="footer-link" href="about.html">About</a>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <p>&copy; 2026 Nicole Robbins</p>
+      <p style="font-size: 0.75rem; color: rgba(255,255,255,0.3); margin-top: 8px; line-height: 1.5; max-width: 80ch;">The frameworks, recommendations, and perspectives published on this platform represent independent professional views and analysis, supported by publicly available research and professional standards. This site is not affiliated with, endorsed by, or a publication of any employer or organization. The author is an internal audit practitioner and manager -- not a licensed CPA, CIA, attorney, or accredited researcher. Nothing on this platform constitutes professional advice. All external resources are linked for reference; availability and terms should be verified directly.</p>
+    </div>
+  </footer>
+
+  <script>
+  (function () {
+    var navToggle = document.getElementById("nav-toggle");
+    var primaryNav = document.getElementById("primary-nav");
+    if (!navToggle || !primaryNav) return;
+    navToggle.addEventListener("click", function () {
+      var isOpen = primaryNav.classList.toggle("is-open");
+      navToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+    });
+    primaryNav.addEventListener("click", function (e) {
+      var groupBtn = e.target.closest(".nav-group-btn");
+      if (groupBtn) {
+        var group = groupBtn.closest(".nav-group");
+        if (group) {
+          primaryNav.querySelectorAll(".nav-group.is-open").forEach(function(g) {
+            if (g !== group) {
+              g.classList.remove("is-open");
+              var b = g.querySelector(".nav-group-btn");
+              if (b) b.setAttribute("aria-expanded", "false");
+            }
+          });
+          group.classList.toggle("is-open");
+          groupBtn.setAttribute("aria-expanded", group.classList.contains("is-open") ? "true" : "false");
+        }
+        return;
+      }
+      if (e.target.classList.contains("nav-link")) {
+        primaryNav.classList.remove("is-open");
+        navToggle.setAttribute("aria-expanded", "false");
+      }
+    });
+    document.addEventListener("click", function(e) {
+      if (!e.target.closest(".nav-group")) {
+        primaryNav.querySelectorAll(".nav-group.is-open").forEach(function(g) {
+          g.classList.remove("is-open");
+          var b = g.querySelector(".nav-group-btn");
+          if (b) b.setAttribute("aria-expanded", "false");
+        });
+      }
+    });
+    document.addEventListener("keydown", function(e) {
+      if (e.key === "Escape") {
+        primaryNav.querySelectorAll(".nav-group.is-open").forEach(function(g) {
+          g.classList.remove("is-open");
+          var b = g.querySelector(".nav-group-btn");
+          if (b) b.setAttribute("aria-expanded", "false");
+        });
+      }
+    });
+  })();
+  </script>
+
+  <script src="nav-guide.js"></script>
+</body>
+</html>

@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Execution Playbook | The AI-Ready Audit</title>
+  <meta name="description" content="The audit leader's playbook for executing methodology modernization -- starting with the ERP, using what already exists, and staging investment against demonstrated capability." />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+</head>
+
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="brand">
+        <a class="brand-link" href="index.html">
+          <div class="brand-title">The AI-Ready Audit</div>
+          <div class="brand-tagline">Internal Audit for Electrical Distribution Enterprises</div>
+        </a>
+      </div>
+
+      <button class="nav-toggle" id="nav-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false">
+        &#9776;
+      </button>
+
+            <nav class="nav" id="primary-nav" aria-label="Primary">
+        <a class="nav-link" href="index.html">Home</a>
+
+        <div class="nav-group">
+          <button class="nav-group-btn" type="button" aria-expanded="false">Framework</button>
+          <div class="nav-dropdown">
+          <a class="nav-link" href="thesis.html">Why It's Changing</a>
+          <a class="nav-link" href="maturity-assessment.html">Self-Assessment</a>
+          </div>
+        </div>
+
+        <div class="nav-group">
+          <button class="nav-group-btn" type="button" aria-expanded="false">For Executives</button>
+          <div class="nav-dropdown">
+          <a class="nav-link" href="executive-summary.html">Executive Summary</a>
+          <a class="nav-link" href="executive-assessment.html">Executive Assessment</a>
+          <a class="nav-link" href="executive-oversight.html">Executive Oversight</a>
+          <a class="nav-link" href="charter.html">IA Charter</a>
+          <a class="nav-link" href="team-structure.html">Team and Talent</a>
+          </div>
+        </div>
+
+        <div class="nav-group">
+          <button class="nav-group-btn" type="button" aria-expanded="false">The Methodology</button>
+          <div class="nav-dropdown">
+          <a class="nav-link" href="audit-leadership.html">Methodology</a>
+          <a class="nav-link" href="erp-transition.html">ERP Transition</a>
+          <a class="nav-link" href="data-access.html">Data Access</a>
+          <a class="nav-link" href="capacity-model.html">Dedicated Capacity</a>
+          <a class="nav-link" href="organizational-intelligence.html">Organizational Intelligence</a>
+          <a class="nav-link" href="technology-stack.html">Technology Stack</a>
+          <a class="nav-link" href="continuous-monitoring.html">Continuous Monitoring</a>
+          </div>
+        </div>
+
+        <div class="nav-group has-active">
+          <button class="nav-group-btn" type="button" aria-expanded="false">The Playbook</button>
+          <div class="nav-dropdown">
+          <a class="nav-link nav-cta" href="execution-playbook.html">Playbook Overview</a>
+          <a class="nav-link" href="sap-tool-ecosystem.html">SAP Tool Ecosystem</a>
+          <a class="nav-link" href="audit-universe.html">ERP Audit Universe</a>
+          <a class="nav-link" href="sap-s4hana-audit-modernization.html">SAP S/4HANA Monitoring</a>
+          </div>
+        </div>
+
+        <div class="nav-group">
+          <button class="nav-group-btn" type="button" aria-expanded="false">For Practitioners</button>
+          <div class="nav-dropdown">
+          <a class="nav-link" href="skills-evolution.html">Skills and Development</a>
+          <a class="nav-link" href="practitioner-assessment.html">Practitioner Assessment</a>
+          <a class="nav-link" href="auditing-ai.html">Auditing AI</a>
+          <a class="nav-link" href="ai-learning.html">Learning Module</a>
+          </div>
+        </div>
+
+        <a class="nav-link" href="resources.html">Resources</a>
+        <a class="nav-link" href="about.html">About</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- HERO -->
+    <section class="page-hero" data-audience="all">
+      <div class="container">
+        <div class="page-hero-inner">
+          <p class="page-kicker">THE PLAYBOOK</p>
+          <h1 class="page-title">From Methodology to Execution</h1>
+          <p class="page-subtitle">
+            The methodology describes what to build. The playbook describes how to build it -- starting with the systems the organization already runs.
+          </p>
+          <div class="page-actions">
+            <a class="btn btn-primary" href="#why-erp">Why start with the ERP</a>
+            <a class="btn btn-secondary" href="#playbook-structure">Playbook structure</a>
+            <a class="btn btn-secondary" href="sap-tool-ecosystem.html">Chapter 1: SAP Tool Ecosystem</a>
+          </div>
+        </div>
+
+        <details class="key-takeaways">
+          <summary>Key takeaways -- read this first</summary>
+          <div class="takeaways-body">
+            <ul>
+              <li>The playbook and the methodology are the same argument at different levels of resolution. The methodology describes the standard. The playbook describes how to meet it in a real system.</li>
+              <li>Every chapter starts with the same question: what does this platform already give you that you have not inventoried or activated?</li>
+              <li>The ERP is Chapter 1 because it is the system of record for the organization's highest-risk transactions and because it contains more native audit capability than most functions have claimed.</li>
+              <li>The playbook uses SAP S/4HANA as its primary reference environment. The inventory-first approach, the use case categories, and the monitoring workflow apply to any ERP. Platform-specific tool names are the only thing that changes.</li>
+            </ul>
+          </div>
+        </details>
+      </div>
+    </section>
+
+    <!-- STAT BAND -->
+    <section class="section" style="padding-top: 0; padding-bottom: 0;" data-audience="all">
+      <div class="container">
+        <div class="stat-band">
+          <div class="stat-band-item">
+            <div class="stat-band-label">Inventory first</div>
+            <div class="stat-band-value">Use what you have</div>
+            <div class="stat-band-sub">Before buying anything new</div>
+          </div>
+          <div class="stat-band-item">
+            <div class="stat-band-label">ERP as foundation</div>
+            <div class="stat-band-value">Start here</div>
+            <div class="stat-band-sub">Where the data and risk live</div>
+          </div>
+          <div class="stat-band-item">
+            <div class="stat-band-label">Platform-agnostic</div>
+            <div class="stat-band-value">SAP as reference</div>
+            <div class="stat-band-sub">Principles apply everywhere</div>
+          </div>
+          <div class="stat-band-item">
+            <div class="stat-band-label">Reading time</div>
+            <div class="stat-band-value">10 min</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHY EXECUTION STARTS WITH THE ERP -->
+    <section class="section" id="why-erp" data-audience="leader">
+      <div class="container">
+        <div class="section-head">
+          <h2 class="section-title">Why Execution Starts With the ERP</h2>
+        </div>
+
+        <p style="font-size: 1.05rem; color: var(--body); max-width: 72ch; margin-bottom: 1.25rem; line-height: 1.75;">
+          The ERP is where revenue is recognized, vendors are paid, inventory is moved, and payroll is calculated. Every high-risk transaction the audit function cares about passes through it. If audit cannot see this data clearly and cannot monitor it continuously, no downstream analytics investment closes that gap.
+        </p>
+        <p style="font-size: 1.05rem; color: var(--body); max-width: 72ch; margin-bottom: 1.25rem; line-height: 1.75;">
+          Most organizations that have completed or are mid-way through an ERP implementation have significantly more native audit capability available than their function has inventoried. The same pattern holds across platforms -- SAP, Oracle, and Microsoft Dynamics all include monitoring, GRC, and analytics capability that goes unused not because it is unavailable but because no one in audit has formally asked what is there. The function that completes the inventory before buying anything almost always discovers capability it did not know it had.
+        </p>
+        <p style="font-size: 1.05rem; color: var(--body); max-width: 72ch; margin-bottom: 2rem; line-height: 1.75;">
+          The ERP chapter also builds the foundation that every subsequent chapter depends on. The data access patterns, validated data models, and monitoring routines established in the ERP layer make WMS analytics, payroll testing, and AI governance work more tractable. Building cross-system analytics before establishing ERP data fluency is building on an unstable base.
+        </p>
+      </div>
+    </section>
+
+    <!-- PLAYBOOK STRUCTURE -->
+    <section class="section section-alt" id="playbook-structure" data-audience="leader">
+      <div class="container">
+        <div class="section-head">
+          <h2 class="section-title">The Playbook Structure</h2>
+          <p class="section-subtitle">
+            Each chapter follows the same logic: inventory what exists, activate what is underutilized, identify genuine gaps, and build toward continuous monitoring.
+          </p>
+        </div>
+
+        <div class="module-grid">
+
+          <a class="module" href="sap-tool-ecosystem.html">
+            <div class="module-kicker" style="color: #2d7a3a; font-weight: 700;">Chapter 1 -- Available Now</div>
+            <div class="module-title">ERP Systems and Native Audit Capability</div>
+            <div class="module-desc">
+              The inventory-first framework for understanding what your ERP already provides. Fiori tools, Business Integrity Screening, the GRC suite, and the full use case library organized by module.
+            </div>
+          </a>
+
+          <div class="module" style="cursor: default; opacity: 0.7;">
+            <div class="module-kicker" style="color: var(--muted-2);">Chapter 2 -- Coming Next</div>
+            <div class="module-title">Warehouse, Logistics, and Operational Platforms</div>
+            <div class="module-desc">
+              WMS inventory monitoring, logistics platform data, branch operations analytics, and how operational system signals integrate with ERP data for a complete operational picture.
+            </div>
+          </div>
+
+          <div class="module" style="cursor: default; opacity: 0.7;">
+            <div class="module-kicker" style="color: var(--muted-2);">Chapter 3 -- Coming Next</div>
+            <div class="module-title">HCM, Payroll, and Workforce Analytics</div>
+            <div class="module-desc">
+              Commission accuracy, ghost employee detection, overtime patterns, voluntary turnover analysis, and the cross-system joins that connect workforce data to operational risk.
+            </div>
+          </div>
+
+          <div class="module" style="cursor: default; opacity: 0.7;">
+            <div class="module-kicker" style="color: var(--muted-2);">Chapter 4 -- Coming Next</div>
+            <div class="module-title">Analytics Infrastructure</div>
+            <div class="module-desc">
+              Workflow design patterns, scheduled monitoring routines, dashboard architecture for audit leadership, and the data pipeline governance that makes cross-system analytics defensible.
+            </div>
+          </div>
+
+          <div class="module" style="cursor: default; opacity: 0.7;">
+            <div class="module-kicker" style="color: var(--muted-2);">Chapter 5 -- Coming Next</div>
+            <div class="module-title">AI Governance and Emerging Risk</div>
+            <div class="module-desc">
+              Audit's role in governing AI-driven decision systems -- model input integrity, output monitoring, governance framework assessment, and assurance over agentic workflows.
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- THE INVENTORY-FIRST PRINCIPLE -->
+    <section class="section" id="inventory-first" data-audience="leader">
+      <div class="container">
+        <div class="section-head">
+          <h2 class="section-title">The Inventory-First Principle</h2>
+        </div>
+
+        <p style="font-size: 1.05rem; color: var(--body); max-width: 72ch; margin-bottom: 1.25rem; line-height: 1.75;">
+          The most common and expensive mistake in audit technology investment is identifying gaps before completing the inventory. A gap identified before the inventory is a hypothesis. A gap identified after is a business case.
+        </p>
+        <p style="font-size: 1.05rem; color: var(--body); max-width: 72ch; margin-bottom: 1.25rem; line-height: 1.75;">
+          The inventory has five steps. What did the function previously use and why did it work? What broke, and what specifically caused it? What does the current platform offer natively that audit has not claimed? What is already licensed but dormant? Only after answering those four questions does the fifth step -- identifying genuine gaps -- produce a reliable answer.
+        </p>
+        <p style="font-size: 1.05rem; color: var(--body); max-width: 72ch; margin-bottom: 1.25rem; line-height: 1.75;">
+          This sequence matters because the answer to "what should we buy" almost always changes after the inventory is complete. Functions that skip to procurement frequently buy tools they already have, replace tools that still work, or acquire sophisticated platforms before the team has the data access and workflow discipline to produce a return from them.
+        </p>
+        <p style="font-size: 1.05rem; color: var(--body); max-width: 72ch; margin-bottom: 2rem; line-height: 1.75;">
+          The playbook chapters that follow are organized around this sequence. Each one starts with what exists in the platform, moves to what is underutilized, and ends with what genuinely requires new investment.
+        </p>
+      </div>
+    </section>
+
+    <!-- THE METHODOLOGY BEHIND THE PLAYBOOK -->
+    <section class="section section-alt" id="methodology-context" data-audience="all">
+      <div class="container">
+        <div class="section-head">
+          <h2 class="section-title">The Methodology Behind the Playbook</h2>
+        </div>
+
+        <p style="font-size: 1.05rem; color: var(--body); max-width: 72ch; margin-bottom: 1.5rem; line-height: 1.75;">
+          The playbook is execution-level detail that sits on top of the framework established in the methodology section. The methodology defines the principles -- what a modern audit function needs to produce, what standards it operates under, and how it positions itself strategically. The playbook defines the implementation -- what tools to use, in what order, with what workflow. A reader unfamiliar with the methodology should start there. The methodology is in the "The Methodology" nav section above.
+        </p>
+        <a href="audit-leadership.html" style="color: var(--accent); font-weight: 700; text-decoration: none; font-size: 0.95rem;">Read the methodology &rarr;</a>
+      </div>
+    </section>
+
+    <!-- NEXT STEP BAR -->
+    <section class="section" style="padding-top: 0; padding-bottom: 0;" data-audience="all">
+      <div class="container">
+        <div class="next-step-bar">
+          <span class="next-step-label">Begin the playbook</span>
+          <a class="next-step-link" href="sap-tool-ecosystem.html">Chapter 1: SAP Tool Ecosystem &rarr;</a>
+        </div>
+        <p style="font-size: 0.88rem; color: var(--muted); margin-top: 6px; padding-left: 2px;">Inventory what your ERP already gives you before evaluating anything else</p>
+      </div>
+    </section>
+
+    <!-- RELATED TOPICS -->
+    <section class="section" id="related" data-audience="all">
+      <div class="container">
+        <div class="section-head">
+          <h2 class="section-title">Related topics</h2>
+        </div>
+        <div class="path-grid">
+          <a class="path-card" href="audit-leadership.html">
+            <div class="path-top">
+              <div class="path-title">Methodology</div>
+              <div class="path-tag">The framework</div>
+            </div>
+            <p class="path-text">The four pillars that define what the execution playbook is implementing.</p>
+            <span class="path-cta">Go to Methodology &rarr;</span>
+          </a>
+          <a class="path-card" href="technology-stack.html">
+            <div class="path-top">
+              <div class="path-title">Technology Stack</div>
+              <div class="path-tag">Investment framework</div>
+            </div>
+            <p class="path-text">How to stage technology investment against actual maturity -- the strategic complement to the playbook's execution detail.</p>
+            <span class="path-cta">Go to Technology Stack &rarr;</span>
+          </a>
+          <a class="path-card" href="erp-transition.html">
+            <div class="path-top">
+              <div class="path-title">ERP Transition</div>
+              <div class="path-tag">Recovery context</div>
+            </div>
+            <p class="path-text">Why the period following an ERP implementation is the right moment to build this capability.</p>
+            <span class="path-cta">Go to ERP Transition &rarr;</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-left">
+        <div class="footer-brand">The AI-Ready Audit</div>
+        <div class="footer-note">
+          A framework for how internal audit must evolve in large electrical distribution enterprises
+          as organizations adopt modern enterprise systems, analytics, and artificial intelligence.
+        </div>
+      </div>
+      <div class="footer-right">
+        <a class="footer-link" href="executive-summary.html">Executive Summary</a>
+        <a class="footer-link" href="thesis.html">Why It's Changing</a>
+        <a class="footer-link" href="audit-leadership.html">Methodology</a>
+        <a class="footer-link" href="skills-evolution.html">Skills</a>
+        <a class="footer-link" href="maturity-assessment.html">Assessment</a>
+        <a class="footer-link" href="resources.html">Resources</a>
+        <a class="footer-link" href="about.html">About</a>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <p>&copy; 2026 Nicole Robbins</p>
+      <p style="font-size: 0.75rem; color: rgba(255,255,255,0.3); margin-top: 8px; line-height: 1.5; max-width: 80ch;">The frameworks, recommendations, and perspectives published on this platform represent independent professional views and analysis, supported by publicly available research and professional standards. This site is not affiliated with, endorsed by, or a publication of any employer or organization. The author is an internal audit practitioner and manager -- not a licensed CPA, CIA, attorney, or accredited researcher. Nothing on this platform constitutes professional advice. All external resources are linked for reference; availability and terms should be verified directly.</p>
+    </div>
+  </footer>
+
+  <script>
+  (function () {
+    var navToggle = document.getElementById("nav-toggle");
+    var primaryNav = document.getElementById("primary-nav");
+    if (!navToggle || !primaryNav) return;
+    navToggle.addEventListener("click", function () {
+      var isOpen = primaryNav.classList.toggle("is-open");
+      navToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+    });
+    primaryNav.addEventListener("click", function (e) {
+      var groupBtn = e.target.closest(".nav-group-btn");
+      if (groupBtn) {
+        var group = groupBtn.closest(".nav-group");
+        if (group) {
+          primaryNav.querySelectorAll(".nav-group.is-open").forEach(function(g) {
+            if (g !== group) {
+              g.classList.remove("is-open");
+              var b = g.querySelector(".nav-group-btn");
+              if (b) b.setAttribute("aria-expanded", "false");
+            }
+          });
+          group.classList.toggle("is-open");
+          groupBtn.setAttribute("aria-expanded", group.classList.contains("is-open") ? "true" : "false");
+        }
+        return;
+      }
+      if (e.target.classList.contains("nav-link")) {
+        primaryNav.classList.remove("is-open");
+        navToggle.setAttribute("aria-expanded", "false");
+      }
+    });
+    document.addEventListener("click", function(e) {
+      if (!e.target.closest(".nav-group")) {
+        primaryNav.querySelectorAll(".nav-group.is-open").forEach(function(g) {
+          g.classList.remove("is-open");
+          var b = g.querySelector(".nav-group-btn");
+          if (b) b.setAttribute("aria-expanded", "false");
+        });
+      }
+    });
+    document.addEventListener("keydown", function(e) {
+      if (e.key === "Escape") {
+        primaryNav.querySelectorAll(".nav-group.is-open").forEach(function(g) {
+          g.classList.remove("is-open");
+          var b = g.querySelector(".nav-group-btn");
+          if (b) b.setAttribute("aria-expanded", "false");
+        });
+      }
+    });
+  })();
+  </script>
+
+  <script src="nav-guide.js"></script>
+</body>
+</html>

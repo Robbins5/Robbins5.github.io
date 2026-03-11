@@ -47,7 +47,7 @@
         </div>
 
         <div class="nav-group has-active">
-          <button class="nav-group-btn" type="button" aria-expanded="false">For Audit Leaders</button>
+          <button class="nav-group-btn" type="button" aria-expanded="false">The Methodology</button>
           <div class="nav-dropdown">
           <a class="nav-link nav-cta" href="audit-leadership.html">Methodology</a>
           <a class="nav-link" href="erp-transition.html">ERP Transition</a>
@@ -56,6 +56,16 @@
           <a class="nav-link" href="organizational-intelligence.html">Organizational Intelligence</a>
           <a class="nav-link" href="technology-stack.html">Technology Stack</a>
           <a class="nav-link" href="continuous-monitoring.html">Continuous Monitoring</a>
+          </div>
+        </div>
+
+        <div class="nav-group">
+          <button class="nav-group-btn" type="button" aria-expanded="false">The Playbook</button>
+          <div class="nav-dropdown">
+          <a class="nav-link" href="execution-playbook.html">Playbook Overview</a>
+          <a class="nav-link" href="sap-tool-ecosystem.html">SAP Tool Ecosystem</a>
+          <a class="nav-link" href="audit-universe.html">ERP Audit Universe</a>
+          <a class="nav-link" href="sap-s4hana-audit-modernization.html">SAP S/4HANA Monitoring</a>
           </div>
         </div>
 
@@ -370,13 +380,98 @@
       </div>
     </section>
 
-    <!-- PLAYBOOK NEXT STEP BAR -->
+    <!-- FROM METHODOLOGY TO EXECUTION -->
+    <section class="section section-alt" id="methodology-to-execution" data-audience="leader">
+      <div class="container">
+        <div class="section-head">
+          <h2 class="section-title">From Methodology to Execution</h2>
+        </div>
+        <p style="font-size: 1.05rem; color: var(--body); max-width: 72ch; margin-bottom: 1.25rem; line-height: 1.75;">
+          The four pillars describe what a modern audit function looks like and what it needs to produce. The playbook describes how to build it -- starting with the systems the organization already runs, using what already exists before buying anything new, and sequencing investment against demonstrated capability rather than aspiration.
+        </p>
+        <p style="font-size: 1.05rem; color: var(--body); max-width: 72ch; margin-bottom: 2rem; line-height: 1.75;">
+          The execution playbook starts with the ERP because that is where the highest-risk transactions live and where the most underutilized native audit capability typically sits. It then extends to operational systems, people and payroll data, analytics infrastructure, and AI governance tooling. The methodology applies at every layer. The technology changes; the principles do not. The framework on this site uses SAP S/4HANA as its primary reference environment. The underlying methodology applies to any ERP platform -- Oracle, Microsoft Dynamics, or others. Platform-specific tool references in the playbook can be adapted to equivalent capabilities in your environment.
+        </p>
+
+        <div class="module-grid" style="grid-template-columns: repeat(2, minmax(0, 1fr));">
+          <a class="module" href="erp-transition.html">
+            <div class="module-kicker">Pillar 1 -- Stabilize the Baseline</div>
+            <div class="module-title">ERP Transition + Data Access</div>
+            <div class="module-desc">
+              Diagnose what changed, establish direct data access, and confirm evidence sources are reliable before rebuilding.
+            </div>
+          </a>
+
+          <a class="module" href="audit-universe.html">
+            <div class="module-kicker">Pillar 2 -- Shift the Methodology</div>
+            <div class="module-title">ERP Audit Universe</div>
+            <div class="module-desc">
+              The full use case library organized by SAP module -- what to test, what data it requires, and what the finding looks like.
+            </div>
+          </a>
+
+          <a class="module" href="sap-tool-ecosystem.html">
+            <div class="module-kicker">Pillar 3 -- Build Monitoring Infrastructure</div>
+            <div class="module-title">SAP Tool Ecosystem + SAP S/4HANA Monitoring</div>
+            <div class="module-desc">
+              Native ERP tools for continuous detection -- what is available, what requires activation, and how the workflow operates.
+            </div>
+          </a>
+
+          <a class="module" href="continuous-monitoring.html">
+            <div class="module-kicker">Pillar 4 -- Execution Discipline</div>
+            <div class="module-title">Continuous Monitoring</div>
+            <div class="module-desc">
+              Sustainability, exception ownership, escalation design, and the operational routines that make monitoring a function rather than a project.
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- THE METHODOLOGY IN SEQUENCE -->
+    <section class="section" id="methodology-sequence" data-audience="all">
+      <div class="container">
+        <div class="section-head">
+          <h2 class="section-title">The Methodology in Sequence</h2>
+        </div>
+        <p style="font-size: 1.05rem; color: var(--body); max-width: 72ch; margin-bottom: 2rem; line-height: 1.75;">
+          The methodology pages that follow this one address each element of the rebuild in the order it needs to be resolved. ERP Transition covers the diagnostic signals and recovery sequencing. Data Access establishes the professional standards case for unrestricted access. Dedicated Capacity addresses the resourcing model. Organizational Intelligence covers how the function positions itself as a strategic asset. Technology Stack provides the investment framework. Continuous Monitoring designs the monitoring infrastructure. Each page can stand alone, but they build on each other.
+        </p>
+
+        <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; align-items: center; margin-bottom: 2rem;">
+          <a href="audit-leadership.html" style="display: inline-block; padding: 0.45rem 1rem; background: var(--accent); color: #fff; border-radius: var(--radius-sm); font-size: 0.82rem; font-weight: 700; text-decoration: none; white-space: nowrap;">Methodology</a>
+          <span style="color: var(--muted-2); font-size: 0.9rem;">&rarr;</span>
+          <a href="erp-transition.html" style="display: inline-block; padding: 0.45rem 1rem; background: var(--surface); border: 1px solid var(--border); color: var(--body); border-radius: var(--radius-sm); font-size: 0.82rem; font-weight: 600; text-decoration: none; white-space: nowrap;">ERP Transition</a>
+          <span style="color: var(--muted-2); font-size: 0.9rem;">&rarr;</span>
+          <a href="data-access.html" style="display: inline-block; padding: 0.45rem 1rem; background: var(--surface); border: 1px solid var(--border); color: var(--body); border-radius: var(--radius-sm); font-size: 0.82rem; font-weight: 600; text-decoration: none; white-space: nowrap;">Data Access</a>
+          <span style="color: var(--muted-2); font-size: 0.9rem;">&rarr;</span>
+          <a href="capacity-model.html" style="display: inline-block; padding: 0.45rem 1rem; background: var(--surface); border: 1px solid var(--border); color: var(--body); border-radius: var(--radius-sm); font-size: 0.82rem; font-weight: 600; text-decoration: none; white-space: nowrap;">Dedicated Capacity</a>
+          <span style="color: var(--muted-2); font-size: 0.9rem;">&rarr;</span>
+          <a href="organizational-intelligence.html" style="display: inline-block; padding: 0.45rem 1rem; background: var(--surface); border: 1px solid var(--border); color: var(--body); border-radius: var(--radius-sm); font-size: 0.82rem; font-weight: 600; text-decoration: none; white-space: nowrap;">Org Intelligence</a>
+          <span style="color: var(--muted-2); font-size: 0.9rem;">&rarr;</span>
+          <a href="technology-stack.html" style="display: inline-block; padding: 0.45rem 1rem; background: var(--surface); border: 1px solid var(--border); color: var(--body); border-radius: var(--radius-sm); font-size: 0.82rem; font-weight: 600; text-decoration: none; white-space: nowrap;">Technology Stack</a>
+          <span style="color: var(--muted-2); font-size: 0.9rem;">&rarr;</span>
+          <a href="continuous-monitoring.html" style="display: inline-block; padding: 0.45rem 1rem; background: var(--surface); border: 1px solid var(--border); color: var(--body); border-radius: var(--radius-sm); font-size: 0.82rem; font-weight: 600; text-decoration: none; white-space: nowrap;">Continuous Monitoring</a>
+          <span style="color: var(--muted-2); font-size: 0.9rem;">&rarr;</span>
+          <a href="execution-playbook.html" style="display: inline-block; padding: 0.45rem 1rem; background: var(--surface); border: 1px solid var(--border); color: var(--accent); border-radius: var(--radius-sm); font-size: 0.82rem; font-weight: 700; text-decoration: none; white-space: nowrap;">The Playbook</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- NEXT STEP BARS -->
     <section class="section" style="padding-top: 0; padding-bottom: 0;" data-audience="all">
       <div class="container">
         <div class="next-step-bar">
-          <span class="next-step-label">Next in the playbook</span>
-          <a class="next-step-link" href="data-access.html">Data Access &rarr;</a>
+          <span class="next-step-label">Next in the methodology</span>
+          <a class="next-step-link" href="erp-transition.html">ERP Transition &rarr;</a>
         </div>
+        <p style="font-size: 0.88rem; color: var(--muted); margin-top: 6px; margin-bottom: 18px; padding-left: 2px;">Diagnosing where the function has lost its footing and how to sequence the recovery</p>
+        <div class="next-step-bar">
+          <span class="next-step-label">When you're ready to execute</span>
+          <a class="next-step-link" href="execution-playbook.html">The Playbook &rarr;</a>
+        </div>
+        <p style="font-size: 0.88rem; color: var(--muted); margin-top: 6px; padding-left: 2px;">The step-by-step implementation guide -- starting with what your ERP already gives you</p>
       </div>
     </section>
 

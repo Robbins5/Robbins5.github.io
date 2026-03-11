@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ERP Audit Universe for Electrical Distribution | The AI-Ready Audit</title>
+  <meta name="description" content="The internal audit use case library for SAP S/4HANA in electrical distribution -- organized by module, covering FI, MM, SD, WM/EWM, HCM, Basis/Security, CO, and PM/Plant Maintenance." />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+</head>
+
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="brand">
+        <a class="brand-link" href="index.html">
+          <div class="brand-title">The AI-Ready Audit</div>
+          <div class="brand-tagline">Internal Audit for Electrical Distribution Enterprises</div>
+        </a>
+      </div>
+
+      <button class="nav-toggle" id="nav-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false">
+        &#9776;
+      </button>
+
+            <nav class="nav" id="primary-nav" aria-label="Primary">
+        <a class="nav-link" href="index.html">Home</a>
+
+        <div class="nav-group">
+          <button class="nav-group-btn" type="button" aria-expanded="false">Framework</button>
+          <div class="nav-dropdown">
+          <a class="nav-link" href="thesis.html">Why It's Changing</a>
+          <a class="nav-link" href="maturity-assessment.html">Self-Assessment</a>
+          </div>
+        </div>
+
+        <div class="nav-group">
+          <button class="nav-group-btn" type="button" aria-expanded="false">For Executives</button>
+          <div class="nav-dropdown">
+          <a class="nav-link" href="executive-summary.html">Executive Summary</a>
+          <a class="nav-link" href="executive-assessment.html">Executive Assessment</a>
+          <a class="nav-link" href="executive-oversight.html">Executive Oversight</a>
+          <a class="nav-link" href="charter.html">IA Charter</a>
+          <a class="nav-link" href="team-structure.html">Team and Talent</a>
+          </div>
+        </div>
+
+        <div class="nav-group">
+          <button class="nav-group-btn" type="button" aria-expanded="false">The Methodology</button>
+          <div class="nav-dropdown">
+          <a class="nav-link" href="audit-leadership.html">Methodology</a>
+          <a class="nav-link" href="erp-transition.html">ERP Transition</a>
+          <a class="nav-link" href="data-access.html">Data Access</a>
+          <a class="nav-link" href="capacity-model.html">Dedicated Capacity</a>
+          <a class="nav-link" href="organizational-intelligence.html">Organizational Intelligence</a>
+          <a class="nav-link" href="technology-stack.html">Technology Stack</a>
+          <a class="nav-link" href="continuous-monitoring.html">Continuous Monitoring</a>
+          </div>
+        </div>
+
+        <div class="nav-group has-active">
+          <button class="nav-group-btn" type="button" aria-expanded="false">The Playbook</button>
+          <div class="nav-dropdown">
+          <a class="nav-link" href="execution-playbook.html">Playbook Overview</a>
+          <a class="nav-link" href="sap-tool-ecosystem.html">SAP Tool Ecosystem</a>
+          <a class="nav-link nav-cta" href="audit-universe.html">ERP Audit Universe</a>
+          <a class="nav-link" href="sap-s4hana-audit-modernization.html">SAP S/4HANA Monitoring</a>
+          </div>
+        </div>
+
+        <div class="nav-group">
+          <button class="nav-group-btn" type="button" aria-expanded="false">For Practitioners</button>
+          <div class="nav-dropdown">
+          <a class="nav-link" href="skills-evolution.html">Skills and Development</a>
+          <a class="nav-link" href="practitioner-assessment.html">Practitioner Assessment</a>
+          <a class="nav-link" href="auditing-ai.html">Auditing AI</a>
+          <a class="nav-link" href="ai-learning.html">Learning Module</a>
+          </div>
+        </div>
+
+        <a class="nav-link" href="resources.html">Resources</a>
+        <a class="nav-link" href="about.html">About</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- HERO -->
+    <section class="page-hero" data-audience="all">
+      <div class="container">
+        <div class="page-hero-inner">
+          <p class="page-kicker">THE PLAYBOOK &middot; CHAPTER 1</p>
+          <h1 class="page-title">ERP Audit Universe for Electrical Distribution</h1>
+          <p class="page-subtitle">
+            The use case library organized by SAP module -- what to monitor, what data it requires, and what the finding looks like.
+          </p>
+          <div class="page-actions">
+            <a class="btn btn-primary" href="#how-organized">How this catalog works</a>
+            <a class="btn btn-secondary" href="#module-fi">Financial Accounting</a>
+            <a class="btn btn-secondary" href="#module-mm">Materials Management</a>
+          </div>
+        </div>
+
+        <details class="key-takeaways">
+          <summary>Key takeaways -- read this first</summary>
+          <div class="takeaways-body">
+            <ul>
+              <li>This catalog is a risk assessment tool, not a scope document. No audit function tests everything here in a single year. The value is in using it to prioritize systematically rather than from habit or availability.</li>
+              <li>Each module maps to distinct data tables and transaction types in S/4HANA. Understanding the module structure is prerequisite to designing monitoring logic that actually executes against the right data.</li>
+              <li>Electrical distribution creates specific risk concentrations -- pricing override risk in SD, inventory adjustment risk in WM/EWM, and commission manipulation risk in HCM -- that differ from manufacturing or retail ERP environments.</li>
+              <li>Platform-specific table names and transaction codes in this catalog reference SAP S/4HANA. Equivalent logic applies in Oracle and Microsoft Dynamics environments using platform-equivalent data sources.</li>
+            </ul>
+          </div>
+        </details>
+      </div>
+    </section>
+
+    <!-- STAT BAND -->
+    <section class="section" style="padding-top: 0; padding-bottom: 0;" data-audience="all">
+      <div class="container">
+        <div class="stat-band">
+          <div class="stat-band-item">
+            <div class="stat-band-label">Use cases covered</div>
+            <div class="stat-band-value">130+</div>
+            <div class="stat-band-sub">Across 8 SAP modules</div>
+          </div>
+          <div class="stat-band-item">
+            <div class="stat-band-label">SAP modules</div>
+            <div class="stat-band-value">8</div>
+            <div class="stat-band-sub">FI, MM, SD, WM, HCM, Basis, CO, PM</div>
+          </div>
+          <div class="stat-band-item">
+            <div class="stat-band-label">Organized by</div>
+            <div class="stat-band-value">Risk area</div>
+            <div class="stat-band-sub">Not by audit procedure</div>
+          </div>
+          <div class="stat-band-item">
+            <div class="stat-band-label">Reading time</div>
+            <div class="stat-band-value">45 min</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PLATFORM NOTE -->
+    <section class="section" style="padding-top: 0; padding-bottom: 0;" data-audience="all">
+      <div class="container">
+        <div class="callout" style="max-width: 780px;">
+          <div class="callout-title">SAP S/4HANA reference environment</div>
+          <div class="callout-text">
+            This catalog uses SAP S/4HANA as its primary reference environment. The use case categories and risk logic apply across ERP platforms. Oracle and Microsoft Dynamics environments contain equivalent data and equivalent risk -- the module names and table structures are different, the audit logic is the same.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- HOW THIS CATALOG IS ORGANIZED -->
+    <section class="section" id="how-organized" data-audience="leader">
+      <div class="container">
+        <div class="section-head">
+          <h2 class="section-title">How This Catalog Is Organized</h2>
+        </div>
+        <p style="font-size: 1.05rem; color: var(--body); max-width: 72ch; margin-bottom: 1.25rem; line-height: 1.75;">
+          The catalog is organized by SAP module because module boundaries map directly to data boundaries. Each module owns a distinct set of transaction tables, master data records, and process flows. Monitoring logic that works against FI data cannot be applied to MM data without redesign. Understanding this structure is prerequisite to building monitoring that actually executes.
+        </p>
+        <p style="font-size: 1.05rem; color: var(--body); max-width: 72ch; margin-bottom: 1.25rem; line-height: 1.75;">
+          Within each module, use cases are organized by risk type rather than by procedure. The goal is risk identification, not step-by-step testing instructions. Each entry describes what to look for, what data it requires, and what a finding in that area typically looks like. The specific queries, thresholds, and exception workflows are built from that foundation.
+        </p>
+        <p style="font-size: 1.05rem; color: var(--body); max-width: 72ch; margin-bottom: 2rem; line-height: 1.75;">
+          Use this catalog as a starting point for annual risk assessment, not as a default scope template. Prioritize based on data availability, transaction volume, and control maturity -- then build monitoring logic against the highest-priority items first.
+        </p>
+      </div>
+    </section>
+
+    <!-- MODULE: FI -->
+    <section class="section section-alt" id="module-fi" data-audience="practitioner">
+      <div class="container">
+        <div class="section-head">
+          <h2 class="section-title">FI -- Financial Accounting</h2>
+          <p class="section-subtitle">
+            The general ledger, accounts payable, accounts receivable, and asset accounting processes. High transaction volume and broad access make FI one of the highest-priority modules for continuous monitoring.
+          </p>
+        </div>
+
+        <div class="module-grid" style="grid-template-columns: repeat(2, minmax(0, 1fr));">
+
+          <div class="module" style="cursor: default;">
+            <div class="module-kicker">Accounts Payable</div>
+            <div class="module-title">Duplicate Payments and Vendor Fraud</div>
+            <div class="module-desc">
+              Duplicate invoices across vendor, amount, date, and document number. Payments to vendors with employee address or bank account matches. Vendors created and paid in the same period without prior transaction history. Split payments across multiple documents to stay below approval thresholds. Key tables: BSEG, BKPF, LFA1, LFBK.
+            </div>
+          </div>
+
+          <div class="module" style="cursor: default;">
+            <div class="module-kicker">General Ledger</div>
+            <div class="module-title">Journal Entry Anomalies and Closing Manipulation</div>
+            <div class="module-desc">
+              Manual journal entries posted outside normal business hours. Round-number entries with no supporting document reference. Entries posted by users without typical GL access. Period-end clustering of reversals and adjustments. Entries that offset each other across cost centers or profit centers in ways that obscure the original transaction. Key tables: BKPF, BSEG, SKA1.
+            </div>
+          </div>
+
+          <div class="module" style="cursor: default;">
+            <div class="module-kicker">Accounts Receivable</div>
+            <div class="module-title">Write-offs, Credits, and Aging Manipulation</div>
+            <div class="module-desc">
+              Write-offs applied without supervisor approval or above delegated authority. Credit memos issued to customers with no corresponding return or dispute record. Customer account modifications proximate to balance forgiveness. Aging buckets that shift consistently near reporting periods. Payments applied to the wrong invoice across customers. Key tables: BSID, BSAD, KNA1, KNBK.
+            </div>
+          </div>
+
+          <div class="module" style="cursor: default;">
+            <div class="module-kicker">Fixed Assets</div>
+            <div class="module-title">Asset Manipulation and Retirement Anomalies</div>
+            <div class="module-desc">
+              Assets retired without physical verification documentation. Additions capitalized below the policy threshold that should be expensed. Depreciation method changes without supporting rationale. Asset transfers between cost centers that coincide with budget cycle timing. Duplicate asset records across different company codes. Key tables: ANLA, ANLB, ANLC, ANEK.
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- MODULE: MM -->
+    <section class="section" id="module-mm" data-audience="practitioner">
+      <div class="container">
+        <div class="section-head">
+          <h2 class="section-title">MM -- Materials Management</h2>
+          <p class="section-subtitle">
+            Procurement, goods receipt, invoice verification, and vendor master management. In electrical distribution, procurement volume and vendor ecosystem complexity create significant fraud and error exposure.
+          </p>
+        </div>
+
+        <div class="module-grid" style="grid-template-columns: repeat(2, minmax(0, 1fr));">
+
+          <div class="module" style="cursor: default;">
+            <div class="module-kicker">Procurement</div>
+            <div class="module-title">Purchasing Limit Violations and Split Orders</div>
+            <div class="module-desc">
+              Purchase orders split across multiple documents to remain below approval thresholds. POs created after goods receipt date. Emergency procurement designations applied to non-urgent purchases. Sole-source justifications applied to vendors with existing competitive alternatives. Purchases to vendors not on the approved vendor list. Key tables: EKKO, EKPO, EKBE.
+            </div>
+          </div>
+
+          <div class="module" style="cursor: default;">
+            <div class="module-kicker">Three-Way Match</div>
+            <div class="module-title">Receipt and Invoice Exceptions</div>
+            <div class="module-desc">
+              Invoices paid without a matching goods receipt. Goods receipts reversed after payment. Quantity or price variances between PO, GR, and invoice above tolerance without documented approval. Invoices posted with a GR reference that does not correspond to the actual receipt record. Key tables: EKBE, RSEG, RBKP, MKPF.
+            </div>
+          </div>
+
+          <div class="module" style="cursor: default;">
+            <div class="module-kicker">Vendor Master</div>
+            <div class="module-title">Unauthorized Changes and Duplicate Records</div>
+            <div class="module-desc">
+              Vendor bank account changes without dual approval. New vendor records created and activated without the standard onboarding workflow. Vendor name, address, or payment terms changes proximate to payment runs. Duplicate vendor records across company codes or purchasing organizations. Vendors sharing bank accounts with other active vendors or with employees. Key tables: LFA1, LFB1, LFBK, LFM1.
+            </div>
+          </div>
+
+          <div class="module" style="cursor: default;">
+            <div class="module-kicker">Inventory Valuation</div>
+            <div class="module-title">Goods Movement and Valuation Anomalies</div>
+            <div class="module-desc">
+              Movement types used outside standard workflows -- particularly 551 (scrapping) and 555 (goods issue to cost center) applied at unusual volumes or frequencies. Price changes to material master that affect inventory valuation without supporting documentation. Batch-level goods movements that do not correspond to production or distribution orders. Key tables: MSEG, MKPF, MBEW, MARA.
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- MODULE: SD -->
+    <section class="section section-alt" id="module-sd" data-audience="practitioner">
+      <div class="container">
+        <div class="section-head">
+          <h2 class="section-title">SD -- Sales and Distribution</h2>
+          <p class="section-subtitle">
+            Order management, pricing, credit management, and revenue recognition. Pricing override risk is particularly elevated in electrical distribution where complex pricing structures create broad authority to deviate from standard pricing.
+          </p>
+        </div>
+
+        <div class="module-grid" style="grid-template-columns: repeat(2, minmax(0, 1fr));">
+
+          <div class="module" style="cursor: default;">
+            <div class="module-kicker">Pricing</div>
+            <div class="module-title">Override Patterns and Discount Authority Violations</div>
+            <div class="module-desc">
+              Manual price overrides by sales rep, customer, and product -- compared against standard pricing conditions. Discount authority applied above delegated limits. Margin compression patterns by rep, branch, and customer segment. Pricing exceptions with no corresponding customer agreement or approval record. Quotes converted to orders where price changed between stages. Key tables: KONV, VBAP, VBKD, PRCD_ELEMENTS.
+            </div>
+          </div>
+
+          <div class="module" style="cursor: default;">
+            <div class="module-kicker">Credit Management</div>
+            <div class="module-title">Credit Limit Bypasses and Exposure Anomalies</div>
+            <div class="module-desc">
+              Orders processed for customers above credit limit without documented override approval. Credit limit increases applied within the same period as large order activity. Customer credit status changes proximate to significant order volume. Orders flagged in credit hold released without documented resolution of the underlying credit issue. Key tables: KNKK, VBAK, VBAP, S066.
+            </div>
+          </div>
+
+          <div class="module" style="cursor: default;">
+            <div class="module-kicker">Returns and Credits</div>
+            <div class="module-title">Credit Memo and Return Authorization Patterns</div>
+            <div class="module-desc">
+              Credit memos issued without a corresponding return material authorization. Return volumes by customer and sales rep above threshold relative to sales volume. Credits applied to customers with no purchase activity in the same period. Credits issued and subsequently reversed -- particularly where the reversal occurs after period close. Key tables: VBFA, VBAK, VBAP, VBRP.
+            </div>
+          </div>
+
+          <div class="module" style="cursor: default;">
+            <div class="module-kicker">Revenue Timing</div>
+            <div class="module-title">Period-End Manipulation and Recognition Anomalies</div>
+            <div class="module-desc">
+              Deliveries created and goods issued in the final days of a reporting period at volumes inconsistent with earlier periods. Billing documents created with billing dates that differ from the actual goods issue date. Orders with future delivery dates confirmed with revenue recognized in the current period. Unusual concentrations of intercompany orders near period close. Key tables: LIKP, LIPS, VBRK, VBRP.
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- MODULE: WM/EWM -->
+    <section class="section" id="module-wm" data-audience="practitioner">
+      <div class="container">
+        <div class="section-head">
+          <h2 class="section-title">WM/EWM -- Warehouse Management</h2>
+          <p class="section-subtitle">
+            Inventory movements, goods receipt and issue, transfer orders, and physical inventory. Branch-level warehouse operations in distribution create decentralized risk that is difficult to monitor without system-level data access.
+          </p>
+        </div>
+
+        <div class="module-grid" style="grid-template-columns: repeat(2, minmax(0, 1fr));">
+
+          <div class="module" style="cursor: default;">
+            <div class="module-kicker">Inventory Adjustments</div>
+            <div class="module-title">Adjustment Anomalies and Unauthorized Movements</div>
+            <div class="module-desc">
+              Inventory adjustments above threshold without dual approval. Adjustments posted outside normal business hours or on weekends. Adjustment patterns by individual warehouse employee that deviate from branch averages. Negative inventory positions created and immediately corrected -- a pattern associated with fictitious inventory movement. Key tables: LQUA, LTAP, LGPLA, MKPF, MSEG.
+            </div>
+          </div>
+
+          <div class="module" style="cursor: default;">
+            <div class="module-kicker">Goods Receipt / Issue</div>
+            <div class="module-title">Receipt and Issue Discrepancies</div>
+            <div class="module-desc">
+              Goods received quantities that differ from purchase order quantities without a documented tolerance override. Goods issues not matched to a sales order or production order. Transfer orders cancelled after partial execution with no inventory reconciliation. Goods movements processed by users without standard warehouse authorization. Key tables: MKPF, MSEG, LTAP, LHOR.
+            </div>
+          </div>
+
+          <div class="module" style="cursor: default;">
+            <div class="module-kicker">Physical Inventory</div>
+            <div class="module-title">Cycle Count Accuracy and Manipulation Signals</div>
+            <div class="module-desc">
+              Cycle count variance rates by branch, product category, and counter -- identifying locations or individuals with consistently high variance or consistently perfect counts. Count documents re-entered after the initial count with changes to quantity. Physical inventory counts conducted without proper document authorization. Variance postings applied at amounts that stay below the review threshold. Key tables: IKPF, ISEG, LINK.
+            </div>
+          </div>
+
+          <div class="module" style="cursor: default;">
+            <div class="module-kicker">Negative Inventory</div>
+            <div class="module-title">Negative Stock and Valuation Exposure</div>
+            <div class="module-desc">
+              Storage locations or materials with persistent negative stock positions. Negative inventory used to enable goods issue before physical receipt -- bypassing the standard goods receipt workflow. Negative positions concentrated at specific branches or in specific material categories. Valuation impact of negative positions on period-end inventory reporting. Key tables: LQUA, MARD, MSEG.
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- MODULE: HCM -->
+    <section class="section section-alt" id="module-hcm" data-audience="practitioner">
+      <div class="container">
+        <div class="section-head">
+          <h2 class="section-title">HCM -- Human Capital Management</h2>
+          <p class="section-subtitle">
+            Employee master data, payroll, time management, and compensation. In distribution, commission-based compensation creates specific manipulation risk that differs from salaried workforce audit programs.
+          </p>
+        </div>
+
+        <div class="module-grid" style="grid-template-columns: repeat(2, minmax(0, 1fr));">
+
+          <div class="module" style="cursor: default;">
+            <div class="module-kicker">Payroll</div>
+            <div class="module-title">Ghost Employees and Payroll Calculation Anomalies</div>
+            <div class="module-desc">
+              Active employees in payroll with no corresponding time records for the period. Employees paid after documented termination date. Payroll runs producing results more than a defined threshold above the prior period for the same employees. Multiple employees sharing a bank account for direct deposit. Employees with payment addresses that match vendor records. Key tables: PA0001, PA0002, PA0009, PA0012, RGDIR.
+            </div>
+          </div>
+
+          <div class="module" style="cursor: default;">
+            <div class="module-kicker">Commission</div>
+            <div class="module-title">Commission Accuracy and Manipulation Patterns</div>
+            <div class="module-desc">
+              Commission calculations that do not align with the documented commission schedule for the employee's role and territory. Sales credited to a rep that were shipped to locations outside their territory. Orders split across periods in ways that accelerate commission recognition. Commission adjustments posted after period close without documented approval. Commission paid on orders subsequently returned or credited. Key tables: PA0015, VBAK, VBAP, HRP1001.
+            </div>
+          </div>
+
+          <div class="module" style="cursor: default;">
+            <div class="module-kicker">Time and Attendance</div>
+            <div class="module-title">Overtime Patterns and Time Record Anomalies</div>
+            <div class="module-desc">
+              Overtime patterns by employee and supervisor compared against organizational averages. Time records approved by the same person who submitted them. Overtime claimed on days when the employee has no system activity records. Time submissions significantly below or above hours that correspond to recorded system access logs. Branch-level overtime that does not correlate with transaction volume. Key tables: PA2001, PA2002, PA2010, CATS.
+            </div>
+          </div>
+
+          <div class="module" style="cursor: default;">
+            <div class="module-kicker">Master Data</div>
+            <div class="module-title">Unauthorized Changes to Employee Records</div>
+            <div class="module-desc">
+              Changes to employee bank account or payment information without dual approval. Salary adjustments outside the documented compensation cycle or above the delegated approval limit. New employee records activated without corresponding onboarding documentation. Position and cost center changes that would affect incentive eligibility made without HR approval. Key tables: PA0001, PA0002, PA0008, PA0009, HRPAD00LOGSYS.
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- MODULE: BASIS/SECURITY -->
+    <section class="section" id="module-basis" data-audience="practitioner">
+      <div class="container">
+        <div class="section-head">
+          <h2 class="section-title">Basis / Security -- IT General Controls</h2>
+          <p class="section-subtitle">
+            Role administration, segregation of duties, privileged access, and system configuration. ITGC failures in SAP create the environment in which every other module's controls can be bypassed.
+          </p>
+        </div>
+
+        <div class="module-grid" style="grid-template-columns: repeat(2, minmax(0, 1fr));">
+
+          <div class="module" style="cursor: default;">
+            <div class="module-kicker">Segregation of Duties</div>
+            <div class="module-title">SoD Conflicts and Compensating Control Gaps</div>
+            <div class="module-desc">
+              Users with access to both create and approve purchase orders. Users with access to both create vendors and process payments. Users with both goods receipt and invoice verification access. Access combinations that enable the complete procure-to-pay cycle without a second approver. Role combinations that allow creation and approval of journal entries. Key tables: USR02, AGR_USERS, AGR_1251, AGR_TCODES.
+            </div>
+          </div>
+
+          <div class="module" style="cursor: default;">
+            <div class="module-kicker">Privileged Access</div>
+            <div class="module-title">Super User and Emergency Access Monitoring</div>
+            <div class="module-desc">
+              SAP_ALL and SAP_NEW assignments outside the designated system administration accounts. Emergency access (firefighter ID) usage frequency, duration, and scope relative to documented incident tickets. Basis transactions executed by non-Basis personnel. Administrative access granted during implementation that was not removed after go-live. Key tables: USR02, UST04, AGR_USERS, SUIM data.
+            </div>
+          </div>
+
+          <div class="module" style="cursor: default;">
+            <div class="module-kicker">Role Changes</div>
+            <div class="module-title">Role Administration and Change Monitoring</div>
+            <div class="module-desc">
+              Role modifications made outside the change management process. New roles created and assigned in the same change request without dual approval. Role assignments granted temporarily that were never removed. Users with roles that grant access beyond their documented job function. Access provisioning that bypasses the standard identity management workflow. Key tables: AGR_1251, AGR_TCODES, AGR_USERS, SUSR_USER_PROFILE_EXT_DATA.
+            </div>
+          </div>
+
+          <div class="module" style="cursor: default;">
+            <div class="module-kicker">System Configuration</div>
+            <div class="module-title">Unauthorized Configuration Changes</div>
+            <div class="module-desc">
+              Transport requests moved to production outside the approved change window. Configuration changes in client 000 or 001 without a corresponding change request. Number range changes for financial documents that could affect auditability. System parameter changes affecting authorization checks or document retention. Changes to the audit log configuration that reduce the scope of recorded events. Key tables: E070, E071, TPARAMS, RSECADMIN.
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- MODULE: CO -->
+    <section class="section section-alt" id="module-co" data-audience="practitioner">
+      <div class="container">
+        <div class="section-head">
+          <h2 class="section-title">CO -- Controlling</h2>
+          <p class="section-subtitle">
+            Cost center accounting, internal orders, profit center accounting, and intercompany processes. CO data provides the analytical layer for management reporting and is a frequent target for budget manipulation.
+          </p>
+        </div>
+
+        <div class="module-grid" style="grid-template-columns: repeat(2, minmax(0, 1fr));">
+
+          <div class="module" style="cursor: default;">
+            <div class="module-kicker">Cost Centers</div>
+            <div class="module-title">Budget Override Patterns and Cost Manipulation</div>
+            <div class="module-desc">
+              Cost center postings that exceed budget without a documented override approval. Year-end budget spend acceleration -- particularly in the final two weeks of the fiscal year -- that does not correspond to planned activity. Repostings between cost centers that move expenses from over-budget to under-budget centers without business justification. Internal service allocations applied at rates that deviate from the documented allocation methodology. Key tables: COSP, COSS, CSKS, KOSTL.
+            </div>
+          </div>
+
+          <div class="module" style="cursor: default;">
+            <div class="module-kicker">Profit Centers</div>
+            <div class="module-title">Intercompany Transaction Anomalies</div>
+            <div class="module-desc">
+              Intercompany transactions between profit centers that are not balanced or reconciled within the period. Profit center transfers that occur near reporting dates without corresponding operational activity. Revenue or cost assigned to profit centers inconsistent with the transaction's originating business unit. Manual reposting between profit centers by users without standard controlling authorization. Key tables: GLPCA, GLPCP, CEPC, BSEG.
+            </div>
+          </div>
+
+          <div class="module" style="cursor: default;">
+            <div class="module-kicker">Internal Orders</div>
+            <div class="module-title">Capital Project and Settlement Anomalies</div>
+            <div class="module-desc">
+              Internal orders settled to assets or cost centers without documented project completion approval. Orders kept open past their planned end date with continued cost postings. Settlement rules changed after posting activity to redirect costs. Internal order budgets exceeded without a documented budget revision approval. Capital projects where actual costs significantly exceed approved budget without a change request. Key tables: AUFK, COSP, BPGE, PRPS.
+            </div>
+          </div>
+
+          <div class="module" style="cursor: default;">
+            <div class="module-kicker">Management Reporting</div>
+            <div class="module-title">Reporting Adjustments and Reclassifications</div>
+            <div class="module-desc">
+              Assessment and distribution cycles run with parameters that differ from prior periods without documented rationale. Accruals posted to CO objects at the end of the period and reversed at the start of the next in patterns inconsistent with the underlying business activity. Reconciliation differences between FI and CO that are manually adjusted rather than investigated. Key tables: BKPF, BSEG, COEP, COSS.
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- MODULE: PM -->
+    <section class="section" id="module-pm" data-audience="practitioner">
+      <div class="container">
+        <div class="section-head">
+          <h2 class="section-title">PM -- Plant Maintenance</h2>
+          <p class="section-subtitle">
+            Work orders, equipment maintenance, parts consumption, and maintenance scheduling. In distribution, PM data covers fleet maintenance, facility upkeep, and material handling equipment -- all areas where unauthorized activity is difficult to detect without system-level data.
+          </p>
+        </div>
+
+        <div class="module-grid" style="grid-template-columns: repeat(2, minmax(0, 1fr));">
+
+          <div class="module" style="cursor: default;">
+            <div class="module-kicker">Work Orders</div>
+            <div class="module-title">Unauthorized Work Orders and Cost Manipulation</div>
+            <div class="module-desc">
+              Work orders created and settled without a corresponding maintenance notification or equipment record. Work orders settled to cost centers that are not associated with the equipment being maintained. Costs posted to maintenance orders at amounts significantly above prior periods for the same equipment type. Work orders created by users not assigned to the maintenance planning group. Key tables: AUFK, AFKO, AFPO, ILOA.
+            </div>
+          </div>
+
+          <div class="module" style="cursor: default;">
+            <div class="module-kicker">Parts and Materials</div>
+            <div class="module-title">Parts Substitution and Consumption Anomalies</div>
+            <div class="module-desc">
+              Components issued to maintenance orders that do not match the equipment's standard bill of materials. Parts issued in quantities inconsistent with the documented maintenance procedure. Returns of maintenance components posted back to unrestricted stock without inspection. High-value parts consumed on low-cost maintenance orders -- a pattern associated with parts diversion. Key tables: RESB, MSEG, MKPF, MARA.
+            </div>
+          </div>
+
+          <div class="module" style="cursor: default;">
+            <div class="module-kicker">Maintenance Timing</div>
+            <div class="module-title">Scheduling Anomalies and Deferred Maintenance Risk</div>
+            <div class="module-desc">
+              Equipment with overdue preventive maintenance plans and no documented deferral approval. Maintenance cycles compressed or extended beyond the documented tolerance without a technical justification. Counter-based maintenance plans with manually-entered readings that deviate from prior trends. Equipment with no maintenance activity recorded for periods exceeding the documented maintenance interval. Key tables: MPOS, QMEL, AUFK, PLKO.
+            </div>
+          </div>
+
+          <div class="module" style="cursor: default;">
+            <div class="module-kicker">External Services</div>
+            <div class="module-title">Contractor and Service Order Management</div>
+            <div class="module-desc">
+              External service orders placed with vendors not on the approved maintenance contractor list. Service entry sheets confirmed without documented supervisor approval. Contractor time entries significantly above or below prior periods for the same scope. Service orders created and confirmed on the same day by the same user -- bypassing the separation between ordering and acceptance. Key tables: ESSR, ESLH, EKKO, EKPO.
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- STARTING POINT FOR AUDIT PLANNING -->
+    <section class="section section-alt" id="planning-use" data-audience="leader">
+      <div class="container">
+        <div class="section-head">
+          <h2 class="section-title">Starting Point for Audit Planning</h2>
+        </div>
+        <p style="font-size: 1.05rem; color: var(--body); max-width: 72ch; margin-bottom: 1.25rem; line-height: 1.75;">
+          This catalog is a risk identification tool, not a default scope. No audit function tests every use case here in a single year. The value is in the systematic prioritization that comes from having the full inventory visible.
+        </p>
+        <p style="font-size: 1.05rem; color: var(--body); max-width: 72ch; margin-bottom: 1.25rem; line-height: 1.75;">
+          Use the catalog to drive risk assessment conversations: which modules have the highest transaction volume? Which have the least mature access controls? Where has data access been established and validated? Where has prior audit work identified control gaps? The answers to those questions -- not habit or availability -- should determine where monitoring effort goes first.
+        </p>
+        <p style="font-size: 1.05rem; color: var(--body); max-width: 72ch; margin-bottom: 2rem; line-height: 1.75;">
+          The function that builds monitoring for FI duplicate payments and SD pricing overrides in Year 1, adds WM inventory adjustment monitoring and Basis SoD monitoring in Year 2, and extends to HCM commission and CO budget patterns in Year 3 is building something that compounds. The function that tries to monitor everything at once builds nothing sustainable.
+        </p>
+      </div>
+    </section>
+
+    <!-- NEXT STEP BAR -->
+    <section class="section" style="padding-top: 0; padding-bottom: 0;" data-audience="all">
+      <div class="container">
+        <div class="next-step-bar">
+          <span class="next-step-label">Next in Chapter 1</span>
+          <a class="next-step-link" href="sap-s4hana-audit-modernization.html">SAP S/4HANA Monitoring &rarr;</a>
+        </div>
+        <p style="font-size: 0.88rem; color: var(--muted); margin-top: 6px; padding-left: 2px;">Fiori configuration, BIS rule setup, and the end-to-end monitoring program design</p>
+      </div>
+    </section>
+
+    <!-- RELATED TOPICS -->
+    <section class="section" id="related" data-audience="all">
+      <div class="container">
+        <div class="section-head">
+          <h2 class="section-title">Related topics</h2>
+        </div>
+        <div class="path-grid">
+          <a class="path-card" href="sap-tool-ecosystem.html">
+            <div class="path-top">
+              <div class="path-title">SAP Tool Ecosystem</div>
+              <div class="path-tag">Chapter 1 foundation</div>
+            </div>
+            <p class="path-text">The six native SAP tools that execute the monitoring logic described in this catalog.</p>
+            <span class="path-cta">Go to SAP Tool Ecosystem &rarr;</span>
+          </a>
+          <a class="path-card" href="sap-s4hana-audit-modernization.html">
+            <div class="path-top">
+              <div class="path-title">SAP S/4HANA Monitoring</div>
+              <div class="path-tag">Execution detail</div>
+            </div>
+            <p class="path-text">The workflow design, BIS rule configuration, and monitoring program architecture that operationalizes this catalog.</p>
+            <span class="path-cta">Go to SAP S/4HANA Monitoring &rarr;</span>
+          </a>
+          <a class="path-card" href="continuous-monitoring.html">
+            <div class="path-top">
+              <div class="path-title">Continuous Monitoring</div>
+              <div class="path-tag">Methodology context</div>
+            </div>
+            <p class="path-text">The sustainability design, exception ownership model, and technology pathway that make this catalog operational over time.</p>
+            <span class="path-cta">Go to Continuous Monitoring &rarr;</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-left">
+        <div class="footer-brand">The AI-Ready Audit</div>
+        <div class="footer-note">
+          A framework for how internal audit must evolve in large electrical distribution enterprises
+          as organizations adopt modern enterprise systems, analytics, and artificial intelligence.
+        </div>
+      </div>
+      <div class="footer-right">
+        <a class="footer-link" href="executive-summary.html">Executive Summary</a>
+        <a class="footer-link" href="thesis.html">Why It's Changing</a>
+        <a class="footer-link" href="audit-leadership.html">Methodology</a>
+        <a class="footer-link" href="skills-evolution.html">Skills</a>
+        <a class="footer-link" href="maturity-assessment.html">Assessment</a>
+        <a class="footer-link" href="resources.html">Resources</a>
+        <a class="footer-link" href="about.html">About</a>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <p>&copy; 2026 Nicole Robbins</p>
+      <p style="font-size: 0.75rem; color: rgba(255,255,255,0.3); margin-top: 8px; line-height: 1.5; max-width: 80ch;">The frameworks, recommendations, and perspectives published on this platform represent independent professional views and analysis, supported by publicly available research and professional standards. This site is not affiliated with, endorsed by, or a publication of any employer or organization. The author is an internal audit practitioner and manager -- not a licensed CPA, CIA, attorney, or accredited researcher. Nothing on this platform constitutes professional advice. All external resources are linked for reference; availability and terms should be verified directly.</p>
+    </div>
+  </footer>
+
+  <script>
+  (function () {
+    var navToggle = document.getElementById("nav-toggle");
+    var primaryNav = document.getElementById("primary-nav");
+    if (!navToggle || !primaryNav) return;
+    navToggle.addEventListener("click", function () {
+      var isOpen = primaryNav.classList.toggle("is-open");
+      navToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+    });
+    primaryNav.addEventListener("click", function (e) {
+      var groupBtn = e.target.closest(".nav-group-btn");
+      if (groupBtn) {
+        var group = groupBtn.closest(".nav-group");
+        if (group) {
+          primaryNav.querySelectorAll(".nav-group.is-open").forEach(function(g) {
+            if (g !== group) {
+              g.classList.remove("is-open");
+              var b = g.querySelector(".nav-group-btn");
+              if (b) b.setAttribute("aria-expanded", "false");
+            }
+          });
+          group.classList.toggle("is-open");
+          groupBtn.setAttribute("aria-expanded", group.classList.contains("is-open") ? "true" : "false");
+        }
+        return;
+      }
+      if (e.target.classList.contains("nav-link")) {
+        primaryNav.classList.remove("is-open");
+        navToggle.setAttribute("aria-expanded", "false");
+      }
+    });
+    document.addEventListener("click", function(e) {
+      if (!e.target.closest(".nav-group")) {
+        primaryNav.querySelectorAll(".nav-group.is-open").forEach(function(g) {
+          g.classList.remove("is-open");
+          var b = g.querySelector(".nav-group-btn");
+          if (b) b.setAttribute("aria-expanded", "false");
+        });
+      }
+    });
+    document.addEventListener("keydown", function(e) {
+      if (e.key === "Escape") {
+        primaryNav.querySelectorAll(".nav-group.is-open").forEach(function(g) {
+          g.classList.remove("is-open");
+          var b = g.querySelector(".nav-group-btn");
+          if (b) b.setAttribute("aria-expanded", "false");
+        });
+      }
+    });
+  })();
+  </script>
+
+  <script src="nav-guide.js"></script>
+</body>
+</html>

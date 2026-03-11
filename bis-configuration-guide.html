@@ -1,0 +1,921 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BIS Configuration Guide | The AI-Ready Audit</title>
+  <meta name="description" content="Rules, thresholds, and detection logic for deploying SAP Business Integrity Screening in an electrical distribution environment -- written for the audit-to-IT handoff." />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* BIS rule cards */
+    .rule-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+    .rule-card {
+      background: var(--surface);
+      border: 1px solid var(--border-soft);
+      border-radius: var(--radius);
+      padding: 24px 28px;
+      box-shadow: var(--shadow-sm);
+    }
+    .rule-card-header {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 16px;
+      flex-wrap: wrap;
+    }
+    .rule-id {
+      font-size: 0.78rem;
+      font-weight: 900;
+      letter-spacing: 0.1em;
+      color: var(--muted);
+      text-transform: uppercase;
+    }
+    .rule-title {
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: var(--text);
+      flex: 1;
+    }
+    .rule-badge {
+      display: inline-block;
+      padding: 3px 12px;
+      border-radius: 999px;
+      font-size: 0.77rem;
+      font-weight: 800;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+    .rule-badge-ap { background: #fef3c7; color: #92400e; }
+    .rule-badge-procurement { background: #dbeafe; color: #1e3a8a; }
+    .rule-badge-gl { background: #f3e8ff; color: #6b21a8; }
+    .rule-badge-pricing { background: #dcfce7; color: #14532d; }
+    .rule-badge-inventory { background: #fce7f3; color: #9d174d; }
+    .rule-fields {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px 20px;
+    }
+    @media (max-width: 640px) {
+      .rule-fields { grid-template-columns: 1fr; }
+    }
+    .rule-field-label {
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 4px;
+    }
+    .rule-field-value {
+      font-size: 0.92rem;
+      color: var(--body);
+      line-height: 1.6;
+    }
+    .rule-field-full {
+      grid-column: span 2;
+    }
+    @media (max-width: 640px) {
+      .rule-field-full { grid-column: span 1; }
+    }
+    /* Phase cards */
+    .phase-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+    }
+    @media (max-width: 768px) {
+      .phase-grid { grid-template-columns: 1fr; }
+    }
+    .phase-card {
+      background: var(--surface);
+      border: 1px solid var(--border-soft);
+      border-radius: var(--radius);
+      padding: 20px;
+      box-shadow: var(--shadow-sm);
+    }
+    .phase-kicker {
+      font-size: 0.78rem;
+      font-weight: 900;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 6px;
+    }
+    .phase-title {
+      font-size: 1.05rem;
+      font-weight: 800;
+      color: var(--text);
+      margin-bottom: 12px;
+    }
+    .phase-items {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .phase-items li {
+      font-size: 0.9rem;
+      color: var(--body);
+      line-height: 1.6;
+      padding: 6px 0;
+      border-bottom: 1px solid var(--border-soft);
+    }
+    .phase-items li:last-child { border-bottom: none; }
+    /* Checklist */
+    .handoff-checklist {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      max-width: 72ch;
+    }
+    .handoff-checklist li {
+      padding: 10px 0 10px 28px;
+      position: relative;
+      font-size: 0.97rem;
+      color: var(--body);
+      line-height: 1.6;
+      border-bottom: 1px solid var(--border-soft);
+    }
+    .handoff-checklist li:last-child { border-bottom: none; }
+    .handoff-checklist li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 16px;
+      width: 14px;
+      height: 14px;
+      border: 2px solid var(--accent);
+      border-radius: 3px;
+    }
+  </style>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+</head>
+
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="brand">
+        <a class="brand-link" href="index.html">
+          <div class="brand-title">The AI-Ready Audit</div>
+          <div class="brand-tagline">Internal Audit for Electrical Distribution Enterprises</div>
+        </a>
+      </div>
+
+      <button class="nav-toggle" id="nav-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false">
+        &#9776;
+      </button>
+
+            <nav class="nav" id="primary-nav" aria-label="Primary">
+        <a class="nav-link" href="index.html">Home</a>
+
+        <div class="nav-group">
+          <button class="nav-group-btn" type="button" aria-expanded="false">Framework</button>
+          <div class="nav-dropdown">
+          <a class="nav-link" href="thesis.html">Why It's Changing</a>
+          <a class="nav-link" href="maturity-assessment.html">Self-Assessment</a>
+          <a class="nav-link" href="terminology.html">Key Terminology</a>
+          </div>
+        </div>
+
+        <div class="nav-group">
+          <button class="nav-group-btn" type="button" aria-expanded="false">For Executives</button>
+          <div class="nav-dropdown">
+          <a class="nav-link" href="executive-summary.html">Executive Summary</a>
+          <a class="nav-link" href="executive-assessment.html">Executive Assessment</a>
+          <a class="nav-link" href="executive-oversight.html">Executive Oversight</a>
+          <a class="nav-link" href="charter.html">IA Charter</a>
+          <a class="nav-link" href="team-structure.html">Team and Talent</a>
+          </div>
+        </div>
+
+        <div class="nav-group">
+          <button class="nav-group-btn" type="button" aria-expanded="false">The Methodology</button>
+          <div class="nav-dropdown">
+          <a class="nav-link" href="audit-leadership.html">Methodology</a>
+          <a class="nav-link" href="erp-transition.html">ERP Transition</a>
+          <a class="nav-link" href="data-access.html">Data Access</a>
+          <a class="nav-link" href="capacity-model.html">Dedicated Capacity</a>
+          <a class="nav-link" href="organizational-intelligence.html">Organizational Intelligence</a>
+          <a class="nav-link" href="technology-stack.html">Technology Stack</a>
+          <a class="nav-link" href="continuous-monitoring.html">Continuous Monitoring</a>
+          </div>
+        </div>
+
+        <div class="nav-group has-active">
+          <button class="nav-group-btn" type="button" aria-expanded="false">The Playbook</button>
+          <div class="nav-dropdown">
+          <a class="nav-link" href="execution-playbook.html">Playbook Overview</a>
+          <a class="nav-link" href="sap-tool-ecosystem.html">SAP Tool Ecosystem</a>
+          <a class="nav-link" href="audit-universe.html">ERP Audit Universe</a>
+          <a class="nav-link" href="sap-s4hana-audit-modernization.html">SAP S/4HANA Monitoring</a>
+          <a class="nav-link nav-cta" href="bis-configuration-guide.html">BIS Configuration Guide</a>
+          </div>
+        </div>
+
+        <div class="nav-group">
+          <button class="nav-group-btn" type="button" aria-expanded="false">For Practitioners</button>
+          <div class="nav-dropdown">
+          <a class="nav-link" href="skills-evolution.html">Skills and Development</a>
+          <a class="nav-link" href="practitioner-assessment.html">Practitioner Assessment</a>
+          <a class="nav-link" href="ai-toolkit.html">AI Toolkit</a>
+          <a class="nav-link" href="auditing-ai.html">Auditing AI</a>
+          <a class="nav-link" href="ai-learning.html">Learning Module</a>
+          </div>
+        </div>
+
+        <a class="nav-link" href="resources.html">Resources</a>
+        <a class="nav-link" href="about.html">About</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- HERO -->
+    <section class="page-hero" data-audience="all">
+      <div class="container">
+        <div class="page-hero-inner">
+          <p class="page-kicker">THE PLAYBOOK &middot; CHAPTER 1</p>
+          <h1 class="page-title">BIS Configuration Guide</h1>
+          <p class="page-subtitle">
+            Rules, thresholds, and detection logic for deploying Business Integrity Screening in an electrical distribution environment -- written for the audit-to-IT handoff.
+          </p>
+          <div class="page-actions">
+            <a class="btn btn-primary" href="#audit-must-define">Before IT can configure</a>
+            <a class="btn btn-secondary" href="#rule-library">The rule library</a>
+            <a class="btn btn-secondary" href="#deployment-phasing">Deployment phasing</a>
+          </div>
+        </div>
+
+        <details class="key-takeaways">
+          <summary>Key takeaways -- read this first</summary>
+          <div class="takeaways-body">
+            <ul>
+              <li>BIS is frequently licensed and dormant. Activation is a configuration task, not a development project. The first conversation is about whether it is licensed -- not whether it can be built.</li>
+              <li>Starting with three to five rules in the highest-risk area is the right deployment posture. Volume before discipline produces exception queues no one reviews.</li>
+              <li>Every rule in this guide has three components that must be defined before configuration begins: the detection condition, the threshold that makes an exception actionable, and the owner who resolves it.</li>
+              <li>The pricing leakage detection rule -- identifying transactions where a generic material number was used when a catalog item was available -- is one of the highest-return rules in an electrical distribution environment. It requires cross-referencing material master data with billing records, which BIS can do natively once the rule logic is configured.</li>
+            </ul>
+          </div>
+        </details>
+      </div>
+    </section>
+
+    <!-- STAT BAND -->
+    <section class="section" style="padding-top: 0; padding-bottom: 0;" data-audience="all">
+      <div class="container">
+        <div class="stat-band">
+          <div class="stat-band-item">
+            <div class="stat-band-label">Detection rules</div>
+            <div class="stat-band-value">10 in guide</div>
+            <div class="stat-band-sub">Across AP, procurement, GL, and pricing</div>
+          </div>
+          <div class="stat-band-item">
+            <div class="stat-band-label">Format</div>
+            <div class="stat-band-value">Handoff-ready</div>
+            <div class="stat-band-sub">Formatted for IT configuration teams</div>
+          </div>
+          <div class="stat-band-item">
+            <div class="stat-band-label">Deployment</div>
+            <div class="stat-band-value">3 phases</div>
+            <div class="stat-band-sub">From activation through ML enhancement</div>
+          </div>
+          <div class="stat-band-item">
+            <div class="stat-band-label">Reading time</div>
+            <div class="stat-band-value">25 min</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PLATFORM NOTE -->
+    <section class="section" style="padding-top: 0; padding-bottom: 0;" data-audience="all">
+      <div class="container">
+        <div class="callout" style="max-width: 780px;">
+          <div class="callout-title">SAP S/4HANA reference implementation</div>
+          <div class="callout-text">
+            This guide uses SAP Business Integrity Screening in S/4HANA as the reference implementation. The detection logic, rule categories, and threshold design principles apply to equivalent anomaly detection modules in other ERP platforms. Configuration paths and transaction codes are SAP-specific.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 1: WHAT AUDIT MUST DEFINE -->
+    <section class="section" id="audit-must-define" data-audience="leader">
+      <div class="container">
+        <div class="section-head">
+          <h2 class="section-title">Before IT Can Configure -- What Audit Must Define</h2>
+        </div>
+
+        <p style="font-size: 1.05rem; color: var(--body); max-width: 72ch; margin-bottom: 1.5rem; line-height: 1.75;">
+          BIS configuration starts with audit, not IT. IT can activate the module, set up the system connection, and deploy pre-built rules. But the threshold values, the scope parameters, and the exception workflow all require audit input before configuration begins. A BIS deployment that starts with IT and asks audit for requirements later produces rules that generate noise rather than findings.
+        </p>
+
+        <div class="module-grid" style="grid-template-columns: repeat(3, minmax(0, 1fr));">
+
+          <div class="module" style="cursor: default;">
+            <div class="module-kicker">1</div>
+            <div class="module-title">Detection condition</div>
+            <div class="module-desc">
+              What specific data pattern constitutes an exception worth reviewing? The condition must be precise enough that a developer can translate it into a BIS rule without interpretation. Generic conditions produce generic results.
+            </div>
+          </div>
+
+          <div class="module" style="cursor: default;">
+            <div class="module-kicker">2</div>
+            <div class="module-title">Threshold</div>
+            <div class="module-desc">
+              What value, count, or score makes the condition actionable rather than informational? Thresholds must be set before go-live, not after the first exception list generates fifty items no one can review.
+            </div>
+          </div>
+
+          <div class="module" style="cursor: default;">
+            <div class="module-kicker">3</div>
+            <div class="module-title">Exception owner</div>
+            <div class="module-desc">
+              Who receives the alert, reviews it, makes the disposition decision, and documents the outcome? Ownership defined before go-live -- exceptions without owners age without resolution.
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 2: RULE LIBRARY -->
+    <section class="section section-alt" id="rule-library" data-audience="leader">
+      <div class="container">
+        <div class="section-head">
+          <h2 class="section-title">The Rule Library -- Ten Detection Rules</h2>
+          <p class="section-subtitle">
+            Each rule is written in the format required for the audit-to-IT handoff: detection condition, data sources, threshold guidance, false positive filters, and the expected exception output.
+          </p>
+        </div>
+
+        <p style="font-size: 1.05rem; color: var(--body); max-width: 72ch; margin-bottom: 2rem; line-height: 1.75;">
+          The ten rules below cover the highest-risk areas for an electrical distribution environment.
+        </p>
+
+        <div class="rule-grid">
+
+          <!-- R-01 -->
+          <div class="rule-card">
+            <div class="rule-card-header">
+              <span class="rule-id">R-01</span>
+              <span class="rule-title">Duplicate Invoice Detection</span>
+              <span class="rule-badge rule-badge-ap">AP</span>
+            </div>
+            <div class="rule-fields">
+              <div>
+                <div class="rule-field-label">Detection condition</div>
+                <div class="rule-field-value">Two or more invoice records sharing the same vendor number, invoice number, and invoice amount within a configurable date window (default: 365 days), regardless of document number.</div>
+              </div>
+              <div>
+                <div class="rule-field-label">Data source</div>
+                <div class="rule-field-value">RBKP (invoice header), RSEG (invoice line items), BKPF (accounting document header)</div>
+              </div>
+              <div>
+                <div class="rule-field-label">Threshold guidance</div>
+                <div class="rule-field-value">No dollar threshold -- all duplicates regardless of amount. Filter to invoices that have reached payment status to prioritize.</div>
+              </div>
+              <div>
+                <div class="rule-field-label">False positive filters</div>
+                <div class="rule-field-value">Exclude reversals (document type RV, RE with reversal flag). Exclude credit memos that match a debit invoice intentionally (verify against original document reference).</div>
+              </div>
+              <div class="rule-field-full">
+                <div class="rule-field-label">Expected output</div>
+                <div class="rule-field-value">Both document numbers, vendor, invoice number, invoice date, amount, posting date, payment status, and the delta in days between the two postings.</div>
+              </div>
+              <div class="rule-field-full">
+                <div class="rule-field-label">Audit use</div>
+                <div class="rule-field-value">Duplicate payment finding. Escalate to cross-platform analysis if the duplicate appears in SAP only -- the matching payment may be in Concur or a card platform.</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- R-02 -->
+          <div class="rule-card">
+            <div class="rule-card-header">
+              <span class="rule-id">R-02</span>
+              <span class="rule-title">Vendor-Employee Address or Bank Account Match</span>
+              <span class="rule-badge rule-badge-ap">AP</span>
+            </div>
+            <div class="rule-fields">
+              <div>
+                <div class="rule-field-label">Detection condition</div>
+                <div class="rule-field-value">Vendor master bank account number, street address, or email domain matches an active employee record in the HR system.</div>
+              </div>
+              <div>
+                <div class="rule-field-label">Data source</div>
+                <div class="rule-field-value">LFA1 (vendor master), LFB1 (vendor bank), employee master data (cross-system join required if HR is in a separate platform such as Workday)</div>
+              </div>
+              <div>
+                <div class="rule-field-label">Threshold guidance</div>
+                <div class="rule-field-value">Any match, regardless of amount. Match on bank account number is highest priority; address match is secondary.</div>
+              </div>
+              <div>
+                <div class="rule-field-label">False positive filters</div>
+                <div class="rule-field-value">Exclude vendors that are known employee reimbursement vendors with approved exception documentation. Exclude relocation or benefits vendors by vendor category.</div>
+              </div>
+              <div class="rule-field-full">
+                <div class="rule-field-label">Expected output</div>
+                <div class="rule-field-value">Vendor number, vendor name, matching field, employee ID, employee name, department, and any recent payment activity to the vendor.</div>
+              </div>
+              <div class="rule-field-full">
+                <div class="rule-field-label">Audit use</div>
+                <div class="rule-field-value">Vendor fraud / conflict of interest finding. Note: if HR data is in Workday, this rule requires a scheduled extract from Workday to a BIS-accessible staging table or a third-party cross-system tool.</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- R-03 -->
+          <div class="rule-card">
+            <div class="rule-card-header">
+              <span class="rule-id">R-03</span>
+              <span class="rule-title">Purchase Order Created After Goods Receipt</span>
+              <span class="rule-badge rule-badge-procurement">Procurement</span>
+            </div>
+            <div class="rule-fields">
+              <div>
+                <div class="rule-field-label">Detection condition</div>
+                <div class="rule-field-value">A purchase order creation date is later than the goods receipt date for the same material document, indicating a retroactive PO.</div>
+              </div>
+              <div>
+                <div class="rule-field-label">Data source</div>
+                <div class="rule-field-value">EKKO (PO header, creation date), MSEG (goods movement, posting date), EKBE (PO history)</div>
+              </div>
+              <div>
+                <div class="rule-field-label">Threshold guidance</div>
+                <div class="rule-field-value">Flag all instances. Filter to amounts above a materiality threshold (e.g., $5,000) for initial deployment to manage volume.</div>
+              </div>
+              <div>
+                <div class="rule-field-label">False positive filters</div>
+                <div class="rule-field-value">Exclude emergency procurement exceptions with documented approval. Exclude inter-company transfers.</div>
+              </div>
+              <div class="rule-field-full">
+                <div class="rule-field-label">Expected output</div>
+                <div class="rule-field-value">PO number, PO creation date, GR document number, GR posting date, days between GR and PO creation, material, quantity, vendor, and purchasing group.</div>
+              </div>
+              <div class="rule-field-full">
+                <div class="rule-field-label">Audit use</div>
+                <div class="rule-field-value">Retroactive PO / procurement bypass finding. Systemic patterns by purchasing group indicate a training or enforcement gap.</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- R-04 -->
+          <div class="rule-card">
+            <div class="rule-card-header">
+              <span class="rule-id">R-04</span>
+              <span class="rule-title">Split Purchase Order Sequence</span>
+              <span class="rule-badge rule-badge-procurement">Procurement</span>
+            </div>
+            <div class="rule-fields">
+              <div>
+                <div class="rule-field-label">Detection condition</div>
+                <div class="rule-field-value">Two or more POs to the same vendor, created within a configurable time window (default: 7 days), each below the competitive bid threshold, with a combined value above that threshold.</div>
+              </div>
+              <div>
+                <div class="rule-field-label">Data source</div>
+                <div class="rule-field-value">EKKO (PO header), EKPO (PO line items)</div>
+              </div>
+              <div>
+                <div class="rule-field-label">Threshold guidance</div>
+                <div class="rule-field-value">Set the individual PO threshold at 80% of the competitive bid threshold to catch near-miss splits. Set the look-back window at 7 days initially; extend to 14 if false positive rate is acceptable.</div>
+              </div>
+              <div>
+                <div class="rule-field-label">False positive filters</div>
+                <div class="rule-field-value">Exclude blanket orders and scheduling agreements (document type LP, LPA). Exclude POs where a framework agreement number is referenced.</div>
+              </div>
+              <div class="rule-field-full">
+                <div class="rule-field-label">Expected output</div>
+                <div class="rule-field-value">Both PO numbers, vendor, creation dates, individual amounts, combined amount, competitive bid threshold in effect, and purchasing group.</div>
+              </div>
+              <div class="rule-field-full">
+                <div class="rule-field-label">Audit use</div>
+                <div class="rule-field-value">Procurement control bypass. Escalate to buyer and purchasing manager for explanation.</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- R-05 -->
+          <div class="rule-card">
+            <div class="rule-card-header">
+              <span class="rule-id">R-05</span>
+              <span class="rule-title">Off-Hours GL Posting by Privileged User</span>
+              <span class="rule-badge rule-badge-gl">GL</span>
+            </div>
+            <div class="rule-fields">
+              <div>
+                <div class="rule-field-label">Detection condition</div>
+                <div class="rule-field-value">A journal entry posted outside standard business hours (configurable -- default: before 6:00 AM or after 8:00 PM local time, or on weekend) by a user with posting access beyond their normal transaction profile.</div>
+              </div>
+              <div>
+                <div class="rule-field-label">Data source</div>
+                <div class="rule-field-value">BKPF (accounting document header -- posting time, user), USR02 (user last logon, role assignment)</div>
+              </div>
+              <div>
+                <div class="rule-field-label">Threshold guidance</div>
+                <div class="rule-field-value">Flag all off-hours postings above a dollar threshold (e.g., $10,000). Lower threshold for users with broad posting authorization or system admin roles.</div>
+              </div>
+              <div>
+                <div class="rule-field-label">False positive filters</div>
+                <div class="rule-field-value">Exclude automated posting users (batch jobs, system users). Exclude known period-end close activities if the close schedule is documentable.</div>
+              </div>
+              <div class="rule-field-full">
+                <div class="rule-field-label">Expected output</div>
+                <div class="rule-field-value">Document number, posting date and time, posting user, user role profile, amount, GL account, cost center, and whether a reference document exists.</div>
+              </div>
+              <div class="rule-field-full">
+                <div class="rule-field-label">Audit use</div>
+                <div class="rule-field-value">Unauthorized manual entry / internal fraud indicator. High-risk when combined with round amounts or accounts with limited transaction activity.</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- R-06 -->
+          <div class="rule-card">
+            <div class="rule-card-header">
+              <span class="rule-id">R-06</span>
+              <span class="rule-title">Manual Journal Entry Without Reference Document</span>
+              <span class="rule-badge rule-badge-gl">GL</span>
+            </div>
+            <div class="rule-fields">
+              <div>
+                <div class="rule-field-label">Detection condition</div>
+                <div class="rule-field-value">A manual journal entry (document type SA or similar manual type) posted without a reference document number in the reference field (BKPF-XBLNR is blank or contains a generic placeholder).</div>
+              </div>
+              <div>
+                <div class="rule-field-label">Data source</div>
+                <div class="rule-field-value">BKPF (document header), BSEG (document line items)</div>
+              </div>
+              <div>
+                <div class="rule-field-label">Threshold guidance</div>
+                <div class="rule-field-value">Flag all manual entries without references above a materiality threshold (e.g., $25,000). No threshold for entries to specific high-risk accounts (intercompany, suspense, retained earnings).</div>
+              </div>
+              <div>
+                <div class="rule-field-label">False positive filters</div>
+                <div class="rule-field-value">Exclude system-generated documents (batch input, interface postings with known document types). Exclude entries where the text field contains a documented explanation that matches a pre-approved pattern list.</div>
+              </div>
+              <div class="rule-field-full">
+                <div class="rule-field-label">Expected output</div>
+                <div class="rule-field-value">Document number, posting date, user, amount, GL account, cost center, profit center, text field content, and whether a matching document exists in the referenced period.</div>
+              </div>
+              <div class="rule-field-full">
+                <div class="rule-field-label">Audit use</div>
+                <div class="rule-field-value">Unsupported journal entry finding. Cross-reference with period-end timing to identify whether entries are concentrated near close dates.</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- R-07 -->
+          <div class="rule-card">
+            <div class="rule-card-header">
+              <span class="rule-id">R-07</span>
+              <span class="rule-title">Inactive Vendor Payment</span>
+              <span class="rule-badge rule-badge-ap">AP</span>
+            </div>
+            <div class="rule-fields">
+              <div>
+                <div class="rule-field-label">Detection condition</div>
+                <div class="rule-field-value">A payment issued to a vendor whose master record has been flagged as blocked for payment or marked as inactive within the 90 days prior to the payment date.</div>
+              </div>
+              <div>
+                <div class="rule-field-label">Data source</div>
+                <div class="rule-field-value">LFA1 (vendor master, blocking indicators), BSEG (payment document), BKPF (document header)</div>
+              </div>
+              <div>
+                <div class="rule-field-label">Threshold guidance</div>
+                <div class="rule-field-value">Any amount. Vendor blocking status and payment should not coexist.</div>
+              </div>
+              <div>
+                <div class="rule-field-label">False positive filters</div>
+                <div class="rule-field-value">Exclude vendors blocked due to automatic credit hold that was subsequently released through the standard credit release transaction (F.28). Document the release approval as the exception basis.</div>
+              </div>
+              <div class="rule-field-full">
+                <div class="rule-field-label">Expected output</div>
+                <div class="rule-field-value">Vendor number, vendor name, blocking flag and date set, payment document number, payment date, payment amount, and the approver of the payment run.</div>
+              </div>
+              <div class="rule-field-full">
+                <div class="rule-field-label">Audit use</div>
+                <div class="rule-field-value">Vendor master integrity / payment control bypass finding.</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- R-08 -->
+          <div class="rule-card">
+            <div class="rule-card-header">
+              <span class="rule-id">R-08</span>
+              <span class="rule-title">SoD Conflict -- PO Creation and Approval by Same User</span>
+              <span class="rule-badge rule-badge-procurement">Procurement</span>
+            </div>
+            <div class="rule-fields">
+              <div>
+                <div class="rule-field-label">Detection condition</div>
+                <div class="rule-field-value">A purchase order where the same user ID appears in both the creator field (EKKO-ERNAM) and the approval workflow history (SWWWIHEAD or equivalent workflow table).</div>
+              </div>
+              <div>
+                <div class="rule-field-label">Data source</div>
+                <div class="rule-field-value">EKKO (PO header, creator), workflow approval history tables</div>
+              </div>
+              <div>
+                <div class="rule-field-label">Threshold guidance</div>
+                <div class="rule-field-value">Any amount. SoD violation is binary -- the conflict exists regardless of dollar value.</div>
+              </div>
+              <div>
+                <div class="rule-field-label">False positive filters</div>
+                <div class="rule-field-value">Exclude emergency approval scenarios with documented dual-approval override. Exclude test system activity.</div>
+              </div>
+              <div class="rule-field-full">
+                <div class="rule-field-label">Expected output</div>
+                <div class="rule-field-value">PO number, creator user ID, approver user ID (matching), approval date, PO amount, vendor, and the authorization roles held by the user at the time of the transaction.</div>
+              </div>
+              <div class="rule-field-full">
+                <div class="rule-field-label">Audit use</div>
+                <div class="rule-field-value">SoD violation / procurement authorization finding. Cross-reference with GRC Access Control conflict register if active.</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- R-09 -->
+          <div class="rule-card">
+            <div class="rule-card-header">
+              <span class="rule-id">R-09</span>
+              <span class="rule-title">Inventory Adjustment Without Reason Code</span>
+              <span class="rule-badge rule-badge-inventory">Inventory / MM</span>
+            </div>
+            <div class="rule-fields">
+              <div>
+                <div class="rule-field-label">Detection condition</div>
+                <div class="rule-field-value">A goods movement of type 551 (scrapping), 561 (initial stock entry), or 562 (reversal of initial stock) posted without a valid reason code in the movement reason field (MSEG-GRUND is blank).</div>
+              </div>
+              <div>
+                <div class="rule-field-label">Data source</div>
+                <div class="rule-field-value">MSEG (material document), MKPF (material document header)</div>
+              </div>
+              <div>
+                <div class="rule-field-label">Threshold guidance</div>
+                <div class="rule-field-value">Flag all occurrences regardless of quantity or value. Reason code discipline is binary.</div>
+              </div>
+              <div>
+                <div class="rule-field-label">False positive filters</div>
+                <div class="rule-field-value">Exclude system-generated movements from automatic replenishment processes (movement types generated by MRP, not by manual entry).</div>
+              </div>
+              <div class="rule-field-full">
+                <div class="rule-field-label">Expected output</div>
+                <div class="rule-field-value">Material document number, posting date, posting user, material number, quantity, value, plant, storage location, and movement type.</div>
+              </div>
+              <div class="rule-field-full">
+                <div class="rule-field-label">Audit use</div>
+                <div class="rule-field-value">Inventory control discipline / potential shrinkage indicator. Systemic missing reason codes indicate a process training or system enforcement gap; isolated missing codes in high-value materials indicate higher-risk investigation targets.</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- R-10 -->
+          <div class="rule-card">
+            <div class="rule-card-header">
+              <span class="rule-id">R-10</span>
+              <span class="rule-title">Pricing Leakage: Generic Material Number Used When Catalog Item Available</span>
+              <span class="rule-badge rule-badge-pricing">Pricing</span>
+            </div>
+            <div class="rule-fields">
+              <div>
+                <div class="rule-field-label">Detection condition</div>
+                <div class="rule-field-value">A billing document line item uses a generic or placeholder material number (identifiable by material type UNBW, NLAG, or a configurable list of generic material prefixes) where the item description text contains a keyword match to an active catalog material with a valid condition record in the pricing tables.</div>
+              </div>
+              <div>
+                <div class="rule-field-label">Data source</div>
+                <div class="rule-field-value">VBRP (billing document line items), MARA (material master, material type), MVKE (sales data), A004/A005 (condition tables for customer/material pricing), KNA1 (customer master)</div>
+              </div>
+              <div>
+                <div class="rule-field-label">Threshold guidance</div>
+                <div class="rule-field-value">Flag all instances where a price difference exists between the billed amount and the applicable condition record price for the matched catalog item. Secondary threshold: flag all generic material line items above $500 regardless of price comparison if no condition record match can be performed.</div>
+              </div>
+              <div>
+                <div class="rule-field-label">False positive filters</div>
+                <div class="rule-field-value">Exclude non-stock items that are legitimately special-order and have no catalog equivalent (verify against purchasing info records). Exclude items where the order explicitly references a customer-authorized substitution.</div>
+              </div>
+              <div class="rule-field-full">
+                <div class="rule-field-label">Expected output</div>
+                <div class="rule-field-value">Billing document number, line item, generic material number used, matched catalog material number (if found), billed price, condition record price, price variance, customer number, sales order number, and the creating user.</div>
+              </div>
+              <div class="rule-field-full">
+                <div class="rule-field-label">Audit use</div>
+                <div class="rule-field-value">Pricing leakage / margin erosion finding. This is the highest-value rule in an electrical distribution environment. Generic material usage that bypasses the condition record pricing structure results in direct margin leakage at every affected transaction. Systemic patterns by branch, sales rep, or customer indicate a monitoring gap in the pricing control environment. Note: this rule requires configuration by someone with knowledge of your material master structure and generic material number naming conventions.</div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 3: DEPLOYMENT PHASING -->
+    <section class="section" id="deployment-phasing" data-audience="leader">
+      <div class="container">
+        <div class="section-head">
+          <h2 class="section-title">Deployment Phasing</h2>
+        </div>
+
+        <p style="font-size: 1.05rem; color: var(--body); max-width: 72ch; margin-bottom: 2rem; line-height: 1.75;">
+          BIS deployment is most effective when sequenced rather than launched at full scale.
+        </p>
+
+        <div class="phase-grid">
+
+          <div class="phase-card">
+            <div class="phase-kicker">Phase 1 &mdash; Months 1&ndash;2</div>
+            <div class="phase-title">Activation and First Rules</div>
+            <ul class="phase-items">
+              <li>IT activates BIS module and configures the system connection and data scope (company codes, document types)</li>
+              <li>Deploy R-01 (Duplicate Invoice) and R-06 (Manual JE Without Reference) as the first two rules -- high confidence, well-understood failure modes, manageable exception volume</li>
+              <li>Establish the exception review workflow: assign reviewer, define disposition categories, set review cycle length</li>
+              <li>Run for 60 days and measure false positive rate before adding rules</li>
+            </ul>
+          </div>
+
+          <div class="phase-card">
+            <div class="phase-kicker">Phase 2 &mdash; Months 3&ndash;4</div>
+            <div class="phase-title">Core Rule Set</div>
+            <ul class="phase-items">
+              <li>Add R-03 (Retroactive PO), R-05 (Off-Hours GL Posting), and R-09 (Inventory Adjustment Without Reason Code)</li>
+              <li>Calibrate thresholds based on Phase 1 learning -- adjust dollar thresholds if exception volume is too high or too low</li>
+              <li>Begin documenting findings generated by BIS output for inclusion in the risk assessment</li>
+              <li>Activate the BIS machine learning layer to begin establishing baseline transaction patterns</li>
+            </ul>
+          </div>
+
+          <div class="phase-card">
+            <div class="phase-kicker">Phase 3 &mdash; Months 5+</div>
+            <div class="phase-title">Advanced Rules and ML Enhancement</div>
+            <ul class="phase-items">
+              <li>Add R-10 (Pricing Leakage) -- requires the most configuration effort due to material master cross-referencing; sequence it after the team has BIS operational experience</li>
+              <li>Add R-02 (Vendor-Employee Match) -- note the cross-system data requirement if HR is in Workday</li>
+              <li>Add R-04 (Split PO), R-07 (Inactive Vendor Payment), R-08 (SoD Conflict) as volume and review capacity allow</li>
+              <li>Enable ML-enhanced predictive scoring on high-volume rules to reduce false positives</li>
+              <li>Connect BIS alert data to SAP Analytics Cloud dashboard for leadership visibility</li>
+            </ul>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 4: IT HANDOFF PACKAGE -->
+    <section class="section section-alt" id="it-handoff" data-audience="leader">
+      <div class="container">
+        <div class="section-head">
+          <h2 class="section-title">The IT Handoff Package</h2>
+        </div>
+
+        <p style="font-size: 1.05rem; color: var(--body); max-width: 72ch; margin-bottom: 2rem; line-height: 1.75;">
+          The rules and thresholds in this guide are written to be handed to an IT GRC configuration team directly. Each rule contains the SAP table references, field names, and logic required for BIS rule configuration. What the IT team will need in addition: the specific company codes and document type scope to apply, the threshold values confirmed by audit, the exception owner names and routing logic for the alert queue, and the testing plan for validating each rule against historical data before going live.
+        </p>
+
+        <p style="font-size: 1rem; font-weight: 800; color: var(--text); margin-bottom: 12px;">What audit must provide before IT can configure each rule:</p>
+
+        <ul class="handoff-checklist">
+          <li>Confirmed company code scope</li>
+          <li>Document type inclusions and exclusions</li>
+          <li>Dollar or quantity threshold value with documented rationale</li>
+          <li>Exception owner name and role</li>
+          <li>False positive filter list (any known legitimate patterns specific to your organization)</li>
+          <li>Acceptance testing criteria (what constitutes a successful rule test)</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- NEXT STEP BAR -->
+    <section class="section" style="padding-top: 0; padding-bottom: 0;" data-audience="all">
+      <div class="container">
+        <div class="next-step-bar">
+          <span class="next-step-label">Continue in Chapter 1</span>
+          <a class="next-step-link" href="sap-s4hana-audit-modernization.html">SAP S/4HANA Monitoring &rarr;</a>
+        </div>
+        <p style="font-size: 0.88rem; color: var(--muted); margin-top: 6px; padding-left: 2px;">The end-to-end monitoring workflow -- from data access configuration through exception closure</p>
+      </div>
+    </section>
+
+    <!-- RELATED TOPICS -->
+    <section class="section" id="related" data-audience="all">
+      <div class="container">
+        <div class="section-head">
+          <h2 class="section-title">Related topics</h2>
+        </div>
+        <div class="path-grid">
+          <a class="path-card" href="sap-tool-ecosystem.html">
+            <div class="path-top">
+              <div class="path-title">SAP Tool Ecosystem</div>
+              <div class="path-tag">Tool inventory</div>
+            </div>
+            <p class="path-text">The full native SAP tool inventory and the IT conversation templates for initiating access and activation.</p>
+            <span class="path-cta">Go to SAP Tool Ecosystem &rarr;</span>
+          </a>
+          <a class="path-card" href="audit-universe.html">
+            <div class="path-top">
+              <div class="path-title">ERP Audit Universe</div>
+              <div class="path-tag">Use case library</div>
+            </div>
+            <p class="path-text">The full detection logic library by SAP module -- the business context for the rules in this guide.</p>
+            <span class="path-cta">Go to ERP Audit Universe &rarr;</span>
+          </a>
+          <a class="path-card" href="data-access.html">
+            <div class="path-top">
+              <div class="path-title">Data Access</div>
+              <div class="path-tag">Access standards</div>
+            </div>
+            <p class="path-text">The professional standards basis for unrestricted audit data access -- the prerequisite for deploying any rule in this guide.</p>
+            <span class="path-cta">Go to Data Access &rarr;</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-left">
+        <div class="footer-brand">The AI-Ready Audit</div>
+        <div class="footer-note">
+          A framework for how internal audit must evolve in large electrical distribution enterprises
+          as organizations adopt modern enterprise systems, analytics, and artificial intelligence.
+        </div>
+      </div>
+      <div class="footer-right">
+        <a class="footer-link" href="executive-summary.html">Executive Summary</a>
+        <a class="footer-link" href="thesis.html">Why It's Changing</a>
+        <a class="footer-link" href="audit-leadership.html">Methodology</a>
+        <a class="footer-link" href="skills-evolution.html">Skills</a>
+        <a class="footer-link" href="maturity-assessment.html">Assessment</a>
+        <a class="footer-link" href="resources.html">Resources</a>
+        <a class="footer-link" href="about.html">About</a>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <p>&copy; 2026 Nicole Robbins</p>
+      <p style="font-size: 0.75rem; color: rgba(255,255,255,0.3); margin-top: 8px; line-height: 1.5; max-width: 80ch;">The frameworks, recommendations, and perspectives published on this platform represent independent professional views and analysis, supported by publicly available research and professional standards. This site is not affiliated with, endorsed by, or a publication of any employer or organization. The author is an internal audit practitioner and manager -- not a licensed CPA, CIA, attorney, or accredited researcher. Nothing on this platform constitutes professional advice. All external resources are linked for reference; availability and terms should be verified directly.</p>
+    </div>
+  </footer>
+
+  <script>
+  (function () {
+    var navToggle = document.getElementById("nav-toggle");
+    var primaryNav = document.getElementById("primary-nav");
+    if (!navToggle || !primaryNav) return;
+    navToggle.addEventListener("click", function () {
+      var isOpen = primaryNav.classList.toggle("is-open");
+      navToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+    });
+    primaryNav.addEventListener("click", function (e) {
+      var groupBtn = e.target.closest(".nav-group-btn");
+      if (groupBtn) {
+        var group = groupBtn.closest(".nav-group");
+        if (group) {
+          primaryNav.querySelectorAll(".nav-group.is-open").forEach(function(g) {
+            if (g !== group) {
+              g.classList.remove("is-open");
+              var b = g.querySelector(".nav-group-btn");
+              if (b) b.setAttribute("aria-expanded", "false");
+            }
+          });
+          group.classList.toggle("is-open");
+          groupBtn.setAttribute("aria-expanded", group.classList.contains("is-open") ? "true" : "false");
+        }
+        return;
+      }
+      if (e.target.classList.contains("nav-link")) {
+        primaryNav.classList.remove("is-open");
+        navToggle.setAttribute("aria-expanded", "false");
+      }
+    });
+    document.addEventListener("click", function(e) {
+      if (!e.target.closest(".nav-group")) {
+        primaryNav.querySelectorAll(".nav-group.is-open").forEach(function(g) {
+          g.classList.remove("is-open");
+          var b = g.querySelector(".nav-group-btn");
+          if (b) b.setAttribute("aria-expanded", "false");
+        });
+      }
+    });
+    document.addEventListener("keydown", function(e) {
+      if (e.key === "Escape") {
+        primaryNav.querySelectorAll(".nav-group.is-open").forEach(function(g) {
+          g.classList.remove("is-open");
+          var b = g.querySelector(".nav-group-btn");
+          if (b) b.setAttribute("aria-expanded", "false");
+        });
+      }
+    });
+  })();
+  </script>
+
+  <script src="nav-guide.js"></script>
+</body>
+</html>

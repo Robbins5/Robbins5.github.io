@@ -67,6 +67,7 @@
           <a class="nav-link" href="sap-tool-ecosystem.html">SAP Tool Ecosystem</a>
           <a class="nav-link nav-cta" href="audit-universe.html">ERP Audit Universe</a>
           <a class="nav-link" href="sap-s4hana-audit-modernization.html">SAP S/4HANA Monitoring</a>
+          <a class="nav-link" href="bis-configuration-guide.html">BIS Configuration Guide</a>
           </div>
         </div>
 
@@ -220,6 +221,13 @@
             </div>
           </div>
 
+        </div>
+
+        <div class="callout" style="max-width: 780px; margin-top: 28px;">
+          <div class="callout-title">When AP Spans Multiple Systems</div>
+          <div class="callout-text">
+            Duplicate payment detection in SAP alone tests only the invoices that flow through SAP. In organizations where AP activity is distributed across an ERP, an expense management platform (such as Concur), and bank-managed card programs (p-cards, merchandise cards, T&amp;E cards), a cross-system duplicate will not appear in any single system's dataset. The same vendor, same amount, and same transaction date may appear as a legitimate SAP invoice and a separately submitted expense report -- invisible to either system's native controls in isolation. Testing for this risk requires a unified dataset drawn from all AP-adjacent systems. Third-party cross-platform analysis tools -- such as Detect by Oversight -- are designed specifically for this scenario: they ingest structured data from multiple source systems and run duplicate and anomaly detection across the combined population. The data access request template on the <a href="sap-tool-ecosystem.html">SAP Tool Ecosystem page</a> provides a starting point for initiating the cross-platform data access conversation.
+          </div>
         </div>
       </div>
     </section>
@@ -376,6 +384,13 @@
           <p class="section-subtitle">
             Employee master data, payroll, time management, and compensation. In distribution, commission-based compensation creates specific manipulation risk that differs from salaried workforce audit programs.
           </p>
+        </div>
+
+        <div class="callout" style="max-width: 780px; margin-bottom: 24px;">
+          <div class="callout-title">Platform note: Workday and dedicated HCM systems</div>
+          <div class="callout-text">
+            The use cases in this section address HR and payroll data. In organizations where HR and payroll are managed in a dedicated HCM platform such as Workday rather than in SAP HCM, the data for these tests resides outside the ERP entirely. Data access, extraction method, and the applicable native monitoring capabilities will differ by platform. The audit logic -- what to test, what the exception looks like, and what evidence supports a finding -- applies regardless of the source system. Workday provides its own reporting and analytics layer; the equivalent of the ERP inventory-first framework should be applied to the HCM platform separately.
+          </div>
         </div>
 
         <div class="module-grid" style="grid-template-columns: repeat(2, minmax(0, 1fr));">

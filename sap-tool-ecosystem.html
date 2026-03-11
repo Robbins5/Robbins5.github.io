@@ -6,6 +6,67 @@
   <title>SAP Tool Ecosystem for Internal Audit | The AI-Ready Audit</title>
   <meta name="description" content="What SAP S/4HANA already provides for internal audit -- the six native tools, their use cases, and a staged adoption framework that starts with what you already have." />
   <link rel="stylesheet" href="style.css" />
+  <style>
+    .it-template-card {
+      background: var(--surface);
+      border: 1px solid var(--border-soft);
+      border-radius: var(--radius);
+      padding: 24px;
+      margin-bottom: 20px;
+      box-shadow: var(--shadow-sm);
+    }
+    .it-template-header { margin-bottom: 12px; }
+    .it-template-title {
+      font-size: 1.1rem;
+      font-weight: 800;
+      color: var(--text);
+      margin-bottom: 3px;
+    }
+    .it-template-meta {
+      font-size: 0.85rem;
+      color: var(--muted);
+      font-weight: 600;
+    }
+    .it-template-context {
+      font-size: 0.95rem;
+      color: var(--body);
+      margin-bottom: 16px;
+      line-height: 1.6;
+    }
+    .it-template-pre-wrap { position: relative; }
+    .it-template-pre {
+      background: var(--surface-2);
+      border: 1px solid var(--border-soft);
+      border-radius: var(--radius-sm);
+      padding: 16px 16px 16px 16px;
+      font-size: 0.8rem;
+      font-family: ui-monospace, 'Cascadia Code', 'Courier New', monospace;
+      white-space: pre-wrap;
+      word-break: break-word;
+      line-height: 1.65;
+      max-height: 340px;
+      overflow-y: auto;
+      color: var(--body);
+      padding-top: 44px;
+    }
+    .it-copy-btn {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 5px 14px;
+      font-size: 0.82rem;
+      font-weight: 700;
+      cursor: pointer;
+      color: var(--text);
+      transition: background 140ms, border-color 140ms, color 140ms;
+      z-index: 1;
+    }
+    .it-copy-btn:hover { background: var(--bg); }
+    .it-copy-btn.is-copied { color: #2d7a3a; border-color: #2d7a3a; }
+  </style>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
 </head>
@@ -67,6 +128,7 @@
           <a class="nav-link nav-cta" href="sap-tool-ecosystem.html">SAP Tool Ecosystem</a>
           <a class="nav-link" href="audit-universe.html">ERP Audit Universe</a>
           <a class="nav-link" href="sap-s4hana-audit-modernization.html">SAP S/4HANA Monitoring</a>
+          <a class="nav-link" href="bis-configuration-guide.html">BIS Configuration Guide</a>
           </div>
         </div>
 
@@ -254,6 +316,7 @@
             <div class="module-desc">
               Business Integrity Screening is SAP's native anomaly detection module. It runs continuously against transaction data and flags exceptions based on configured rules across process areas including accounts payable, vendor management, procurement, and general ledger. BIS is frequently licensed as part of S/4HANA but not activated. Activation requires IT coordination for configuration and rule setup, but once deployed it provides near-real-time exception detection without ongoing query development.
             </div>
+            <p style="margin-top: 0.85rem; font-size: 0.93rem;"><a href="bis-configuration-guide.html" style="color: var(--accent); font-weight: 600; text-decoration: none;">&rarr; BIS Configuration Guide: rules, thresholds, and what to hand IT for deployment</a></p>
           </div>
 
           <div class="module" style="cursor: default;">
@@ -318,6 +381,156 @@
           </div>
 
         </div>
+      </div>
+    </section>
+
+    <!-- STARTING THE IT CONVERSATION -->
+    <section class="section" id="it-conversation" data-audience="leader">
+      <div class="container">
+        <div class="section-head">
+          <h2 class="section-title">Starting the IT Conversation</h2>
+        </div>
+
+        <p style="font-size: 1.05rem; color: var(--body); max-width: 72ch; margin-bottom: 2rem; line-height: 1.75;">
+          The inventory steps above require information that lives with IT -- licensing records, module activation status, and role configuration capability. Most audit functions have never formally asked. The templates below are pre-drafted to make that first conversation specific and efficient. Each one can be copied and sent directly or adapted for your organization's communication norms.
+        </p>
+
+        <div class="it-template-card">
+          <div class="it-template-header">
+            <div class="it-template-title">SAP Fiori and Query Access Request</div>
+            <div class="it-template-meta">Send to: IT Basis team or SAP system administrator</div>
+          </div>
+          <p class="it-template-context">Use this to establish what Fiori analytical apps are available and request read-only audit access.</p>
+          <div class="it-template-pre-wrap">
+            <button class="it-copy-btn" onclick="copyTemplate(this)" type="button">Copy</button>
+            <pre class="it-template-pre">Subject: Internal Audit -- SAP Fiori Access Assessment and Read-Only Access Request
+
+Hi [Name],
+
+I am reaching out on behalf of the Internal Audit function to better understand our current access to SAP Fiori analytical apps and to initiate a conversation about read-only audit access configuration.
+
+Specifically, I would appreciate your help answering the following:
+
+1. FIORI APP AVAILABILITY
+   - Which Fiori analytical apps are currently activated in our S/4HANA environment?
+   - Are the following standard apps available: Manage Journal Entries (F0718), Supplier Invoice List, Manage Purchase Orders, Manage Supplier Invoices, Sales Order Fulfillment, Display Billing Documents?
+   - Is there a Fiori app catalog or tile catalog we can review?
+
+2. CUSTOM ANALYTICAL QUERIES
+   - Is the Custom Analytical Queries app (F1572) activated?
+   - Can Internal Audit be granted access to build and run custom queries against CDS views?
+   - What approval process is required for access to specific CDS data models?
+
+3. QUERY AND REPORT WRITER
+   - Are SAP Query (SQ01/SQ02) and Report Writer tools available?
+   - Can Internal Audit be granted user-level access to build ad hoc queries without ABAP development?
+
+4. READ-ONLY ROLE CONFIGURATION
+   - What is the process for assigning read-only display roles to audit users?
+   - Which authorization objects control display access to the FI, MM, and SD transaction data we need?
+   - Is there an existing audit display role, or would one need to be created?
+
+Our goal is to establish direct, read-only access to transaction data for audit purposes, consistent with IIA 2024 Standards (Standard 6.2 -- unrestricted access). We are not requesting write access or the ability to modify any records.
+
+I am happy to schedule a working session to walk through this together. Please let me know your availability.
+
+Thank you,
+[Your name]
+[Title]
+Internal Audit</pre>
+          </div>
+        </div>
+
+        <div class="it-template-card">
+          <div class="it-template-header">
+            <div class="it-template-title">BIS and GRC Licensing and Activation Inquiry</div>
+            <div class="it-template-meta">Send to: SAP Basis team, IT GRC team, or SAP contract/licensing owner</div>
+          </div>
+          <p class="it-template-context">Use this to determine whether BIS and GRC modules are already licensed and what activation would require.</p>
+          <div class="it-template-pre-wrap">
+            <button class="it-copy-btn" onclick="copyTemplate(this)" type="button">Copy</button>
+            <pre class="it-template-pre">Subject: Internal Audit -- BIS and GRC Module Licensing and Activation Inquiry
+
+Hi [Name],
+
+I am reaching out from Internal Audit to understand the current licensing and activation status of several SAP modules that are relevant to our audit monitoring program.
+
+Could you help us answer the following?
+
+1. BUSINESS INTEGRITY SCREENING (BIS)
+   - Is SAP Business Integrity Screening (FRA -- Fraud Management / Business Integrity Screening) included in our current S/4HANA license?
+   - If licensed, is it currently activated and configured?
+   - If not activated, what would activation require in terms of IT effort, configuration time, and any additional cost?
+   - Who would own the BIS configuration on the IT side?
+
+2. SAP GRC -- ACCESS CONTROL
+   - Is SAP GRC Access Control licensed in our environment?
+   - Is it currently active and connected to our S/4HANA system?
+   - If not active, what is the activation path and estimated effort?
+   - Is there a current SoD rule set configured, or would that need to be built?
+
+3. SAP GRC -- PROCESS CONTROL
+   - Is SAP GRC Process Control licensed?
+   - Is it deployed for any current use (SOX, operational controls)?
+   - Could Internal Audit gain read access to existing control monitoring data?
+
+4. SAP ANALYTICS CLOUD (SAC)
+   - Does our organization have SAC licenses, either standalone or as part of an enterprise agreement?
+   - If yes, could Internal Audit obtain user licenses and connect to S/4HANA live data models?
+
+We are not asking IT to build anything at this stage -- we are trying to understand what is available before making any investment decisions. If it would be helpful, I am happy to schedule a brief call to discuss.
+
+Thank you,
+[Your name]
+[Title]
+Internal Audit</pre>
+          </div>
+        </div>
+
+        <div class="it-template-card">
+          <div class="it-template-header">
+            <div class="it-template-title">Cross-Platform AP Data Access Request</div>
+            <div class="it-template-meta">Send to: IT data governance team, AP system owners (SAP, Concur, banking platform)</div>
+          </div>
+          <p class="it-template-context">Use this when AP activity spans multiple systems and a complete duplicate payment test requires a cross-platform dataset.</p>
+          <div class="it-template-pre-wrap">
+            <button class="it-copy-btn" onclick="copyTemplate(this)" type="button">Copy</button>
+            <pre class="it-template-pre">Subject: Internal Audit -- Accounts Payable Data Access Request (Cross-Platform)
+
+Hi [Name],
+
+Internal Audit is planning a review of accounts payable activity and duplicate payment risk. Because AP transactions flow through multiple platforms in our environment, a complete population-level test requires data from each system.
+
+We are requesting read-only access to or a structured data extract from the following:
+
+1. SAP (ERP-processed invoices)
+   - Table: BSEG / RBKP or equivalent S/4HANA view
+   - Fields needed: Vendor number, invoice number, invoice date, posting date, amount, document number, company code, payment document
+   - Period: [specify -- e.g., last 24 months]
+
+2. CONCUR (T&amp;E and employee expense transactions)
+   - Transaction-level expense report data including: employee ID, vendor/payee, amount, expense date, payment date, expense report number
+   - Period: [specify]
+
+3. BANKING PLATFORM / CARD MANAGEMENT (P-card and merchandise card transactions)
+   - Transaction-level data including: cardholder, merchant, amount, transaction date, card number (masked), approval reference
+   - Period: [specify]
+
+The objective is to perform a cross-platform duplicate payment analysis -- identifying instances where the same payee, amount, and approximate date appear in more than one system, which would not be detectable by testing any single platform in isolation.
+
+We are not requesting access to configure, modify, or process any transactions. This is a read-only analytical exercise.
+
+If a full data extract is not feasible, we would like to discuss what structured output each system can produce for this purpose, and whether a third-party cross-platform analysis tool (such as Detect by Oversight or equivalent) could be connected to the relevant data sources.
+
+Please let me know who the appropriate contacts are for each system and the best path forward.
+
+Thank you,
+[Your name]
+[Title]
+Internal Audit</pre>
+          </div>
+        </div>
+
       </div>
     </section>
 
@@ -521,5 +734,37 @@
   </script>
 
   <script src="nav-guide.js"></script>
+  <script>
+  function copyTemplate(btn) {
+    var pre = btn.parentElement.querySelector('.it-template-pre');
+    if (!pre) return;
+    var text = pre.textContent;
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text).then(function() {
+        btn.textContent = 'Copied \u2713';
+        btn.classList.add('is-copied');
+        setTimeout(function() {
+          btn.textContent = 'Copy';
+          btn.classList.remove('is-copied');
+        }, 2000);
+      });
+    } else {
+      var ta = document.createElement('textarea');
+      ta.value = text;
+      ta.style.position = 'fixed';
+      ta.style.opacity = '0';
+      document.body.appendChild(ta);
+      ta.select();
+      document.execCommand('copy');
+      document.body.removeChild(ta);
+      btn.textContent = 'Copied \u2713';
+      btn.classList.add('is-copied');
+      setTimeout(function() {
+        btn.textContent = 'Copy';
+        btn.classList.remove('is-copied');
+      }, 2000);
+    }
+  }
+  </script>
 </body>
 </html>

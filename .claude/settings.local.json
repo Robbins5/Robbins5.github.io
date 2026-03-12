@@ -12,7 +12,10 @@
       "Bash(done)",
       "Bash(python3:*)",
       "Bash(rm:*)",
-      "Bash(python:*)"
+      "Bash(python:*)",
+      "Bash(ls:*)",
+      "Bash(python3 -c \"print\\('test'\\)\")",
+      "Bash(python --version 2>&1 || py --version 2>&1 || py3 --version 2>&1)"
     ]
   }
 }

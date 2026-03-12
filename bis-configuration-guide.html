@@ -55,6 +55,8 @@
     .rule-badge-gl { background: #f3e8ff; color: #6b21a8; }
     .rule-badge-pricing { background: #dcfce7; color: #14532d; }
     .rule-badge-inventory { background: #fce7f3; color: #9d174d; }
+    .rule-badge-vendor { background: #e2e8f0; color: #1e293b; }
+    .rule-badge-controls { background: #fff7ed; color: #9a3412; }
     .rule-fields {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -272,8 +274,8 @@
         <div class="stat-band">
           <div class="stat-band-item">
             <div class="stat-band-label">Detection rules</div>
-            <div class="stat-band-value">10 in guide</div>
-            <div class="stat-band-sub">Across AP, procurement, GL, and pricing</div>
+            <div class="stat-band-value">9 in guide</div>
+            <div class="stat-band-sub">Across procurement, GL, pricing, and vendor integrity</div>
           </div>
           <div class="stat-band-item">
             <div class="stat-band-label">Format</div>
@@ -350,59 +352,31 @@
     <section class="section section-alt" id="rule-library" data-audience="leader">
       <div class="container">
         <div class="section-head">
-          <h2 class="section-title">The Rule Library -- Ten Detection Rules</h2>
+          <h2 class="section-title">The Rule Library -- Nine Detection Rules</h2>
           <p class="section-subtitle">
             Each rule is written in the format required for the audit-to-IT handoff: detection condition, data sources, threshold guidance, false positive filters, and the expected exception output.
           </p>
         </div>
 
         <p style="font-size: 1.05rem; color: var(--body); max-width: 72ch; margin-bottom: 2rem; line-height: 1.75;">
-          The ten rules below cover the highest-risk areas for an electrical distribution environment.
+          The nine rules below cover the highest-risk areas for an electrical distribution environment.
         </p>
 
-        <div class="rule-grid">
-
-          <!-- R-01 -->
-          <div class="rule-card">
-            <div class="rule-card-header">
-              <span class="rule-id">R-01</span>
-              <span class="rule-title">Duplicate Invoice Detection</span>
-              <span class="rule-badge rule-badge-ap">AP</span>
-            </div>
-            <div class="rule-fields">
-              <div>
-                <div class="rule-field-label">Detection condition</div>
-                <div class="rule-field-value">Two or more invoice records sharing the same vendor number, invoice number, and invoice amount within a configurable date window (default: 365 days), regardless of document number.</div>
-              </div>
-              <div>
-                <div class="rule-field-label">Data source</div>
-                <div class="rule-field-value">RBKP (invoice header), RSEG (invoice line items), BKPF (accounting document header)</div>
-              </div>
-              <div>
-                <div class="rule-field-label">Threshold guidance</div>
-                <div class="rule-field-value">No dollar threshold -- all duplicates regardless of amount. Filter to invoices that have reached payment status to prioritize.</div>
-              </div>
-              <div>
-                <div class="rule-field-label">False positive filters</div>
-                <div class="rule-field-value">Exclude reversals (document type RV, RE with reversal flag). Exclude credit memos that match a debit invoice intentionally (verify against original document reference).</div>
-              </div>
-              <div class="rule-field-full">
-                <div class="rule-field-label">Expected output</div>
-                <div class="rule-field-value">Both document numbers, vendor, invoice number, invoice date, amount, posting date, payment status, and the delta in days between the two postings.</div>
-              </div>
-              <div class="rule-field-full">
-                <div class="rule-field-label">Audit use</div>
-                <div class="rule-field-value">Duplicate payment finding. Escalate to cross-platform analysis if the duplicate appears in SAP only -- the matching payment may be in Concur or a card platform.</div>
-              </div>
-            </div>
+        <div class="callout" style="max-width: 780px; margin-bottom: 2rem;">
+          <div class="callout-title">AP Transaction Monitoring</div>
+          <div class="callout-text">
+            Accounts payable transaction monitoring -- including duplicate payment detection -- is not covered in this guide. In environments where AP activity spans multiple systems (ERP, expense management platforms, and bank-managed card programs), SAP-native BIS rules can only detect duplicates within the SAP dataset. A cross-platform analysis tool is required for comprehensive AP duplicate detection. See the AP monitoring note in the <a href="audit-universe.html" style="color: var(--accent); font-weight: 700;">ERP Audit Universe</a> for guidance on the cross-platform approach.
           </div>
+        </div>
+
+        <div class="rule-grid">
 
           <!-- R-02 -->
           <div class="rule-card">
             <div class="rule-card-header">
               <span class="rule-id">R-02</span>
               <span class="rule-title">Vendor-Employee Address or Bank Account Match</span>
-              <span class="rule-badge rule-badge-ap">AP</span>
+              <span class="rule-badge rule-badge-vendor">Vendor Integrity</span>
             </div>
             <div class="rule-fields">
               <div>
@@ -577,7 +551,7 @@
             <div class="rule-card-header">
               <span class="rule-id">R-07</span>
               <span class="rule-title">Inactive Vendor Payment</span>
-              <span class="rule-badge rule-badge-ap">AP</span>
+              <span class="rule-badge rule-badge-controls">Vendor Master / Controls</span>
             </div>
             <div class="rule-fields">
               <div>
@@ -734,7 +708,7 @@
             <div class="phase-title">Activation and First Rules</div>
             <ul class="phase-items">
               <li>IT activates BIS module and configures the system connection and data scope (company codes, document types)</li>
-              <li>Deploy R-01 (Duplicate Invoice) and R-06 (Manual JE Without Reference) as the first two rules -- high confidence, well-understood failure modes, manageable exception volume</li>
+              <li>Deploy R-06 (Manual JE Without Reference) and R-09 (Inventory Adjustment Without Reason Code) as the first two rules -- high confidence, well-understood failure modes, and manageable exception volume. Both rules operate on SAP data natively with no cross-system dependencies.</li>
               <li>Establish the exception review workflow: assign reviewer, define disposition categories, set review cycle length</li>
               <li>Run for 60 days and measure false positive rate before adding rules</li>
             </ul>
@@ -756,8 +730,7 @@
             <div class="phase-title">Advanced Rules and ML Enhancement</div>
             <ul class="phase-items">
               <li>Add R-10 (Pricing Leakage) -- requires the most configuration effort due to material master cross-referencing; sequence it after the team has BIS operational experience</li>
-              <li>Add R-02 (Vendor-Employee Match) -- note the cross-system data requirement if HR is in Workday</li>
-              <li>Add R-04 (Split PO), R-07 (Inactive Vendor Payment), R-08 (SoD Conflict) as volume and review capacity allow</li>
+              <li>Add R-02 (Vendor-Employee Match), R-04 (Split PO), R-07 (Inactive Vendor Payment), R-08 (SoD Conflict) as volume and review capacity allow. Note that R-02 requires a cross-system data join if HR is managed in Workday -- confirm the data availability before scheduling this rule for deployment.</li>
               <li>Enable ML-enhanced predictive scoring on high-volume rules to reduce false positives</li>
               <li>Connect BIS alert data to SAP Analytics Cloud dashboard for leadership visibility</li>
             </ul>

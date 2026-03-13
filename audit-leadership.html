@@ -8,6 +8,128 @@
   <link rel="stylesheet" href="style.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    .phase-header {
+      background: var(--surface-2);
+      border-left: 3px solid var(--accent);
+      border-radius: var(--radius-sm);
+      padding: 1.5rem 2rem;
+      margin: 3rem 0 2rem;
+    }
+    .phase-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.35rem;
+    }
+    .phase-name {
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 0.4rem;
+      font-family: Georgia, 'Times New Roman', serif;
+    }
+    .phase-purpose {
+      font-size: 0.95rem;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+    .sequence-steps {
+      display: flex;
+      flex-direction: column;
+      gap: 0.85rem;
+      margin: 1.5rem 0;
+    }
+    .sequence-step {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      background: var(--surface);
+      border-radius: var(--radius-sm);
+      padding: 1rem 1.25rem;
+    }
+    .step-num {
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--accent);
+      background: var(--accent-soft);
+      border-radius: 50%;
+      width: 1.6rem;
+      height: 1.6rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 0.1rem;
+    }
+    .action-checklist {
+      background: var(--surface);
+      border: 1px solid var(--border-soft);
+      border-radius: var(--radius-sm);
+      margin: 1.5rem 0;
+      overflow: hidden;
+    }
+    .action-checklist-summary {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 1rem 1.25rem;
+      cursor: pointer;
+      list-style: none;
+      user-select: none;
+    }
+    .action-checklist-summary::-webkit-details-marker { display: none; }
+    .checklist-label {
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+    .checklist-hint {
+      font-size: 0.85rem;
+      color: var(--muted);
+      flex: 1;
+    }
+    .checklist-arrow {
+      font-size: 1.1rem;
+      color: var(--muted);
+      transition: transform 0.2s ease;
+      display: inline-block;
+    }
+    details[open] .checklist-arrow {
+      transform: rotate(90deg);
+    }
+    .checklist-body {
+      padding: 0 1.25rem 1.25rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.65rem;
+    }
+    .checklist-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.65rem;
+      cursor: pointer;
+      font-size: 0.9rem;
+      color: var(--body);
+      line-height: 1.5;
+    }
+    .checklist-item input[type="checkbox"] {
+      margin-top: 0.2rem;
+      accent-color: var(--accent);
+      flex-shrink: 0;
+      width: 1rem;
+      height: 1rem;
+      cursor: pointer;
+    }
+    .checklist-item:has(input:checked) span {
+      color: var(--muted);
+      text-decoration: line-through;
+    }
+  </style>
 </head>
 
 <body class="page-ia">
@@ -110,6 +232,18 @@
       </div>
     </section>
 
+    <!-- PHASE 1 INTRO -->
+    <section class="section" style="padding-top: 28px; padding-bottom: 0;" data-audience="all">
+      <div class="container">
+        <p class="ia-intro">The functions that come out of transition stronger are the ones that paused long enough to understand what actually changed before deciding what to rebuild.</p>
+        <div class="phase-header">
+          <div class="phase-label">PHASE 1</div>
+          <div class="phase-name">PAUSE</div>
+          <div class="phase-purpose">Understand what transition does to an audit function before deciding what to rebuild.</div>
+        </div>
+      </div>
+    </section>
+
     <!-- SELF-ASSESSMENT CALLOUT -->
     <section class="section" id="quiz" style="padding-top: 28px; padding-bottom: 28px;" data-audience="all">
       <div class="container">
@@ -136,11 +270,15 @@
     <!-- PLAYBOOK -->
     <section class="section section-alt" id="playbook" data-audience="leader">
       <div class="container">
+        <div class="phase-header">
+          <div class="phase-label">PHASE 2</div>
+          <div class="phase-name">ASSESS</div>
+          <div class="phase-purpose">Evaluate where your function currently stands across four dimensions before sequencing the rebuild.</div>
+        </div>
         <div class="section-head">
-          <h2 class="section-title">The leadership playbook</h2>
+          <h2 class="section-title">Four dimensions to assess before you act</h2>
           <p class="section-subtitle">
-            This operating model keeps the function lean while shifting delivery from periodic reporting to earlier detection,
-            clearer evidence, and repeatable monitoring routines.
+            These are diagnostic lenses, not a to-do list. Work through each one honestly -- your read on where you stand across these four dimensions determines where the Act section applies most directly to your situation.
           </p>
         </div>
 
@@ -223,16 +361,27 @@
           </div>
         </div>
 
-        <div class="callout" style="max-width: 780px; margin-top: 20px;">
-          <div class="callout-title">Monday morning actions</div>
-          <div class="callout-text">
-            <ul style="margin: 0; padding-left: 1.2em; line-height: 1.8;">
-              <li>Pull the last three audit reports and identify which findings were repeat findings -- this tells you where methodology has already lost alignment with the new system.</li>
-              <li>Map which data sources each current procedure relies on and confirm each one is still accessible and producing reliable output.</li>
-              <li>Schedule a 30-minute meeting with IT data governance to confirm which authoritative sources are stable enough to rely on for evidence.</li>
-            </ul>
+        <details class="action-checklist" style="max-width: 780px; margin-top: 20px;">
+          <summary class="action-checklist-summary">
+            <span class="checklist-label">Take action</span>
+            <span class="checklist-hint">3 moves to make now -- click to expand</span>
+            <span class="checklist-arrow">&#x203A;</span>
+          </summary>
+          <div class="checklist-body">
+            <label class="checklist-item">
+              <input type="checkbox">
+              <span>Pull the last three audit reports and identify which findings were repeat findings -- this tells you where methodology has already lost alignment with the new system.</span>
+            </label>
+            <label class="checklist-item">
+              <input type="checkbox">
+              <span>Map which data sources each current procedure relies on and confirm each one is still accessible and producing reliable output.</span>
+            </label>
+            <label class="checklist-item">
+              <input type="checkbox">
+              <span>Schedule a 30-minute meeting with IT data governance to confirm which authoritative sources are stable enough to rely on for evidence.</span>
+            </label>
           </div>
-        </div>
+        </details>
       </div>
     </section>
 
@@ -273,16 +422,27 @@
           </div>
         </div>
 
-        <div class="callout" style="max-width: 780px; margin-top: 28px;">
-          <div class="callout-title">Monday morning actions</div>
-          <div class="callout-text">
-            <ul style="margin: 0; padding-left: 1.2em; line-height: 1.8;">
-              <li>Take the <a href="maturity-assessment.html" style="color: var(--accent); font-weight: 700;">maturity assessment</a> if you haven't already -- your score identifies which methodology components are the highest priority to rebuild.</li>
-              <li>Pull one completed engagement workpaper and evaluate whether the evidence trail is fully reconstructable from the documentation alone.</li>
-              <li>Identify one procedure currently done as a manual sample that could be converted to a population test with existing tools, and draft what that conversion would require.</li>
-            </ul>
+        <details class="action-checklist" style="max-width: 780px; margin-top: 28px;">
+          <summary class="action-checklist-summary">
+            <span class="checklist-label">Take action</span>
+            <span class="checklist-hint">3 moves to make now -- click to expand</span>
+            <span class="checklist-arrow">&#x203A;</span>
+          </summary>
+          <div class="checklist-body">
+            <label class="checklist-item">
+              <input type="checkbox">
+              <span>Take the maturity assessment if you haven't already -- your score identifies which methodology components are the highest priority to rebuild.</span>
+            </label>
+            <label class="checklist-item">
+              <input type="checkbox">
+              <span>Pull one completed engagement workpaper and evaluate whether the evidence trail is fully reconstructable from the documentation alone.</span>
+            </label>
+            <label class="checklist-item">
+              <input type="checkbox">
+              <span>Identify one procedure currently done as a manual sample that could be converted to a population test with existing tools, and draft what that conversion would require.</span>
+            </label>
           </div>
-        </div>
+        </details>
       </div>
     </section>
 
@@ -329,16 +489,27 @@
           </div>
         </div>
 
-        <div class="callout" style="max-width: 780px; margin-top: 20px;">
-          <div class="callout-title">Monday morning actions</div>
-          <div class="callout-text">
-            <ul style="margin: 0; padding-left: 1.2em; line-height: 1.8;">
-              <li>Identify the single process area with the highest combination of transaction volume, data reliability, and existing access -- that is your first monitoring candidate.</li>
-              <li>Define what "actionable" means for that area: what threshold triggers a follow-up, who owns the exception, and what "closed" looks like.</li>
-              <li>Do not build anything until you have answered those three questions.</li>
-            </ul>
+        <details class="action-checklist" style="max-width: 780px; margin-top: 20px;">
+          <summary class="action-checklist-summary">
+            <span class="checklist-label">Take action</span>
+            <span class="checklist-hint">3 moves to make now -- click to expand</span>
+            <span class="checklist-arrow">&#x203A;</span>
+          </summary>
+          <div class="checklist-body">
+            <label class="checklist-item">
+              <input type="checkbox">
+              <span>Identify the single process area with the highest combination of transaction volume, data reliability, and existing access -- that is your first monitoring candidate.</span>
+            </label>
+            <label class="checklist-item">
+              <input type="checkbox">
+              <span>Define what "actionable" means for that area: what threshold triggers a follow-up, who owns the exception, and what "closed" looks like.</span>
+            </label>
+            <label class="checklist-item">
+              <input type="checkbox">
+              <span>Do not build anything until you have answered those three questions.</span>
+            </label>
           </div>
-        </div>
+        </details>
       </div>
     </section>
 
@@ -370,14 +541,34 @@
           </div>
         </div>
 
-        <div class="callout" style="max-width: 780px; margin-top: 28px;">
-          <div class="callout-title">Monday morning actions</div>
-          <div class="callout-text">
-            <ul style="margin: 0; padding-left: 1.2em; line-height: 1.8;">
-              <li>Review the last five audit findings and document which ones have a defined owner, a closure date, and a documented resolution. For any that don't, establish that now.</li>
-              <li>Design a one-page exception ownership template that captures: finding, owner, due date, escalation trigger, and resolution documentation.</li>
-            </ul>
+        <details class="action-checklist" style="max-width: 780px; margin-top: 28px;">
+          <summary class="action-checklist-summary">
+            <span class="checklist-label">Take action</span>
+            <span class="checklist-hint">2 moves to make now -- click to expand</span>
+            <span class="checklist-arrow">&#x203A;</span>
+          </summary>
+          <div class="checklist-body">
+            <label class="checklist-item">
+              <input type="checkbox">
+              <span>Review the last five audit findings and document which ones have a defined owner, a closure date, and a documented resolution. For any that don't, establish that now.</span>
+            </label>
+            <label class="checklist-item">
+              <input type="checkbox">
+              <span>Design a one-page exception ownership template that captures: finding, owner, due date, escalation trigger, and resolution documentation.</span>
+            </label>
           </div>
+        </details>
+      </div>
+    </section>
+
+    <!-- PHASE 3 TRANSITION -->
+    <section class="section" style="padding-top: 28px; padding-bottom: 0;" data-audience="all">
+      <div class="container">
+        <p class="ia-intro">If you have worked through all four dimensions above, you have what you need to sequence the rebuild. The Act section defines that sequence -- each step in the order it needs to happen, with the reasoning for why that order matters.</p>
+        <div class="phase-header">
+          <div class="phase-label">PHASE 3</div>
+          <div class="phase-name">ACT</div>
+          <div class="phase-purpose">Execute the rebuild in the order that produces results -- each step building on the one before it.</div>
         </div>
       </div>
     </section>
@@ -437,9 +628,17 @@
         <div class="section-head">
           <h2 class="section-title">The Methodology in Sequence</h2>
         </div>
-        <p style="font-size: 1.05rem; color: var(--body); max-width: 72ch; margin-bottom: 2rem; line-height: 1.75;">
-          The methodology pages that follow this one address each element of the rebuild in the order it needs to be resolved. ERP Transition covers the diagnostic signals and recovery sequencing. Data Access establishes the professional standards case for unrestricted access. Dedicated Capacity addresses the resourcing model. Organizational Intelligence covers how the function positions itself as a strategic asset. Technology Stack provides the investment framework. Continuous Monitoring designs the monitoring infrastructure. Each page can stand alone, but they build on each other.
-        </p>
+        <p class="ia-intro">The sequence below is not arbitrary -- each step establishes the foundation the next step requires.</p>
+
+        <div class="sequence-steps">
+          <div class="sequence-step"><span class="step-num">1</span><div><strong>Self-Assessment</strong> -- Before rebuilding anything, know where you actually stand. The assessment maps your function across six dimensions and tells you which steps below are highest priority.</div></div>
+          <div class="sequence-step"><span class="step-num">2</span><div><strong>ERP Transition</strong> -- Diagnose what the system change did to your function's footing. You cannot sequence the rebuild without this picture.</div></div>
+          <div class="sequence-step"><span class="step-num">3</span><div><strong>Data Access</strong> -- Nothing in the sequence works without reliable, direct data access. This is the prerequisite that cannot be deferred.</div></div>
+          <div class="sequence-step"><span class="step-num">4</span><div><strong>Dedicated Capacity</strong> -- Methodology redesign competing with a full fieldwork calendar produces neither. Protecting capacity for the rebuild is a structural decision, not a scheduling one.</div></div>
+          <div class="sequence-step"><span class="step-num">5</span><div><strong>Organizational Intelligence</strong> -- The rebuild requires stakeholder support and early visibility into what is changing. This step is about positioning the function to stay in the room.</div></div>
+          <div class="sequence-step"><span class="step-num">6</span><div><strong>Technology Stack</strong> -- With data access established and capacity protected, invest in tools matched to current maturity. The investment framework stages against what the function can actually use.</div></div>
+          <div class="sequence-step"><span class="step-num">7</span><div><strong>Continuous Monitoring</strong> -- The end state of the rebuild. Monitoring becomes infrastructure -- running on schedule, producing actionable signals, without manual triggering.</div></div>
+        </div>
 
         <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; align-items: center; margin-bottom: 2rem;">
           <a href="audit-leadership.html" style="display: inline-block; padding: 0.45rem 1rem; background: var(--accent); color: #fff; border-radius: var(--radius-sm); font-size: 0.82rem; font-weight: 700; text-decoration: none; white-space: nowrap;">Methodology</a>

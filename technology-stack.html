@@ -230,7 +230,7 @@
 
         <div class="callout" style="max-width: 900px; margin-bottom: 32px;">
           <div class="callout-text">
-            These investment ranges are sequenced by capability maturity, not by calendar time. Stages can overlap, and a function with strong data access, leadership support, and a clear use case may be ready for a later-stage investment well within its first year. Equally, two stages may run in parallel when the team has the capacity and the data foundation to support them. The question that determines readiness for each investment is not how long the function has been modernizing -- it is whether the foundation exists to make the tool produce a return rather than a demo. Use the maturity assessment to determine where your function actually stands before deciding which investment applies.
+            These investment ranges are sequenced by capability maturity, not by calendar time. Stages can overlap, and a function with strong data access, leadership support, and a clear use case may be ready for a later-stage investment well within its first year. Equally, two stages may run in parallel when the team has the capacity and the data foundation to support them. The question that determines readiness for each investment is not how long the function has been modernizing -- it is whether the foundation exists to make the tool produce a return rather than a demo. Use the maturity assessment to determine where your function actually stands -- and enter the framework at the stage that reflects current capability, not the stage that reflects how long modernization has been underway.
           </div>
         </div>
 
@@ -248,7 +248,7 @@
               <strong>Microsoft alignment:</strong> Power BI is the natural starting point for organizations already in the Microsoft ecosystem. It connects directly to Excel, SharePoint, and Teams -- tools the team already uses -- without requiring new infrastructure.
             </div>
             <div class="timeline-tag">Budget range: $5,000 -- $15,000 annually for software plus training</div>
-            <p style="font-size: 0.88rem; color: var(--muted); margin-top: 10px; line-height: 1.65;">Note: If your function enters modernization with existing analytics capability or strong data access, Stage 2 investment may be appropriate concurrently with or immediately following Stage 1 work.</p>
+            <p style="font-size: 0.88rem; color: var(--muted); margin-top: 10px; line-height: 1.65;">If Stage 1 tools are already in place and producing repeatable outputs, this stage is complete. Begin the assessment at Stage 2. The diagnostic steps at the top of this page -- inventorying existing workflows, mapping gaps, and auditing what the ERP offers natively -- still apply regardless of entry stage.</p>
           </div>
 
           <div class="timeline-item">
@@ -261,6 +261,8 @@
               <strong>Goal:</strong> Move from manually prepared data to automated, repeatable analytics workflows. Build the first continuous monitoring routines. Reduce time from data request to audit-ready output.
               <br><br>
               <strong>Important:</strong> Training investment at this stage is significant and must be budgeted explicitly. Tools at this level are only as effective as the team's ability to use them.
+              <br><br>
+              If a dedicated analytics platform is already deployed and the team is running repeatable, scheduled workflows, this stage is complete. Begin the assessment at Stage 3.
             </div>
             <div class="timeline-tag">Budget range: $20,000 -- $50,000 annually depending on licensing model and team size</div>
           </div>
@@ -275,6 +277,8 @@
               <strong>Goal:</strong> Data flows to audit automatically rather than requiring manual extraction. Monitoring runs on a schedule. Exception reports surface without an analyst triggering them. The audit plan is informed by continuous signals rather than annual risk assessments alone.
               <br><br>
               <strong>Microsoft alignment:</strong> Power BI dashboards consuming SAP DataSphere outputs keep the visualization layer within the enterprise Microsoft standard while drawing from validated ERP data.
+              <br><br>
+              For functions operating at this stage, the investment question often shifts from new platforms to closing specific capability gaps -- activating native ERP monitoring modules, deploying cross-platform transaction monitoring for spend categories that span multiple systems, or integrating AI-assisted analytics into existing workflows. Each of these extends the monitoring footprint without replacing the infrastructure already in place.
             </div>
             <div class="timeline-tag">Budget range: $50,000 -- $150,000 annually, with upper range reflecting enterprise platforms with broader coverage</div>
           </div>
@@ -284,7 +288,7 @@
             <div class="timeline-stage">Stage 4 -- Maturity Level 5 -- Years 3 and beyond, though components may be piloted earlier in organizations with mature data infrastructure</div>
             <div class="timeline-title">AI-Enabled Oversight</div>
             <div class="timeline-desc">
-              <strong>Tools:</strong> Native ERP monitoring modules -- such as SAP Business Integrity Screening for S/4HANA environments or equivalent capabilities in Oracle and Microsoft Dynamics platforms -- enable anomaly detection within the ERP environment itself without requiring data extraction. Complements machine learning-based transaction monitoring and natural language processing for document review.
+              <strong>Tools:</strong> Native ERP monitoring modules -- such as SAP Business Integrity Screening for S/4HANA environments or equivalent capabilities in Oracle and Microsoft Dynamics platforms -- enable anomaly detection within the ERP environment without requiring data extraction. Cross-platform transaction monitoring tools extend this coverage to spend categories that span multiple systems: procure-to-pay activity that flows across the ERP, expense management platforms, and bank-administered card programs; T&amp;E reimbursements that require reconciliation across submission, approval, and payment systems. AI-assisted analytics complement both layers -- generating detection logic, surfacing anomaly patterns, and accelerating the development of custom monitoring routines that the team can maintain without a dedicated developer. Complements machine learning-based transaction monitoring and natural language processing for document review.
               <br><br>
               <strong>Goal:</strong> Anomaly detection runs continuously within the ERP environment without requiring data extraction. Machine learning adapts detection patterns as transaction behavior evolves. Audit receives alerts rather than running queries.
               <br><br>

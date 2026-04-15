@@ -4169,8 +4169,8 @@ a, button,
   width: 200px;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  text-align: center;
+  align-items: flex-start;
+  text-align: left;
 }
 .about-hero-photo-col .author-photo {
   border-radius: 8px;

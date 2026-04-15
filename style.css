@@ -4160,42 +4160,72 @@ a, button,
   border-bottom: 1px solid var(--border-soft);
 }
 .about-hero-grid {
-  display: grid;
-  grid-template-columns: 220px 1fr;
-  gap: 3.5rem;
-  align-items: center;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
 }
 .about-hero-photo-col {
+  flex: 0 0 200px;
+  width: 200px;
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
 }
+.about-hero-photo-col .author-photo {
+  border-radius: 8px;
+  width: 200px;
+  height: 260px;
+}
 .about-hero-text-col {
-  display: flex;
-  flex-direction: column;
-  gap: 1.25rem;
+  flex: 1;
+  padding-left: 40px;
 }
 .about-hero-welcome {
-  font-size: 1.1rem;
-  line-height: 1.8;
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 1.15rem;
+  line-height: 1.85;
   color: var(--body);
   margin: 0;
+  border-left: 3px solid var(--accent, #8c6f3f);
+  padding-left: 16px;
 }
 .about-hero-sign {
-  font-size: 1rem;
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 1.05rem;
   line-height: 1.6;
   color: var(--gold-light, #c9a96e);
-  margin: 0;
-  font-style: italic;
+  margin: 0.75rem 0 0;
+  padding-left: 19px; /* aligns with welcome text inside its border */
 }
 @media (max-width: 768px) {
   .about-hero-grid {
-    grid-template-columns: 1fr;
-    gap: 2rem;
+    flex-direction: column;
+    align-items: center;
   }
   .about-hero-photo-col {
-    align-items: center;
+    width: 100%;
+    margin-bottom: 1.5rem;
+  }
+  .about-hero-photo-col .author-photo {
+    width: 160px;
+    height: 200px;
+    margin: 0 auto;
+  }
+  .about-hero-text-col {
+    padding-left: 0;
+    width: 100%;
+  }
+  .about-hero-welcome {
+    border-left: none;
+    border-top: 3px solid var(--accent, #8c6f3f);
+    padding-left: 0;
+    padding-top: 16px;
+  }
+  .about-hero-sign {
+    padding-left: 0;
   }
 }
 

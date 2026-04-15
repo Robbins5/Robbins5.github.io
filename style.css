@@ -4153,6 +4153,53 @@ a, button,
 }
 
 /* ============================================================
+   About page hero (two-column intro)
+   ============================================================ */
+.about-hero {
+  padding: 56px 0 48px;
+  border-bottom: 1px solid var(--border-soft);
+}
+.about-hero-grid {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 3.5rem;
+  align-items: center;
+}
+.about-hero-photo-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+.about-hero-text-col {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+.about-hero-welcome {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: var(--body);
+  margin: 0;
+}
+.about-hero-sign {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--gold-light, #c9a96e);
+  margin: 0;
+  font-style: italic;
+}
+@media (max-width: 768px) {
+  .about-hero-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  .about-hero-photo-col {
+    align-items: center;
+  }
+}
+
+/* ============================================================
    Auditing AI — glossary, lists, subheads, callout cards
    ============================================================ */
 
